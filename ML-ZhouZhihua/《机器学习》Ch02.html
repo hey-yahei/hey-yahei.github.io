@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Ch02 模型估计与选择 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/ML-ZhouZhihua/《机器学习》Ch02.html">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/ML-ZhouZhihua/《机器学习》Ch02.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Ch02 模型估计与选择 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/ML-ZhouZhihua/《机器学习》Ch02.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Ch02 模型估计与选择
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>7月 31, 1995</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Ch02 模型估计与选择&url=http://hey-yahei.cn/ML-ZhouZhihua/《机器学习》Ch02.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=Ch02 模型估计与选择&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/ML-ZhouZhihua/《机器学习》Ch02.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><a href="/2017/08/27/机器学习-周志华/">周志华《机器学习》笔记</a>     </p>
+<h2 id="经验误差和过拟合"><a href="#经验误差和过拟合" class="headerlink" title="经验误差和过拟合"></a>经验误差和过拟合</h2><ul>
+<li>$\textbf{错误率}=\frac{分类错误的样本数}{总样本数}$</li>
+<li>$\textbf{精度}=\frac{分类正确的样本数}{总样本数}=1-错误率$   </li>
+<li>$\textbf{误差}=实际预测输出-样本的真实输出$<br>  <strong>训练误差</strong>（<strong>经验误差</strong>）：学习器在训练集上的误差<br>  <strong>泛化误差</strong>：在新样本上的误差    </li>
+<li><strong>过拟合</strong>：学习器把训练样本自身的一些特点当做所有潜在样本都会具有的一般性质而导致泛化性能下降<br>  <strong>欠拟合</strong>：对训练样本的一般性质没学好    </li>
+<li>过拟合是及其学习面临的关键障碍<br>  欠拟合通常是学习能力低下，往往在决策树学习中扩展分支、在神经网络学习中增加训练轮数即可克服；<br>  过拟合很麻烦，无法彻底避免，只能“缓解”或减小风险     </li>
+</ul>
+<h2 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h2><p>通常需要对模型的泛化误差进行评估，来减小过拟合的风险<br>一般会将已有的数据集划分为“训练集”和“测试集”两个独立的部分<br>训练集用于学习器的训练，测试集用来测试训练模型，并用测试集的测试误差来近似估计泛化误差     </p>
+<h3 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h3><p>从数据集中划分一定比例的数据构成测试集      </p>
+<ul>
+<li>训练/测试集划分时要尽可能确保数据分布一致（如样本的标签分类的比例一致）       </li>
+<li>一般进行若干次的随机划分、重复实验评估后取测试误差的平均值作为泛化误差的评估     </li>
+<li>训练集越大，评估结果可能越不稳定不准确<br>  测试集越大，则数据集与训练集的差异越大，评估结果可能越不具真实性<br>  <em>通常取2/3~4/5的数据作为训练集</em>     </li>
+</ul>
+<h3 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h3><p>将数据划分为k个子集（分布一致），将其中1个子集作为测试集，其余子集的并集作为训练集<br>逐个子集作为测试集，共测试k组数据，最后取平均值，称“k折交叉验证法”      </p>
+<ul>
+<li>如果进行n次重复实验，最后取平均值，则称“n次k折交叉验证法”      </li>
+<li>特例：<strong>留一法</strong><br>  每个子集只有一个样本<br>  优点：评估结果与实际泛化误差非常接近，往往被认为是比较准确的<br>  缺点：当数据集比较大时，开销会变得非常大<br>  当然，“没有免费的午餐”，其评估结果未必永远比其他方法都准确    </li>
+</ul>
+<h3 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h3><p>每次从数据集D取出一个数据拷贝到D’，重复拷贝m个样本到D’中（允许样本重复）<br>某样本始终不被采集到的概率为 $(1-\frac{1}{m})^m$<br>则D中不被采集的样本比例为 $\lim_{m \rightarrow \infty}{(1-\frac{1}{m})^m} \rightarrow \frac{1}{e} \approx 0.368$<br>即D’包含D中63.2%的样本，取D’作为训练集，D-D’为测试集进行评估<br>适合：数据集比较小、难以有效划分训练/测试集的情形<br>缺点：改变了初始数据集的分布，引入估计偏差     </p>
+<h3 id="调参与最终模型"><a href="#调参与最终模型" class="headerlink" title="调参与最终模型"></a>调参与最终模型</h3><ul>
+<li>算法参数（超参数）：数目通常在10以内，通常由人工设定<br>  模型参数：数目庞大，由机器通过学习来设定    </li>
+<li>设定算法参数时，通常选定一个范围和变化步长来获取一系列的候选值<br>  依次通过学习算法构造模型并进行评估，从而寻找最佳的参数组合     </li>
+</ul>
+<h2 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h2><h3 id="错误率与精度"><a href="#错误率与精度" class="headerlink" title="错误率与精度"></a>错误率与精度</h3><p><strong>错误率</strong>：$E(f;D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I} (f(x_i) \neq y_i)$    </p>
+<p><strong>精度</strong>：$acc(f;D)=\frac{1}{m} \sum_{i=1}^{m} \mathbb{I} (f(x_i)=y_i)=1-E(f;D)$    </p>
+<p>其中，$\mathbb{I}(\cdot)$为指示函数，当$\cdot$为真时，其值为1，否则为0     </p>
+<h3 id="查准率、查全率、F1"><a href="#查准率、查全率、F1" class="headerlink" title="查准率、查全率、F1"></a>查准率、查全率、F1</h3><p>【准确性、完备性的度量与权衡】<br><strong>查准率（准确率）</strong>：$P = \frac{预测为A且预测正确的样本数}{预测为A的总样本数}$<br><strong>查全率（召回率）</strong>：$R = \frac{预测为A且预测正确的样本数}{实际为A的总样本数}$     </p>
+<ul>
+<li>通常，查准率和查全率相互矛盾<br>  查准率越高，查全率越低；反之亦然     </li>
+<li>查准率-查全率曲线（P-R曲线）<br>  根据学习器的预测结果对样例进行排序<br>  依次将前1个、前2个、前3个……样例作为正例，得到一组查准率/查全率，进而绘制成曲线<br>  <img src="/ML-ZhouZhihua/ML2.3-1.png" alt="ML2.3-1">     <ul>
+<li>如果一个学习算法的P-R曲线被另一个算法的P-R曲线<strong>完全</strong>包围（更加外凸）则可以断言后者性能优于前者    </li>
+<li>简单的性能度量：<strong>平衡点</strong>（Break-Even Point, BEP）<br>  BEP即查准率=查全率时的取值，BEP越高则认为该算法性能更好     </li>
+<li>更常用的性能度量：<strong>F1度量</strong><br>  基于调和平均：$\frac{1}{F} = \frac{1}{2} \cdot (\frac{1}{P} + \frac{1}{R})$<br>  $F1 = \frac{2 \times P \times R}{P + R} = \frac{2 \times TP}{样例总数 + TP -TN}$<br>  其中，TP为真正例的样本数，TN为真反例的样本数（类似的，FP、FN是假正例、假反例的样本数）<br>  <em>正/反指的是预测结果，真/假指的是预测是否正确</em>      </li>
+<li>带权重的性能度量：$\mathbf{F_\beta 度量}$<br>  基于加权调和平均数：$\frac{1}{F_\beta} = \frac{1}{1 + \beta ^ 2} \cdot (\frac{1}{P} + \frac{\beta ^ 2}{R})$<br>  $F_\beta = \frac{(1 + \beta ^ 2) \times P \times R}{(\beta ^ 2 \times P) + R}$<br>  其中$\beta &gt; 0$，是查全率R相对查准率P的权重比（当$\beta = 1$时，退化为F1）     </li>
+<li>二分类混淆矩阵的度量<br>  有时候估计多分类算法性能时，会将各分类两两组合得到二分类混淆矩阵，进而综合考察他的P/R<br>  此时有两种度量方式——   <ol>
+<li><strong>宏F1</strong><br> 分别计算P和Q，最后取平均值<br> $macro-P = \frac{1}{n} \sum_{i=1}^{n} P_i$<br> $macro-R = \frac{1}{n} \sum_{i=1}^{n} R_i$<br> $macro-F1 = \frac{2 \times macro-P \times macro-R}{macro-P + macro-R}$     </li>
+<li><strong>微F1</strong><br> 分别计算$\overline{TP}$、$\overline{TN}$、$\overline{FP}$、$\overline{FN}$，再代入F1公式<br> $micro-P = \frac{\overline{TP}}{\overline{TP} + \overline{FP}}$<br> $micro-R = \frac{\overline{TP}}{\overline{TP} + \overline{FN}}$<br> $micro-F1 = \frac{2 \times micro-P \times micro-R}{micro-P + micro-R}$     </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ROC、AUC"><a href="#ROC、AUC" class="headerlink" title="ROC、AUC"></a>ROC、AUC</h3><p>【预测值质量的度量】<br><strong>真正例率</strong>：即分类正确时正例的比例，$TPR = \frac{TP}{TP + FN}$<br><strong>假正例率</strong>：即分类错误时正例的比例，$FPR = \frac{FP}{TN + FP}$<br>受试者工作特征（Receiver Operating Characteristic，<strong>ROC</strong>）<br>类似P-R曲线的绘制，先根据预测值（预测概率）将预测结果排序，<br>依次将前1个、前2个、前3个……样例作为正例，得到一组<strong>TPR/FNR</strong>，进而绘制成ROC曲线（TPR为纵，FNR为横）<br><img src="/ML-ZhouZhihua/ML2.3-2.png" alt="ML2.3-2">    </p>
+<ul>
+<li>对角线TPR=FNR对应“随机猜测”的模型     </li>
+<li>如果一个学习算法的P-R曲线被另一个算法的P-R曲线<strong>完全</strong>包围（更加外凸）则可以断言后者性能优于前者<br>  否则，通常比较两个算法的ROC曲线下的面积即<strong>AUC</strong>（Area Under ROC Curve），面积越大性能越优       </li>
+<li>AUC考虑的是样本预测的<strong>排序质量</strong>，与排序误差有紧密联系<br>  通常为测试结果进行计分——<br>  考虑每对<strong>实际的</strong>正、反例，<br>  若正例预测值较小（即对这一组预测结果而言，预测出现错误），则计1分；<br>  若预测值相等，则计0.5分；<br>  累计得分后最后计算平均值，得到排序的“<strong>损失</strong>”<br>  也即$\ell_{rank} = \frac{1}{m^+ \cdot m^-} \sum_{x^+ \in D^+} \sum_{x^- \in D^-} \left( \mathbb{I} \left( f(x^+) &lt; f(x^-) \right) + \frac{1}{2} \mathbb{I} \left( f(x^+) = f(x^-) \right) \right)$<br>  其中，$m^+$、$m^-$分别是实际中正例、反例的样本数，$D^+$、$D^-$分别是实际中正例、反例的集合<br>  并且可以推导得出：$\mathbf{ AUC = 1 - \ell_{rank} }$     </li>
+</ul>
+<h3 id="代价敏感错误率、代价曲线"><a href="#代价敏感错误率、代价曲线" class="headerlink" title="代价敏感错误率、代价曲线"></a>代价敏感错误率、代价曲线</h3><p>【非均等代价下的性能度量】<br>考虑分类错误的代价不均等的情况<br>假设假正例、假反例的代价分别为$cost_{FN}$、$cost_{FP}$<br>则总体代价为$E(f;D;cost) = \frac{1}{m} \left( \sum_{x_i \in D^+} \mathbb{I}( f(x_i) \neq y_i ) \times cost_{FN} + \sum_{x_i \in D^-} \mathbb{I}( f(x_i) \neq y_i ) \times cost_{FP} \right)$<br>由此可以绘制代价曲线（即图中的红色曲线）——<br><img src="/ML-ZhouZhihua/ML2.3-3.png" alt="ML2.3-3">   </p>
+<ul>
+<li>横轴是<strong>正例概率代价</strong>：即分类出错中，预测为正例的加权比例<br>  $$P(+)cost = \frac{p \times cost_{FN}}{p \times cost_{FN} + (1 - p) \times cost_{FP}}$$<br>  其中p为样例实际为正例的概率      </li>
+<li>纵轴是<strong>归一化代价</strong><br>  $$cost_{norm} = \frac{FNR \times p \times cost_{FN} + FPR \times (1 - p) \times cost_{FP}}{p \times cost_{FN} + (1 - p) \times cost_{FP}}$$    </li>
+<li>ROC曲线上的一点(FPR, TPR)是代价曲线上的一条直线（过(0, FPR)和(1, FNR)）         </li>
+<li><strong>期望总体代价</strong>：即ROC曲线上所有点映射过来的所有直线的线下面积的公共部分的面积（即图中阴影部分面积）<br>  其包围曲线（不含横轴）即为代价曲线          </li>
+</ul>
+<h2 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h2><p>评估度量的值与测试集的选择、学习算法的随机性有关，往往不能直接比较，而是采用统计假设检验的方法来进行比较<br>这里以错误率$\epsilon$为性能度量     </p>
+<ul>
+<li>假设检验<br>  T检验，检验小样本得出的假设的显著程度，要求样本来自正态分布总体且为随机样本<br>  参考：<a href="http://wiki.mbalib.com/wiki/T%E6%A3%80%E9%AA%8C#T.E6.A3.80.E9.AA.8C.E7.9A.84.E6.AD.A5.E9.AA.A4.07UNIQ6a9f482c713b5617-nowiki-0000001E-QINU2.07UNIQ6a9f482c713b5617-nowiki-0000001F-QINU" target="_blank" rel="noopener">T检验的步骤</a>     </li>
+<li>交叉验证t检验：交叉验证 + T检验<br>  分别对两学习器做k折交叉验证，得到两组测试错误率，计算每一折的测试错误率之差<br>  假设“两学习器性能相同”，用T检验判断假设在某一显著度下是否能够拒绝<br>  如果能够拒绝假设，则两学习器性能显著不同，平均测试错误率较低的学习器性能更优     <ul>
+<li>但假设检验的前提是测试错误率应为泛化错误率的独立采样，显然这里不同折次的采样有重叠，从而过高估计假设成立的概率<br>  为了缓解这个问题，可以采用“5次2折交叉验证”    </li>
+<li>每次交叉验证都随机打乱数据<br>  为了进一步缓解非独立性<br>  通常以第一次2折的平均值为总的估计均值，以五次2折的方差均值作为总的估计方差     </li>
+</ul>
+</li>
+<li>McNemar检验：留出法 + 卡方检验<br>  用留出法得到两学习器的差别（都正确、都错误、A正确B错误、A错误B正确）<br>  假设“两学习器性能相同”，利用A正确B错误、A错误B正确的样本数进行卡方检验       </li>
+<li>Friedman检验 与 Nemenyi后续检验：留出法或交叉验证法 + F检验<br>  多个学习器参与比较时，可以两两进行比较检验，也可以直接采用下述F检验、N后续检验——<br>  用多个数据集测试算法，并且对于每个数据集对几个学习器的测试结果进行排序，最后取得每个学习器的平均序值<br>  假设“学习器性能相同”，利用平均序值进行卡方检验<br>  若能够拒绝假设，则用Nemenyi后续检验进一步区分每两个算法     </li>
+</ul>
+<h2 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h2><p>如果希望了解学习器“为什么”具有这样的性能，可以采用“偏差-方差分解”<br>即将学习器的期望泛化误差进行展开、分解——<br>$$<br>\begin{equation}<br>\begin{aligned}<br>E(f;D) &amp;= bias^2(x) + var(x) + \epsilon^2 \\<br>       &amp;= \mathbb{E}_D( (f(x;D) - \overline{f}(x))^2 ) + (\overline{f}(x))^2 + \mathbb{E}_D((y_D - y)^2)<br>\end{aligned}<br>\end{equation}<br>$$     </p>
+<ul>
+<li>$bias^2(x)$为<strong>偏差</strong>，度量了期望预测与真实结果的偏离程度，刻画了算法的拟合能力    </li>
+<li>$var(x)$为<strong>方差</strong>，度量了同样大小的训练集的变动引起的算法性能变化程度，刻画了数据扰动对算法造成的影响    </li>
+<li>$\epsilon^2$为<strong>噪声</strong>，度量的当前任务下任何学习算法所能达到的期望泛化误差的最小值，刻画了学习任务本身的难度     </li>
+</ul>
+<p><strong>偏差-方差窘境</strong>：<br>假设能够控制算法的训练程度（如决策树层数、神经网络轮数、集成学习方法的基学习器数）        </p>
+<ul>
+<li>训练不足时，学习器拟合能力不佳，偏差主导了泛化错误率；     </li>
+<li>训练程度加深，学习器拟合能力加强，方差主导了泛化错误率；    </li>
+<li>训练程度太强，学习器拟合能力过强，发生过拟合     </li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

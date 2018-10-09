@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            《vim实用技巧》小记 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2015/08/11/vim实用技巧/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2015/08/11/vim实用技巧/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="《vim实用技巧》小记 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Tue Aug 11 2015 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2015/08/11/vim实用技巧/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2015/08/11/vim实用技巧/index.html",
+    "headline": "《vim实用技巧》小记",
+    "datePublished": "Tue Aug 11 2015 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vim解决问题的方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">Vim解决问题的方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#普通模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">普通模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插入模式"><span class="post-toc-number">3.</span> <span class="post-toc-text">插入模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可视模式"><span class="post-toc-number">4.</span> <span class="post-toc-text">可视模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令行模式"><span class="post-toc-number">5.</span> <span class="post-toc-text">命令行模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#管理多个文件"><span class="post-toc-number">6.</span> <span class="post-toc-text">管理多个文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缓冲区列表"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">缓冲区列表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数列表"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">参数列表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#窗口"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标签页"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">标签页</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#打开及保存文件"><span class="post-toc-number">7.</span> <span class="post-toc-text">打开及保存文件</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                《vim实用技巧》小记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>8月 11, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=《vim实用技巧》小记&url=http://hey-yahei.cn/2015/08/11/vim实用技巧/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=《vim实用技巧》小记&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2015/08/11/vim实用技巧/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>=。=最近在看《vim实用技巧》<br>对一些内容作点简单的记录，方便以后查阅  </p>
+<h2 id="Vim解决问题的方式"><a href="#Vim解决问题的方式" class="headerlink" title="Vim解决问题的方式"></a>Vim解决问题的方式</h2><ul>
+<li>多用<code>.</code>命令（一个微型宏）来重复一些简单的操作  </li>
+<li>减少无关的移动，形成合理的撤销块  </li>
+<li>善用复合命令减少操作<br>  <code>A</code>    == <code>$a</code>，插入在行末<br>  <code>C</code> == <code>c$</code>，替换行末字符并持续插入<br>  <code>s</code> == <code>cl</code>，替换当前字符并持续插入<br>  <code>S</code> == <code>^c</code>，替换前一字符并持续插入<br>  <code>I</code> == <code>^i</code>，从行首开始编辑<br>  <code>o</code> == <code>A&lt;CR&gt;</code>，在下方插入新行<br>  <code>O</code> == <code>ko</code>，在上方插入新行<br>  <code>……</code>  </li>
+<li>尽可能使修改、移动变得可重复  </li>
+<li>常用的重复与回退操作  <ul>
+<li>一般的修改<code>{edit}</code>：<br>  <code>.</code>重复，<code>u</code>回退  </li>
+<li>行内的查找<code>[f|F|t|T]{char}</code>：<br>  <code>;</code>重复，<code>,</code>回退  下</li>
+<li>文档内的查找<code>[/|?]{pattern}&lt;CR&gt;</code>：<br>  <code>n</code>重复，<code>N</code>回退  </li>
+<li>执行替换<code>:s/target/replacement</code>：<br>  <code>&amp;</code>重复，<code>u</code>回退  </li>
+<li>执行一系列修改<code>qx{changes}q</code>：<br>  <code>@x</code>重复，<code>u</code>回退  </li>
+</ul>
+</li>
+<li><code>.</code>范式<br>  用一个键移动，用另一个键执行的可重复修改操作  </li>
+</ul>
+<h2 id="普通模式"><a href="#普通模式" class="headerlink" title="普通模式"></a>普通模式</h2><ul>
+<li>停顿思考时切换到普通模式</li>
+<li>合理地切分撤销单元（模式间的切换）  </li>
+<li>如果在插入模式中移动的光标，将会产生一个新的撤销单元  </li>
+<li>删除单词<code>daw</code>，可以解读为”delete a word”，该命令可重复  </li>
+<li>简单的算术运算<code>{num}&lt;C-a&gt;</code>加法，<code>{num}&lt;C-x&gt;</code>减法<br>  不需要把光标移动到数字上<br>  运算为num加减当前光标或光标以后的数字<br>  注意：默认情况下0开头的数字会被当作八进制，0x开头则为十六进制<br>  <em>可以通过<code>set nrformats=</code>关闭进制识别（都作为十进制数）</em>  </li>
+<li>重复&amp;次数<br>  删除多个单词有两种风格——  <ol>
+<li><code>dw</code>+<code>.</code>的重复风格<br> 常用风格，使用灵活，方便回退，无需数单词个数  </li>
+<li><code>d2w</code>或<code>2dw</code>的次数风格<br> 多用于删除一整块词组，如<code>a couple of</code>;可以提高撤销单元的连贯性  </li>
+</ol>
+</li>
+<li>操作 = 操作符 + 动作命令{motion}  <ul>
+<li>操作符  <ul>
+<li><code>c</code>：修改  </li>
+<li><code>d</code>：删除</li>
+<li><code>y</code>：复制到寄存器  </li>
+<li><code>g~</code>：字母大小写反转  </li>
+<li><code>gu</code>：字母转换为小写  </li>
+<li><code>gU</code>：字母转换为大写  </li>
+<li><code>&gt;</code>：增加缩进  </li>
+<li><code>&lt;</code>：减小缩进  </li>
+<li><code>=</code>：自动缩进</li>
+<li><code>!</code>：用外部程序过滤{motion}跨越的行</li>
+</ul>
+</li>
+<li>动作命令  <ul>
+<li><code>[h|j|k|l]</code>：左下上右  </li>
+<li><code>[-|+]</code>：上一行（下一行）的非空白字符</li>
+<li><code>0</code>（数字）：行首（含空白）</li>
+<li><code>^</code>：行首（不含空白），即本行第一个非空白字符  </li>
+<li><code>$</code>：行末  </li>
+<li><code>gg</code>：文首  </li>
+<li><code>G</code>：文末  </li>
+<li><code>[f|F|t|T]{char}</code>：右侧（左侧）的第一个char字符</li>
+<li><code>[;|,]</code>：下一个（上一个）”f|F|t|T”的char字符</li>
+<li><code>:{num}</code>：至第num行  </li>
+<li><code>[w|b]</code>：后一个（前一个）或当前单词的头部（尾部）——含符号  </li>
+<li><code>[W|B]</code>：后一个（前一个）或当前单词的头部（尾部）——跳过符号（仅字母和数字包括负号）</li>
+<li><code>............................</code>  </li>
+<li>动作命令可以待有修饰符前缀<ul>
+<li><code>a</code>：即an，表示一个非空白对象  </li>
+<li><code>i</code>：即inner，表示一个内含对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当一个操作符被连续调用两次，就表示作用于当前行<br>  <em>特例：<code>g~~</code>、<code>guu</code>、<code>gUU</code></em>  </li>
+</ul>
+</li>
+<li>操作符待决模式<br>  键入操作符后vim会进入操作符待决模式，此时vim会等待一个动作命令后执行操作<br>  在该模式下可以按<code>&lt;ESC&gt;</code>来退回普通模式<br>  因为该模式的存在，使得自定义操作符及动作指令能够存在  </li>
+</ul>
+<h2 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h2><ul>
+<li>单词输入错误，应删除整个单词再重新输入<br>  <em>可以减少以后输入出错</em>  </li>
+<li>删除  <ul>
+<li><code>&lt;C-h&gt;</code>：删除前一个字符，相当于退格键  </li>
+<li><code>&lt;C-w&gt;</code>：删除前一个单词  </li>
+<li><code>&lt;C-u&gt;</code>：删除至行首  </li>
+<li><strong>注意：只能删除本次插入模式下插入的内容</strong>  </li>
+<li><em>这些命令不是插入模式独有，也不是vim独有，在命令行模式、shell中都能使用它们</em>  </li>
+</ul>
+</li>
+<li>切换到普通模式使用<code>&lt;C-[&gt;</code>更加方便  </li>
+<li>插入-普通模式：<code>&lt;C-o&gt;</code><br>  执行一个普通模式命令后，马上就可以返回到插入命令<br>  在插入模式下，通过<code>&lt;C-o&gt;zz</code>迅速把当前行移动到屏幕正中  </li>
+<li>插入模式下的粘贴几个单词<br>  <code>&lt;C-r&gt;{register}</code>：将register号寄存器的内容粘贴到当前位置<br>  <em>普通模式下复制文本默认保存在0号寄存器中</em><br>  <strong>注意：当文本比较多的时候，应切换到普通模式下操作比较合适</strong>  </li>
+<li>运算<br>  <code>&lt;C-r&gt;={expr}&lt;CR&gt;</code>：执行expr运算并且把结果插入到当前位置  </li>
+<li>用字符编码插入字符  <ul>
+<li>十进制ASCII字符：<code>&lt;C-v&gt;{code}</code><br>  只能插入三位十进制数的ASCII码，注意高位补0  </li>
+<li>十六进制unicode字符：<code>&lt;C-v&gt;u{code}</code><br>  插入四位十六进制数的unicode码，注意高位补0  </li>
+<li>通过二合字母插入字符<br>  <code>&lt;C-k&gt;{char1}{char2}</code><br>  二合字母集可以通过<code>:digraphs</code>查看<br>  <code>:digraph-table</code>可以获得二合字母集更详细的信息  </li>
+</ul>
+</li>
+<li>查看当前字符的编码<br>  <code>ga</code>：屏幕下方会显示当前字符的十进制、十六进制、八进制编码信息  </li>
+<li>虚拟替换模式<br>  <code>R</code>：替换模式，<code>&lt;Tab&gt;</code>会作为一个字符被替换<br>  <code>gR</code>：虚拟替换模式，<code>&lt;Tab&gt;</code>会作为多个字符（一般为八个）被逐个替换（直到末尾才替换掉<code>&lt;Tab&gt;</code>）<br>  <code>r</code>和<code>gr</code>同理～<br>  <strong>应尽量使用虚拟替换模式</strong>  </li>
+</ul>
+<h2 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h2><ul>
+<li>三种可视模式  <ol>
+<li><code>v</code>：操作字符文本  </li>
+<li><code>V</code>：操作行文本  </li>
+<li><code>&lt;C-v&gt;</code>：操作块文本  </li>
+</ol>
+</li>
+<li>该模式与其他模式不同，是先选择文本后触发命令  </li>
+<li>选择模式<code>&lt;C-g&gt;</code><br>  类似与windows的选择模式，输入的可见字符会替换掉选中的文本，之后vim进入插入模式<br>  这个模式只是为了迎合windows用户，应尽量少用  </li>
+<li><code>gv</code>：重选上次的高亮选区  </li>
+<li>该模式下的<code>.</code>命令有时候会出现异常<br>  <strong>所以应尽可能使用操作命令而不是可视命令</strong>  </li>
+<li>有时候修改文本的范围很难用动作命令表达出来，这时候才用到可视命令  </li>
+<li>修改多行文本时，只有第一行发生变化，只有当返回普通模式后，其他行才会发生变化  </li>
+<li><code>&lt;C-v&gt;</code>不仅可以选中矩形的区域，还可以选中长短不一的块<br>  当在该模式下选中行末部分，可以实现长短不一的块的选择  </li>
+</ul>
+<h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><ul>
+<li>三种形式的命令行模式  <ol>
+<li>按下<code>:</code>的Ex命令  </li>
+<li>按下<code>/</code>的查找命令  </li>
+<li>用<code>&lt;C-r&gt;=</code>访问表达式寄存器  </li>
+</ol>
+</li>
+<li>指定命令作用范围<ul>
+<li>指定行<br>  <code>:{number}....</code><br>  只包含数字的Ex命令表示跳转<br>  <strong>可以使用特殊符号<code>$</code>表示最后一行，<code>%</code>表示当前文件的所有行</strong>  </li>
+<li>用地址来指定一个范围<br>  <code>:{start},{end}....</code>，执行命令后光标将跳转到end行  </li>
+<li>用高亮选取指定范围<br>  先用可视模式<code>v</code>,<code>V</code>,<code>&lt;C-v&gt;</code>选取高亮区<br>  再按下<code>:</code>，此时命令行会自动填充成<code>:&#39;&lt;,&#39;&gt;</code>，表示作用在高亮区上  </li>
+<li>用模式指定<br>  <code>:/{pattern1},/{pattern2}/....</code><br>  例如：<code>:/&lt;html&gt;/,/&lt;\/html&gt;/</code>指定了html内的所有内容（包含<code>&lt;html&gt;</code>和<code>&lt;/html&gt;</code>）<br>  <em>注意：斜杠<code>/</code>有特殊含义，需要用反斜杠<code>\</code>转义</em>  </li>
+<li>地址偏移<br>  直接对地址进行<code>+</code>或<code>-</code>运算<br>  如：<code>:/&lt;html&gt;/+1,/&lt;\/html&gt;/-1</code>则排除了<code>&lt;html&gt;</code>和<code>&lt;/html&gt;</code>而只包含了其中间的内容<br>  <strong>如果不加数字，默认偏移量为1</strong>  </li>
+<li>特殊符号总结  <ul>
+<li><code>1</code>：第一行  </li>
+<li><code>0</code>：虚拟行，位于第一行上方，常用于插入到首行等功能</li>
+<li><code>$</code>：最后一行  </li>
+<li><code>.</code>：当前行  </li>
+<li><code>%</code>：整个文件，相当于<code>:1,$</code>  </li>
+<li><code>&#39;m</code>：包含位置标记m的行  </li>
+<li><code>&#39;&lt;</code>和<code>&#39;&gt;</code>：高亮选取的起始和结束行  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>复制命令：<code>:t</code>或<code>:co</code>或<code>:copy</code><br>  <code>:{range}t {address}</code><br>  与普通模式下的<code>y</code>命令不同，该命令不把文本保存到寄存器  </li>
+<li>移动命令：<code>:move</code>或<code>:m</code><br>  <code>:{range}m {address}</code>  </li>
+<li>在指定范围上执行普通模式命令<br>  <code>:{range}normal {commands}</code>，常用于多行的处理<br>  常用的命令如下：  <ul>
+<li><code>:{range}normal .</code>：对多行重复同一操作   </li>
+<li><code>:{range}normal A;</code>：对多行末尾补上分号  </li>
+<li><code>:{range}normal i//</code>：将多行内容注释掉  </li>
+</ul>
+</li>
+<li>重复上一条命令：<code>@:</code>  </li>
+<li>使用<code>&lt;C-o&gt;</code>进入插入-普通模式时，命令记录会跳转到上一条命令，可以借此进行命令记录的跳转</li>
+<li>自动补全  <ul>
+<li><code>&lt;Tab&gt;</code>自动补全命令<br>  多次按<code>&lt;Tab&gt;</code>会正向遍历补全列表的内容  </li>
+<li><code>&lt;S-Tab&gt;</code>反向遍历补全列表，<em>S表示<code>&lt;shift&gt;</code>按键</em>  </li>
+<li><code>&lt;C-d&gt;</code>显示可用的补全列表  </li>
+<li>自定义补全行为  <ul>
+<li>bash shell形式：<code>set wildmode=longest,list</code>  </li>
+<li>zsh形式：<code>set wildmenu</code>和<code>set wildmode=full</code>  <ul>
+<li><code>wildmenu</code>为补全导航列表  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将当前单词插入到命令行中<br>  常用于替换命令和查看帮助文档<br>  在命令行模式下，<code>&lt;C-r&gt;&lt;C-w&gt;</code>会复制当前单词到命令行中  </li>
+<li>回溯历史命令  <ul>
+<li>回溯所有命令<br>  在<code>:</code>下保持提示符为空按<code>&lt;up&gt;</code>(<code>&lt;C-p&gt;</code>)和<code>&lt;down&gt;</code>(<code>&lt;C-n&gt;</code>)  <ul>
+<li><code>&lt;C-p&gt;`</code><c-n><code>和</code><up><code></code><down><code>的区别  
+  前者方便，但不能过滤命令  
+  解决方法：  
+  在</code>.vim<code>文件中创建映射项</code>cnoremap <c-p> <up><code></code>cnoremap <c-n> <down>`  </down></c-n></up></c-p></down></up></c-n></li>
+</ul>
+</li>
+<li>过滤回溯的命令<br>  如<code>:help&lt;up&gt;</code>回溯以”help”开头的命令  </li>
+<li>命令历史容量设置<br>  缺省只有20<br>  推荐<code>set history=200</code>  </li>
+<li>除了Ex命令，查找命令也会记录下来并保存在另一个文件中   </li>
+</ul>
+</li>
+<li>一次性执行多条命令<br>  用<code>|</code>隔开命令即可  </li>
+<li>命令行窗口<br>  像一个常规的vim缓冲区，其中每一行是命令历史中的一个条目<br>  可以在该窗口下修改命令历史记录，对之前使用过的命令做调整后方便重复利用<br>  <em>当打开命令行窗口时，它始终拥有焦点，除非关闭它，否则无法切换到其他窗口</em>  <ul>
+<li><code>q:</code>：打开Ex命令的命令行窗口   </li>
+<li><code>q/</code>：打开查找命令的命令行窗口  </li>
+<li><code>&lt;C-f&gt;</code>：从命令行模式切换到命令行窗口（起始命令行模式下输入的内容仍然保留下来）  </li>
+</ul>
+</li>
+<li>运行shell命令<br>  <code>!{command}</code>  <ul>
+<li><code>%</code>代表当前文件名  </li>
+<li><code>:shell</code>可以打开一个交互式的shell会话（通过<code>exit</code>退出）<br>  更好的方法是用<code>&lt;C-z&gt;</code>挂起vim所属进程，用<code>fp</code>唤醒挂起的作业<br>  <em>shell下的<code>jobs</code>命令可以查看当前的作业列表</em>  </li>
+</ul>
+</li>
+<li>大量读取或写入命令输入输出<br>  <code>:read !{cmd}</code>将命令输出读取到当前缓冲区中<br>  <code>:write !{cmd}</code>：将当前缓冲区内容作为命令的标准输入   </li>
+<li>借助shell命令过滤指定范围<br>  <code>:{range}!{filter}</code><br>  如用sort命令，<code>:2,$!sort -t &#39;,&#39; -k 2</code>表示第2行到最后一行之间，以逗号为分隔符的第二字段排序  </li>
+<li>常见的和操作缓冲区文本的Ex命令  <ul>
+<li><code>:{range}d {x}</code>：删除指定内容（并保存到寄存器x中）</li>
+<li><code>:{range}y {x}</code>：复制指定内容到寄存器x中  </li>
+<li><code>:{line}put {x}</code>：在指定行后粘贴寄存器x中的内容   </li>
+<li><code>:{range}t {address}</code>：复制指定内容到address处  </li>
+<li><code>:{range}m {address}</code>：移动指定内容到address处  </li>
+<li><code>:{range}join</code>：连接指定行内容  </li>
+<li><code>:{range}normal {commands}</code>：对指定范围执行普通模式命令  </li>
+<li><code>:{range}s/{pattern}/{string}/{flag}</code>：替换  </li>
+<li><code>:{range}global/{pattern}/{cmd}</code>：对指定范围内匹配pattern的所有行执行cmd命令（Ex）  </li>
+</ul>
+</li>
+</ul>
+<h2 id="管理多个文件"><a href="#管理多个文件" class="headerlink" title="管理多个文件"></a>管理多个文件</h2><h3 id="缓冲区列表"><a href="#缓冲区列表" class="headerlink" title="缓冲区列表"></a>缓冲区列表</h3><p>文件读取后在内存缓冲区中  </p>
+<ul>
+<li><code>:ls</code>命令可以列出所有被载入到内存中的缓冲区列表   <ul>
+<li>每个条目开头的数字为系统自动分配而<strong>不可改变</strong>的缓冲区编号</li>
+<li><code>%</code>：当前窗口中可见的缓冲区   </li>
+<li><code>#</code>：轮换文件<br>  <strong>按<code>&lt;C-^&gt;</code>可以在两个文件之间快速轮换</strong>  </li>
+</ul>
+</li>
+<li>缓冲区切换<ul>
+<li>遍历缓冲区列表：  <ul>
+<li>正向移动：<code>:bn</code>或<code>:bnext</code>  </li>
+<li>反向移动：<code>:bp</code>或<code>:bprevious</code>  </li>
+</ul>
+</li>
+<li><code>:buffer {N}</code>：跳转到指定编号的缓冲区  </li>
+<li><code>:buffer {bufname}</code>：跳转到可以被bufname唯一标识的缓冲区（若多个缓冲区具有同一标识，可以通过<code>&lt;Tab&gt;</code>选择）  </li>
+</ul>
+</li>
+<li><code>:bufdo {commands}</code>：对所有缓冲区执行Ex命令  </li>
+<li><p>创建快速遍历缓冲区列表的键盘映射  </p>
+<pre><code>  nnoremap &lt;silent&gt; [b :bp&lt;CR&gt;  
+  nnoremap &lt;silent&gt; ]b :bn&lt;CR&gt;  
+  nnoremap &lt;silent&gt; [B :bfirst&lt;CR&gt;  
+  nnoremap &lt;silent&gt; ]B :blast&lt;CR&gt;  
+</code></pre></li>
+<li><p>删除<code>:bd</code>或<code>:bdelect</code><br>  <code>:bd {N1,N2,N3....}</code>：删除列出的缓冲区<br>  <code>:{N,M} bd</code>：删除连续的缓冲区  </p>
+</li>
+</ul>
+<h3 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h3><p>对一批文件进行分组，其<strong>文件顺序可调整*</strong>   </p>
+<ul>
+<li>初始的参数列表为启动时vim的文件列表   </li>
+<li><code>:args</code>：查看参数列表<br>  其中<code>[]</code>表明了当前的活动文件  </li>
+<li><code>:args {arglist}</code>：填充参数列表<br>  arglist可以是文件名、通配符、shell命令的输出结果等   <ul>
+<li>用文件名指定文件<br>  <code>:args {file1,file2,....}</code>  </li>
+<li>用Glob模式指定文件<br>  <code>*</code>：表示0到无穷多个字符，但不包含子目录<br>  <code>**</code>：表示0到无穷多个字符，包含子目录  </li>
+<li>用反引号结构指定文件<br>  将shell命令用反引号括起来，其输出将填充到相应的位置<br>  如：<code>:args \</code>cat .chapters``  </li>
+</ul>
+</li>
+<li>隐藏缓冲区<br>  缓冲区列表中，<code>+</code>代表缓冲区被修改过，此时切换缓冲区会弹出错误信息，可以用感叹号强制切换，此时列表中被标记为<code>a</code>的为活动缓冲区（active），被标记为<code>h</code>的为隐藏活动区（hidden）  <ul>
+<li>处理隐藏缓冲区  <ul>
+<li><code>:w</code>或<code>:write</code>：写入磁盘  </li>
+<li><code>:e</code>或<code>:edit</code>：从磁盘中读入到缓冲区（回滚修改操作）  </li>
+<li><code>:qa</code>或<code>:qall</code>：关闭所有窗口，放弃所有修改  </li>
+<li><code>:wa</code>或<code>:wall</code>：全部写入磁盘   </li>
+</ul>
+</li>
+<li>用<code>:argdo</code>或<code>:bufdo</code>修改一组缓冲区<br>  前提：<strong>打开<code>hidden</code>选项</strong><br>  打开后，对已修改的缓冲区执行<code>:next</code>,<code>:bnext</code>,<code>cnext</code>等命令无需再加感叹号   </li>
+</ul>
+</li>
+</ul>
+<h3 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h3><ul>
+<li>分割  <ul>
+<li><code>&lt;C-w&gt;s</code>：水平切分（同高度），新窗口仍为当前缓冲区   </li>
+<li><code>&lt;C-w&gt;v</code>：垂直切分（同宽度），新窗口仍未当前缓冲区  </li>
+<li><code>:sp {file}</code>或<code>:split {file}</code>：水平切分，新窗口为file内容   </li>
+<li><code>:vsp {file}</code>或<code>:vsplit {file}</code>：垂直切分，新窗口为file内容  </li>
+</ul>
+</li>
+<li>切换  <ul>
+<li><code>&lt;C-w&gt;w</code>：轮换   </li>
+<li><code>&lt;C-w&gt;{h|j|k|l}</code>：切换到左（下上右）侧的窗口  </li>
+<li>若为GVIM，可以直接点击对用窗口进行切换    </li>
+</ul>
+</li>
+<li>关闭  <ul>
+<li><code>:clo</code>或<code>:close</code>或<code>&lt;C-w&gt;c</code>：关闭当前窗口   </li>
+<li><code>:on</code>或<code>:only</code>或<code>&lt;C-w&gt;o</code>：关闭其他重口   </li>
+</ul>
+</li>
+<li>改变窗口大小和重排列  <ul>
+<li><code>&lt;C-w&gt;=</code>：使所有窗口等宽、等高  </li>
+<li><code>&lt;C-w&gt;_</code>：使当前窗口高度最大化  </li>
+<li><code>&lt;C-w&gt;|</code>：使当前窗口宽度最大化   </li>
+<li><code>{N}&lt;C-w&gt;_</code>：使当前窗口高度调整为N行  </li>
+<li><code>{N}&lt;C-w&gt;|</code>：使当前窗口宽度调整为N列  </li>
+<li>若为GVIM，可以直接用鼠标拖动窗口的分界线   </li>
+</ul>
+</li>
+</ul>
+<h3 id="标签页"><a href="#标签页" class="headerlink" title="标签页"></a>标签页</h3><p>对窗口进行分组   </p>
+<ul>
+<li><code>:lcd {path}</code>：设置工作路径<br>  限定标签页的工程范围  <ul>
+<li>只能改变当前窗口，而不是当前标签页  </li>
+<li>如果要改变标签页的所有窗口，应用<code>:windo lcd {path}</code>   </li>
+</ul>
+</li>
+<li>打开和关闭      <ul>
+<li><code>:tabe {file}</code>或<code>tabedit {file}</code>：在新标签页中打开file  </li>
+<li><code>&lt;C-w&gt;T</code>：将当前窗口移动到一个新标签页   </li>
+<li><code>:tabc</code>或<code>:tabclos</code>：关闭当前标签页及其所有窗口   </li>
+<li><code>:tabo</code>或<code>:tabonly</code>：关闭其他标签页及其所有窗口   </li>
+</ul>
+</li>
+<li>切换  <ul>
+<li>标签页从1开始编号   </li>
+<li><code>:tabn {N}</code>或<code>:tabnext {N}</code>或<code>{N}gt</code>：切换到N号标签页   </li>
+<li><code>:tabn</code>或<code>:tabnext</code>或<code>gt</code>：切换到下一标签页  </li>
+<li><code>:tabp</code>或<code>:tabprevious</code>或<code>gT</code>：切换到上一标签页  </li>
+</ul>
+</li>
+<li>重排列  <ul>
+<li><code>:tabmove {N}</code>：将当前标签页移动到N号标签页之后  <ul>
+<li><code>:tabmove 0</code>：表示移动到开头   </li>
+<li><code>:tabmove</code>：表示移动到末尾   </li>
+</ul>
+</li>
+<li>若为GVIM，可以直接用鼠标拖曳</li>
+</ul>
+</li>
+</ul>
+<h2 id="打开及保存文件"><a href="#打开及保存文件" class="headerlink" title="打开及保存文件"></a>打开及保存文件</h2><p>……待施工……</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2015/09/20/sh模块/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2015/03/24/春纳后端/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            正则化技术 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",《Handson-ML》笔记">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2018/04/11/正则化技术/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2018/04/11/正则化技术/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="正则化技术 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="《Handson-ML》笔记"> 
+
+    
+        <meta property="article:published_time" content="Wed Apr 11 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2018/04/11/正则化技术/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2018/04/11/正则化技术/index.html",
+    "headline": "正则化技术",
+    "datePublished": "Wed Apr 11 2018 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",《Handson-ML》笔记",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提前终止（Early-Stopping）"><span class="post-toc-number">1.</span> <span class="post-toc-text">提前终止（Early Stopping）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#L1、L2正则化"><span class="post-toc-number">2.</span> <span class="post-toc-text">L1、L2正则化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dropout"><span class="post-toc-number">3.</span> <span class="post-toc-text">dropout</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最大范数（Max-Norm）"><span class="post-toc-number">4.</span> <span class="post-toc-text">最大范数（Max-Norm）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据增强"><span class="post-toc-number">5.</span> <span class="post-toc-text">数据增强</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证集的使用"><span class="post-toc-number">6.</span> <span class="post-toc-text">验证集的使用</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                正则化技术
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>4月 11, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/《Handson-ML》笔记/">《Handson-ML》笔记</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=正则化技术&url=http://hey-yahei.cn/2018/04/11/正则化技术/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=正则化技术&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2018/04/11/正则化技术/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=28160278&auto=0&height=32"></iframe><br>BGM：<strong>《命运石之门：负荷领域的既视感》主题曲</strong>        </p>
+<hr>
+<p>参考：   </p>
+<ol>
+<li>《<a href="https://book.douban.com/subject/26840215/" target="_blank" rel="noopener">Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)</a>》Chap11<br> <a href="/2018/04/08/Handson-ML/">《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记</a>        </li>
+<li>《<a href="https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q" target="_blank" rel="noopener">卷积神经网络——深度学习实践手册(2017.05)</a>》      </li>
+</ol>
+<h3 id="提前终止（Early-Stopping）"><a href="#提前终止（Early-Stopping）" class="headerlink" title="提前终止（Early Stopping）"></a>提前终止（Early Stopping）</h3><p>每经过一定迭代次数之后将模型用于验证集上的评估，暂存、更新最近几次在验证集上有一定loss下降的模型；<br>当连续几次在验证集上没有出现明显的loss下降（甚至有可能回升）时终止训练；<br>提前终止通常表现的很好，如果和其他正则化技术共同使用可以获得更好的表现      </p>
+<h3 id="L1、L2正则化"><a href="#L1、L2正则化" class="headerlink" title="L1、L2正则化"></a>L1、L2正则化</h3><p><strong>L2正则化</strong>：<br>又称权重衰减（weight decay）、岭回归（ridge regression）、Tikhonov正则化（Tikhonov regularization）；<br>$$ l_2 = \frac{1}{2} \lambda ||\omega||^2_2 $$<br>其中 $\lambda$ 控制正则项大小，取值越大对模型复杂度的约束程度越大；<br>一般将该l2惩罚项加入到目标函数中，通过目标函数的误差反向传播；        </p>
+<p><strong>L1正则化</strong>：<br>又称Elastic网络正则化；<br>$$ l_1 = \lambda ||\omega||_1 = \sum_i |\omega_i| $$<br>L1正则化不仅能够约束参数量级，还可以使参数稀疏化，使优化后部分参数置为0，并且也有去除噪声的效果；<br>L1和L2惩罚可以联合使用，如 $ \lambda_1 ||\omega||_1 + \lambda_2 ||\omega||_2^2 $     </p>
+<p>具体实现：<br>tensorflow中很多输出变量的函数（如 <code>get_variable</code>、<code>fully_connected</code>）都接受名为 <code>*_regularizer</code> 的参数进行正则化；      </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">with</span> arg_scope<span class="token punctuation">(</span>
+        <span class="token punctuation">[</span>fully_connected<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        weights_regularizer<span class="token operator">=</span>tf<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>l1_regularizer<span class="token punctuation">(</span>scale<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 为fully_connected指定L1正则化</span>
+    hidden1 <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>X<span class="token punctuation">,</span> n_hidden1<span class="token punctuation">,</span> scope<span class="token operator">=</span><span class="token string">"hidden1"</span><span class="token punctuation">)</span>
+    hidden2 <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>hidden1<span class="token punctuation">,</span> n_hidden2<span class="token punctuation">,</span> scope<span class="token operator">=</span><span class="token string">"hidden2"</span><span class="token punctuation">)</span>
+    logits <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>hidden2<span class="token punctuation">,</span> n_outputs<span class="token punctuation">,</span> activation_fn<span class="token operator">=</span>None<span class="token punctuation">,</span>scope<span class="token operator">=</span><span class="token string">"out"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>注意在计算总的loss时要手动把正则化loss加上——       </p>
+<pre class=" language-python"><code class="language-python">reg_losses <span class="token operator">=</span> tf<span class="token punctuation">.</span>get_collection<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>GraphKeys<span class="token punctuation">.</span>REGULARIZATION_LOSSES<span class="token punctuation">)</span>
+loss <span class="token operator">=</span> tf<span class="token punctuation">.</span>add_n<span class="token punctuation">(</span><span class="token punctuation">[</span>base_loss<span class="token punctuation">]</span> <span class="token operator">+</span> reg_losses<span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"loss"</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="dropout"><a href="#dropout" class="headerlink" title="dropout"></a>dropout</h3><p>论文：<br>【提出】<a href="https://arxiv.org/pdf/1207.0580.pdf" target="_blank" rel="noopener">Improving neural networks by preventing co-adaptation of feature detectors(2012)</a><br>【细节讨论】<a href="http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf" target="_blank" rel="noopener">Dropout: A Simple Way to Prevent Neural Networks from Overfitting(2014)</a>           </p>
+<p>核心思想：<br>在每一步训练中，所有神经单元（包含输入神经单元，但不包含输出神经单元）有一定概率p被忽略（但在预测时使用整个网络）；<br>这里p称为<strong>dropout rate</strong>，通常取 $p=0.5$；<br>对应的还有一个<strong>keep probability</strong>，即 $q = 1 - p$；<br>每步训练时都有一部分单元缺失，使得每个单元都有机会在本次训练中占有一定地位，从而使得各个单元可以更好地从训练集中学习，使整个网络在工作时更有弹性；<br>部分“队友”的缺失、部分“输入数据”的缺失，在这种训练下，每个单元有更强的鲁棒性；<br>由于各个单元是一定概率q参与训练的，所以在需要对这些单元进行一定补偿——       </p>
+<ol>
+<li>可以在训练时，对每个单元的输出都除以q        </li>
+<li>也可以在预测时，为每个单元的输出都乘以q<br>这两种方式虽然不完全等价，但实际效果时差不多的          </li>
+</ol>
+<p>具体实现：<br>tensorflow提供专门的dropout层，默认时用第二种补偿方式；         </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> tensorflow<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>layers <span class="token keyword">import</span> dropout
+<span class="token comment" spellcheck="true"># ...</span>
+is_training <span class="token operator">=</span> tf<span class="token punctuation">.</span>placeholder<span class="token punctuation">(</span>tf<span class="token punctuation">.</span>bool<span class="token punctuation">,</span> shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'is_training'</span><span class="token punctuation">)</span>
+keep_prob <span class="token operator">=</span> <span class="token number">0.5</span>
+X_drop <span class="token operator">=</span> dropout<span class="token punctuation">(</span>X<span class="token punctuation">,</span> keep_prob<span class="token punctuation">,</span> is_training<span class="token operator">=</span>is_training<span class="token punctuation">)</span>
+
+hidden1 <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>X_drop<span class="token punctuation">,</span> n_hidden1<span class="token punctuation">,</span> scope<span class="token operator">=</span><span class="token string">"hidden1"</span><span class="token punctuation">)</span>
+hidden1_drop <span class="token operator">=</span> dropout<span class="token punctuation">(</span>hidden1<span class="token punctuation">,</span> keep_prob<span class="token punctuation">,</span> is_training<span class="token operator">=</span>is_training<span class="token punctuation">)</span>
+
+hidden2 <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>hidden1_drop<span class="token punctuation">,</span> n_hidden2<span class="token punctuation">,</span> scope<span class="token operator">=</span><span class="token string">"hidden2"</span><span class="token punctuation">)</span>
+hidden2_drop <span class="token operator">=</span> dropout<span class="token punctuation">(</span>hidden2<span class="token punctuation">,</span> keep_prob<span class="token punctuation">,</span> is_training<span class="token operator">=</span>is_training<span class="token punctuation">)</span>
+
+logits <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>hidden2_drop<span class="token punctuation">,</span> n_outputs<span class="token punctuation">,</span> activation_fn<span class="token operator">=</span>None<span class="token punctuation">,</span> scope<span class="token operator">=</span><span class="token string">"outputs"</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>tensorflow提供了两个dropout()，一个在tensorflow.conrtib.layers包里，一个在tensorflow.nn包里——<br>前者在训练时有效，预测时失效；<br>后者在训练和预测时都是有效的；<br>所以一般来说，我们需要的是前者的dropout       </p>
+</blockquote>
+<p>如果说，在训练中加了dropout还是发现过拟合了，可以考虑增加dropout_rate（减小keep_prob）；        </p>
+<p>缺点：       </p>
+<ul>
+<li>dropout减缓了收敛的速度    </li>
+<li>而且，<strong>dropout对卷积层似乎没有作用</strong>（一般只用于全连接层）<br>  参考 <a href="https://www.quora.com/Why-would-I-need-to-apply-a-dropout-layer-before-a-convolutional-layer" target="_blank" rel="noopener">Why would I need to apply a dropout layer before a convolutional layer? | Quora</a><br>  据说是因为卷积层参数数量远少于全连接层，一般不存在过拟合的问题；<br>  大多数经典框架都只在全连接层上使用dropout，参考《<a href="/2018/05/02/经典的CNN分类架构?_blank">经典的CNN分类架构 | Hey~YaHei!</a>》<br>  不过，<br>  <a href="http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf" target="_blank" rel="noopener">Dropout: A Simple Way to Prevent Neural Networks from Overfitting(2014)</a>、<a href="https://arxiv.org/pdf/1511.07289v3.pdf" target="_blank" rel="noopener">FAST AND ACCURATE DEEP NETWORK LEARNING BY EXPONENTIAL LINEAR UNITS (ELUS)(2016)</a>、<a href="http://torch.ch/blog/2015/07/30/cifar.html" target="_blank" rel="noopener">92.45% on CIFAR-10 in Torch | Torch</a>、<a href="http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/" target="_blank" rel="noopener">Using convolutional neural nets to detect facial keypoints tutorial | danielnouri</a> 等也对卷积层使用了dropout并有一定的提升；<br>  也有一些关于对卷积层使用dropout或者dropout的变体的论文：<br>  <a href="https://arxiv.org/ftp/arxiv/papers/1512/1512.00242.pdf" target="_blank" rel="noopener">Towards Dropout Training for Convolutional Neural Networks(2015)</a>、<br>  <a href="https://arxiv.org/pdf/1411.4280.pdf" target="_blank" rel="noopener">Efficient Object Localization Using Convolutional Networks(2015)</a>、<br>  <a href="http://mipal.snu.ac.kr/images/1/16/Dropout_ACCV2016.pdf" target="_blank" rel="noopener">Analysis on the Dropout Effect in Convolutional Neural Networks(2016)</a>     </li>
+</ul>
+<h3 id="最大范数（Max-Norm）"><a href="#最大范数（Max-Norm）" class="headerlink" title="最大范数（Max-Norm）"></a>最大范数（Max-Norm）</h3><p>每步训练之后，对权重w进行一定约束——<br>$$ w \gets w \frac{r}{||w||_2} $$<br>其中，r为超参数max-norm，$||w||_2$ 表示w的L2范数；        </p>
+<p>减小r将增加惩罚的力度，这将有助于抑制过拟合；<br>同时，如果没有使用BN层，那么max-norm也有抑制梯度消失与爆炸的作用；       </p>
+<p>具体实现：<br>tensorflow没有直接提供max-norm的操作：         </p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 借助tf.clip_by_norm构造max_norm操作</span>
+threshold <span class="token operator">=</span> <span class="token number">1.0</span>
+clipped_weights <span class="token operator">=</span> tf<span class="token punctuation">.</span>clip_by_norm<span class="token punctuation">(</span>weights<span class="token punctuation">,</span> clip_norm<span class="token operator">=</span>threshold<span class="token punctuation">,</span> axes<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+clip_weights <span class="token operator">=</span> tf<span class="token punctuation">.</span>assign<span class="token punctuation">(</span>weights<span class="token punctuation">,</span> clipped_weights<span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> tf<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># [...]</span>
+    <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span>n_epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># [...]</span>
+        <span class="token keyword">for</span> X_batch<span class="token punctuation">,</span> y_batch <span class="token keyword">in</span> zip<span class="token punctuation">(</span>X_batches<span class="token punctuation">,</span> y_batches<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>training_op<span class="token punctuation">,</span> feed_dict<span class="token operator">=</span><span class="token punctuation">{</span>X<span class="token punctuation">:</span> X_batch<span class="token punctuation">,</span> y<span class="token punctuation">:</span> y_batch<span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 在每一步（训练一个batch）的最后手动调用一次max_norm的操作</span>
+            clip_weights<span class="token punctuation">.</span>eval<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>如果有很多权重需要增加max_norm操作，那代码将变得十分冗余；<br>更加简洁的做法是自己构造一个Regularization——       </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">max_norm_regularizer</span><span class="token punctuation">(</span>threshold<span class="token punctuation">,</span> axes<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">"max_norm"</span><span class="token punctuation">,</span> collection<span class="token operator">=</span><span class="token string">"max_norm"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">max_norm</span><span class="token punctuation">(</span>weights<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        clipped <span class="token operator">=</span> tf<span class="token punctuation">.</span>clip_by_norm<span class="token punctuation">(</span>weights<span class="token punctuation">,</span> clip_norm<span class="token operator">=</span>threshold<span class="token punctuation">,</span> axes<span class="token operator">=</span>axes<span class="token punctuation">)</span>
+        clip_weights <span class="token operator">=</span> tf<span class="token punctuation">.</span>assign<span class="token punctuation">(</span>weights<span class="token punctuation">,</span> clipped<span class="token punctuation">,</span> name<span class="token operator">=</span>name<span class="token punctuation">)</span>
+        tf<span class="token punctuation">.</span>add_to_collection<span class="token punctuation">(</span>collection<span class="token punctuation">,</span> clip_weights<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 注意，这个clip_weights需要在外部使用，所以把它放入collection当中</span>
+        <span class="token keyword">return</span> None <span class="token comment" spellcheck="true"># 不需要将loss加到整体的全局的loss上，所以只需要返回None</span>
+    <span class="token keyword">return</span> max_norm
+
+max_norm_reg <span class="token operator">=</span> max_norm_regularizer<span class="token punctuation">(</span>threshold<span class="token operator">=</span><span class="token number">1.0</span><span class="token punctuation">)</span>
+hidden1 <span class="token operator">=</span> fully_connected<span class="token punctuation">(</span>X<span class="token punctuation">,</span> n_hidden1<span class="token punctuation">,</span> scope<span class="token operator">=</span><span class="token string">"hidden1"</span><span class="token punctuation">,</span> weights_regularizer<span class="token operator">=</span>max_norm_reg<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 取出collection中的clip_weights操作</span>
+clip_all_weights <span class="token operator">=</span> tf<span class="token punctuation">.</span>get_collection<span class="token punctuation">(</span><span class="token string">"max_norm"</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> tf<span class="token punctuation">.</span>Session<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sess<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># [...]</span>
+    <span class="token keyword">for</span> epoch <span class="token keyword">in</span> range<span class="token punctuation">(</span>n_epochs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># [...]</span>
+        <span class="token keyword">for</span> X_batch<span class="token punctuation">,</span> y_batch <span class="token keyword">in</span> zip<span class="token punctuation">(</span>X_batches<span class="token punctuation">,</span> y_batches<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>training_op<span class="token punctuation">,</span> feed_dict<span class="token operator">=</span><span class="token punctuation">{</span>X<span class="token punctuation">:</span> X_batch<span class="token punctuation">,</span> y<span class="token punctuation">:</span> y_batch<span class="token punctuation">}</span><span class="token punctuation">)</span>
+            sess<span class="token punctuation">.</span>run<span class="token punctuation">(</span>clip_all_weights<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h3><p>人为修改训练集数据，达到扩充数据集的目的；<br>但这种修改必须是“可学习的”，比如添加白噪声是没意义的，因为白噪声不可学习；<br>比如做图片分类的时候，可以平移、旋转、缩放图片甚至改变亮度来做到数据增强，使得模型对图片的位置、角度、大小不那么敏感；         </p>
+<p>tensorflow提供了一些图片操纵的函数，可以从api中查到；<br>图像数据的扩充还可以参考 <a href="/2018/04/18/CNN/#数据扩充">卷积神经网络CNN/数据扩充 | Hey~YaHei!</a>      </p>
+<h3 id="验证集的使用"><a href="#验证集的使用" class="headerlink" title="验证集的使用"></a>验证集的使用</h3><p>验证集用于在训练阶段评测模型预测性能，一般在每轮（epoch）或每个批处理训练（step）后在训练集、验证集上分别做网络前向运算，绘制学习曲线，检验模型泛化能力；<br>比如图像分类准确率：<br>如图a，验证集准确率一直低于训练集准确率，无明显下降趋势，此时模型复杂度欠缺，是为欠拟合；<br>如图b，验证集准确率不仅低于训练集准确率，还有明显下降趋势，此时模型发生过拟合；<br><img src="/Handson-ML/over_fitting.png" alt="over_fitting">    </p>
+<p>其他模型评估方法可参考 <a href="/ML-ZhouZhihua/《机器学习》Ch02.html">机器学习 - 周志华/Ch02 模型评估和选择 | Hey~YaHei!</a><br>以及 <a href="/ML-Andrew/ML-Andrew-notes2.html">机器学习 - 吴恩达/2 过拟合与正则化技术 | Hey~YaHei!</a>     </p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/04/18/CNN/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/10/优化器/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

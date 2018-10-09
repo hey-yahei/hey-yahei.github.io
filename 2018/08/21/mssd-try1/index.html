@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            训练MobileNet-SSD | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2018/08/21/mssd-try1/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2018/08/21/mssd-try1/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="训练MobileNet-SSD | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Tue Aug 21 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 24 2018 21:23:40 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2018/08/21/mssd-try1/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2018/08/21/mssd-try1/index.html",
+    "headline": "训练MobileNet-SSD",
+    "datePublished": "Tue Aug 21 2018 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 24 2018 21:23:40 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装配置cuda、caffe"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装配置cuda、caffe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载caffe-ssd源码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">下载caffe-ssd源码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编译caffe-ssd"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">编译caffe-ssd</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开始训练MobileNet-SSD"><span class="post-toc-number">2.</span> <span class="post-toc-text">开始训练MobileNet-SSD</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备数据集"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">准备数据集</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#训练"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">训练</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#部署"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">部署</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                训练MobileNet-SSD
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>8月 21, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=训练MobileNet-SSD&url=http://hey-yahei.cn/2018/08/21/mssd-try1/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=训练MobileNet-SSD&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2018/08/21/mssd-try1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=26142483&auto=0&height=32"></iframe>     
+
+<p>《<a href="/2018/08/04/RK3399-Tengine">RK3399上Tengine平台搭建 | Hey~YaHei!</a>》一文介绍了RK3399和Tengine并且尝试跑通了MobilNet-SSD网络，而随后又分别用《<a href="/2018/08/05/MobileNets_v1">MobileNets v1模型解析 | Hey~YaHei!</a>》、《<a href="/2018/08/06/SSD">SSD框架解析 | Hey~YaHei!</a>》《<a href="/2018/08/08/MobileNets-SSD/">MobileNet-SSD网络解析 | Hey~YaHei!</a>》三篇文章分别介绍了MobileNet v1、SSD和MobileNet-SSD。<br>接下来，本文将尝试训练自己的MobileNet-SSD并且部署在Tengine平台上。     </p>
+<hr>
+<h3 id="安装配置cuda、caffe"><a href="#安装配置cuda、caffe" class="headerlink" title="安装配置cuda、caffe"></a>安装配置cuda、caffe</h3><p>cuda的安装网上有非常多的教程，比如《<a href="https://www.cnblogs.com/iloveblog/p/7683349.html" target="_blank" rel="noopener">Ubuntu16.04+cuda9.0安装教程 | 贝多芬的悲桑, cnblogs</a>》和《<a href="https://blog.csdn.net/huang826336127/article/details/78754767" target="_blank" rel="noopener">安装cuda-8.0 | 代码小哥, csdn</a>》，过程也很简单，在官网下载你需要的版本对应的<code>.run</code>文件，直接运行按提示安装即可。          </p>
+<p>caffe由于要使用SSD框架，所以要编译安装caffe的ssd分支——       </p>
+<h4 id="下载caffe-ssd源码"><a href="#下载caffe-ssd源码" class="headerlink" title="下载caffe-ssd源码"></a>下载caffe-ssd源码</h4><ul>
+<li>直接用git把仓库克隆到本地并切换到ssd分支       <pre class=" language-bash"><code class="language-bash">  <span class="token function">git</span> clone https://github.com/weiliu89/caffe.git
+  <span class="token function">cd</span> caffe
+  <span class="token function">git</span> checkout ssd
+</code></pre>
+</li>
+<li>github服务器在海外，网络不是很稳定，你可以试着挂vpn下载源码。<br>  如果你的linux没有配置vpn，但windows或mac有，那也可以直接在 <a href="https://github.com/weiliu89/caffe/tree/ssd" target="_blank" rel="noopener">weiliu89/caffe at ssd | github</a> 上下载zip压缩包，再拷贝到linux用<code>unzip</code>指令解压；       </li>
+<li>如果你没有vpn，也可以到我的网盘上下载：<a href="https://pan.baidu.com/s/1wR0iJcvTgT7c4vwJF1pVUQ#list/path=%2Fblog-share%2Fmobilenet_ssd" target="_blank" rel="noopener">blog-share/mobilenet_ssd/caffe-ssd.zip | 百度网盘</a></li>
+</ul>
+<h4 id="编译caffe-ssd"><a href="#编译caffe-ssd" class="headerlink" title="编译caffe-ssd"></a>编译caffe-ssd</h4><p>编译过程可以参照 <a href="http://caffe.berkeleyvision.org/installation.html" target="_blank" rel="noopener">Caffe | Installation</a> 来进行；     </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> CAFFE_ROOT<span class="token operator">=</span>/your/caffe/root/path
+<span class="token comment" spellcheck="true"># 进入caffe源码的根目录</span>
+<span class="token function">cd</span> <span class="token variable">$CAFFE_ROOT</span>
+<span class="token comment" spellcheck="true"># 从模板拷贝一份编译的配置文件</span>
+<span class="token function">cp</span> Makefile.config.example Makefile.config
+<span class="token comment" spellcheck="true"># 按需要修改编译配置</span>
+<span class="token comment" spellcheck="true"># vim Makefile.config</span>
+<span class="token comment" spellcheck="true"># 开始编译（参数j表示编译使用的线程数量，一般数值越大越快，取决于你cpu支持的线程数）</span>
+<span class="token function">make</span> -j8
+<span class="token comment" spellcheck="true"># 修改环境变量</span>
+<span class="token keyword">echo</span> <span class="token string">"export PYTHONPATH=<span class="token variable">$CAFFE_ROOT</span>/python:<span class="token variable">$PYTHONPATH</span>"</span> <span class="token operator">>></span> ~/.bashrc
+<span class="token function">source</span> ~/.bashrc
+<span class="token comment" spellcheck="true"># 编译python包</span>
+<span class="token function">make</span> py
+<span class="token comment" spellcheck="true"># 编译测试程序</span>
+<span class="token function">make</span> <span class="token function">test</span> -j8
+<span class="token comment" spellcheck="true"># 测试</span>
+<span class="token function">make</span> runtest -j8
+</code></pre>
+<p>关于配置文件，一般直接用默认配置就行，       </p>
+<ul>
+<li>如果你想用cudnn加速而不是caffe自己提供的加速库（caffe不建议用cudnn），给<strong>第5行</strong>解除注释。      <pre class=" language-bash"><code class="language-bash">  <span class="token punctuation">[</span>4<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># cuDNN acceleration switch (uncomment to build with cuDNN).</span>
+  <span class="token punctuation">[</span>5<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># USE_CUDNN := 1</span>
+</code></pre>
+</li>
+<li>如果你不想用gpu，给<strong>第8行</strong>解除注释，      <pre class=" language-bash"><code class="language-bash">  <span class="token punctuation">[</span>7<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># CPU-only switch (uncomment to build without GPU support).</span>
+  <span class="token punctuation">[</span>8<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># CPU_ONLY := 1</span>
+</code></pre>
+</li>
+<li>如果你的cuda没有安装在默认位置，你可能需要在<strong>第28行</strong>修改变量<code>CUDA_DIR</code>       <pre class=" language-bash"><code class="language-bash">  <span class="token punctuation">[</span>27<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># CUDA directory contains bin/ and lib/ directories that we need.</span>
+  <span class="token punctuation">[</span>28<span class="token punctuation">]</span> CUDA_DIR :<span class="token operator">=</span> /usr/local/cuda
+  <span class="token punctuation">[</span>29<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># On Ubuntu 14.04, if cuda tools are installed via</span>
+  <span class="token punctuation">[</span>30<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># "sudo apt-get install nvidia-cuda-toolkit" then use this instead:</span>
+  <span class="token punctuation">[</span>31<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># CUDA_DIR := /usr</span>
+</code></pre>
+</li>
+<li>如果你用的是anaconda，或者你要用python3接口，你可能需要修改      <pre class=" language-bash"><code class="language-bash">  <span class="token punctuation">[</span>64<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># NOTE: this is required only if you will compile the python interface.</span>
+  <span class="token punctuation">[</span>65<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># We need to be able to find Python.h and numpy/arrayobject.h.</span>
+  <span class="token punctuation">[</span>66<span class="token punctuation">]</span> PYTHON_INCLUDE :<span class="token operator">=</span> /usr/include/python2.7 \
+  <span class="token punctuation">[</span>67<span class="token punctuation">]</span>         /usr/lib/python2.7/dist-packages/numpy/core/include
+  <span class="token punctuation">[</span>68<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># Anaconda Python distribution is quite popular. Include path:</span>
+  <span class="token punctuation">[</span>69<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># Verify anaconda location, sometimes it's in root.</span>
+  <span class="token punctuation">[</span>70<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># ANACONDA_HOME := $(HOME)/anaconda2</span>
+  <span class="token punctuation">[</span>71<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># PYTHON_INCLUDE := $(ANACONDA_HOME)/include \</span>
+  <span class="token punctuation">[</span>72<span class="token punctuation">]</span>         <span class="token variable"><span class="token variable">$(</span>ANACONDA_HOME<span class="token variable">)</span></span>/include/python2.7 \
+  <span class="token punctuation">[</span>73<span class="token punctuation">]</span>         <span class="token variable"><span class="token variable">$(</span>ANACONDA_HOME<span class="token variable">)</span></span>/lib/python2.7/site-packages/numpy/core/include \
+  <span class="token punctuation">[</span>74<span class="token punctuation">]</span> 
+  <span class="token punctuation">[</span>75<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># Uncomment to use Python 3 (default is Python 2)</span>
+  <span class="token punctuation">[</span>76<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># PYTHON_LIBRARIES := boost_python3 python3.5m</span>
+  <span class="token punctuation">[</span>77<span class="token punctuation">]</span> <span class="token comment" spellcheck="true"># PYTHON_INCLUDE := /usr/include/python3.5m \</span>
+  <span class="token punctuation">[</span>78<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#                 /usr/lib/python3.5/dist-packages/numpy/core/include</span>
+</code></pre>
+</li>
+</ul>
+<p><strong><em>编译过程中如果出现 <code>google::protobuf</code> 或者 <code>google::protoc</code> 相关的报错，你可能需要到 <a href="https://github.com/google/protobuf/releases" target="_blank" rel="noopener">google/protobuf | github</a> 下载合适版本的protobuf到本地编译并且配置环境变量（可以用<code>protoc --version</code>指令查看当前使用的protobuf版本）</em></strong>    </p>
+<h3 id="开始训练MobileNet-SSD"><a href="#开始训练MobileNet-SSD" class="headerlink" title="开始训练MobileNet-SSD"></a>开始训练MobileNet-SSD</h3><p>首先，先跑通默认的 <a href="https://github.com/chuanqi305/MobileNet-SSD" target="_blank" rel="noopener">MobileNet-SSD</a>——      </p>
+<h4 id="准备数据集"><a href="#准备数据集" class="headerlink" title="准备数据集"></a>准备数据集</h4><p>MobileNet-SSD默认使用<a href="http://host.robots.ox.ac.uk/pascal/VOC/" target="_blank" rel="noopener">Pascal VOC</a>的2007和2012数据集，<br>下载以下数据集，并解压到同一个目录下：     </p>
+<ul>
+<li><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar" target="_blank" rel="noopener">VOC2007 - training/validation data</a></li>
+<li><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar" target="_blank" rel="noopener">VOC2007 - test data</a></li>
+<li><a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar" target="_blank" rel="noopener">VOC2012 - training/validation data</a></li>
+<li><a href="http://host.robots.ox.ac.uk:8080/" target="_blank" rel="noopener">VOC2012 - test data</a>    </li>
+</ul>
+<p>解压后目录如下图所示：<br><img src="/imgs/mssd-try/try1/dataset_tree.png" width="350">       </p>
+<p>然后用caffe-ssd提供的 <a href="https://github.com/weiliu89/caffe/tree/ssd/data/VOC0712" target="_blank" rel="noopener">VOC数据集处理工具</a> 对数据集进行处理——    </p>
+<ol>
+<li>按实际情况修改并执行脚本<code>$CAFFE_ROOT/data/VOC0712/create_list.sh</code><br> 将<strong>第3行</strong>的<code>root_dir</code>变量修改为你的VOC数据集目录，比如按照我的目录树，则设置为<code>$HOME/data/VOCdevkit</code>       <pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#!/bin/bash</span>
+ <span class="token punctuation">[</span>2<span class="token punctuation">]</span> 
+ <span class="token punctuation">[</span>3<span class="token punctuation">]</span> root_dir<span class="token operator">=</span><span class="token variable">$HOME</span>/data/VOCdevkit/
+ <span class="token punctuation">[</span>4<span class="token punctuation">]</span> sub_dir<span class="token operator">=</span>ImageSets/Main
+ <span class="token punctuation">[</span>5<span class="token punctuation">]</span> bash_dir<span class="token operator">=</span><span class="token string">"$(cd "</span><span class="token punctuation">$(</span>dirname <span class="token string">"<span class="token variable">${BASH_SOURCE[0]}</span>"</span><span class="token punctuation">)</span><span class="token string">" &amp;&amp; pwd)"</span>
+</code></pre>
+</li>
+<li>按实际情况修改并执行脚本<code>$CAFFE_ROOT/data/VOC0712/create_data.sh</code><br> 将<strong>第7行</strong>的<code>data_root_dir</code>变量修改为你的VOC数据集目录，比如按照我的目录树，则设置为<code>$HOME/data/VOCdevkit</code>       <pre class=" language-bash"><code class="language-bash"> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> cur_dir<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cd</span> <span class="token punctuation">$(</span> <span class="token function">dirname</span> $<span class="token punctuation">{</span>BASH_SOURCE<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token variable">)</span></span> <span class="token operator">&amp;&amp;</span> <span class="token function">pwd</span> <span class="token punctuation">)</span>
+ <span class="token punctuation">[</span>2<span class="token punctuation">]</span> root_dir<span class="token operator">=</span><span class="token variable">$cur_dir</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>
+ <span class="token punctuation">[</span>3<span class="token punctuation">]</span> 
+ <span class="token punctuation">[</span>4<span class="token punctuation">]</span> <span class="token function">cd</span> <span class="token variable">$root_dir</span>
+ <span class="token punctuation">[</span>5<span class="token punctuation">]</span> 
+ <span class="token punctuation">[</span>6<span class="token punctuation">]</span> redo<span class="token operator">=</span>1
+ <span class="token punctuation">[</span>7<span class="token punctuation">]</span> data_root_dir<span class="token operator">=</span><span class="token string">"<span class="token variable">$HOME</span>/data/VOCdevkit"</span>
+ <span class="token punctuation">[</span>8<span class="token punctuation">]</span> dataset_name<span class="token operator">=</span><span class="token string">"VOC0712"</span>
+ <span class="token punctuation">[</span>9<span class="token punctuation">]</span> mapfile<span class="token operator">=</span><span class="token string">"<span class="token variable">$root_dir</span>/data/<span class="token variable">$dataset_name</span>/labelmap_voc.prototxt"</span>
+</code></pre>
+</li>
+</ol>
+<p>执行完毕后将会自动在<code>$data_root_dir</code>目录下生成<code>VOC0712</code>子目录，里边包含了从数据集VOC2007和VOC2012提取的图片和标记信息，并构建caffe能够高效读取的lmdb文件。<br><code>VOC0712</code>子目录结构如下图所示：<br><img src="/imgs/mssd-try/try1/lmdb_tree.png" width="350">       </p>
+<h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><p><strong>下载MobileNet-SSD源码：</strong>          </p>
+<ul>
+<li>直接用git克隆仓库到examples目录下     <pre class=" language-bash"><code class="language-bash">  <span class="token function">cd</span> <span class="token variable">$CAFFE_ROOT</span>/examples
+  <span class="token function">git</span> clone https://github.com/chuanqi305/MobileNet-SSD.git
+</code></pre>
+</li>
+<li>或者到我的网盘上下载并解压到caffe的examples目录下：<a href="https://pan.baidu.com/s/1wR0iJcvTgT7c4vwJF1pVUQ#list/path=%2Fblog-share%2Fmobilenet_ssd" target="_blank" rel="noopener">blog-share/mobilenet_ssd/MobileNet-SSD.zip | 百度网盘</a>         </li>
+</ul>
+<p><strong>创建数据集软链接：</strong>       </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> TRAINVAL_LMDB<span class="token operator">=</span><span class="token variable">$HOME</span>/data/VOCdevkit/VOC0712/lmdb/VOC0712_trainval_lmdb/
+<span class="token function">export</span> TEST_LMDB<span class="token operator">=</span><span class="token variable">$HOME</span>/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb/
+
+<span class="token function">cd</span> <span class="token variable">$CAFFE_ROOT</span>/examples/MobileNet-SSD
+<span class="token function">ln</span> -s TRAINVAL_LMDB ./trainval_lmdb
+<span class="token function">ln</span> -s TEST_LMDB ./test_lmdb
+</code></pre>
+<p><strong>把VOC的标签映射文件复制过来：</strong>        </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> <span class="token variable">$CAFFE_ROOT</span>/data/VOC0712/labelmap_voc.protxt <span class="token variable">$CAFFE_ROOT</span>/examples/MobileNet-SSD/labelmap.protxt
+</code></pre>
+<p><strong>生成模型文件：</strong>     </p>
+<pre class=" language-bash"><code class="language-bash">./gen_model.sh 21
+</code></pre>
+<p>这里21指的是VOC的21个类别（含负样本），生成的模型文件默认放置在<code>example</code>目录下；          </p>
+<p><strong>如果需要修改训练参数和测试参数</strong>，可以分别修改目录下的<code>solver_train.protxt</code>和<code>sovler_test.protxt</code>文件，<br>默认使用<code>example</code>目录下的训练模型和测试模型；     </p>
+<p><strong>如果需要指定GPU和初始化权重</strong>，可以修改目录下的<code>train.sh</code>或<code>test.sh</code>文件，以<code>train.sh</code>为例：       </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+<span class="token keyword">if</span> <span class="token operator">!</span> <span class="token function">test</span> -f example/MobileNetSSD_train.prototxt <span class="token punctuation">;</span><span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"error: example/MobileNetSSD_train.prototxt does not exist."</span>
+    <span class="token keyword">echo</span> <span class="token string">"please use the gen_model.sh to generate your own model."</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+<span class="token function">mkdir</span> -p snapshot
+<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/build/tools/caffe train -solver<span class="token operator">=</span><span class="token string">"solver_train.prototxt"</span> \
+-weights<span class="token operator">=</span><span class="token string">"mobilenet_iter_73000.caffemodel"</span> \
+-gpu 0 
+</code></pre>
+<p><code>weights</code>参数指定初始化的权重文件，这里用了chuanqi305预训练迭代了73000次的模型；<br><code>gpu</code>参数指定使用的gpu，多个gpu可以用逗号隔开；<br>除此之外，如果需要继续之前中断的训练，还可以指定<code>snapshot</code>参数，<br>比如我想从最近的快照继续训练，可以这样修改<code>train.sh</code>——      </p>
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+latest<span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span> -t snapshot/*.caffemodel <span class="token operator">|</span> <span class="token function">head</span> -n 1<span class="token variable">)</span></span>
+<span class="token keyword">if</span> <span class="token operator">!</span> <span class="token function">test</span> -f example/MobileNetSSD_train.prototxt <span class="token punctuation">;</span><span class="token keyword">then</span>
+    <span class="token keyword">echo</span> <span class="token string">"error: example/MobileNetSSD_train.prototxt does not exist."</span>
+    <span class="token keyword">echo</span> <span class="token string">"please use the gen_model.sh to generate your own model."</span>
+        <span class="token keyword">exit</span> 1
+<span class="token keyword">fi</span>
+<span class="token function">mkdir</span> -p snapshot
+<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/build/tools/caffe train -solver<span class="token operator">=</span><span class="token string">"solver_train.prototxt"</span> \
+-snapshot<span class="token operator">=</span><span class="token variable">$latest</span> \
+-gpu 0 
+</code></pre>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p><strong>合并BN层：</strong><br>训练后会在<code>snapshot</code>目录下产生一个相应的<code>caffemodel</code>文件；<br>按实际情况修改<code>merge_bn.py</code>文件并执行：      </p>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np  
+<span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token keyword">import</span> sys<span class="token punctuation">,</span>os  
+<span class="token punctuation">[</span> <span class="token number">3</span><span class="token punctuation">]</span> caffe_root <span class="token operator">=</span> <span class="token string">'/your/caffe/root/path/'</span>
+<span class="token punctuation">[</span> <span class="token number">4</span><span class="token punctuation">]</span> sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> caffe_root <span class="token operator">+</span> <span class="token string">'python'</span><span class="token punctuation">)</span>  
+<span class="token punctuation">[</span> <span class="token number">5</span><span class="token punctuation">]</span> <span class="token keyword">import</span> caffe  
+<span class="token punctuation">[</span> <span class="token number">6</span><span class="token punctuation">]</span> 
+<span class="token punctuation">[</span> <span class="token number">7</span><span class="token punctuation">]</span> train_proto <span class="token operator">=</span> <span class="token string">'example/MobileNetSSD_train.prototxt'</span>       <span class="token comment" spellcheck="true"># 训练时所用的模型文件</span>
+<span class="token punctuation">[</span> <span class="token number">8</span><span class="token punctuation">]</span> train_model <span class="token operator">=</span> <span class="token string">'mobilenet_iter_73000.caffemodel'</span>           <span class="token comment" spellcheck="true"># 训练后产生的caffemodel文件</span>
+<span class="token punctuation">[</span> <span class="token number">9</span><span class="token punctuation">]</span> 
+<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> deploy_proto <span class="token operator">=</span> <span class="token string">'example/MobileNetSSD_deploy.prototxt'</span>     <span class="token comment" spellcheck="true"># 部署时所要用的模型文件（去掉BN层）</span>
+<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">]</span> save_model <span class="token operator">=</span> <span class="token string">'MobileNetSSD_deploy.caffemodel'</span>             <span class="token comment" spellcheck="true"># 最终生成的caffemodel文件（合并BN层参数）</span>
+</code></pre>
+<p>生成的合并BN层后的caffemodel就在MobileNet-SSD项目的根目录下；<br>编辑<code>example/MobileNetSSD_deploy.prototxt</code>修改输入层，即把</p>
+<pre><code>input: &quot;data&quot;
+input_shape {
+    dim: 1
+    dim: 3
+    dim: 300
+    dim: 300
+}
+</code></pre><p>改为     </p>
+<pre><code>layer {
+    name: &quot;input&quot;
+    type: &quot;Input&quot;
+    top: &quot;data&quot;
+    input_param {
+        shape {
+            dim: 1
+            dim: 3
+            dim: 300
+            dim: 300
+        }
+    }
+}
+</code></pre><p>把 <code>example/MobileNetSSD_deploy.prototxt</code> 和 <code>MobileNetSSD_deploy.caffemodel</code> 拷贝到<strong>Tengine</strong>平台的<code>models</code>目录下，此时运行<code>mobilenet_ssd/MSSD</code>用的就是新训练好的模型啦！      </p>
+<hr>
+<p>本文简单介绍了如何用chuanqi305的MobileNet-SSD训练出自己的网络。<br>下一篇文章《<a href="/2018/08/24/mssd-try2/">基于MobileNet-SSD的目标检测Demo（一） | Hey~YaHei!</a>》将继续尝试根据实际情况删减多余类别进行训练。还可以注意到，        </p>
+<ul>
+<li>chuanqi305的MobileNet-SSD模型除了基础网络部分之外依旧保守的使用了Standard Conv，可以尝试将这一部分也改造为Depthwise Conv；      </li>
+<li>同时，MobileNet-SSD使用带group的caffe原生Conv来进行Depthwise Conv操作，这是非常低效率的，下篇文章还将进一步比较Depthwise Conv和带group的原生Conv的效率。</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/08/24/mssd-try2/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/08/08/MobileNets-SSD/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

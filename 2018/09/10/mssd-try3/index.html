@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            基于MobileNet-SSD的目标检测Demo（二） | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2018/09/10/mssd-try3/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2018/09/10/mssd-try3/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="基于MobileNet-SSD的目标检测Demo（二） | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Sep 10 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Mon Sep 10 2018 20:39:18 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2018/09/10/mssd-try3/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2018/09/10/mssd-try3/index.html",
+    "headline": "基于MobileNet-SSD的目标检测Demo（二）",
+    "datePublished": "Mon Sep 10 2018 00:00:00 GMT+0800",
+    "dateModified": "Mon Sep 10 2018 20:39:18 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程和线程"><span class="post-toc-number">1.</span> <span class="post-toc-text">进程和线程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#背景"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">进程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#线程"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">线程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#处理器调度"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">处理器调度</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拆解目标检测demo"><span class="post-toc-number">2.</span> <span class="post-toc-text">拆解目标检测demo</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                基于MobileNet-SSD的目标检测Demo（二）
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>9月 10, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=基于MobileNet-SSD的目标检测Demo（二）&url=http://hey-yahei.cn/2018/09/10/mssd-try3/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=基于MobileNet-SSD的目标检测Demo（二）&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2018/09/10/mssd-try3/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=31352588&auto=0&height=32"></iframe>      
+
+<p>上一篇文章《<a href="/2018/08/24/mssd-try2/">基于MobileNet-SSD的目标检测Demo（一）</a>》介绍了如何在VOC数据集的基础上削减分类训练出自己的分类器，并且尝试着进一步把SSD改为SSDLite。但作为一个Demo，在RK3399上MobileNet-SSD每秒钟只能检测6-7帧，如果每次检测后再把视频内容展现出来，那么展示的视频也只有6-7帧，这样的展示效果似乎不太好。在本篇文章中，我们将尝试把视频的获取与展示和检测任务分离开来，分别放在两个不同的线程上工作，同时将不同的线程绑定到不同的cpu核上，使得两者的工作不会冲突。         </p>
+<hr>
+<h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><p>进程和线程是操作系统中的两个重要概念。</p>
+<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>考虑在51单片机或是STM32上开发程序，通常这些程序都是串行结构。打个比方，      </p>
+<ol>
+<li>写个数码管的动态驱动，让四个个数码管持续显示数值<code>1217</code>       <pre class=" language-c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">segmentShow</span><span class="token punctuation">(</span><span class="token number">1217</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>用一个超声波模块进行测距，并且用数码管显示结果       <pre class=" language-c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">ultrasonicDataValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">segmentShow</span><span class="token punctuation">(</span><span class="token function">ultrasonicGetDatum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>超声波数量少还没关系，数码管还是能正常驱动，如果多来几个呢？（简化一下，数码管只显示求和的结果）       <pre class=" language-c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">ultrasonicDataValid</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">segmentShow</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token function">ultrasonicgetDatum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+CPU大部分时间都用去等超声波信号了呀，数码管根本就不能驱动起来，那换种方式——      <pre class=" language-c"><code class="language-c">i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+segment<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">ultrasonicDataValid</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        sum<span class="token operator">+</span><span class="token operator">=</span><span class="token function">ultrasonicGetData</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">>=</span><span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        segment<span class="token operator">=</span>sum<span class="token punctuation">;</span>
+        i<span class="token operator">=</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">segmentShow</span><span class="token punctuation">(</span>segment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+这样一来，如果超声波数据无效就继续驱动数码管，不会让CPU空等。    </li>
+<li>那如果不是简单的求和运算呢？        <pre class=" language-c"><code class="language-c">i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+segment<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+ultras<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">ultrasonicDataValid</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ultras<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">ultrasonicGetData</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">>=</span><span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        segment<span class="token operator">=</span><span class="token function">process</span><span class="token punctuation">(</span>ultras<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 变成了其他复杂的运算</span>
+        i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">segmentShow</span><span class="token punctuation">(</span>segment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+万一<code>process</code>函数运算过程很复杂，占用了很多CPU的时间，导致数码管不能及时刷新，那数码管依旧驱动不起来。当然，你可以去推算<code>process</code>运算的复杂程度，人为地去拆解运算，变成<code>process[0]</code>、<code>process[1]</code>、……、<code>process[n]</code>最后再由<code>combine</code>把中间结果整合起来（注意这里要保证每个操作都足够小，不会占用太多运算时间）。     <pre class=" language-c"><code class="language-c">i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+i_process<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+segment<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+ultras<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+tmp<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">ultrasonicDataValid</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        ultras<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">ultrasonicGetData</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">ultrasonicTrig</span><span class="token punctuation">(</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">>=</span><span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        tmp<span class="token punctuation">[</span>i_process<span class="token punctuation">]</span><span class="token operator">=</span>process<span class="token punctuation">[</span>i_process<span class="token punctuation">]</span><span class="token punctuation">(</span>ultras<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i_process<span class="token operator">==</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            segment<span class="token operator">=</span><span class="token function">combine</span><span class="token punctuation">(</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            i_process<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            i_process<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">segmentShow</span><span class="token punctuation">(</span>segment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+看起来确实可行，但是手工拆解运算，这也太恶心了吧，而且这一点都不优雅，万一我程序开发着开发着，这个运算过程发生改变了怎么办？重新拆解运算？那不得炸毛？！     </li>
+<li>那换个思路，我们让两个任务分时进行吧，每个任务轮流运算10ms，超时就带上你的中间结果滚蛋            <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 设置定时器，每10ms中产生一次中断</span>
+<span class="token function">timer_handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 中断处理</span>
+    <span class="token function">save_metadata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 触发中断后保存数据</span>
+    <span class="token function">change_task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 切换到另一个任务</span>
+    <span class="token function">load_metadata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 取出新换入任务的中间数据</span>
+    <span class="token function">task_run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 继续任务</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// ……省略任务定义</span>
+</code></pre>
+这样虽然增加了额外的开销（任务的调度），但形成了一个通用化的任务调度功能，无论具体任务怎么改变都能够适用，减少CPU闲置的机会，可以更好的压榨CPU     </li>
+</ol>
+<p>实际应用当中，我们经常都能碰见这种多任务的情况，人为地分配任务给处理器需要大量的推算和分解，费时费力还不易调整。在这里，我们形成了一个简单的通用的任务调度功能，其实这也是现代操作系统的基本功能之一，对操作系统而言，这些任务就是一个个的“<strong>进程</strong>”，中间数据被称为“<strong>进程上下文</strong>”，而操作系统有一个专门的模块负责“<strong>进程调度</strong>”的工作，这里举例的固定时间片是一种最简单的调度方式。         </p>
+<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p><center><img src="/imgs/mssd-try/try3/process.png" alt="process"></center><br>这是一张进程状态转换图，         </p>
+<ul>
+<li>新建一个进程时处于“<strong>新建态</strong>”，至于加载到“就绪态”还是“就绪/挂起态”就取决于操作系统翻不翻你牌子；      </li>
+<li>“<strong>就绪态</strong>”指的是进程已经就绪的状态，比如进程执行所需要的资源（比如键盘、鼠标、显卡等外设）可用，并且已经被操作系统翻牌，在等待执行的队伍里排着队；   </li>
+<li>“<strong>阻塞态</strong>”指的是进程未就绪，比如执行的所需资源还未到位，进程本身处于等待的状态；      </li>
+<li>“就绪态”和“阻塞态”还分别有对应的“<strong>就绪/挂起态</strong>”和“<strong>阻塞/挂起态</strong>”，这是进程本身处于就绪或未就绪的状态，但操作系统还没有翻他们牌子；     </li>
+<li>“<strong>运行态</strong>”和“<strong>退出态</strong>”不难理解，就是进程运行中的状态，以及进程完全运行结束而将退出的状态         </li>
+</ul>
+<p>进程上下文保存在一个特殊的称为<strong>进程控制块（PCB）</strong>的结构里，其中包含        </p>
+<ol>
+<li>进程标识信息（各种标识符）</li>
+<li>进程状态信息（寄存器、栈指针等）</li>
+<li>进程控制信息（调度和状态的相关信息，比如进程状态、优先级、事件等）     </li>
+</ol>
+<p>常见的用户进程创建有两种，       </p>
+<ol>
+<li>用户运行一个程序，这个程序会放到一个进程上<br>比如直接运行一个编译好的c程序，或是一个python程序；       </li>
+<li>由现有进程派生<br>比如在c程序中调用fork函数来派生出一个新的进程——        <pre class=" language-c"><code class="language-c"> <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+ <span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">int</span> pid<span class="token punctuation">,</span> ppid<span class="token punctuation">;</span>
+     pid <span class="token operator">=</span> <span class="token function">fork</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// fork函数将派生出一个相同的进程，返回新进程的id（对于原始进程返回0）</span>
+     <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"%d first output from both processes\n"</span><span class="token punctuation">,</span> pid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token function">sleep</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>pid <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"%d %s"</span><span class="token punctuation">,</span> pid<span class="token punctuation">,</span> <span class="token string">"This is the child's pid,  output by the parent process\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>pid <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"%d %s"</span><span class="token punctuation">,</span> pid<span class="token punctuation">,</span> <span class="token string">"is printed inside the child process if the fork succeeds \n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         pid <span class="token operator">=</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// getpid函数可以获取当前进程的id</span>
+         <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"%d %s"</span><span class="token punctuation">,</span> pid<span class="token punctuation">,</span> <span class="token string">"is the child pid printed by the child, obtained by getpid()\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token keyword">else</span>
+         <span class="token function">printf</span> <span class="token punctuation">(</span><span class="token string">"fork failed\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+<p>进程间的通信通常由信号量、中断和共享空间实现，简单地说，      </p>
+<ul>
+<li><strong>信号量</strong>，事实上就是一个整型变量。操作系统负责维护一个信号量池，进程可以在该池注册带有名称的信号量，多个进程间可以对同一个信号量进行加法或减法操作（通常称为PV操作，该操作由操作系统管理，不会读写冲突），但减法的结果不能小于0，否则进程就会阻塞挂起，等待有足够的信号量可以减去。信号量有点像资源的指示标志，进程占用资源的时候作减法，释放资源的时候做加法。          </li>
+<li><strong>中断</strong>，是Linux提供的一套机制，事实上<code>kill</code>指令就是对目标进程发送一个特定的中断信号，进程接收到中断之后会跳转到指定的中断处理函数进行处理（当然进程也可以设置忽略某一些信号）。在Linux中可以通过指令<code>kill -l</code>查看可用信号，如下：       <pre class=" language-bash"><code class="language-bash">  <span class="token comment" spellcheck="true"># kill -l</span>
+   1<span class="token punctuation">)</span> SIGHUP       2<span class="token punctuation">)</span> SIGINT       3<span class="token punctuation">)</span> SIGQUIT      4<span class="token punctuation">)</span> SIGILL       5<span class="token punctuation">)</span> SIGTRAP
+   6<span class="token punctuation">)</span> SIGABRT      7<span class="token punctuation">)</span> SIGBUS       8<span class="token punctuation">)</span> SIGFPE       9<span class="token punctuation">)</span> SIGKILL     10<span class="token punctuation">)</span> SIGUSR1
+  11<span class="token punctuation">)</span> SIGSEGV     12<span class="token punctuation">)</span> SIGUSR2     13<span class="token punctuation">)</span> SIGPIPE     14<span class="token punctuation">)</span> SIGALRM     15<span class="token punctuation">)</span> SIGTERM
+  16<span class="token punctuation">)</span> SIGSTKFLT   17<span class="token punctuation">)</span> SIGCHLD     18<span class="token punctuation">)</span> SIGCONT     19<span class="token punctuation">)</span> SIGSTOP     20<span class="token punctuation">)</span> SIGTSTP
+  21<span class="token punctuation">)</span> SIGTTIN     22<span class="token punctuation">)</span> SIGTTOU     23<span class="token punctuation">)</span> SIGURG      24<span class="token punctuation">)</span> SIGXCPU     25<span class="token punctuation">)</span> SIGXFSZ
+  26<span class="token punctuation">)</span> SIGVTALRM   27<span class="token punctuation">)</span> SIGPROF     28<span class="token punctuation">)</span> SIGWINCH    29<span class="token punctuation">)</span> SIGIO       30<span class="token punctuation">)</span> SIGPWR
+  31<span class="token punctuation">)</span> SIGSYS      34<span class="token punctuation">)</span> SIGRTMIN    35<span class="token punctuation">)</span> SIGRTMIN+1  36<span class="token punctuation">)</span> SIGRTMIN+2  37<span class="token punctuation">)</span> SIGRTMIN+3
+  38<span class="token punctuation">)</span> SIGRTMIN+4  39<span class="token punctuation">)</span> SIGRTMIN+5  40<span class="token punctuation">)</span> SIGRTMIN+6  41<span class="token punctuation">)</span> SIGRTMIN+7  42<span class="token punctuation">)</span> SIGRTMIN+8
+  43<span class="token punctuation">)</span> SIGRTMIN+9  44<span class="token punctuation">)</span> SIGRTMIN+10 45<span class="token punctuation">)</span> SIGRTMIN+11 46<span class="token punctuation">)</span> SIGRTMIN+12 47<span class="token punctuation">)</span> SIGRTMIN+13
+  48<span class="token punctuation">)</span> SIGRTMIN+14 49<span class="token punctuation">)</span> SIGRTMIN+15 50<span class="token punctuation">)</span> SIGRTMAX-14 51<span class="token punctuation">)</span> SIGRTMAX-13 52<span class="token punctuation">)</span> SIGRTMAX-12
+  53<span class="token punctuation">)</span> SIGRTMAX-11 54<span class="token punctuation">)</span> SIGRTMAX-10 55<span class="token punctuation">)</span> SIGRTMAX-9  56<span class="token punctuation">)</span> SIGRTMAX-8  57<span class="token punctuation">)</span> SIGRTMAX-7
+  58<span class="token punctuation">)</span> SIGRTMAX-6  59<span class="token punctuation">)</span> SIGRTMAX-5  60<span class="token punctuation">)</span> SIGRTMAX-4  61<span class="token punctuation">)</span> SIGRTMAX-3  62<span class="token punctuation">)</span> SIGRTMAX-2
+  63<span class="token punctuation">)</span> SIGRTMAX-1  64<span class="token punctuation">)</span> SIGRTMAX
+</code></pre>
+  不同的信号有不同的含义，其中10号的<code>SIGUSR1</code>和12号的<code>SIGUSR2</code>是两个可以用户自定义的中断信号。       </li>
+<li><strong>共享空间</strong>，类似进程内部的全局变量，由操作系统负责维护，跟信号量一样各个共享空间拥有自己的标识符，不同进程都可以访问相同的共享空间，但是要注意防止访问冲突（比如一个进程对空间写操作，同时又有另一个进程对空间进程读或写操作），这通常是通过信号量来实现的。并且在共享的过程要注意避免进程死锁（各个进程各自占有一部分但并不充足资源，导致进程同时陷入无休止的阻塞状态），有一些专门用于检测死锁和防止死锁的算法，此处不展开讨论。       </li>
+</ul>
+<p>具体的实现不展开讲，因为我们接下来要用到的是线程而不是进程。<br>如果你对进程间通信感兴趣，也可以参考我本科期间的一个课程作业，一个 <a href="/others/chat.zip">简单的本地聊天程序</a> （具体使用方法参见<code>chat.c</code>里的注释）。      </p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>在单一程序中，进程的粒度似乎还是太大了，如果把一个程序的大任务细分多个小任务，明明大家都是同一个目标，却要使用独立的上下文，上下文频繁地保存和加载，这样似乎不太方便。于是就产生了粒度更小的<strong>线程</strong>，一个进程可以拥有多个线程，这些线程共享一个上下文环境。<br>相比于进程，       </p>
+<ol>
+<li>创建一个线程的速度要快得多；       </li>
+<li>终止一个线程的速度也要快得多；     </li>
+<li>线程间的切换也比进程间切换快，因为不需要交换上下文；     </li>
+<li>线程的通信效率更高，因为线程可以直接通过共享全局变量来实现通信。            </li>
+</ol>
+<p>线程的通信方式比进程简单，这跟进程的“信号量+共享空间”的组合有些类似，      </p>
+<ul>
+<li><strong>线程锁</strong>，类似进程通信中的信号量，但这个变量只有两种状态——“上锁”和“解锁”，用于保护共享的内存空间不会出现读写冲突；     </li>
+<li><strong>全局变量</strong>，类似进程通信中的共享空间。         </li>
+</ul>
+<p>简单的实现方式——      </p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pthread.h></span></span>
+
+pthread_mutex_t mutex<span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// 线程锁（用于保护shared_variable变量）</span>
+<span class="token keyword">int</span> shared_variable <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 线程间共享的全局变量</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">thread_write</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 写入前上锁（如果mutex锁住，则阻塞等待）</span>
+    shared_variable<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 写入后解锁</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">thread_read</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 读取前上锁（如果mutex锁住，则阻塞等待）</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> shared_variable<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 读取后解锁</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    pthread_t id1<span class="token punctuation">,</span> id2<span class="token punctuation">;</span>
+
+    <span class="token function">pthread_mutex_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 初始化线程锁</span>
+
+    <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>id1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> thread_write<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 创建写线程</span>
+    <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>id2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> thread_read<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 创建读线程</span>
+
+    <span class="token function">pthread_join</span><span class="token punctuation">(</span>id1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 阻塞主线程，等待线程id1执行完毕</span>
+    <span class="token function">pthread_join</span><span class="token punctuation">(</span>id2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 阻塞主线程，等待线程id2执行完毕</span>
+
+    <span class="token function">pthread_mutex_destroy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 销毁线程锁</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><code>pthread_create</code>、<code>pthread_join</code>、<code>pthread_mutex_init</code>还可以传递其他参数，其他复杂的用法可以自行查阅资料。     </p>
+<h4 id="处理器调度"><a href="#处理器调度" class="headerlink" title="处理器调度"></a>处理器调度</h4><p>在背景中我们提到了一种规定时间的调度方法，接下来我们也简单介绍其他一些处理器的调度策略。<br>假设有A-E五个进程集合，他们的启动时间和CPU占用总时间如下表所示——       </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">进程</th>
+<th style="text-align:center">启动时间</th>
+<th style="text-align:center">CPU占用总时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">t=0</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">t=2</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">t=4</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">t=6</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">t=8</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>先来先服务策略（First Come First Served, FCFS）</strong><br>非抢占策略，进程依次进入等待队列，先进入队列的先使用CPU，直到进程结束再从队列取出下一个进程。<br><img src="/imgs/mssd-try/try3/process-FCFS.png" alt="process">       </p>
+<p><strong>轮转策略（Round Robin, RR）</strong><br>一种基于时钟的抢占策略，又称为时间片策略，设定一个时间片q，每次从进程等待队列中取出一个进程执行一个时间片，如果没执行完就放回等待队列的队尾，然后从队首取出下一个进程出来执行一个时间片。假设q=1，则<br><img src="/imgs/mssd-try/try3/process-RR.png" alt="process"><br><em>注意：这里假设如果同时发生“中断”和“新服务入队”，则先将新服务入队，再交换进程。</em>             </p>
+<p><strong>最短进程优先（Shortest Process Next, SPN）</strong><br>一种基于预计处理时间的非抢占策略，每次从等待队列中取出预计处理时间最短的进程出来执行，直到进程结束再从进程取出下一个预计处理时间最短的进程。<br><img src="/imgs/mssd-try/try3/process-SPN.png" alt="process">       </p>
+<p><strong>最短剩余时间（Shortest Remaining Time, SRT）</strong><br>一种基于预计剩余处理时间的抢占策略，在SPN的基础上，当有新进程加入队列时总会估算各个进程的剩余时间，然后选择预计剩余处理时间最短的进程出来执行。<br><img src="/imgs/mssd-try/try3/process-SRT.png" alt="process">       </p>
+<p><strong>最高响应比优先（Highest Response Ratio Next, HRRN）</strong><br>非抢占策略，定义一个响应比参数，$响应比=\frac{等待时间+预计处理时间}{预计处理时间}$，每次从等待队列中挑选响应比最高的进程出来执行，直到进程执行结束再从队列中取出下一个响应比最高的进程。<br><img src="/imgs/mssd-try/try3/process-HRRN.png" alt="process">       </p>
+<p><strong>反馈调度</strong><br>可以注意到FCFS、RR策略相对简单，不太能很好的利用CPU，而SPN、SRT、HRRN策略虽然不错，但依赖于处理时间和剩余处理时间的估计，而现实应用中这种时间估计往往是难以实现的。因此产生了反馈调度策略，对进程进行分级（而不是简单的一个等待队列），进程运行时间长调度的优先级越低，每被抢占一次就下降一级。<br><img src="/imgs/mssd-try/try3/process-feedback.png" alt="process"><br>反馈调度往往会和前述的简单调度（比如FCFS或RR）结合使用，同时长进程周转时间会出现惊人的增加的现象（长进程多次被抢占，优先级不断下降，而长期得不到调度），所以会有一些相应的补偿措施（比如设置允许被抢占的次数，每当超过这个次数才会对进程进行降级操作）。           </p>
+<p><strong>实时调度</strong><br>嵌入式开发中还常见一些实时调度策略，与前述策略不同的时间，这些任务有最后期限的限制，这通常分为两种——一种是“硬实时”，要求必须满足最后期限的限制，否则将给系统带来不可接受的破坏或致命的错误（任务超时完成是无意义的）；另一种是“软实时”，希望能够满足最后期限的限制，但并非强制（即使超时完成任务也有意义）。    </p>
+<h3 id="拆解目标检测demo"><a href="#拆解目标检测demo" class="headerlink" title="拆解目标检测demo"></a>拆解目标检测demo</h3><p>前边介绍了进程、线程以及处理器调度的概念和简单的使用，接下来我们考虑如何将我们的目标检测demo拆解成两个线程以提高展示的流畅性。       </p>
+<p>我们的目标是将demo拆解成 <strong>目标检测</strong> 和 <strong>视频流获取和展示</strong> 两个线程，其中需要共享的数据包括 <strong>图像数据</strong> 和 <strong>检测结果</strong> 两部分（为了响应退出按钮，后续的示例程序还会额外增加一个作为退出标志的共享数据），每部分数据需要配备一把线程锁进行读写保护。       </p>
+<p>最终程序如下——<br><strong><em>注意：这里不仅划分了线程，还针对不同线程的任务分配了cpu，比如RK3399上CPU0-3是四个小核，我们用来做视频流的获取、检测结果的标注和视频流的展示；CPU4-5是大核，我们用来做核心的目标检测任务。两个不同的线程使用不同的CPU核，互不冲突，合理地分配CPU对应用程序也会有一定的提升。</em></strong>     </p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iomanip></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"opencv2/imgproc/imgproc.hpp"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"opencv2/highgui/highgui.hpp"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"tengine_c_api.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/time.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"common.hpp"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pthread.h></span>    </span><span class="token comment" spellcheck="true">// 包含线程控制相关的库</span>
+
+<span class="token macro property">#<span class="token directive keyword">define</span> DEF_PROTO "models/MobileNetSSD_deploy.prototxt"</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> DEF_MODEL "models/MobileNetSSD_deploy.caffemodel"</span>
+
+<span class="token keyword">struct</span> Box
+<span class="token punctuation">{</span>
+    <span class="token keyword">float</span> x0<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> y0<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> x1<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> y1<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> class_idx<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> score<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">get_input_data_ssd</span><span class="token punctuation">(</span>cv<span class="token operator">::</span>Mat img<span class="token punctuation">,</span> <span class="token keyword">float</span><span class="token operator">*</span> input_data<span class="token punctuation">,</span> <span class="token keyword">int</span> img_h<span class="token punctuation">,</span>  <span class="token keyword">int</span> img_w<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        std<span class="token operator">::</span>cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"Failed to read image from camera.\n"</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    cv<span class="token operator">::</span><span class="token function">resize</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> img<span class="token punctuation">,</span> cv<span class="token operator">::</span><span class="token function">Size</span><span class="token punctuation">(</span>img_h<span class="token punctuation">,</span> img_w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    img<span class="token punctuation">.</span><span class="token function">convertTo</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> CV_32FC3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> <span class="token operator">*</span>img_data <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span> <span class="token operator">*</span><span class="token punctuation">)</span>img<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> hw <span class="token operator">=</span> img_h <span class="token operator">*</span> img_w<span class="token punctuation">;</span>
+
+    <span class="token keyword">float</span> mean<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">127.5</span><span class="token punctuation">,</span><span class="token number">127.5</span><span class="token punctuation">,</span><span class="token number">127.5</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> h <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> h <span class="token operator">&lt;</span> img_h<span class="token punctuation">;</span> h<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> w <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> w <span class="token operator">&lt;</span> img_w<span class="token punctuation">;</span> w<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> c <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> c<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                input_data<span class="token punctuation">[</span>c <span class="token operator">*</span> hw <span class="token operator">+</span> h <span class="token operator">*</span> img_w <span class="token operator">+</span> w<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0.007843</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">*</span>img_data <span class="token operator">-</span> mean<span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                img_data<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">post_process_ssd</span><span class="token punctuation">(</span>cv<span class="token operator">::</span>Mat img<span class="token punctuation">,</span> <span class="token keyword">float</span> threshold<span class="token punctuation">,</span><span class="token keyword">float</span><span class="token operator">*</span> outdata<span class="token punctuation">,</span><span class="token keyword">int</span> num<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> class_names<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"background"</span><span class="token punctuation">,</span>
+                            <span class="token string">"aeroplane"</span><span class="token punctuation">,</span> <span class="token string">"bicycle"</span><span class="token punctuation">,</span> <span class="token string">"bird"</span><span class="token punctuation">,</span> <span class="token string">"boat"</span><span class="token punctuation">,</span>
+                            <span class="token string">"bottle"</span><span class="token punctuation">,</span> <span class="token string">"bus"</span><span class="token punctuation">,</span> <span class="token string">"car"</span><span class="token punctuation">,</span> <span class="token string">"cat"</span><span class="token punctuation">,</span> <span class="token string">"chair"</span><span class="token punctuation">,</span>
+                            <span class="token string">"cow"</span><span class="token punctuation">,</span> <span class="token string">"diningtable"</span><span class="token punctuation">,</span> <span class="token string">"dog"</span><span class="token punctuation">,</span> <span class="token string">"horse"</span><span class="token punctuation">,</span>
+                            <span class="token string">"motorbike"</span><span class="token punctuation">,</span> <span class="token string">"person"</span><span class="token punctuation">,</span> <span class="token string">"pottedplant"</span><span class="token punctuation">,</span>
+                            <span class="token string">"sheep"</span><span class="token punctuation">,</span> <span class="token string">"sofa"</span><span class="token punctuation">,</span> <span class="token string">"train"</span><span class="token punctuation">,</span> <span class="token string">"tvmonitor"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> raw_h <span class="token operator">=</span> img<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> raw_w <span class="token operator">=</span> img<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>vector<span class="token operator">&lt;</span>Box<span class="token operator">></span> boxes<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> line_width<span class="token operator">=</span>raw_w<span class="token operator">*</span><span class="token number">0.002</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// printf("detect ruesult num: %d \n",num);</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>num<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>outdata<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">>=</span>threshold<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            Box box<span class="token punctuation">;</span>
+            box<span class="token punctuation">.</span>class_idx<span class="token operator">=</span>outdata<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            box<span class="token punctuation">.</span>score<span class="token operator">=</span>outdata<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            box<span class="token punctuation">.</span>x0<span class="token operator">=</span>outdata<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">*</span>raw_w<span class="token punctuation">;</span>
+            box<span class="token punctuation">.</span>y0<span class="token operator">=</span>outdata<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">*</span>raw_h<span class="token punctuation">;</span>
+            box<span class="token punctuation">.</span>x1<span class="token operator">=</span>outdata<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token operator">*</span>raw_w<span class="token punctuation">;</span>
+            box<span class="token punctuation">.</span>y1<span class="token operator">=</span>outdata<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">*</span>raw_h<span class="token punctuation">;</span>
+            boxes<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// printf("%s\t:%.0f%%\n", class_names[box.class_idx], box.score * 100);</span>
+            <span class="token comment" spellcheck="true">// printf("BOX:( %g , %g ),( %g , %g )\n",box.x0,box.y0,box.x1,box.y1);</span>
+        <span class="token punctuation">}</span>
+        outdata<span class="token operator">+</span><span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>boxes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Box box<span class="token operator">=</span>boxes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        cv<span class="token operator">::</span><span class="token function">rectangle</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> cv<span class="token operator">::</span><span class="token function">Rect</span><span class="token punctuation">(</span>box<span class="token punctuation">.</span>x0<span class="token punctuation">,</span> box<span class="token punctuation">.</span>y0<span class="token punctuation">,</span><span class="token punctuation">(</span>box<span class="token punctuation">.</span>x1<span class="token operator">-</span>box<span class="token punctuation">.</span>x0<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>box<span class="token punctuation">.</span>y1<span class="token operator">-</span>box<span class="token punctuation">.</span>y0<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cv<span class="token operator">::</span><span class="token function">Scalar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>line_width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        std<span class="token operator">::</span>ostringstream score_str<span class="token punctuation">;</span>
+        score_str<span class="token operator">&lt;&lt;</span>box<span class="token punctuation">.</span>score<span class="token punctuation">;</span>
+        std<span class="token operator">::</span>string label <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">string</span><span class="token punctuation">(</span>class_names<span class="token punctuation">[</span>box<span class="token punctuation">.</span>class_idx<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">": "</span> <span class="token operator">+</span> score_str<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> baseLine <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        cv<span class="token operator">::</span>Size label_size <span class="token operator">=</span> cv<span class="token operator">::</span><span class="token function">getTextSize</span><span class="token punctuation">(</span>label<span class="token punctuation">,</span> cv<span class="token operator">::</span>FONT_HERSHEY_SIMPLEX<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>baseLine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cv<span class="token operator">::</span><span class="token function">rectangle</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> cv<span class="token operator">::</span><span class="token function">Rect</span><span class="token punctuation">(</span>cv<span class="token operator">::</span><span class="token function">Point</span><span class="token punctuation">(</span>box<span class="token punctuation">.</span>x0<span class="token punctuation">,</span>box<span class="token punctuation">.</span>y0<span class="token operator">-</span> label_size<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                  cv<span class="token operator">::</span><span class="token function">Size</span><span class="token punctuation">(</span>label_size<span class="token punctuation">.</span>width<span class="token punctuation">,</span> label_size<span class="token punctuation">.</span>height <span class="token operator">+</span> baseLine<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                      cv<span class="token operator">::</span><span class="token function">Scalar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CV_FILLED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cv<span class="token operator">::</span><span class="token function">putText</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> label<span class="token punctuation">,</span> cv<span class="token operator">::</span><span class="token function">Point</span><span class="token punctuation">(</span>box<span class="token punctuation">.</span>x0<span class="token punctuation">,</span> box<span class="token punctuation">.</span>y0<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    cv<span class="token operator">::</span>FONT_HERSHEY_SIMPLEX<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> cv<span class="token operator">::</span><span class="token function">Scalar</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">float</span> outdata<span class="token punctuation">[</span><span class="token number">15</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 线程间共享变量——检测结果</span>
+cv<span class="token operator">::</span>Mat frame<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 线程间共享变量——图像数据</span>
+<span class="token keyword">int</span> detect_num<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 线程间共享变量——检测结果</span>
+<span class="token keyword">bool</span> quit_flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 程序间共享变量——退出标志</span>
+graph_t graph<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 与共享变量对应的线程锁</span>
+pthread_mutex_t m_frame<span class="token punctuation">,</span> m_outdata<span class="token punctuation">,</span> m_quit<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">th_vedio</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 将线程绑定到cpu0-3上</span>
+    cpu_set_t mask<span class="token punctuation">;</span>
+    <span class="token function">CPU_ZERO</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">CPU_SET</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">CPU_SET</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">CPU_SET</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">CPU_SET</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">sched_setaffinity</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>cpu_set_t<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error: setaffinity()\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    cv<span class="token operator">::</span>VideoCapture <span class="token function">capture</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    capture<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>CV_CAP_PROP_FRAME_WIDTH<span class="token punctuation">,</span> <span class="token number">960</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    capture<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>CV_CAP_PROP_FRAME_HEIGHT<span class="token punctuation">,</span> <span class="token number">540</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cv<span class="token operator">::</span><span class="token function">namedWindow</span><span class="token punctuation">(</span><span class="token string">"MSSD"</span><span class="token punctuation">,</span> CV_WINDOW_NORMAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cvResizeWindow</span><span class="token punctuation">(</span><span class="token string">"MSSD"</span><span class="token punctuation">,</span> <span class="token number">1280</span><span class="token punctuation">,</span> <span class="token number">720</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        capture <span class="token operator">>></span> frame<span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        <span class="token keyword">float</span> show_threshold<span class="token operator">=</span><span class="token number">0.25</span><span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_outdata<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 上锁</span>
+        <span class="token function">post_process_ssd</span><span class="token punctuation">(</span>frame<span class="token punctuation">,</span> show_threshold<span class="token punctuation">,</span> outdata<span class="token punctuation">,</span> detect_num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_outdata<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 解锁</span>
+        cv<span class="token operator">::</span><span class="token function">imshow</span><span class="token punctuation">(</span><span class="token string">"MSSD"</span><span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 解锁</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> cv<span class="token operator">::</span><span class="token function">waitKey</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'q'</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_quit<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 上锁</span>
+            quit_flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_quit<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 解锁</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">usleep</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 注意必须sleep（不然太过频繁地取帧会影响检测线程的调度）</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">th_detect</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 将该线程绑定到cpu4-5上</span>
+    cpu_set_t mask<span class="token punctuation">;</span>
+    <span class="token function">CPU_ZERO</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">CPU_SET</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">CPU_SET</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">sched_setaffinity</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>cpu_set_t<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>mask<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error: setaffinity()\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// input</span>
+    <span class="token keyword">int</span> img_h <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> img_w <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> img_size <span class="token operator">=</span> img_h <span class="token operator">*</span> img_w <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> <span class="token operator">*</span>input_data <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span> <span class="token operator">*</span> img_size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> node_idx<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> tensor_idx<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    tensor_t input_tensor <span class="token operator">=</span> <span class="token function">get_graph_input_tensor</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> node_idx<span class="token punctuation">,</span> tensor_idx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">check_tensor_valid</span><span class="token punctuation">(</span>input_tensor<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Get input node failed : node_idx: %d, tensor_idx: %d\n"</span><span class="token punctuation">,</span>node_idx<span class="token punctuation">,</span>tensor_idx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> dims<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> img_h<span class="token punctuation">,</span> img_w<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">set_tensor_shape</span><span class="token punctuation">(</span>input_tensor<span class="token punctuation">,</span> dims<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">prerun_graph</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> repeat_count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>repeat <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"REPEAT_COUNT"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>repeat<span class="token punctuation">)</span>
+        repeat_count <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">strtoul</span><span class="token punctuation">(</span>repeat<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> out_dim<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    tensor_t out_tensor<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_quit<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 上锁</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>quit_flag<span class="token punctuation">)</span>  <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_quit<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 解锁</span>
+
+        <span class="token keyword">struct</span> timeval t0<span class="token punctuation">,</span> t1<span class="token punctuation">;</span>
+        <span class="token keyword">float</span> total_time <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">.</span>f<span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> repeat_count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 上锁</span>
+            <span class="token function">get_input_data_ssd</span><span class="token punctuation">(</span>frame<span class="token punctuation">,</span> input_data<span class="token punctuation">,</span> img_h<span class="token punctuation">,</span>  img_w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 解锁</span>
+
+            <span class="token function">gettimeofday</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>t0<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">set_tensor_buffer</span><span class="token punctuation">(</span>input_tensor<span class="token punctuation">,</span> input_data<span class="token punctuation">,</span> img_size <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">run_graph</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token function">gettimeofday</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>t1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">float</span> mytime <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>t1<span class="token punctuation">.</span>tv_sec <span class="token operator">*</span> <span class="token number">1000000</span> <span class="token operator">+</span> t1<span class="token punctuation">.</span>tv_usec<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>t0<span class="token punctuation">.</span>tv_sec <span class="token operator">*</span> <span class="token number">1000000</span> <span class="token operator">+</span> t0<span class="token punctuation">.</span>tv_usec<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+            total_time <span class="token operator">+</span><span class="token operator">=</span> mytime<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"--------------------------------------\n"</span><span class="token punctuation">;</span>
+        std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"repeat "</span> <span class="token operator">&lt;&lt;</span> repeat_count <span class="token operator">&lt;&lt;</span> <span class="token string">" times, avg time per run is "</span> <span class="token operator">&lt;&lt;</span> total_time <span class="token operator">/</span> repeat_count <span class="token operator">&lt;&lt;</span> <span class="token string">" ms\n"</span><span class="token punctuation">;</span>
+
+        out_tensor <span class="token operator">=</span> <span class="token function">get_graph_output_tensor</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">get_tensor_shape</span><span class="token punctuation">(</span> out_tensor<span class="token punctuation">,</span> out_dim<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_outdata<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 上锁</span>
+        detect_num <span class="token operator">=</span> out_dim<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">15</span> <span class="token operator">?</span> out_dim<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">;</span>
+        <span class="token function">memcpy</span><span class="token punctuation">(</span>outdata<span class="token punctuation">,</span> <span class="token function">get_tensor_buffer</span><span class="token punctuation">(</span>out_tensor<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token operator">*</span>detect_num<span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_outdata<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 解锁</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">free</span><span class="token punctuation">(</span>input_data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">const</span> std<span class="token operator">::</span>string root_path <span class="token operator">=</span> <span class="token function">get_root_path</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>string proto_file<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>string model_file<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> res<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span> <span class="token punctuation">(</span> res<span class="token operator">=</span><span class="token function">getopt</span><span class="token punctuation">(</span>argc<span class="token punctuation">,</span>argv<span class="token punctuation">,</span><span class="token string">"p:m:h"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">'p'</span><span class="token operator">:</span>
+                proto_file<span class="token operator">=</span>optarg<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'m'</span><span class="token operator">:</span>
+                model_file<span class="token operator">=</span>optarg<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">'h'</span><span class="token operator">:</span>
+                std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"[Usage]: "</span> <span class="token operator">&lt;&lt;</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" [-h]\n"</span>
+                          <span class="token operator">&lt;&lt;</span> <span class="token string">"   [-p proto_file] [-m model_file]\n"</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>model_name <span class="token operator">=</span> <span class="token string">"mssd_300"</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>proto_file<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        proto_file <span class="token operator">=</span> DEF_PROTO<span class="token punctuation">;</span>
+        std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span> <span class="token string">"proto file not specified,using "</span><span class="token operator">&lt;&lt;</span> proto_file <span class="token operator">&lt;&lt;</span> <span class="token string">" by default\n"</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>model_file<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        model_file <span class="token operator">=</span> DEF_MODEL<span class="token punctuation">;</span>
+        std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span> <span class="token string">"model file not specified,using "</span><span class="token operator">&lt;&lt;</span> model_file <span class="token operator">&lt;&lt;</span> <span class="token string">" by default\n"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// init tengine</span>
+    <span class="token function">init_tengine_library</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">request_tengine_version</span><span class="token punctuation">(</span><span class="token string">"0.1"</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">load_model</span><span class="token punctuation">(</span>model_name<span class="token punctuation">,</span> <span class="token string">"caffe"</span><span class="token punctuation">,</span> proto_file<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> model_file<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"load model done!\n"</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// create graph</span>
+    graph <span class="token operator">=</span> <span class="token function">create_runtime_graph</span><span class="token punctuation">(</span><span class="token string">"graph"</span><span class="token punctuation">,</span> model_name<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">check_graph_valid</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"create graph0 failed\n"</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 初始化线程锁</span>
+    <span class="token function">pthread_mutex_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_mutex_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_outdata<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_mutex_init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_quit<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 创建线程</span>
+    pthread_t id1<span class="token punctuation">,</span> id2<span class="token punctuation">;</span>
+    <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>id1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> th_vedio<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>id2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> th_detect<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 等待线程</span>
+    <span class="token function">pthread_join</span><span class="token punctuation">(</span>id1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_join</span><span class="token punctuation">(</span>id2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 销毁线程锁</span>
+    <span class="token function">pthread_mutex_destroy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_frame<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_mutex_destroy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_outdata<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">pthread_mutex_destroy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>m_quit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">postrun_graph</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">destroy_runtime_graph</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">remove_model</span><span class="token punctuation">(</span>model_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<p>在本文中，我们将尝试把视频的获取与展示和检测任务分离开来，分别放在两个不同的线程上工作，同时将不同的线程绑定到不同的cpu核上，使得两者的工作不会冲突。但在实际使用中你会发现，模型对于小目标的检测能力还是有所欠缺，下一篇文章我们将探究如何改善检测模型的小目标检测能力。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/08/24/mssd-try2/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

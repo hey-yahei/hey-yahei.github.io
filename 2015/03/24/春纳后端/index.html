@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            俱乐部春纳网页后端小结 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2015/03/24/春纳后端/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2015/03/24/春纳后端/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="俱乐部春纳网页后端小结 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Tue Mar 24 2015 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2015/03/24/春纳后端/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2015/03/24/春纳后端/index.html",
+    "headline": "俱乐部春纳网页后端小结",
+    "datePublished": "Tue Mar 24 2015 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ubuntu下开发环境的搭建"><span class="post-toc-number">1.</span> <span class="post-toc-text">ubuntu下开发环境的搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#php-apache-mysql-安装"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">php + apache + mysql 安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#apache的使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">apache的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql的使用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">mysql的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#登录前"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">登录前</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#登录后"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">登录后</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#用户相关操作、创建数据库（root）"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">用户相关操作、创建数据库（root）</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#切换数据库："><span class="post-toc-number">1.3.2.2.</span> <span class="post-toc-text">切换数据库：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#显示数据："><span class="post-toc-number">1.3.2.3.</span> <span class="post-toc-text">显示数据：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查看数据库："><span class="post-toc-number">1.3.2.4.</span> <span class="post-toc-text">查看数据库：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phpmyadmin的使用"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">phpmyadmin的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装："><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">安装：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置："><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">配置：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CI框架"><span class="post-toc-number">2.</span> <span class="post-toc-text">CI框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装：-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计模式：MVC（Model-View-Controller）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">设计模式：MVC（Model - View - Controller）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型（Model）：处理页面和数据库的交互"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">模型（Model）：处理页面和数据库的交互</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据库配置：-application-config-database-php文件"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">数据库配置：.../application/config/database.php文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#形式"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">形式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#获取数据库内容"><span class="post-toc-number">2.2.1.3.</span> <span class="post-toc-text">获取数据库内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#获取整张表"><span class="post-toc-number">2.2.1.3.1.</span> <span class="post-toc-text">获取整张表</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#获取某一行的内容"><span class="post-toc-number">2.2.1.3.2.</span> <span class="post-toc-text">获取某一行的内容</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#向数据库写入内容"><span class="post-toc-number">2.2.1.4.</span> <span class="post-toc-text">向数据库写入内容</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#视图（View）：要展示的静态页面"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">视图（View）：要展示的静态页面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#html-gt-php改写"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">html -&gt; php改写</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#控制器（Controller）：包含各种方法"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">控制器（Controller）：包含各种方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#形式-1"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">形式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#传递的数据在视图文件上的访问"><span class="post-toc-number">2.2.3.2.</span> <span class="post-toc-text">传递的数据在视图文件上的访问</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#调用模型上的方法："><span class="post-toc-number">2.2.3.3.</span> <span class="post-toc-text">调用模型上的方法：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#表单数据的传递"><span class="post-toc-number">2.2.3.4.</span> <span class="post-toc-text">表单数据的传递</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提交到服务器"><span class="post-toc-number">3.</span> <span class="post-toc-text">提交到服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#登录："><span class="post-toc-number">3.1.</span> <span class="post-toc-text">登录：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器与本地文件的传输"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">服务器与本地文件的传输:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网站的目录："><span class="post-toc-number">3.3.</span> <span class="post-toc-text">网站的目录：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭ci框架的debug模式"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">关闭ci框架的debug模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#github"><span class="post-toc-number">4.</span> <span class="post-toc-text">github</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#github在Windows上有客户端，直接使用就好"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">github在Windows上有客户端，直接使用就好</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在linux上需要用git"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">在linux上需要用git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装git："><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">安装git：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置git："><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">配置git：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#本地创建ssh-key："><span class="post-toc-number">4.2.2.1.</span> <span class="post-toc-text">本地创建ssh key：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#在github中添加ssh-key："><span class="post-toc-number">4.2.2.2.</span> <span class="post-toc-text">在github中添加ssh key：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设置username和email"><span class="post-toc-number">4.2.2.3.</span> <span class="post-toc-text">设置username和email</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设置要git的目录"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">设置要git的目录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#使用（简单的git命令）"><span class="post-toc-number">4.2.3.1.</span> <span class="post-toc-text">使用（简单的git命令）</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#附：ubuntu下的sublime-text"><span class="post-toc-number">5.</span> <span class="post-toc-text">附：ubuntu下的sublime text</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装：sudo-apt-get-install-sublime-text"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">安装：sudo apt-get install sublime-text</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中文支持"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">中文支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Markdown支持"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">Markdown支持</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最后"><span class="post-toc-number">6.</span> <span class="post-toc-text">最后</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                俱乐部春纳网页后端小结
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>3月 24, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=俱乐部春纳网页后端小结&url=http://hey-yahei.cn/2015/03/24/春纳后端/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=俱乐部春纳网页后端小结&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2015/03/24/春纳后端/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="ubuntu下开发环境的搭建"><a href="#ubuntu下开发环境的搭建" class="headerlink" title="ubuntu下开发环境的搭建"></a>ubuntu下开发环境的搭建</h2><h3 id="php-apache-mysql-安装"><a href="#php-apache-mysql-安装" class="headerlink" title="php + apache + mysql 安装"></a>php + apache + mysql 安装</h3><pre><code>sudo apt-get install apache2
+sudo apt-get install libapache2-mod-php5 php5    
+sudo apt-get install mysql-server mysql-client
+</code></pre><p>参考资料：<a href="http://www.cnblogs.com/lynch_world/archive/2012/01/06/2314717.html" target="_blank" rel="noopener">ubuntu下安装Apache+PHP+Mysql</a>   </p>
+<h3 id="apache的使用"><a href="#apache的使用" class="headerlink" title="apache的使用"></a>apache的使用</h3><p>把文件放到<code>/var/www/html</code>目录下，通过<code>localhost</code>访问<br>一般情况下apache是自动打开的，手动开启关闭重启的命令如下：          </p>
+<pre><code>apachectl -k start          
+apachectl -k stop       
+apachectl -k restart       
+</code></pre><h3 id="mysql的使用"><a href="#mysql的使用" class="headerlink" title="mysql的使用"></a>mysql的使用</h3><h4 id="登录前"><a href="#登录前" class="headerlink" title="登录前"></a>登录前</h4><p>登录：<code>mysql [-h 服务器] -u 用户名 -p</code>然后按照提示输入密码<br>修改密码：<code>mysqladmin -u 用户名 password &quot;新密码&quot;</code>然后按照提示输入原密码      </p>
+<h4 id="登录后"><a href="#登录后" class="headerlink" title="登录后"></a>登录后</h4><h5 id="用户相关操作、创建数据库（root）"><a href="#用户相关操作、创建数据库（root）" class="headerlink" title="用户相关操作、创建数据库（root）"></a>用户相关操作、创建数据库（root）</h5><p>创建用户：<code>insert into mysql.user(Host, User, Password) values(&#39;主机&#39;, &#39;用户名&#39;, password(&#39;密码&#39;));</code>          </p>
+<ul>
+<li>本地访问的主机是localhost， 如果要远程通过phpmyadmin管理数据库，那么主机是%*<br>创建数据库：<code>creat database 数据库名;</code><br>用户授权：<code>grant [select, update, insert, delect, all] on 数据库.表 to &#39;用户名&#39;@‘主机名’ identified by &quot;密码&quot;;</code>       </li>
+<li>如果是所有数据库或所有表，用*代替*         </li>
+<li>授权后刷新系统权限表：<code>flush privileges;</code>*<br>删除用户：<code>delect from user where User=&#39;用户名&#39; and Host=&#39;主机名&#39;;</code>;<br>删除后刷新系统权限表：<code>flush privileges;</code><br>删除数据库：<code>drop database 数据库名;</code><br>修改用户密码：<code>update mysql.user set password=password(&#39;新密码&#39;) where User=&#39;用户名&#39; and Host=&#39;主机名&#39;;</code><br>修改后刷新系统权限表：<code>flush privileges;</code>       </li>
+</ul>
+<h5 id="切换数据库："><a href="#切换数据库：" class="headerlink" title="切换数据库："></a>切换数据库：</h5><pre><code>use 数据库名;
+</code></pre><h5 id="显示数据："><a href="#显示数据：" class="headerlink" title="显示数据："></a>显示数据：</h5><pre><code>select 列 from 表名;
+</code></pre><p>若显示全部内容，列使用*      </p>
+<h5 id="查看数据库："><a href="#查看数据库：" class="headerlink" title="查看数据库："></a>查看数据库：</h5><pre><code>show databases;
+</code></pre><p><strong>数据库中的charset尽量使用utf8,而不是gbk，防止暴露服务器信息</strong><br>参考资料：<a href="http://www.2cto.com/Article/201310/247718.html" target="_blank" rel="noopener">GBK字符编码（字符集）缺陷导致web安全漏洞</a>【虽然看不太懂】           </p>
+<h3 id="phpmyadmin的使用"><a href="#phpmyadmin的使用" class="headerlink" title="phpmyadmin的使用"></a>phpmyadmin的使用</h3><h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><p>从官网下载后解压到<code>/var/www/html</code>，通过<code>localhost</code>访问      </p>
+<h4 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h4><p>如果本地访问，直接使用就好<br>如果要连接到远程服务器的mysql，那么打开目录下的<code>libraries/config.defaut.php</code>文件，找到<code>$cfg[&#39;Servers&#39;][$i][&#39;host&#39;]</code>将值改为相应的服务器</p>
+<h2 id="CI框架"><a href="#CI框架" class="headerlink" title="CI框架"></a>CI框架</h2><h3 id="安装：-1"><a href="#安装：-1" class="headerlink" title="安装："></a>安装：</h3><p>从官网下载后解压到<code>/var/www/html</code>目录下即可<br>通过<code>localhost/...../index.php/..控制器../..方法../..参数..</code>访问<br>相关子目录：            </p>
+<blockquote>
+<p><code>application</code>：用户主要目录（主要是views, controllers, models, config）<br><code>system</code>：框架的系统目录，一般不用管<br><code>user_guide</code>：用户手册，英文版，不需要可以删除         </p>
+</blockquote>
+<h3 id="设计模式：MVC（Model-View-Controller）"><a href="#设计模式：MVC（Model-View-Controller）" class="headerlink" title="设计模式：MVC（Model - View - Controller）"></a>设计模式：MVC（Model - View - Controller）</h3><h4 id="模型（Model）：处理页面和数据库的交互"><a href="#模型（Model）：处理页面和数据库的交互" class="headerlink" title="模型（Model）：处理页面和数据库的交互"></a>模型（Model）：处理页面和数据库的交互</h4><h5 id="数据库配置：-application-config-database-php文件"><a href="#数据库配置：-application-config-database-php文件" class="headerlink" title="数据库配置：.../application/config/database.php文件"></a>数据库配置：<code>.../application/config/database.php</code>文件</h5><p><code>$db[&#39;default&#39;][&#39;hostname&#39;]</code>：主机名<br><code>$db[&#39;default&#39;][&#39;username&#39;]</code>：mysql用户名<br><code>$db[&#39;default&#39;][&#39;password&#39;]</code>：mysql密码<br><code>$db[&#39;default&#39;][&#39;database&#39;]</code>：所用的数据库     </p>
+<h5 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h5><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?</span> php          
+    <span class="token keyword">Class</span> 模型名（首字母大写，与文件名相同，单文件名全小写） <span class="token keyword">extends</span> <span class="token class-name">CI_model</span>    
+    <span class="token punctuation">{</span>        
+        <span class="token keyword">public</span> <span class="token keyword">function</span> 方法名<span class="token punctuation">(</span><span class="token punctuation">)</span>        
+        <span class="token punctuation">{</span>            
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        
+        <span class="token punctuation">}</span>    
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>特殊方法：__construct()，构建函数，当模型被调用时，首先自动调用这个函数<br>通常要在构建函数中载入数据库<code>$this-&gt;load-&gt;database();</code>      </p>
+<h5 id="获取数据库内容"><a href="#获取数据库内容" class="headerlink" title="获取数据库内容"></a>获取数据库内容</h5><h6 id="获取整张表"><a href="#获取整张表" class="headerlink" title="获取整张表"></a>获取整张表</h6><p><code>$query=$this-&gt;db-&gt;get(&#39;表名&#39;);</code>返回Active Record类并且赋给变量$query<br><code>$query-&gt;result_array();</code>调用类的result_array()方法，返回一个包含各行内容的字典，可以在视图上通过foreach分别取出每一行<br><em>对于每一行，是一个以字段名为索引的字典</em></p>
+<h6 id="获取某一行的内容"><a href="#获取某一行的内容" class="headerlink" title="获取某一行的内容"></a>获取某一行的内容</h6><p><code>$query=$this-&gt;db-&gt;get_where(&#39;表名&#39;, 筛选条件);</code>筛选条件是一个{‘字段名’=&gt;值}的数组<br><code>$query-&gt;row_array();</code>调用类的row_array()方法，返回一个包含匹配行的内容的字典        </p>
+<h5 id="向数据库写入内容"><a href="#向数据库写入内容" class="headerlink" title="向数据库写入内容"></a>向数据库写入内容</h5><p><code>$this-&gt;input-&amp;gt;post(&#39;提交内容的name&#39;);</code>返回表当内对应name的value<br><code>$this-&gt;db-&gt;insert(&#39;表名&#39;, 内容)</code>写入数据库，内容是一个字典       </p>
+<h4 id="视图（View）：要展示的静态页面"><a href="#视图（View）：要展示的静态页面" class="headerlink" title="视图（View）：要展示的静态页面"></a>视图（View）：要展示的静态页面</h4><p>可以把一个页面写成多个文件，显示时再拼接起来<br><em>比如可以创建一个templates文件夹，里面放一些各个网页通用头和尾</em><br>必须是php文件      </p>
+<h5 id="html-gt-php改写"><a href="#html-gt-php改写" class="headerlink" title="html -&gt; php改写"></a>html -&gt; php改写</h5><p>连接的js和css等文件，还有图片等资源不能放在application目录下<br>需要在根目录下创建一个文件夹，把这些资源放进去<br>主要是修改连接的js和csss等文件、图片等资源的文件的地址          </p>
+<ul>
+<li>可以借助url的辅助函数<br>  需要在方法中加入<code>$this-&gt;load-&gt;helper(&#39;url&#39;);</code>载入辅助函数       <pre><code>  把根目录或者资源的目录写入`..../application/config/config.php`的`$config[&#39;base_url&#39;]`         
+</code></pre>  利用<code>base_url()</code>函数          <pre><code>  *如config中的base_url设置为localhost/join/resources*          
+  *那么，base_url(‘image/background.jpg’)就会返回字符串loacalhost/join/resources/image/background.jpg*          
+</code></pre></li>
+</ul>
+<p>js，css文件内不能写php语句，如果需要使用这个函数，可以把内容直接复制到页面上，而不通过连接<br><strong>注意：改写的时候要注意不要不小心把原文件上的括号、分号给删掉了</strong>       </p>
+<h4 id="控制器（Controller）：包含各种方法"><a href="#控制器（Controller）：包含各种方法" class="headerlink" title="控制器（Controller）：包含各种方法"></a>控制器（Controller）：包含各种方法</h4><h5 id="形式-1"><a href="#形式-1" class="headerlink" title="形式"></a>形式</h5><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?</span> php        
+    <span class="token keyword">class</span> 控制器名（首字母大写，与文件名相同，但文件名全小写） <span class="token keyword">extends</span> <span class="token class-name">CI_controller</span>    
+    <span class="token punctuation">{</span>        
+        <span class="token keyword">public</span> <span class="token keyword">function</span> 方法名<span class="token punctuation">(</span><span class="token punctuation">)</span>        
+        <span class="token punctuation">{</span>            
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        
+        <span class="token punctuation">}</span>    
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>特殊方法：<strong>construct()，构建函数<br>通常需要加入`parents::</strong>construct();<code>，……并不知道有什么卵用，照搬=。=</code>$this-&gt;load-&gt;model(‘模型名’);<code>载入模型</code>$this-&gt;load-&gt;view(‘视图文件名’, $data);`：不是只显示这个视图的内容，而是把这个文件的 内容写到当前方法的页面上，并且把变量$data内的数据传递到这个视图文件上           </p>
+<h5 id="传递的数据在视图文件上的访问"><a href="#传递的数据在视图文件上的访问" class="headerlink" title="传递的数据在视图文件上的访问"></a>传递的数据在视图文件上的访问</h5><p>如<code>$data[&#39;news&#39;][&#39;title&#39;]</code><br>在视图上通过<code>$news[&#39;title]</code>来访问这个变量           </p>
+<h5 id="调用模型上的方法："><a href="#调用模型上的方法：" class="headerlink" title="调用模型上的方法："></a>调用模型上的方法：</h5><p><code>$this-&gt;模型名-&gt;方法名；</code>        </p>
+<h5 id="表单数据的传递"><a href="#表单数据的传递" class="headerlink" title="表单数据的传递"></a>表单数据的传递</h5><p>controllers要有一个方法来接受表单的数据<br>form的action应指向这个方法<br>这个方法用来处理表单传递的数据，并且调用模型的方法与数据库进行交互           </p>
+<h2 id="提交到服务器"><a href="#提交到服务器" class="headerlink" title="提交到服务器"></a>提交到服务器</h2><h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><p><code>ssh 用户名@服务器</code>，然后输入密码        </p>
+<h3 id="服务器与本地文件的传输"><a href="#服务器与本地文件的传输" class="headerlink" title="服务器与本地文件的传输:"></a>服务器与本地文件的传输:</h3><p>scp命令，用法与cp命令相似<br>比如上传本地<code>~/home.php</code>到服务器的主目录下:<br><code>scp ~/home.php 用户名@服务器:home.php</code></p>
+<h3 id="网站的目录："><a href="#网站的目录：" class="headerlink" title="网站的目录："></a>网站的目录：</h3><p>一般来说，<br>对于nginx，放在<code>/usr/share/nginx/html/</code>目录下<br>对于apache，放在<code>/var/www/html/</code>目录下         </p>
+<p>nginx的配置挺复杂的，还有待以后进一步的学习</p>
+<h3 id="关闭ci框架的debug模式"><a href="#关闭ci框架的debug模式" class="headerlink" title="关闭ci框架的debug模式"></a>关闭ci框架的debug模式</h3><p><strong>网站挂上去后最好关闭debug模式（防止程序信息暴露在前台）</strong><br><code>..../application/config/database.php</code>中的<code>$db[&#39;default&#39;][&#39;db_debug&#39;]</code>修改为FALSE即可</p>
+<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p>其实一开始写后端的时候并没有git= =时间紧啊，没时间给我慢慢玩<br>不过网站挂上去，在写查重和改写雨停的优化版的时候就玩了玩git          </p>
+<h3 id="github在Windows上有客户端，直接使用就好"><a href="#github在Windows上有客户端，直接使用就好" class="headerlink" title="github在Windows上有客户端，直接使用就好"></a>github在Windows上有客户端，直接使用就好</h3><h3 id="在linux上需要用git"><a href="#在linux上需要用git" class="headerlink" title="在linux上需要用git"></a>在linux上需要用git</h3><h4 id="安装git："><a href="#安装git：" class="headerlink" title="安装git："></a>安装git：</h4><p><code>sudo apt-get install git</code></p>
+<h4 id="配置git："><a href="#配置git：" class="headerlink" title="配置git："></a>配置git：</h4><h5 id="本地创建ssh-key："><a href="#本地创建ssh-key：" class="headerlink" title="本地创建ssh key："></a>本地创建ssh key：</h5><p><code>ssh-keygen -t rsa -C &quot;邮箱&quot;</code>，会提示确认路径和密码，一路回车默认即可          </p>
+<h5 id="在github中添加ssh-key："><a href="#在github中添加ssh-key：" class="headerlink" title="在github中添加ssh key："></a>在github中添加ssh key：</h5><p>进入Account Settings，选择SSH Key，Add SSH Key，title随便填，key复制粘贴文件<code>~/.ssh/id_rsa.pub</code>的全部内容</p>
+<h5 id="设置username和email"><a href="#设置username和email" class="headerlink" title="设置username和email"></a>设置username和email</h5><p>每次commit都会记录这两个信息<br><code>git config --global user.name=&quot;用户名&quot;</code><br><code>git config --global user.email=&quot;邮箱&quot;</code>           </p>
+<h4 id="设置要git的目录"><a href="#设置要git的目录" class="headerlink" title="设置要git的目录"></a>设置要git的目录</h4><p>进入要git的目录<br>初始化：<code>git init</code><br>添加远程地址：<code>git remote add origin git@github.com:github用户名/远程仓库名.git</code>            </p>
+<h5 id="使用（简单的git命令）"><a href="#使用（简单的git命令）" class="headerlink" title="使用（简单的git命令）"></a>使用（简单的git命令）</h5><p><code>git clone &lt;ADDRESS&gt;</code>：克隆代码库，可以是本地代码库，也可以是远程代码库（USERNAME@HOST:PATH）<br><code>git add &lt;-i&gt; &lt;FILE&gt; ....</code>：【-i，交互式】添加文件到代码库中<br><code>git rm &lt;FILE&gt;</code>：将文件移出代码库<br><code>git commit -m &lt;MESSAGE&gt;</code>：提交更改，将修改的文件提交到缓冲区<br><code>git push &lt;ORIGIN&gt; &lt;BRANCH&gt;</code>：推送代码库到远程代码库<br><code>git pull</code>：从远程同步代码库到本地并合并<br><code>git branch</code>：查看当前分支<br><code>git branch &lt;BRANCH&gt;</code>：创建分支（主分支为Master）<br><code>git branch -d &lt;BRANCH&gt;</code>：删除分支<br><code>git checkout &lt;BRANCH&gt;</code>：切换到指定分支<br><code>git checkout -- &lt;FILE&gt;</code>：从缓冲区替换本地改动<br><code>git log</code>：查看提交的历史记录<br><code>git status</code>：显示当前的修改状态<br><code>git reset &lt;LOG&gt;</code>：恢复到历史版本<br>参考资料：<br><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git - 简易指南</a><br><a href="http://www.eoeandroid.com/thread-274556-1-1.html" target="_blank" rel="noopener">【Github教程】史上最全github使用方法：github入门到精通</a></p>
+<h2 id="附：ubuntu下的sublime-text"><a href="#附：ubuntu下的sublime-text" class="headerlink" title="附：ubuntu下的sublime text"></a>附：ubuntu下的sublime text</h2><h3 id="安装：sudo-apt-get-install-sublime-text"><a href="#安装：sudo-apt-get-install-sublime-text" class="headerlink" title="安装：sudo apt-get install sublime-text"></a>安装：<code>sudo apt-get install sublime-text</code></h3><h3 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h3><p>参考资料：<a href="http://jingyan.baidu.com/article/6fb756eca7af6c241858fbf2.html" target="_blank" rel="noopener">解决Ubuntu下Sublime Text 2无法输入中文的方法</a></p>
+<h3 id="Markdown支持"><a href="#Markdown支持" class="headerlink" title="Markdown支持"></a>Markdown支持</h3><p>参考资料：<a href="http://www.jianshu.com/p/378338f10263" target="_blank" rel="noopener">sublime text 2 下的Markdown写作</a><br>但是语法高亮的设置我一直找不到,最后是在<code>Package Control: install Pakage</code>中直接安装MarkdownEditing，但是语法高亮效果不太满意,不知道有没有更好的解决方法</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>雨停的前端做的好赞！！！诶，不会美工的小码农真是不能比啊╮(╯▽╰)╭</p>
+<p>=  =学习CI，用服务器的时候遇到好多逗比的问题去请教蛋蛋和六神       </p>
+<p>感谢蛋蛋和六神的指导嘿嘿～～～                   </p>
+<p>CI官网的教程写的有点晦涩，不太好懂，这里只是个人在使用中自己的理解，可能会有一些错误，欢迎指出～        </p>
+<p>不过网站还不会挂咯，找个时间得学学怎么挂网站～～</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2015/08/11/vim实用技巧/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2015/02/06/修了三天半电脑的总结/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

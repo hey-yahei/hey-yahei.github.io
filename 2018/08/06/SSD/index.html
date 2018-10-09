@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            SSD框架解析 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2018/08/06/SSD/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2018/08/06/SSD/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="SSD框架解析 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Aug 06 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2018/08/06/SSD/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2018/08/06/SSD/index.html",
+    "headline": "SSD框架解析",
+    "datePublished": "Mon Aug 06 2018 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络结构"><span class="post-toc-number">1.</span> <span class="post-toc-text">网络结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#感受野和缺省框"><span class="post-toc-number">2.</span> <span class="post-toc-text">感受野和缺省框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#感受野"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">感受野</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#缺省框"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">缺省框</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#D-min-和-D-max-的设置建议"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">$D_{min}$ 和 $D_{max}$ 的设置建议</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#训练技巧"><span class="post-toc-number">3.</span> <span class="post-toc-text">训练技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#框配对（Matching）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">框配对（Matching）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#损失函数（MultiBoxLoss）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">损失函数（MultiBoxLoss）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据增强（Data-Augmentation）"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">数据增强（Data Augmentation）</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                SSD框架解析
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>8月 06, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=SSD框架解析&url=http://hey-yahei.cn/2018/08/06/SSD/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=SSD框架解析&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2018/08/06/SSD/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=38689090&auto=0&height=32"></iframe>       
+
+<p>上一篇文章《<a href="/2018/08/05/MobileNets_v1">MobileNets v1模型解析 | Hey~YaHei!</a>》介绍了MobileNets v1的核心思想和网络结构，本文将解析MobileNet SSD网络的另外一部分——SSD框架。SSD的主要贡献，一方面在于从多个不同尺度的特征图获取特征信息进而预测目标的位置和类别，使网络同时对输入图片上的大小物体都比较敏感；另一方面在于其训练技巧值得借鉴，这在论文中有一定的阐述，更加详细的训练技巧可以结合作者开源的代码学习。         </p>
+<hr>
+<p>论文：《<a href="https://arxiv.org/pdf/1512.02325.pdf" target="_blank" rel="noopener">SSD: Single Shot MultiBox Detector(2016)</a>》      </p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>与分析MobileNets v1模型不同，分析框架我们先从整体入手。          </p>
+<p><img src="/imgs/SSD/SSD_architecture.png" alt="SSD architeture">     </p>
+<ul>
+<li>用预训练好的分类网络作为特征提取器（论文里使用的是VGG16）<br>  VGG16原模型如下图所示：<br>  <img src="/imgs/SSD/vgg16_raw.png" alt="vgg16"><br>  由于SSD论文里输入是 $300 \times 300$，我们重写一下VGG16模型的各层输出大小：<br>  <img src="/imgs/SSD/vgg16_300.png" alt="vgg16">     </li>
+<li>论文中，SSD丢掉了VGG16最后的全局池化和全连接层（FC6和FC7）<br>  并且分别用 $3 \times 3 \times 1024$ 的卷积层Conv6和 $1 \times 1 \times 1024$ 的卷积层Conv7替代FC6和FC7作基础分类网络的最终特征抽取。         </li>
+<li>随后是一系列不同尺度的卷积层在不同尺度上做特征提取      </li>
+<li>融合不同尺度特征信息<br>  分别用卷积操作从 $38 \times 38$ 的Conv4_3、$19 \times 19$ 的Conv7、$10 \times 10$ 的Conv8_2、$5 \times 5$ 的Conv9_2、$3 \times 3$ 的Conv10_2、$1 \times 1$ 的Conv11_2抽取特征（直接回归出后述的预测框的位置以及各分类的置信度），各自Flatten之后拼接成“长条”状特征向量。       </li>
+<li>非极大值抑制（Non-Maximum Suppression，NMS）      <ul>
+<li>从置信度最高的框开始，如果其他预测框和该框的jaccard重叠率超过阈值，则丢弃     </li>
+<li>从剩下的框找到置信度最高的框，如果其他预测框和该框的jaccard重叠率超过阈值，则丢弃     </li>
+<li>……重复直到遍历所有的框</li>
+</ul>
+</li>
+</ul>
+<h3 id="感受野和缺省框"><a href="#感受野和缺省框" class="headerlink" title="感受野和缺省框"></a>感受野和缺省框</h3><center><img src="/imgs/SSD/bounding box.png" alt="bounding box"></center>       
+
+<h4 id="感受野"><a href="#感受野" class="headerlink" title="感受野"></a>感受野</h4><p>卷积是对特定小区域的特征提取，比如一张 $300 \times 300$ 的原图经过一定卷积操作之后得到 $8 \times 8$ 的特征图，特征图上的每个“像素点”其实对应原图的一个“感受野”，在这里一个“感受野”的大小为 $\frac{300}{8} \times \frac{300}{8}$ 也即 $37.5 \times 37.5$ （实际上不可能有$.5$，是$37$还是$38$要看卷积过程是否padding）。      </p>
+<p>换句话说，特征图左上角的一个感受野其实是原图左上角一个 $37.5 \times 37.5$ 大小区域的一个特征抽取（或者说是这个区域的一个抽象化，融合了这个区域的信息）。     </p>
+<h4 id="缺省框"><a href="#缺省框" class="headerlink" title="缺省框"></a>缺省框</h4><p><em>论文里称为default box，而源码里称为prior box.</em>          </p>
+<p>在SSD中，为每个向Detection贡献特征的特征图上的每个感受野分配若干不同大小和长宽比（aspect ratio）的绑定框（Bounding Box），比如在作者开源的源码中，这些绑定框是这样生成的——<br>参考<a href="https://github.com/weiliu89/caffe/blob/ssd/src/caffe/layers/prior_box_layer.cpp" target="_blank" rel="noopener">SSD - PriorBoxLayer源码 | github</a><br>（其中，$D_{min}、x_{offset}、y_{offset}、AR、D_{max}$ 都是用户指定的超参数，而且 $D_{max}$ 是可选的）</p>
+<ol>
+<li>首先有一个最小的绑定框，其尺寸为 $D_{min} \times D_{min}$，绑定框中心相对感受野中心偏移 $(x_{offset}, y_{offset})$；       </li>
+<li>根据用户指定的长宽比列表 $AR$ 生成若干绑定框<br> 对于某一特定长宽比 $AR_i$，生成尺寸分别为 $\frac{D_{min}}{\sqrt{AR_i}} \times D_{min}\sqrt{AR_i}$ 和 $D_{min}\sqrt{AR_i} \times \frac{D_{min}}{\sqrt{AR_i}}$ 的绑定框，其框中心同1；      </li>
+<li>最后还生成一个尺寸为 $D_{max} \times D_{max}$ 的绑定框，其框中心同1；     </li>
+</ol>
+<p>事实上网络输出的预测框位置参数就是这每一个缺省框的中心点偏移量和长、宽偏移量（每个框共计4个参数）！<br><em>对于一个方框其实有两种不同的表示方法，都是四元组，即（中心点x坐标，中心点y坐标，长度，宽度）或（左上角x坐标，左下角x坐标，右下角x坐标，右下角y坐标）</em>    </p>
+<h4 id="D-min-和-D-max-的设置建议"><a href="#D-min-和-D-max-的设置建议" class="headerlink" title="$D_{min}$ 和 $D_{max}$ 的设置建议"></a>$D_{min}$ 和 $D_{max}$ 的设置建议</h4><p>论文中也给出了超参数 $D_{min}$ 和 $D_{max}$ 的设置建议——      </p>
+<ul>
+<li>首先确定框的最大最小归一化尺寸 $scale_{min}$ 、 $scale_{max}$<br>  $$ scale = \frac{BoxSize}{ImageSize} $$<br>  比如按论文的设计 $300 \times 300$ 的输入图片，设 $scale_{min} = 0.2、scale_{max} = 0.9$，那框的最大尺寸就是 $270 \times 270$，最小尺寸为 $60 \times 60$；     </li>
+<li>然后最浅层的特征图对应的bbox设 $\text{min_size} = scale_{min} \times ImageSize$；        </li>
+<li>随后按等差数量设置各特征对应的bbox的 min_size，而 max_size 可以取下一层的 min_size（论文中默认不设置max_size）；      </li>
+</ul>
+<p>写成数学公式为：<br>$$s_k = s_{min} + \frac{s_{max} - s_{min}}{m-1} (k-1), k \in [1,m]$$<br>其中，<br>$s_k$，是第k个特征图的 $min_size$ 参数；<br>$s_{min}$，是设计好的最小归一化尺寸，即前述 $scale_{min}$；<br>$s_{max}$，是设计好的最大归一化尺寸，即前述 $scale_{max}$；<br>$m$，是特征图的总数；<br><em>注意：上述“特征图”指的是对Detection有贡献的特征图，序号从浅层到深层递增</em>        </p>
+<p>回过头再看看网络结构，注意从不同尺度融合特征信息的那一部分，用的都是一个 $3 \times 3$ 的卷积核，输出通道要么是 num_class + 4 的四倍要么是六倍，这里 num_class 就是最终分类的数量，数值 $4$ 其实指的是预测框的位置参数的数量，而四倍或六倍指的是特征图上每个感受野对应的绑定框数量。<br>按照论文，浅层的分辨率比较高，所以使用了 $AR=\{1,2,3\}$ 的分辨率组合，对于 $AR_i = 2$ 和 $AR_i = 3$ 分别会生成两个绑定框，而 $AR_i = 1$ 除了本身之外还会额外产生一个归一化尺寸为 $s’_k = \sqrt{s_k s_{k+1}}$ 的绑定框；而浅层分辨率较低，2或3的长宽比其实没太大区别或必要，所以只取了 $AR=\{1,2\}$。       </p>
+<p>源码prototxt参数示例：       </p>
+<pre><code>layer {
+  name: &quot;conv11_mbox_priorbox&quot;
+  type: &quot;PriorBox&quot;
+  bottom: &quot;conv11&quot;  # bottom[0]：特征向量
+  bottom: &quot;data&quot;    # bottom[1]：原始输入（主要提供宽、高参数）
+  top: &quot;conv11_mbox_priorbox&quot;
+
+  prior_box_param {
+    min_size: 30.0      # 最小的基本Box大小（可根据论文计算）
+    aspect_ratio: 2.0   # 所要用的长宽比（除了1.0）
+    flip: true          # 是否以0.5的概率翻转
+    clip: false         # 是否截断Box（若截断表示不允许Box超出图片范围）
+    variance: 0.1       # xmin的偏差因子
+    variance: 0.1       # ymin的偏差因子
+    variance: 0.2       # xmax的偏差因子
+    variance: 0.2       # ymax的偏差因子
+    offset: 0.5         # Box中心相对于感受野中心的x、y偏移量
+  }
+}
+</code></pre><h3 id="训练技巧"><a href="#训练技巧" class="headerlink" title="训练技巧"></a>训练技巧</h3><h4 id="框配对（Matching）"><a href="#框配对（Matching）" class="headerlink" title="框配对（Matching）"></a>框配对（Matching）</h4><p>前边讲到了感受野和缺省框，我们现在看看这些缺省框是如何跟实际标注的真实框（Ground Truth, GT）配对起来的。        </p>
+<p>介绍一个重叠率计算公式，jaccard重叠率：<br>$$ J(A, B) = \frac{|A \cap B|}{|A \cup B|} = \frac{|A \cap B|}{|A| + |B| - |A \cap B|} $$</p>
+<p>对于每个GT，      </p>
+<ul>
+<li>首先，在所有缺省框中挑选出jaccard重叠率最高的一个作为配对正样本，确保每个GT都有唯一一个配对的缺省框；       </li>
+<li>然后，用其他缺省框挨个与GT计算jaccard，超过阈值（论文中设定为0.5）的都作为配对正样本；       </li>
+<li>其他未配对的都作为负样本，但显然数量上负样本远多于正样本，这会导致网络过于重视负样本而loss不稳定；<br>  所以论文采取了Hard Negative Mining的策略，训练时按照分类的置信度为各个负样本框排序；<br>  挑选置信度高的一批作为实际训练的负样本，同时控制负样本的数量大概为正样本的三倍左右      </li>
+</ul>
+<h4 id="损失函数（MultiBoxLoss）"><a href="#损失函数（MultiBoxLoss）" class="headerlink" title="损失函数（MultiBoxLoss）"></a>损失函数（MultiBoxLoss）</h4><p>损失函数由位置损失 $L_{loc}$ 和分类损失 $L_{conf}$ 加权求和获得；<br>完整公式如下：<br>$$L(x,c,l,g) = \frac{1}{N} (L_{conf}(x,c) + \alpha L_{loc}(x,l,g))$$<br>其中，<br>$N$，是匹配正样本的总量（如果N=0，则令L=0）；<br>$x$、$c$，分别是分类的指示量和置信度；<br>$l$、$g$，分别是预测框和GT框；<br>$\alpha$，是位置损失的权重。        </p>
+<p>位置损失是预测框l和真实框g之间的Smooth L1损失，<br>$$ L_{loc} = \sum^N_{i \in Pos} \sum_{m \in {cx, cy, w, h} x^k_{ij}} smooth_{L1} (l^m_i - \hat{g}_j^m) $$<br>$$ \hat{g}^{cx}_j = \frac{g^{cx}_j - d^{cx}_i}{d_i^w}，\hat{g}^{cy}_j = \frac{g^{cy}_j - d^{cy}_i}{d_i^h}，\hat{g}^w_j = log(\frac{g_j^w}{d_i^w})，\hat{g}^h_j = log(\frac{g_j^h}{d_i^h}) $$<br>其中，<br>$x^k_{ij}$，是指示量，当第i个匹配框和分类p的第j个真实框配对时值为1，否则为0；<br>$cx$、$cy$、$w$、$h$，分别是框的中心点x坐标、中心点y坐标，宽度、高度；<br>$d$，是绑定框（网络本身预设的绑定框）；<br>$l$，是预测框（网络输出的加上预测偏移量的框）；<br>$g$，是GT框（数据集标注的真实框）。     </p>
+<p>分类损失是分类置信度之间的softmax损失，<br>$$ L_{conf}(x,c) = -\sum^N_{i \in Pos} x^p_{ij} log(\hat{c}^p_i) - \sum_{i \in Neg}log(\hat{c}^0_i) $$<br>$$ \hat{c}^p_i = \frac{exp(c^p_i)}{\sum_p exp(c_i^p)} $$        </p>
+<p>源码prototxt参数示例：     </p>
+<pre><code>layer {
+  name: &quot;mbox_loss&quot;
+  type: &quot;MultiBoxLoss&quot;
+  bottom: &quot;mbox_loc&quot;        # 用于预测位置的特征向量
+  bottom: &quot;mbox_conf&quot;       # 用于预测分类的特征向量
+  bottom: &quot;mbox_priorbox&quot;   # 若干PriorBox的输出连接
+  bottom: &quot;label&quot;           # 训练用的标签
+  top: &quot;mbox_loss&quot;
+  include {
+    phase: TRAIN
+  }
+  propagate_down: true      # bottom[0] : mbox_loc，需要训练（反向传播）
+  propagate_down: true      # bottom[1] : mbox_conf，需要训练
+  propagate_down: false     # bottom[2] : mbox_priorbox，不需要训练
+  propagate_down: false     # bottom[3] : label，不需要训练
+  # 损失计算参数组
+  loss_param {
+    normalization: VALID    # 损失的归一化方式
+                            #    FULL：除以batch_size
+                            #    VALID：除以有效的数量（排除ignore_label参数指定的标签）
+                            #    NONE
+  }
+  # multibox损失参数组
+  multibox_loss_param {
+    loc_loss_type: SMOOTH_L1    # 位置预测的损失函数
+    conf_loss_type: SOFTMAX     # 分类预测的损失函数
+    loc_weight: 1.0             # loc_loss的权重，论文中的alpha
+    num_classes: 12             # 输出类别
+    share_location: true        # 是否让所有的预测框共享参数
+    match_type: PER_PREDICTION  # 
+    overlap_threshold: 0.5      # 重叠阈值（训练时超过该阈值的Box作为正样本）
+    use_prior_for_matching: true    # 是否使用先验框（即前边是否有PriorBox）
+    background_label_id: 0      # 背景（background）标签的id值（与labelmap.prototxt文件匹配）
+    use_difficult_gt: true      # 是否使用difficult的Ground Truth（？）
+    neg_pos_ratio: 3.0          # 负样本:正样本 的比例
+    neg_overlap: 0.5            # 负样本阈值（低于该阈值的Box作为负样本）
+    code_type: CENTER_SIZE      # bounding box的编码方式
+    ignore_cross_boundary_bbox: false   # 
+    mining_type: MAX_NEGATIVE   # 挖掘类型
+                                #   NONE：什么都不用，会发生正负样本步均衡
+                                #   MAX_NEGATIVE：为负样本排序，选择分类得分最高的一批作为训练的负样本
+                                #   HARD_EXAMPLE：选择基于“在线硬示例挖掘的基于训练区域的对象探测器”的硬实例（？）
+  }
+}
+</code></pre><h4 id="数据增强（Data-Augmentation）"><a href="#数据增强（Data-Augmentation）" class="headerlink" title="数据增强（Data Augmentation）"></a>数据增强（Data Augmentation）</h4><p>目标检测任务和图片分类任务不同，      </p>
+<ul>
+<li>图片分类任务可以随意对分类对象（也即整张图片）作伸缩变换       </li>
+<li>目标检测任务只能对整张图片作伸缩变换，却不能对分类对象直接作伸缩变换      </li>
+</ul>
+<p>基本的数据增强，每张图片在输入会等概率地选取以下一种变换：      </p>
+<ol>
+<li>原始图片      </li>
+<li>随机裁剪    </li>
+<li>带jaccard重叠率约束的随机裁剪（论文给出的是0.1, 0.3, 0.5, 0.7, 0.9五种重叠率设置）        </li>
+</ol>
+<p>随机裁剪是有条件的，限制最低归一化尺寸（论文中为0.1），以及长宽比（论文中为$[1/2,2]$）；<br>实际操作中是先生成一系列满足条件的框，在从中挑选若干框来裁剪图像输入训练。         </p>
+<p>仔细思考一下会发现，上述的数据增强方式只能对某个目标进行放大（zoom in）操作，这会导致小目标数据集缺失。<br>于是论文中在执行上述数据增强前又增加了一步缩小（zoom out）的增强措施——      </p>
+<ol>
+<li>首先生成一张画布，画布的长宽是原图片的1-4倍（随机数）；        </li>
+<li>将原图放在画布的随机位置上；     </li>
+<li>……接下来再送给前述的基本数据增强步骤       </li>
+</ol>
+<p><em>据论文介绍，该额外操作为mAP提升了两到三个百分点。</em>       </p>
+<p>对于画布，从源码<a href="https://github.com/weiliu89/caffe/blob/ssd/src/caffe/data_transformer.cpp#L489" target="_blank" rel="noopener">data_transform.cpp/ExpandImage()函数（第489行） | github</a>上看，是用空格符初始化了一个字符串缓冲区来作为画布，这似乎意味着是用RGB(32,32,32)的固定颜色填充了画布（空格符的assic码为32）；<br>这种做法有些残暴，或许用原图的平均值、或者一个随机值来作固定颜色填充效果会更好一些；<br>甚至，用实际图片作为背景图可能会取得更好的效果，具体结论还有待实验。      </p>
+<p>源码prototxt参数示例：     </p>
+<pre><code>layer {
+  name: &quot;data&quot;
+  type: &quot;AnnotatedData&quot;
+  top: &quot;data&quot;
+  top: &quot;label&quot;
+  include {
+    phase: TRAIN
+  }
+  # 图像转换参数组
+  transform_param {
+    scale: 0.007843     # 归一化，1/127.5
+    mirror: true        # 0.5的概率镜像翻转
+    mean_value: 127.5   # 去均值（R通道）
+    mean_value: 127.5   # 去均值（G通道）
+    mean_value: 127.5   # 去均值（B通道）
+    # 缩放参数组
+    resize_param {
+      prob: 1.0                 # 缩放操作的概率
+      resize_mode: WARP         # 缩放模式
+                                #   WARP：放大或缩小以适应(width, height)
+                                #   FIT_SMALL_SIZE：
+                                #   FIT_LARGE_SIZE_AND_PAD：
+      height: 300               # 缩放后的高
+      width: 300                # 缩放后的宽
+      # 插值模式同opencv
+      interp_mode: LINEAR       # 线性
+      interp_mode: AREA         # 像素区域重采样
+      interp_mode: NEAREST      # 最近邻
+      interp_mode: CUBIC        # 三次样条
+      interp_mode: LANCZOS4     # Lanczos
+    }
+    emit_constraint {
+      emit_type: CENTER
+    }
+    # 色彩扭曲参数组
+    distort_param {
+      brightness_prob: 0.5
+      brightness_delta: 32.0
+      contrast_prob: 0.5
+      contrast_lower: 0.5
+      contrast_upper: 1.5
+      hue_prob: 0.5
+      hue_delta: 18.0
+      saturation_prob: 0.5
+      saturation_lower: 0.5
+      saturation_upper: 1.5
+      random_order_prob: 0.0
+    }
+    # 图像扩展参数组（zoom-out）
+    expand_param {
+      prob: 0.5                 # 概率
+      max_expand_ratio: 4.0     # 扩大倍数（4x4）
+    }
+  }
+  # 数据源参数组
+  data_param {
+    source: &quot;trainval_lmdb/&quot;    # 源文件
+    batch_size: 24       
+    backend: LMDB               # 数据源类型
+  }
+  # AnnotatedData参数组
+  annotated_data_param {
+    # 采样器1：原图
+    batch_sampler {
+      max_sample: 1
+      max_trials: 1
+    }
+    # 采样器2：随机抠图（overlap=0.1）
+    batch_sampler {
+      sampler {
+        min_scale: 0.15         # 最小尺寸（原图的0.15倍）
+        max_scale: 1.0          # 最大尺寸
+        min_aspect_ratio: 0.5   # 最小长宽比
+        max_aspect_ratio: 2.0   # 最大长宽比
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.1    # 最小JACCARD_OVERLAP（重叠率）
+      }
+      max_sample: 1     # 最大采样数量
+      max_trials: 50    # 最大尝试数量（产生50个随机框，然后再筛选出1个输出）
+    }
+
+    # [略]采样器3：随机抠图（overlap=0.3）
+    # [略]采样器4：随机抠图（overlap=0.5）
+    # [略]采样器5：随机抠图（overlap=0.7）
+    # [略]采样器6：随机抠图（overlap=0.9）
+    # [略]采样器7：随机抠图（overlap=1.0）
+
+    label_map_file: &quot;labelmap.prototxt&quot;     # 标签映射文件
+  }
+}
+</code></pre><hr>
+<p>本文介绍分析了SSD框架的核心思路和训练技巧，加上上一篇文章对MobileNet模型的解析，基本的前置理论准备完毕。在下一篇博文中，将分析<strong><a href="https://github.com/chuanqi305/MobileNet-SSD" target="_blank" rel="noopener">chuanqi305</a></strong>是如何把MobileNets和SSD结合起来的——《<a href="/2018/08/08/MobileNets-SSD/">MobileNet-SSD网络解析 | Hey~YaHei!</a>》。      </p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/08/08/MobileNets-SSD/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/08/05/MobileNets_v1/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="图库">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">32</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>
