@@ -8,8 +8,37 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Mon, 10 Sep 2018 12:39:18 GMT</pubDate>
+    <pubDate>Sat, 13 Oct 2018 10:09:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>树莓派也能玩转深度学习——Tengine推断引擎</title>
+      <link>http://hey-yahei.cn/2018/10/13/RasPi-Tengine/</link>
+      <guid>http://hey-yahei.cn/2018/10/13/RasPi-Tengine/</guid>
+      <pubDate>Fri, 12 Oct 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;一直以来，树莓派以其良好的社区生态，广受嵌入式爱好者、创客欢迎。在一些相关的社区上（比如&lt;a href=&quot;http://shumeipai.nxez.com/what-raspi-used-for&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;树莓派实验室&lt;/a&gt;），我们可以看到非常丰富的应用示例及其教程。但在树莓派上的深度学习应用并不常见，这主要是受到树莓派计算力的限制，比如之前看到过有人把yolov2原原本本生硬地部署到树莓派上，结果每一帧检测耗时高达&lt;strong&gt;6分钟&lt;/strong&gt;！！作一帧目标检测花费6分钟这实在是无法忍受的！&lt;br&gt;&lt;em&gt;如果是用yolov2-tiny的话会快很多，但耗时依旧接近&lt;strong&gt;40秒&lt;/strong&gt;，参考&lt;a href=&quot;https://blog.csdn.net/wjbwjbwjbwjb/article/details/77688625&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;树莓派3B上测试YOLO效果 | CSDN&lt;/a&gt;&lt;/em&gt;     &lt;/p&gt;
+&lt;p&gt;那树莓派只能跟深度学习无缘了么？那可未必！    &lt;/p&gt;
+&lt;h3 id=&quot;Tengine&quot;&gt;&lt;a href=&quot;#Tengine&quot; class=&quot;headerlink&quot; title=&quot;Tengine&quot;&gt;&lt;/a&gt;Tengine&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/OAID/Tengine&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;OADI/Tengine | github&lt;/a&gt;       &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tengine 是OPEN AI LAB为嵌入式设备开发的一个轻量级、高性能并且模块化的引擎。&lt;br&gt;Tengine在嵌入式设备上支持CPU，GPU，DLA/NPU，DSP异构计算的计算框架，实现异构计算的调度器，基于ARM平台的高效的计算库实现，针对特定硬件平台的性能优化，动态规划计算图的内存使用，提供对于网络远端AI计算能力的访问支持，支持多级别并行，整个系统模块可拆卸，基于事件驱动的计算模型，吸取已有AI计算框架的优点，设计全新的计算图表示。    &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;编译安装开源版Tengine&quot;&gt;&lt;a href=&quot;#编译安装开源版Tengine&quot; class=&quot;headerlink&quot; title=&quot;编译安装开源版Tengine&quot;&gt;&lt;/a&gt;编译安装开源版Tengine&lt;/h3&gt;&lt;h4 id=&quot;安装相关工具&quot;&gt;&lt;a href=&quot;#安装相关工具&quot; class=&quot;headerlink&quot; title=&quot;安装相关工具&quot;&gt;&lt;/a&gt;安装相关工具&lt;/h4&gt;&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; instal &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; cmake
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git&lt;/strong&gt; 是一个版本控制系统，稍后将用来从 &lt;a href=&quot;http://github.com&quot; target=&quot;_blank&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2018/10/13/RasPi-Tengine/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>基于MobileNet-SSD的目标检测Demo（二）</title>
