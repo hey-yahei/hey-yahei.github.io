@@ -8,7 +8,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 16 Oct 2018 11:16:21 GMT</pubDate>
+    <pubDate>Tue, 25 Dec 2018 11:40:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -28,10 +28,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;Tengine 是OPEN AI LAB为嵌入式设备开发的一个轻量级、高性能并且模块化的引擎。&lt;br&gt;Tengine在嵌入式设备上支持CPU，GPU，DLA/NPU，DSP异构计算的计算框架，实现异构计算的调度器，基于ARM平台的高效的计算库实现，针对特定硬件平台的性能优化，动态规划计算图的内存使用，提供对于网络远端AI计算能力的访问支持，支持多级别并行，整个系统模块可拆卸，基于事件驱动的计算模型，吸取已有AI计算框架的优点，设计全新的计算图表示。    &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;编译安装开源版Tengine&quot;&gt;&lt;a href=&quot;#编译安装开源版Tengine&quot; class=&quot;headerlink&quot; title=&quot;编译安装开源版Tengine&quot;&gt;&lt;/a&gt;编译安装开源版Tengine&lt;/h3&gt;&lt;h4 id=&quot;安装相关工具&quot;&gt;&lt;a href=&quot;#安装相关工具&quot; class=&quot;headerlink&quot; title=&quot;安装相关工具&quot;&gt;&lt;/a&gt;安装相关工具&lt;/h4&gt;&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; instal &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; cmake
+&lt;h3 id=&quot;编译安装开源版Tengine&quot;&gt;&lt;a href=&quot;#编译安装开源版Tengine&quot; class=&quot;headerlink&quot; title=&quot;编译安装开源版Tengine&quot;&gt;&lt;/a&gt;编译安装开源版Tengine&lt;/h3&gt;&lt;h4 id=&quot;安装相关工具&quot;&gt;&lt;a href=&quot;#安装相关工具&quot; class=&quot;headerlink&quot; title=&quot;安装相关工具&quot;&gt;&lt;/a&gt;安装相关工具&lt;/h4&gt;&lt;pre class=&quot; language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; cmake
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;git&lt;/strong&gt; 是一个版本控制系统，稍后将用来从 &lt;a href=&quot;http://github.com&quot; target=&quot;_blank&quot;
+&lt;li&gt;&lt;strong&gt;git&lt;/strong&gt; 是一个版本控制系统，稍后将用来从 &lt;a
           
         
       
