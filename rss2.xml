@@ -8,8 +8,39 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 25 Dec 2018 11:40:36 GMT</pubDate>
+    <pubDate>Mon, 07 Jan 2019 07:52:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>模型参数与计算量</title>
+      <link>http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/</link>
+      <guid>http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/</guid>
+      <pubDate>Sun, 06 Jan 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=449578848&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;     
+
+&lt;p&gt;这一两个月比较忙，没什么时间空下来写写博文，加上最近处于摸索阶段，各种思路还没有理清，不敢瞎写。     &lt;/p&gt;
+&lt;p&gt;这两天看到Lyken17的&lt;a href=&quot;https://github.com/Lyken17/pytorch-OpCounter&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pytorch-OpCounter&lt;/a&gt;，萌生了一个写一个MXNet的计数器的想法，项目已经开源到&lt;a href=&quot;https://github.com/hey-yahei/OpSummary.MXNet&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github&lt;/a&gt;上，并且做个pip的包，嘻嘻……第一次做包，虽然只是一个简单的工具，还是截图留个念——&lt;br&gt;&lt;img src=&quot;/imgs/MXNet-OpSummary/mxop-pip.png&quot; alt=&quot;mxop-pip&quot;&gt;         &lt;/p&gt;
+&lt;h3 id=&quot;参数量与计算量&quot;&gt;&lt;a href=&quot;#参数量与计算量&quot; class=&quot;headerlink&quot; title=&quot;参数量与计算量&quot;&gt;&lt;/a&gt;参数量与计算量&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;参数量&lt;/strong&gt; 是指模型含有多少参数，直接决定模型文件的大小，也影响模型推断时对内存的占用量     &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算量&lt;/strong&gt; 是指模型推断时需要多少计算次数，通常是以&lt;strong&gt;&lt;em&gt;MAC(Multiply ACcumulate，乘积累加)&lt;/em&gt;&lt;/strong&gt;次数来表示    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这两者其实是评估模型时非常重要的参数，&lt;strong&gt;一个实际要应用的模型不应当仅仅考虑它在准确率上有多出色的表现，还应该要考虑它的鲁棒性、扩展性以及对资源的依赖程度&lt;/strong&gt;，但事实上很多论文都不讨论他们模型需要多少计算力，一种可能是他们的定位还是纯学术研究——提出一种新的思路，即使这种思路不便于应用，但未来说不定计算力上来了，或者有什么飞跃性的改进方法来改进这一问题，或者提出自己的思路来启发其他研究者的研究（抛砖引玉）；另一种可能就是……他们有意识地在在回避这一问题。      &lt;/p&gt;
+&lt;p&gt;接下来，我们试着用不同的视角重新审视以前那些常用的CNN OP——       &lt;/p&gt;
+&lt;h4 id=&quot;全连接&quot;&gt;&lt;a href=&quot;#全连接&quot; class=&quot;headerlink&quot; title=&quot;全连接&quot;&gt;&lt;/a&gt;全连接&lt;/h4&gt;&lt;p&gt;首先考虑一个3输入、3输出、有偏置的全连接层（Layer2），       &lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;img height=&quot;300&quot; src=&quot;/imgs/MXNet-OpSummary/fc.png&quot;&gt;&lt;/center&gt;&lt;br&gt;$$&lt;br&gt;\begin{array} { l } { a _ { 1 } ^ { ( 2 ) } = x _ { 0 } + w _ { 11 } x _ { 1 } + w _ { 12 } x
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>树莓派也能玩转深度学习——Tengine推断引擎</title>
@@ -568,6 +599,39 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
     </item>
     
     <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Handson-ML</title>
       <link>http://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>http://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -599,39 +663,6 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       </description>
       
       <comments>http://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>梯度消失与梯度爆炸</title>
-      <link>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
-      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;参考：     &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
-&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
-&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
-&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
-          
-        
-      
-      </description>
-      
-      <comments>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>

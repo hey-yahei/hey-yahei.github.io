@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://hey-yahei.cn/2018/08/05/MobileNets_v1/</loc>
+    <lastmod>2019-01-07T07:55:51.663Z</lastmod>
+  </url>  <url>
+    <loc>http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/</loc>
+    <lastmod>2019-01-07T07:52:14.911Z</lastmod>
+  </url>  <url>
     <loc>http://hey-yahei.cn/2018/08/04/RK3399-Tengine/</loc>
     <lastmod>2019-01-04T12:05:29.834Z</lastmod>
   </url>  <url>
@@ -93,9 +99,6 @@
   </url>  <url>
     <loc>http://hey-yahei.cn/2018/08/06/SSD/</loc>
     <lastmod>2018-08-24T04:31:59.386Z</lastmod>
-  </url>  <url>
-    <loc>http://hey-yahei.cn/2018/08/05/MobileNets_v1/</loc>
-    <lastmod>2018-08-24T04:31:59.385Z</lastmod>
   </url>  <url>
     <loc>http://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</loc>
     <lastmod>2018-08-24T04:31:59.384Z</lastmod>

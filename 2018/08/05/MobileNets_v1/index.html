@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sun Aug 05 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jan 07 2019 15:55:51 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2018/08/05/MobileNets_v1/index.html",
     "headline": "MobileNets v1模型解析",
     "datePublished": "Sun Aug 05 2018 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "dateModified": "Mon Jan 07 2019 15:55:51 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -495,7 +495,7 @@
 <p>如上图，将①阶段进一步细分为 Ⅰ 到 Ⅳ 四个子阶段，     </p>
 <ol>
 <li>Ⅰ 阶段，将原图 $I$ 按通道分离成 $\{ I_1, I_2, …, I_M \}$ 的 $M$ 张单通道图；</li>
-<li>Ⅱ 阶段，用同一个卷积核 $K_m$ 对各个单通道图提取特征，分别得到一张大小为 $D_O \times D_O$ 的单通道特征图；</li>
+<li>Ⅱ 阶段，用M个卷积核 $K_m$ 对各个单通道图提取特征，分别得到一张大小为 $D_O \times D_O$ 的单通道特征图；</li>
 <li>Ⅲ 阶段，对 Ⅱ 阶段输出的 $M$ 张单通道特征图按通道堆叠起来然后“拍扁”（沿通道方向作加法操作）,得到原图在该卷积核作用下的最终输出 $O_n$；</li>
 <li>Ⅳ 阶段，用另外 $N-1$ 个卷积核重复 Ⅱ 、 Ⅲ 阶段，得到 $N$ 张大小为 $D_O \times D_O$ 的单通道特征图   </li>
 </ol>
@@ -507,12 +507,12 @@
 <h4 id="效率比较"><a href="#效率比较" class="headerlink" title="效率比较"></a>效率比较</h4><p><em>假设 $M$ 通道输入图 $I$ 大小为 $D_I \times D_I$，经过一个核大小 $D_K \times D_K$ 的卷积层，最终输出一张大小为 $D_O \times D_O$ 的 $N$ 特征图 $O$</em>         </p>
 <p>对于普通的卷积操作，        </p>
 <ul>
-<li>输出 $N$ 通道特征图需要 $N$ 个卷积核，故参数数量为 $N \times D_K \times D_K$；     </li>
+<li>输出 $N$ 通道特征图需要 $N$ 个卷积核，故参数数量为 $M \times N \times D_K \times D_K$；     </li>
 <li>一个 $D_K \times D_K$ 的卷积核在原图的某个位置的某个通道上需要进行 $D_K \times D_K$ 次乘加操作，输出特征图大小为 $D_O \times D_O$，原图通道数量为 $M$，共有 $N$ 个不同的卷积核，故乘加操作数量为 $D_K \times D_K \times D_O \times D_O \times M \times N$           </li>
 </ul>
 <p>对于深度向分解后的卷积操作，       </p>
 <ul>
-<li>特征提取只使用了一个 $D_K \times D_K$ 的卷积核，组合过程为了作线性映射用了 $N$ 个 $1 \times 1$ 的卷积核，故参数数量为 $N + D_K \times D_K$；       </li>
+<li>特征提取只使用了一个 $D_K \times D_K$ 的卷积核，组合过程为了作线性映射用了 $N$ 个 $1 \times 1$ 的卷积核，故参数数量为 $M \times N + M \times D_K \times D_K$；       </li>
 <li>特征提取过程只有一个卷积核，所以该过程乘加操作数量为 $D_K \times D_K \times D_O \times D_O \times M$。同样的，组合过程容易算得需要 $D_O \times D_O \times M \times N$ 次乘加操作。故乘加操作的总数量为 $D_O \times D_O \times M \times ( D_K \times D_K + N)$             </li>
 </ul>
 <p>总的来说，参数数量和乘加操作的运算量均下降为原来的 $\frac{1}{D_K^2} + \frac{1}{N}$，通常使用 $3 \times 3$ 的卷积核，也就是下降为原来的九分之一到八分之一左右。而从论文的实验部分来看，准确率也只有极小的下降。    </p>
@@ -724,7 +724,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">33</span>
+                <span class="sidebar-badge">34</span>
             </a>
         </li>
         
