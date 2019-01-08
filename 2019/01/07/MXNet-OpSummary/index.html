@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Jan 07 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jan 08 2019 10:08:30 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jan 08 2019 10:09:41 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/index.html",
     "headline": "模型参数与计算量",
     "datePublished": "Mon Jan 07 2019 00:00:00 GMT+0800",
-    "dateModified": "Tue Jan 08 2019 10:08:30 GMT+0800",
+    "dateModified": "Tue Jan 08 2019 10:09:41 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数量与计算量"><span class="post-toc-number">1.</span> <span class="post-toc-text">参数量与计算量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全连接"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">全连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下一步"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">下一步</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数量与计算量"><span class="post-toc-number">1.</span> <span class="post-toc-text">参数量与计算量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全连接"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">全连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#卷积"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">卷积</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#池化"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">池化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#批归一化BN"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">批归一化BN</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpSummary"><span class="post-toc-number">2.</span> <span class="post-toc-text">OpSummary</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#钩子"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">钩子</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#超参数获取"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">超参数获取</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#统计"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">统计</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#结果"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">结果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下一步"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">下一步</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -491,8 +491,272 @@
 <p>这两者其实是评估模型时非常重要的参数，<strong>一个实际要应用的模型不应当仅仅考虑它在准确率上有多出色的表现，还应该要考虑它的鲁棒性、扩展性以及对资源的依赖程度</strong>，但事实上很多论文都不讨论他们模型需要多少计算力，一种可能是他们的定位还是纯学术研究——提出一种新的思路，即使这种思路不便于应用，但未来说不定计算力上来了，或者有什么飞跃性的改进方法来改进这一问题，或者提出自己的思路来启发其他研究者的研究（抛砖引玉）；另一种可能就是……他们在有意识地回避这一问题，其实我觉得很多人都在回避这一问题，无论是论文还是各种AI比赛的解决方案。      </p>
 <p>接下来，我们试着用不同的视角重新审视以前那些常用的CNN OP——       </p>
 <h4 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h4><p>首先考虑一个3输入、3输出、有偏置的全连接层（Layer2），       </p>
-<center><img height="300" src="/imgs/MXNet-OpSummary/fc.png"></center><br>$$<br>\begin{array} { l } { a _ { 1 } ^ { ( 2 ) } = x _ { 0 } + w _ { 11 } x _ { 1 } + w _ { 12 } x _ { 2 } + w _ { 13 } x _ { 3 } } \\ { a _ { 2 } ^ { ( 2 ) } = x _ { 0 } + w _ { 21 } x _ { 1 } + w _ { 22 } x _ { 2 } + w _ { 23 } x _ { 3 } } \\ { a _ { 3 } ^ { ( 2 ) } = x _ { 0 } + w _ { 31 } x _ { 1 } + w _ { 32 } x _ { 2 } + w _ { 33 } x _ { 3 } } \end{array}<br>$$<br>其参数数量为 $3\times3$，乘加次数为 $3\times3$。<br>这是一个典型的矩阵和向量之间的乘法运算，<br>推广到n输入、m输出、有偏置的全连接层，其参数数量为 $m \times n$，乘加次数为 $m \times n$。<br><br>#### 卷积<br>首先考虑一个单通道输入输出，输出图大小为 $m_o \times n_o$，核大小为 $k_m \times k_n$，带偏置，步长1，不补零的卷积，<br><center><img height="300" src="/imgs/MXNet-OpSummary/convolution.gif"></center><br>$$<br>\begin{aligned} O _ { 11 } = &amp; w _ { 11 } I _ { 11 } + w _ { 12 } I _ { 12 } + w _ { 13 } I _ { 13 } + \\ &amp; w _ { 21 } I _ { 21 } + w _ { 22 } I _ { 22 } + w _ { 23 } I _ { 23 } + \\ &amp; w _ { 31 } I _ { 31 } + w _ { 32 } I _ { 32 } + w _ { 33 } I _ { 33 } + b \end{aligned}<br>$$<br>其参数数量为 $k_m \times k_n + 1$，乘加次数为 $m_o \times n_o \times k_m \times k_n$。<br>推广到$c_i$通道输入，$c_o$通道输出的情况，其参数数量为 $(k_m \times k_n + 1) \times c_i \times c_o$，乘加次数为 $m_o \times n_o \times k_m \times k_n \times c_i \times c_o$。<br><br>这是标准卷积的情况，如果是深度向分解的卷积，参考博文《<a href="/2018/08/05/MobileNets_v1/#效率比较">MobileNets v1模型解析/深度向卷积分解/效率比较 | Hey~YaHei!</a>》可以知道，其参数数量为 $(k_m \times k_n + c_o) \times c_i$，乘加次数为 $m_o \times n_o \times (k_m \times k_n + c_o) \times c_i$，这里为简化运算忽略了偏置。<br><br>#### 池化<br>池化跟卷积的操作比较相近，最大池化仅仅是比较操作，其计算量往往可以忽略不计；平均池化则会涉及到 $m_o \times m_i \times (k_m \times k_n - 1) \times c$ 次加法和 $m_o \times n_o \times c$ 次除法（输入输出通道均为 $c$），两者都没有参数。<br><br>#### 批归一化BN<br>假设输入数量为N，<br>$$bn[j] = \frac{\gamma (conv[j] - mean)}{\sqrt{variance}} + \beta$$<br>可以很容易看到，其参数数量为 $2N$，运算包含 $2N$ 次加法（包括减法）和 $N$ 次乘法。<br>这里要注意，在推断过程中，variance和mean都是已知的，所以 $\frac{\gamma}{\sqrt{variance}}$ 可以直接合并为一个值，<br>甚至，博文《<a href="/2018/08/08/MobileNets-SSD/#BN层合并">MobileNet-SSD网络解析/BN层合并 | Hey~YaHei!</a>》提到过BN层可以直接融入前边的线性层（如卷积和全连接），此时BN层不会造成任何开销。<br><br>### OpSummary<br><a href="https://github.com/hey-yahei/OpSummary.MXNet" target="_blank" rel="noopener">hey-yahei/OpSummary.MXNet | github</a><br>知道了如何计算各层的参数数量和运算次数，我们就可以编写一个小工具来为MXNet模型统计参数数量和计算量。<br><br>#### 钩子<br>为了计算运算量，必须能够取得每一层的参数、输入和输出大小，当然可以根据各层的参数一层层的推算，但这似乎太麻烦了。受Lyken17的<a href="https://github.com/Lyken17/pytorch-OpCounter" target="_blank" rel="noopener">pytorch-OpCounter</a>启发，我们可以为每个Block注册一个hook，每次Block经过前向传播后都会调用这个hook（准确的说，有两种hook，pre_hook在前向传播前调用，hook在前向传播后调用）。<br><br>#### 超参数获取<br>MXNet中想读取一个Block的超参数实在有些麻烦，因为它把超参数全都存在私有属性里了！——<a href="https://github.com/apache/incubator-mxnet/blob/master/python/mxnet/gluon/nn/conv_layers.py#L105" target="_blank" rel="noopener">mxnet/gluon/nn/conv_layers.py#L105 | github</a>，不像Pytorch的Module是直接把超参数放在公共属性上——<a href="https://github.com/pytorch/pytorch/blob/master/torch/nn/modules/conv.py#L20" target="_blank" rel="noopener">torch/nn/modules/conv.py#L20 | github</a>。<br>有两种思路来获取超参数——<br>1. 从输入输出、公共变量（如Conv的weight和bias）的shape来推断<br>2. 解析字符串<br>    MXNet的Block都重载了 <code>__repr__</code> 方法，比如<a href="https://github.com/apache/incubator-mxnet/blob/master/python/mxnet/gluon/nn/conv_layers.py#L143" target="_blank" rel="noopener">mxnet/gluon/nn/conv_layers.py#L143 | github</a>，用于打印Block的超参数。那……我们其实可以用 <code>str(nn.Block)</code> 的方式来取得这个字符串，然后进行解析= =好麻烦啊<br><br>#### 统计<br>yken17的<a href="https://github.com/Lyken17/pytorch-OpCounter" target="_blank" rel="noopener">pytorch-OpCounter</a>在统计各个模块的参数数量和运算次数时，是注册了一个公共的缓冲区来进行累加（参考<a href="https://github.com/Lyken17/pytorch-OpCounter/blob/master/thop/utils.py#L28" target="_blank" rel="noopener">pytorch-OpCounter/thop/utils | github</a>），而MXNet并没有提供这样的缓冲区（<em>或许只是我不知道？</em>），我的解决办法是——<br>写一个拥有静态变量的函数作为累加函数，调用Block的apply方法，让每个Children把自己的统计结果依次累加给这个静态变量，最后从静态变量取出统计结果。<br><br>#### 结果<br>用OpSummary把MXNet提供的model_zoo里所有的模型都测试了一遍，结果如下表所示：<br>Top1 Acc和Top5 Acc数据来源于 <a href="http://mxnet.incubator.apache.org/api/python/gluon/model_zoo.html" target="_blank" rel="noopener">MXNet文档</a><br><br><center><br><br>| Model   | Parameters(M) | MAC(G) | Top1 Acc | Top5 Acc |<br>|—:|—:|—:|—:|—:|<br>|AlexNet|61.10|0.71|0.5492|0.7803|<br>|VGG11|132.86|7.61|0.6662|0.8734|<br>|VGG13|133.04|11.30|0.6774|0.8811|<br>|VGG16|138.63|15.47|0.7323|0.9132|<br>|VGG19|143.67|19.63|0.7411|0.9135|<br>|VGG11_bn|132.87|7.62|0.6859|0.8872|<br>|VGG13_bn|133.06|11.32|0.6884|0.8882|<br>|VGG16_bn|138.37|15.48|0.7310|0.9176|<br>|VGG19_bn|143.69|19.65|0.7433|0.9185|<br>|Inception_v3|23.87|5.72|0.7755|0.9364|<br>|ResNet18_v1|11.70|1.82|0.7093|0.8992|<br>|ResNet34_v1|21.81|3.67|0.7437|0.9187|<br>|ResNet50_v1|25.63|3.87|0.7647|0.9313|<br>|ResNet101_v1|44.70|7.59|0.7834|0.9401|<br>|ResNet152_v1|60.40|11.30|0.7900|0.9438|<br>|ResNet18_v2|11.70|1.82|0.7100|0.8992|<br>|ResNet34_v2|21.81|3.67|0.7440|0.9208|<br>|ResNet50_v2|25.60|4.10|0.7711|0.9343|<br>|ResNet101_v2|44.64|7.82|0.7853|0.9417|<br>|ResNet152_v2|60.33|11.54|0.7921|0.9431|<br>|DenseNet121|8.06|2.85|0.7497|0.9225|<br>|DenseNet161|28.90|7.76|0.7770|0.9380|<br>|DenseNet169|14.31|3.38|0.7617|0.9317|<br>|DenseNet201|20.24|4.32|0.7732|0.9362|<br>|MobileNet_v1_1.00|4.25|0.57|0.7105|0.9006|<br>|MobileNet_v1_0.75|2.60|0.33|0.6738|0.8782|<br>|MobileNet_v1_0.50|1.34|0.15|0.6307|0.8475|<br>|MobileNet_v1_0.25|0.48|0.04|0.5185|0.7608|<br>|MobileNet_v2_1.00|3.54|0.32|0.7192|0.9056|<br>|MobileNet_v2_0.75|2.65|0.19|0.6961|0.8895|<br>|MobileNet_v2_0.50|1.98|0.10|0.6449|0.8547|<br>|MobileNet_v2_0.25|1.53|0.03|0.5074|0.7456|<br>|SqueezeNet1_0|1.25|0.82|0.5611|0.7909|<br>|SqueezeNet1_1|1.24|0.35|0.5496|0.7817|<br><br></center>
-
+<p><center><img height="300" src="/imgs/MXNet-OpSummary/fc.png"></center><br>$$<br>\begin{array} { l } { a _ { 1 } ^ { ( 2 ) } = x _ { 0 } + w _ { 11 } x _ { 1 } + w _ { 12 } x _ { 2 } + w _ { 13 } x _ { 3 } } \\ { a _ { 2 } ^ { ( 2 ) } = x _ { 0 } + w _ { 21 } x _ { 1 } + w _ { 22 } x _ { 2 } + w _ { 23 } x _ { 3 } } \\ { a _ { 3 } ^ { ( 2 ) } = x _ { 0 } + w _ { 31 } x _ { 1 } + w _ { 32 } x _ { 2 } + w _ { 33 } x _ { 3 } } \end{array}<br>$$<br>其参数数量为 $3\times3$，乘加次数为 $3\times3$。<br>这是一个典型的矩阵和向量之间的乘法运算，<br>推广到n输入、m输出、有偏置的全连接层，其参数数量为 $m \times n$，乘加次数为 $m \times n$。      </p>
+<h4 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h4><p>首先考虑一个单通道输入输出，输出图大小为 $m_o \times n_o$，核大小为 $k_m \times k_n$，带偏置，步长1，不补零的卷积，       </p>
+<p><center><img height="300" src="/imgs/MXNet-OpSummary/convolution.gif"></center><br>$$<br>\begin{aligned} O _ { 11 } = &amp; w _ { 11 } I _ { 11 } + w _ { 12 } I _ { 12 } + w _ { 13 } I _ { 13 } + \\ &amp; w _ { 21 } I _ { 21 } + w _ { 22 } I _ { 22 } + w _ { 23 } I _ { 23 } + \\ &amp; w _ { 31 } I _ { 31 } + w _ { 32 } I _ { 32 } + w _ { 33 } I _ { 33 } + b \end{aligned}<br>$$<br>其参数数量为 $k_m \times k_n + 1$，乘加次数为 $m_o \times n_o \times k_m \times k_n$。<br>推广到$c_i$通道输入，$c_o$通道输出的情况，其参数数量为 $(k_m \times k_n + 1) \times c_i \times c_o$，乘加次数为 $m_o \times n_o \times k_m \times k_n \times c_i \times c_o$。       </p>
+<p>这是标准卷积的情况，如果是深度向分解的卷积，参考博文《<a href="/2018/08/05/MobileNets_v1/#效率比较">MobileNets v1模型解析/深度向卷积分解/效率比较 | Hey~YaHei!</a>》可以知道，其参数数量为 $(k_m \times k_n + c_o) \times c_i$，乘加次数为 $m_o \times n_o \times (k_m \times k_n + c_o) \times c_i$，这里为简化运算忽略了偏置。      </p>
+<h4 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h4><p>池化跟卷积的操作比较相近，最大池化仅仅是比较操作，其计算量往往可以忽略不计；平均池化则会涉及到 $m_o \times m_i \times (k_m \times k_n - 1) \times c$ 次加法和 $m_o \times n_o \times c$ 次除法（输入输出通道均为 $c$），两者都没有参数。      </p>
+<h4 id="批归一化BN"><a href="#批归一化BN" class="headerlink" title="批归一化BN"></a>批归一化BN</h4><p>假设输入数量为N，<br>$$bn[j] = \frac{\gamma (conv[j] - mean)}{\sqrt{variance}} + \beta$$<br>可以很容易看到，其参数数量为 $2N$，运算包含 $2N$ 次加法（包括减法）和 $N$ 次乘法。<br>这里要注意，在推断过程中，variance和mean都是已知的，所以 $\frac{\gamma}{\sqrt{variance}}$ 可以直接合并为一个值，<br>甚至，博文《<a href="/2018/08/08/MobileNets-SSD/#BN层合并">MobileNet-SSD网络解析/BN层合并 | Hey~YaHei!</a>》提到过BN层可以直接融入前边的线性层（如卷积和全连接），此时BN层不会造成任何开销。     </p>
+<h3 id="OpSummary"><a href="#OpSummary" class="headerlink" title="OpSummary"></a>OpSummary</h3><p><a href="https://github.com/hey-yahei/OpSummary.MXNet" target="_blank" rel="noopener">hey-yahei/OpSummary.MXNet | github</a><br>知道了如何计算各层的参数数量和运算次数，我们就可以编写一个小工具来为MXNet模型统计参数数量和计算量。     </p>
+<h4 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h4><p>为了计算运算量，必须能够取得每一层的参数、输入和输出大小，当然可以根据各层的参数一层层的推算，但这似乎太麻烦了。受Lyken17的<a href="https://github.com/Lyken17/pytorch-OpCounter" target="_blank" rel="noopener">pytorch-OpCounter</a>启发，我们可以为每个Block注册一个hook，每次Block经过前向传播后都会调用这个hook（准确的说，有两种hook，pre_hook在前向传播前调用，hook在前向传播后调用）。      </p>
+<h4 id="超参数获取"><a href="#超参数获取" class="headerlink" title="超参数获取"></a>超参数获取</h4><p>MXNet中想读取一个Block的超参数实在有些麻烦，因为它把超参数全都存在私有属性里了！——<a href="https://github.com/apache/incubator-mxnet/blob/master/python/mxnet/gluon/nn/conv_layers.py#L105" target="_blank" rel="noopener">mxnet/gluon/nn/conv_layers.py#L105 | github</a>，不像Pytorch的Module是直接把超参数放在公共属性上——<a href="https://github.com/pytorch/pytorch/blob/master/torch/nn/modules/conv.py#L20" target="_blank" rel="noopener">torch/nn/modules/conv.py#L20 | github</a>。<br>有两种思路来获取超参数——     </p>
+<ol>
+<li>从输入输出、公共变量（如Conv的weight和bias）的shape来推断    </li>
+<li>解析字符串<br> MXNet的Block都重载了 <code>__repr__</code> 方法，比如<a href="https://github.com/apache/incubator-mxnet/blob/master/python/mxnet/gluon/nn/conv_layers.py#L143" target="_blank" rel="noopener">mxnet/gluon/nn/conv_layers.py#L143 | github</a>，用于打印Block的超参数。那……我们其实可以用 <code>str(nn.Block)</code> 的方式来取得这个字符串，然后进行解析= =好麻烦啊      </li>
+</ol>
+<h4 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h4><p>yken17的<a href="https://github.com/Lyken17/pytorch-OpCounter" target="_blank" rel="noopener">pytorch-OpCounter</a>在统计各个模块的参数数量和运算次数时，是注册了一个公共的缓冲区来进行累加（参考<a href="https://github.com/Lyken17/pytorch-OpCounter/blob/master/thop/utils.py#L28" target="_blank" rel="noopener">pytorch-OpCounter/thop/utils | github</a>），而MXNet并没有提供这样的缓冲区（<em>或许只是我不知道？</em>），我的解决办法是——<br>写一个拥有静态变量的函数作为累加函数，调用Block的apply方法，让每个Children把自己的统计结果依次累加给这个静态变量，最后从静态变量取出统计结果。</p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>用OpSummary把MXNet提供的model_zoo里所有的模型都测试了一遍，结果如下表所示：<br>Top1 Acc和Top5 Acc数据来源于 <a href="http://mxnet.incubator.apache.org/api/python/gluon/model_zoo.html" target="_blank" rel="noopener">MXNet文档</a>    </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Model</th>
+<th style="text-align:right">Parameters(M)</th>
+<th style="text-align:right">MAC(G)</th>
+<th style="text-align:right">Top1 Acc</th>
+<th style="text-align:right">Top5 Acc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">AlexNet</td>
+<td style="text-align:right">61.10</td>
+<td style="text-align:right">0.71</td>
+<td style="text-align:right">0.5492</td>
+<td style="text-align:right">0.7803</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG11</td>
+<td style="text-align:right">132.86</td>
+<td style="text-align:right">7.61</td>
+<td style="text-align:right">0.6662</td>
+<td style="text-align:right">0.8734</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG13</td>
+<td style="text-align:right">133.04</td>
+<td style="text-align:right">11.30</td>
+<td style="text-align:right">0.6774</td>
+<td style="text-align:right">0.8811</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG16</td>
+<td style="text-align:right">138.63</td>
+<td style="text-align:right">15.47</td>
+<td style="text-align:right">0.7323</td>
+<td style="text-align:right">0.9132</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG19</td>
+<td style="text-align:right">143.67</td>
+<td style="text-align:right">19.63</td>
+<td style="text-align:right">0.7411</td>
+<td style="text-align:right">0.9135</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG11_bn</td>
+<td style="text-align:right">132.87</td>
+<td style="text-align:right">7.62</td>
+<td style="text-align:right">0.6859</td>
+<td style="text-align:right">0.8872</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG13_bn</td>
+<td style="text-align:right">133.06</td>
+<td style="text-align:right">11.32</td>
+<td style="text-align:right">0.6884</td>
+<td style="text-align:right">0.8882</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG16_bn</td>
+<td style="text-align:right">138.37</td>
+<td style="text-align:right">15.48</td>
+<td style="text-align:right">0.7310</td>
+<td style="text-align:right">0.9176</td>
+</tr>
+<tr>
+<td style="text-align:right">VGG19_bn</td>
+<td style="text-align:right">143.69</td>
+<td style="text-align:right">19.65</td>
+<td style="text-align:right">0.7433</td>
+<td style="text-align:right">0.9185</td>
+</tr>
+<tr>
+<td style="text-align:right">Inception_v3</td>
+<td style="text-align:right">23.87</td>
+<td style="text-align:right">5.72</td>
+<td style="text-align:right">0.7755</td>
+<td style="text-align:right">0.9364</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet18_v1</td>
+<td style="text-align:right">11.70</td>
+<td style="text-align:right">1.82</td>
+<td style="text-align:right">0.7093</td>
+<td style="text-align:right">0.8992</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet34_v1</td>
+<td style="text-align:right">21.81</td>
+<td style="text-align:right">3.67</td>
+<td style="text-align:right">0.7437</td>
+<td style="text-align:right">0.9187</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet50_v1</td>
+<td style="text-align:right">25.63</td>
+<td style="text-align:right">3.87</td>
+<td style="text-align:right">0.7647</td>
+<td style="text-align:right">0.9313</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet101_v1</td>
+<td style="text-align:right">44.70</td>
+<td style="text-align:right">7.59</td>
+<td style="text-align:right">0.7834</td>
+<td style="text-align:right">0.9401</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet152_v1</td>
+<td style="text-align:right">60.40</td>
+<td style="text-align:right">11.30</td>
+<td style="text-align:right">0.7900</td>
+<td style="text-align:right">0.9438</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet18_v2</td>
+<td style="text-align:right">11.70</td>
+<td style="text-align:right">1.82</td>
+<td style="text-align:right">0.7100</td>
+<td style="text-align:right">0.8992</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet34_v2</td>
+<td style="text-align:right">21.81</td>
+<td style="text-align:right">3.67</td>
+<td style="text-align:right">0.7440</td>
+<td style="text-align:right">0.9208</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet50_v2</td>
+<td style="text-align:right">25.60</td>
+<td style="text-align:right">4.10</td>
+<td style="text-align:right">0.7711</td>
+<td style="text-align:right">0.9343</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet101_v2</td>
+<td style="text-align:right">44.64</td>
+<td style="text-align:right">7.82</td>
+<td style="text-align:right">0.7853</td>
+<td style="text-align:right">0.9417</td>
+</tr>
+<tr>
+<td style="text-align:right">ResNet152_v2</td>
+<td style="text-align:right">60.33</td>
+<td style="text-align:right">11.54</td>
+<td style="text-align:right">0.7921</td>
+<td style="text-align:right">0.9431</td>
+</tr>
+<tr>
+<td style="text-align:right">DenseNet121</td>
+<td style="text-align:right">8.06</td>
+<td style="text-align:right">2.85</td>
+<td style="text-align:right">0.7497</td>
+<td style="text-align:right">0.9225</td>
+</tr>
+<tr>
+<td style="text-align:right">DenseNet161</td>
+<td style="text-align:right">28.90</td>
+<td style="text-align:right">7.76</td>
+<td style="text-align:right">0.7770</td>
+<td style="text-align:right">0.9380</td>
+</tr>
+<tr>
+<td style="text-align:right">DenseNet169</td>
+<td style="text-align:right">14.31</td>
+<td style="text-align:right">3.38</td>
+<td style="text-align:right">0.7617</td>
+<td style="text-align:right">0.9317</td>
+</tr>
+<tr>
+<td style="text-align:right">DenseNet201</td>
+<td style="text-align:right">20.24</td>
+<td style="text-align:right">4.32</td>
+<td style="text-align:right">0.7732</td>
+<td style="text-align:right">0.9362</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v1_1.00</td>
+<td style="text-align:right">4.25</td>
+<td style="text-align:right">0.57</td>
+<td style="text-align:right">0.7105</td>
+<td style="text-align:right">0.9006</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v1_0.75</td>
+<td style="text-align:right">2.60</td>
+<td style="text-align:right">0.33</td>
+<td style="text-align:right">0.6738</td>
+<td style="text-align:right">0.8782</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v1_0.50</td>
+<td style="text-align:right">1.34</td>
+<td style="text-align:right">0.15</td>
+<td style="text-align:right">0.6307</td>
+<td style="text-align:right">0.8475</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v1_0.25</td>
+<td style="text-align:right">0.48</td>
+<td style="text-align:right">0.04</td>
+<td style="text-align:right">0.5185</td>
+<td style="text-align:right">0.7608</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v2_1.00</td>
+<td style="text-align:right">3.54</td>
+<td style="text-align:right">0.32</td>
+<td style="text-align:right">0.7192</td>
+<td style="text-align:right">0.9056</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v2_0.75</td>
+<td style="text-align:right">2.65</td>
+<td style="text-align:right">0.19</td>
+<td style="text-align:right">0.6961</td>
+<td style="text-align:right">0.8895</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v2_0.50</td>
+<td style="text-align:right">1.98</td>
+<td style="text-align:right">0.10</td>
+<td style="text-align:right">0.6449</td>
+<td style="text-align:right">0.8547</td>
+</tr>
+<tr>
+<td style="text-align:right">MobileNet_v2_0.25</td>
+<td style="text-align:right">1.53</td>
+<td style="text-align:right">0.03</td>
+<td style="text-align:right">0.5074</td>
+<td style="text-align:right">0.7456</td>
+</tr>
+<tr>
+<td style="text-align:right">SqueezeNet1_0</td>
+<td style="text-align:right">1.25</td>
+<td style="text-align:right">0.82</td>
+<td style="text-align:right">0.5611</td>
+<td style="text-align:right">0.7909</td>
+</tr>
+<tr>
+<td style="text-align:right">SqueezeNet1_1</td>
+<td style="text-align:right">1.24</td>
+<td style="text-align:right">0.35</td>
+<td style="text-align:right">0.5496</td>
+<td style="text-align:right">0.7817</td>
+</tr>
+</tbody>
+</table>
 <p><img src="/imgs/MXNet-OpSummary/Parameters.jpg" alt="Parameters"></p>
 <p><img src="/imgs/MXNet-OpSummary/MAC.jpg" alt="MAC">   </p>
 <p>emmm还是比较直观的嘛！    </p>
