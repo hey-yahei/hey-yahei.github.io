@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Jan 07 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jan 08 2019 10:19:02 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 10 2019 16:12:27 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/index.html",
     "headline": "模型参数与计算量",
     "datePublished": "Mon Jan 07 2019 00:00:00 GMT+0800",
-    "dateModified": "Tue Jan 08 2019 10:19:02 GMT+0800",
+    "dateModified": "Thu Jan 10 2019 16:12:27 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -510,8 +510,10 @@
 <thead>
 <tr>
 <th style="text-align:right">Model</th>
-<th style="text-align:right">Parameters(M)</th>
+<th style="text-align:right">Params(M)</th>
 <th style="text-align:right">MAC(G)</th>
+<th style="text-align:right">*Params(M)</th>
+<th style="text-align:right">*MAC(G)</th>
 <th style="text-align:right">Top1 Acc</th>
 <th style="text-align:right">Top5 Acc</th>
 </tr>
@@ -521,6 +523,8 @@
 <td style="text-align:right">AlexNet</td>
 <td style="text-align:right">61.10</td>
 <td style="text-align:right">0.71</td>
+<td style="text-align:right">2.47</td>
+<td style="text-align:right">0.66</td>
 <td style="text-align:right">0.5492</td>
 <td style="text-align:right">0.7803</td>
 </tr>
@@ -528,6 +532,8 @@
 <td style="text-align:right">VGG11</td>
 <td style="text-align:right">132.86</td>
 <td style="text-align:right">7.61</td>
+<td style="text-align:right">9.22</td>
+<td style="text-align:right">7.49</td>
 <td style="text-align:right">0.6662</td>
 <td style="text-align:right">0.8734</td>
 </tr>
@@ -535,6 +541,8 @@
 <td style="text-align:right">VGG13</td>
 <td style="text-align:right">133.04</td>
 <td style="text-align:right">11.30</td>
+<td style="text-align:right">9.40</td>
+<td style="text-align:right">11.18</td>
 <td style="text-align:right">0.6774</td>
 <td style="text-align:right">0.8811</td>
 </tr>
@@ -542,6 +550,8 @@
 <td style="text-align:right">VGG16</td>
 <td style="text-align:right">138.63</td>
 <td style="text-align:right">15.47</td>
+<td style="text-align:right">14.71</td>
+<td style="text-align:right">15.35</td>
 <td style="text-align:right">0.7323</td>
 <td style="text-align:right">0.9132</td>
 </tr>
@@ -549,6 +559,8 @@
 <td style="text-align:right">VGG19</td>
 <td style="text-align:right">143.67</td>
 <td style="text-align:right">19.63</td>
+<td style="text-align:right">20.02</td>
+<td style="text-align:right">19.51</td>
 <td style="text-align:right">0.7411</td>
 <td style="text-align:right">0.9135</td>
 </tr>
@@ -556,6 +568,8 @@
 <td style="text-align:right">VGG11_bn</td>
 <td style="text-align:right">132.87</td>
 <td style="text-align:right">7.62</td>
+<td style="text-align:right">9.23</td>
+<td style="text-align:right">7.49</td>
 <td style="text-align:right">0.6859</td>
 <td style="text-align:right">0.8872</td>
 </tr>
@@ -563,6 +577,8 @@
 <td style="text-align:right">VGG13_bn</td>
 <td style="text-align:right">133.06</td>
 <td style="text-align:right">11.32</td>
+<td style="text-align:right">9.42</td>
+<td style="text-align:right">11.20</td>
 <td style="text-align:right">0.6884</td>
 <td style="text-align:right">0.8882</td>
 </tr>
@@ -570,6 +586,8 @@
 <td style="text-align:right">VGG16_bn</td>
 <td style="text-align:right">138.37</td>
 <td style="text-align:right">15.48</td>
+<td style="text-align:right">14.73</td>
+<td style="text-align:right">15.36</td>
 <td style="text-align:right">0.7310</td>
 <td style="text-align:right">0.9176</td>
 </tr>
@@ -577,12 +595,16 @@
 <td style="text-align:right">VGG19_bn</td>
 <td style="text-align:right">143.69</td>
 <td style="text-align:right">19.65</td>
+<td style="text-align:right">20.05</td>
+<td style="text-align:right">19.52</td>
 <td style="text-align:right">0.7433</td>
 <td style="text-align:right">0.9185</td>
 </tr>
 <tr>
 <td style="text-align:right">Inception_v3</td>
 <td style="text-align:right">23.87</td>
+<td style="text-align:right">5.72</td>
+<td style="text-align:right">21.82</td>
 <td style="text-align:right">5.72</td>
 <td style="text-align:right">0.7755</td>
 <td style="text-align:right">0.9364</td>
@@ -591,12 +613,16 @@
 <td style="text-align:right">ResNet18_v1</td>
 <td style="text-align:right">11.70</td>
 <td style="text-align:right">1.82</td>
+<td style="text-align:right">11.19</td>
+<td style="text-align:right">1.82</td>
 <td style="text-align:right">0.7093</td>
 <td style="text-align:right">0.8992</td>
 </tr>
 <tr>
 <td style="text-align:right">ResNet34_v1</td>
 <td style="text-align:right">21.81</td>
+<td style="text-align:right">3.67</td>
+<td style="text-align:right">21.3</td>
 <td style="text-align:right">3.67</td>
 <td style="text-align:right">0.7437</td>
 <td style="text-align:right">0.9187</td>
@@ -605,6 +631,8 @@
 <td style="text-align:right">ResNet50_v1</td>
 <td style="text-align:right">25.63</td>
 <td style="text-align:right">3.87</td>
+<td style="text-align:right">23.58</td>
+<td style="text-align:right">3.87</td>
 <td style="text-align:right">0.7647</td>
 <td style="text-align:right">0.9313</td>
 </tr>
@@ -612,12 +640,16 @@
 <td style="text-align:right">ResNet101_v1</td>
 <td style="text-align:right">44.70</td>
 <td style="text-align:right">7.59</td>
+<td style="text-align:right">42.65</td>
+<td style="text-align:right">7.58</td>
 <td style="text-align:right">0.7834</td>
 <td style="text-align:right">0.9401</td>
 </tr>
 <tr>
 <td style="text-align:right">ResNet152_v1</td>
 <td style="text-align:right">60.40</td>
+<td style="text-align:right">11.30</td>
+<td style="text-align:right">58.36</td>
 <td style="text-align:right">11.30</td>
 <td style="text-align:right">0.7900</td>
 <td style="text-align:right">0.9438</td>
@@ -626,12 +658,16 @@
 <td style="text-align:right">ResNet18_v2</td>
 <td style="text-align:right">11.70</td>
 <td style="text-align:right">1.82</td>
+<td style="text-align:right">11.18</td>
+<td style="text-align:right">1.82</td>
 <td style="text-align:right">0.7100</td>
 <td style="text-align:right">0.8992</td>
 </tr>
 <tr>
 <td style="text-align:right">ResNet34_v2</td>
 <td style="text-align:right">21.81</td>
+<td style="text-align:right">3.67</td>
+<td style="text-align:right">21.30</td>
 <td style="text-align:right">3.67</td>
 <td style="text-align:right">0.7440</td>
 <td style="text-align:right">0.9208</td>
@@ -640,6 +676,8 @@
 <td style="text-align:right">ResNet50_v2</td>
 <td style="text-align:right">25.60</td>
 <td style="text-align:right">4.10</td>
+<td style="text-align:right">23.55</td>
+<td style="text-align:right">4.10</td>
 <td style="text-align:right">0.7711</td>
 <td style="text-align:right">0.9343</td>
 </tr>
@@ -647,6 +685,8 @@
 <td style="text-align:right">ResNet101_v2</td>
 <td style="text-align:right">44.64</td>
 <td style="text-align:right">7.82</td>
+<td style="text-align:right">42.59</td>
+<td style="text-align:right">7.81</td>
 <td style="text-align:right">0.7853</td>
 <td style="text-align:right">0.9417</td>
 </tr>
@@ -654,12 +694,16 @@
 <td style="text-align:right">ResNet152_v2</td>
 <td style="text-align:right">60.33</td>
 <td style="text-align:right">11.54</td>
+<td style="text-align:right">58.28</td>
+<td style="text-align:right">11.53</td>
 <td style="text-align:right">0.7921</td>
 <td style="text-align:right">0.9431</td>
 </tr>
 <tr>
 <td style="text-align:right">DenseNet121</td>
 <td style="text-align:right">8.06</td>
+<td style="text-align:right">2.85</td>
+<td style="text-align:right">7.04</td>
 <td style="text-align:right">2.85</td>
 <td style="text-align:right">0.7497</td>
 <td style="text-align:right">0.9225</td>
@@ -668,12 +712,16 @@
 <td style="text-align:right">DenseNet161</td>
 <td style="text-align:right">28.90</td>
 <td style="text-align:right">7.76</td>
+<td style="text-align:right">26.69</td>
+<td style="text-align:right">7.76</td>
 <td style="text-align:right">0.7770</td>
 <td style="text-align:right">0.9380</td>
 </tr>
 <tr>
 <td style="text-align:right">DenseNet169</td>
 <td style="text-align:right">14.31</td>
+<td style="text-align:right">3.38</td>
+<td style="text-align:right">12.64</td>
 <td style="text-align:right">3.38</td>
 <td style="text-align:right">0.7617</td>
 <td style="text-align:right">0.9317</td>
@@ -682,12 +730,16 @@
 <td style="text-align:right">DenseNet201</td>
 <td style="text-align:right">20.24</td>
 <td style="text-align:right">4.32</td>
+<td style="text-align:right">18.32</td>
+<td style="text-align:right">4.31</td>
 <td style="text-align:right">0.7732</td>
 <td style="text-align:right">0.9362</td>
 </tr>
 <tr>
 <td style="text-align:right">MobileNet_v1_1.00</td>
 <td style="text-align:right">4.25</td>
+<td style="text-align:right">0.57</td>
+<td style="text-align:right">3.23</td>
 <td style="text-align:right">0.57</td>
 <td style="text-align:right">0.7105</td>
 <td style="text-align:right">0.9006</td>
@@ -696,12 +748,16 @@
 <td style="text-align:right">MobileNet_v1_0.75</td>
 <td style="text-align:right">2.60</td>
 <td style="text-align:right">0.33</td>
+<td style="text-align:right">1.83</td>
+<td style="text-align:right">0.33</td>
 <td style="text-align:right">0.6738</td>
 <td style="text-align:right">0.8782</td>
 </tr>
 <tr>
 <td style="text-align:right">MobileNet_v1_0.50</td>
 <td style="text-align:right">1.34</td>
+<td style="text-align:right">0.15</td>
+<td style="text-align:right">0.83</td>
 <td style="text-align:right">0.15</td>
 <td style="text-align:right">0.6307</td>
 <td style="text-align:right">0.8475</td>
@@ -710,12 +766,16 @@
 <td style="text-align:right">MobileNet_v1_0.25</td>
 <td style="text-align:right">0.48</td>
 <td style="text-align:right">0.04</td>
+<td style="text-align:right">0.22</td>
+<td style="text-align:right">0.04</td>
 <td style="text-align:right">0.5185</td>
 <td style="text-align:right">0.7608</td>
 </tr>
 <tr>
 <td style="text-align:right">MobileNet_v2_1.00</td>
 <td style="text-align:right">3.54</td>
+<td style="text-align:right">0.32</td>
+<td style="text-align:right">2.26</td>
 <td style="text-align:right">0.32</td>
 <td style="text-align:right">0.7192</td>
 <td style="text-align:right">0.9056</td>
@@ -724,6 +784,8 @@
 <td style="text-align:right">MobileNet_v2_0.75</td>
 <td style="text-align:right">2.65</td>
 <td style="text-align:right">0.19</td>
+<td style="text-align:right">1.37</td>
+<td style="text-align:right">0.19</td>
 <td style="text-align:right">0.6961</td>
 <td style="text-align:right">0.8895</td>
 </tr>
@@ -731,12 +793,16 @@
 <td style="text-align:right">MobileNet_v2_0.50</td>
 <td style="text-align:right">1.98</td>
 <td style="text-align:right">0.10</td>
+<td style="text-align:right">0.70</td>
+<td style="text-align:right">0.09</td>
 <td style="text-align:right">0.6449</td>
 <td style="text-align:right">0.8547</td>
 </tr>
 <tr>
 <td style="text-align:right">MobileNet_v2_0.25</td>
 <td style="text-align:right">1.53</td>
+<td style="text-align:right">0.03</td>
+<td style="text-align:right">0.25</td>
 <td style="text-align:right">0.03</td>
 <td style="text-align:right">0.5074</td>
 <td style="text-align:right">0.7456</td>
@@ -745,6 +811,8 @@
 <td style="text-align:right">SqueezeNet1_0</td>
 <td style="text-align:right">1.25</td>
 <td style="text-align:right">0.82</td>
+<td style="text-align:right">0.74</td>
+<td style="text-align:right">0.73</td>
 <td style="text-align:right">0.5611</td>
 <td style="text-align:right">0.7909</td>
 </tr>
@@ -752,13 +820,16 @@
 <td style="text-align:right">SqueezeNet1_1</td>
 <td style="text-align:right">1.24</td>
 <td style="text-align:right">0.35</td>
+<td style="text-align:right">0.72</td>
+<td style="text-align:right">0.26</td>
 <td style="text-align:right">0.5496</td>
 <td style="text-align:right">0.7817</td>
 </tr>
 </tbody>
 </table>
+<p>由于分类网络经常用作其他框架（如目标检测的SSD）的backbone，所以这里增加了<strong>*Params</strong>列和<strong>*MAC</strong>列用于表示除去最后几个分类的Layer之后的数值。具体丢弃的层参见 <a href="https://github.com/hey-yahei/OpSummary.MXNet/blob/master/tests/test_gluon_utils.py" target="_blank" rel="noopener">mxop/tests/test_gluon_utils.py | github</a> 文件的 <code>dropped_layers</code> 变量。    </p>
 <p><img src="/imgs/MXNet-OpSummary/Parameters.jpg" alt="Parameters"></p>
-<p><img src="/imgs/MXNet-OpSummary/MAC.jpg" alt="MAC">   </p>
+<p><img src="/imgs/MXNet-OpSummary/Multiplication.jpg" alt="Multiplication">   </p>
 <p>emmm还是比较直观的嘛！    </p>
 <h4 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h4><p>目前我只模仿Lyken17的<a href="https://github.com/Lyken17/pytorch-OpCounter" target="_blank" rel="noopener">pytorch-OpCounter</a>实现了简单的参数与计算量计数，并且制作了pip包（你可以按照我github页面上的说明用pip安装 <strong>mxop</strong> 包）；<br>等之后有时间，我想继续      </p>
 <ol>
