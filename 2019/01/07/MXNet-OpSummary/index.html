@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Jan 07 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 10 2019 16:15:31 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 10 2019 17:08:23 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/index.html",
     "headline": "模型参数与计算量",
     "datePublished": "Mon Jan 07 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Jan 10 2019 16:15:31 GMT+0800",
+    "dateModified": "Thu Jan 10 2019 17:08:23 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -511,9 +511,9 @@
 <tr>
 <th style="text-align:right">Model</th>
 <th style="text-align:right">Params(M)</th>
-<th style="text-align:right">Multiplication(G)</th>
+<th style="text-align:right">Muls(G)</th>
 <th style="text-align:right">*Params(M)</th>
-<th style="text-align:right">*Multiplication(G)</th>
+<th style="text-align:right">*Muls(G)</th>
 <th style="text-align:right">Top1 Acc</th>
 <th style="text-align:right">Top5 Acc</th>
 </tr>
@@ -827,7 +827,7 @@
 </tr>
 </tbody>
 </table>
-<p>由于分类网络经常用作其他框架（如目标检测的SSD）的backbone，所以这里增加了<strong>*Params</strong>列和<strong>*MAC</strong>列用于表示除去最后几个分类的Layer之后的数值。具体丢弃的层参见 <a href="https://github.com/hey-yahei/OpSummary.MXNet/blob/master/tests/test_gluon_utils.py" target="_blank" rel="noopener">mxop/tests/test_gluon_utils.py | github</a> 文件的 <code>dropped_layers</code> 变量。    </p>
+<p>由于分类网络经常用作其他框架（如目标检测的SSD）的backbone，所以这里增加了<strong>*Params</strong>列和<strong>*Muls</strong>列用于表示除去最后几个分类的Layer之后的结果。具体丢弃的层参见 <a href="https://github.com/hey-yahei/OpSummary.MXNet/blob/master/tests/test_gluon_utils.py" target="_blank" rel="noopener">mxop/tests/test_gluon_utils.py | github</a> 文件的 <code>dropped_layers</code> 变量。    </p>
 <p><img src="/imgs/MXNet-OpSummary/Parameters.jpg" alt="Parameters"></p>
 <p><img src="/imgs/MXNet-OpSummary/Multiplication.jpg" alt="Multiplication">   </p>
 <p>emmm还是比较直观的嘛！    </p>
