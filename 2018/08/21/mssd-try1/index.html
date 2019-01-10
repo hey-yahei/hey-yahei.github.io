@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Tue Aug 21 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 24 2018 21:23:40 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 10 2019 16:23:41 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2018/08/21/mssd-try1/index.html",
     "headline": "训练MobileNet-SSD",
     "datePublished": "Tue Aug 21 2018 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 24 2018 21:23:40 GMT+0800",
+    "dateModified": "Thu Jan 10 2019 16:23:41 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -595,11 +595,11 @@
 <span class="token function">export</span> TEST_LMDB<span class="token operator">=</span><span class="token variable">$HOME</span>/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb/
 
 <span class="token function">cd</span> <span class="token variable">$CAFFE_ROOT</span>/examples/MobileNet-SSD
-<span class="token function">ln</span> -s TRAINVAL_LMDB ./trainval_lmdb
-<span class="token function">ln</span> -s TEST_LMDB ./test_lmdb
+<span class="token function">ln</span> -s <span class="token variable">$TRAINVAL_LMDB</span> ./trainval_lmdb
+<span class="token function">ln</span> -s <span class="token variable">$TEST_LMDB</span> ./test_lmdb
 </code></pre>
 <p><strong>把VOC的标签映射文件复制过来：</strong>        </p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> <span class="token variable">$CAFFE_ROOT</span>/data/VOC0712/labelmap_voc.protxt <span class="token variable">$CAFFE_ROOT</span>/examples/MobileNet-SSD/labelmap.protxt
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> <span class="token variable">$CAFFE_ROOT</span>/data/VOC0712/labelmap_voc.prototxt <span class="token variable">$CAFFE_ROOT</span>/examples/MobileNet-SSD/labelmap.prototxt
 </code></pre>
 <p><strong>生成模型文件：</strong>     </p>
 <pre class=" language-bash"><code class="language-bash">./gen_model.sh 21
