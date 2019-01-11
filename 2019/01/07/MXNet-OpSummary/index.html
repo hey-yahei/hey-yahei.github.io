@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Jan 07 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 10 2019 17:08:23 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jan 11 2019 11:36:22 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/index.html",
     "headline": "模型参数与计算量",
     "datePublished": "Mon Jan 07 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Jan 10 2019 17:08:23 GMT+0800",
+    "dateModified": "Fri Jan 11 2019 11:36:22 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -488,7 +488,7 @@
 <li><strong>参数量</strong> 是指模型含有多少参数，直接决定模型文件的大小，也影响模型推断时对内存的占用量     </li>
 <li><strong>计算量</strong> 是指模型推断时需要多少计算次数，通常是以<strong><em>MAC(Multiply ACcumulate，乘积累加)</em></strong>次数来表示    </li>
 </ul>
-<p>这两者其实是评估模型时非常重要的参数，<strong>一个实际要应用的模型不应当仅仅考虑它在准确率上有多出色的表现，还应该要考虑它的鲁棒性、扩展性以及对资源的依赖程度</strong>，但事实上很多论文都不讨论他们模型需要多少计算力，一种可能是他们的定位还是纯学术研究——提出一种新的思路，即使这种思路不便于应用，但未来说不定计算力上来了，或者有什么飞跃性的改进方法来改进这一问题，或者提出自己的思路来启发其他研究者的研究（抛砖引玉）；另一种可能就是……他们在有意识地回避这一问题，其实我觉得很多人都在回避这一问题，无论是论文还是各种AI比赛的解决方案。      </p>
+<p>这两者其实是评估模型时非常重要的参数，<strong>一个实际要应用的模型不应当仅仅考虑它在准确率上有多出色的表现，还应该要考虑它的鲁棒性、扩展性以及对资源的依赖程度</strong>，但事实上很多论文都不讨论他们模型需要多少计算力，一种可能是他们的定位还是纯学术研究——提出一种新的思路，即使这种思路不便于应用，但未来说不定计算力上来了，或者有什么飞跃性的改进方法来改进这一问题，或者提出自己的思路来启发其他研究者的研究（抛砖引玉）；另一种可能就是……他们在有意识地回避这一问题，我总觉得很多人是在回避这一问题，无论是论文还是各种AI比赛的解决方案（比赛本身只关注准确率指标本身也不够合理）。      </p>
 <p>接下来，我们试着用不同的视角重新审视以前那些常用的CNN OP——       </p>
 <h4 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h4><p>首先考虑一个3输入、3输出、有偏置的全连接层（Layer2），       </p>
 <p><center><img height="300" src="/imgs/MXNet-OpSummary/fc.png"></center><br>$$<br>\begin{array} { l } { a _ { 1 } ^ { ( 2 ) } = x _ { 0 } + w _ { 11 } x _ { 1 } + w _ { 12 } x _ { 2 } + w _ { 13 } x _ { 3 } } \\ { a _ { 2 } ^ { ( 2 ) } = x _ { 0 } + w _ { 21 } x _ { 1 } + w _ { 22 } x _ { 2 } + w _ { 23 } x _ { 3 } } \\ { a _ { 3 } ^ { ( 2 ) } = x _ { 0 } + w _ { 31 } x _ { 1 } + w _ { 32 } x _ { 2 } + w _ { 33 } x _ { 3 } } \end{array}<br>$$<br>其参数数量为 $3\times3$，乘加次数为 $3\times3$。<br>这是一个典型的矩阵和向量之间的乘法运算，<br>推广到n输入、m输出、有偏置的全连接层，其参数数量为 $m \times n$，乘加次数为 $m \times n$。      </p>
@@ -830,7 +830,7 @@
 <p>由于分类网络经常用作其他框架（如目标检测的SSD）的backbone，所以这里增加了<strong>*Params</strong>列和<strong>*Muls</strong>列用于表示除去最后几个分类的Layer之后的结果。具体丢弃的层参见 <a href="https://github.com/hey-yahei/OpSummary.MXNet/blob/master/tests/test_gluon_utils.py" target="_blank" rel="noopener">mxop/tests/test_gluon_utils.py | github</a> 文件的 <code>dropped_layers</code> 变量。    </p>
 <p><img src="/imgs/MXNet-OpSummary/Parameters.jpg" alt="Parameters"></p>
 <p><img src="/imgs/MXNet-OpSummary/Multiplication.jpg" alt="Multiplication">   </p>
-<p>emmm还是比较直观的嘛！    </p>
+<p>emmm还是比较直观的嘛！希望上述的图表对大家挑选backbone的时候能有所帮助~    </p>
 <h4 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h4><p>目前我只模仿Lyken17的<a href="https://github.com/Lyken17/pytorch-OpCounter" target="_blank" rel="noopener">pytorch-OpCounter</a>实现了简单的参数与计算量计数，并且制作了pip包（你可以按照我github页面上的说明用pip安装 <strong>mxop</strong> 包）；<br>等之后有时间，我想继续      </p>
 <ol>
 <li>依次输出各个层的参数与计算量而不是整个模型，分析各个层的比例     </li>
