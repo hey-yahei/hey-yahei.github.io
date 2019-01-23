@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 08 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jan 14 2019 09:37:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2018/08/08/MobileNets-SSD/index.html",
     "headline": "MobileNet-SSD网络解析",
     "datePublished": "Wed Aug 08 2018 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "dateModified": "Mon Jan 14 2019 09:37:26 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -515,7 +515,7 @@
 <h3 id="BN层合并"><a href="#BN层合并" class="headerlink" title="BN层合并"></a>BN层合并</h3><p>对比chuanqi305的 <a href="https://github.com/chuanqi305/MobileNet-SSD/blob/master/template/MobileNetSSD_train_template.prototxt" target="_blank" rel="noopener">train模型</a> 和 <a href="https://github.com/chuanqi305/MobileNet-SSD/blob/master/template/MobileNetSSD_deploy_template.prototxt" target="_blank" rel="noopener">deploy模型</a> 还能发现一件有趣的事情——<br><strong>deploy模型中的BN层和scale层都不见啦！！！</strong><br>BN层是这样随随便便就能丢弃的么？没道理啊！         </p>
 <p>几经辗转，查阅资料之后发现，原来BN层是可以合并进前一层的卷积层或全连接层的，而且这还有利于减少预测用时。<br>参考《<a href="http://machinethink.net/blog/object-detection-with-yolo/#converting-to-metal" target="_blank" rel="noopener">Real-time object detection with YOLO - Converting to Metal</a>》    </p>
 <p>合并的原理：卷积层、全连接层和BN层都是纯粹的线性转换。       </p>
-<p>数学推导也很简单：<br><em>假设图片为 $x$ ，卷积层权重为 $w$ 。</em><br>那么对于卷积运算有，<br>$$ conv[j] = x[i]w[0] + x[i+1]w[1] + x[i+2]w[2] + … + x[i+k]w[k] + b $$<br>BN层运算为，<br>$$ bn[j] = \frac{\gamma (conv[j] - mean)}{\sqrt{variance}} + \beta = \frac{\gamma \cdot conv[j]}{\sqrt{variance}} - \frac{\gamma \cdot mean}{\sqrt{variance}} + \beta $$<br>代入$conv[j]$变为，<br>$$ bn[j] = x[i] \frac{\gamma \cdot w[0]}{\sqrt{variance}} + x[i+1] \frac{\gamma \cdot w[1]}{\sqrt{variance}} + … + x[i+k] \frac{\gamma \cdot w[k]}{\sqrt{variance}} + \frac{\gamma \cdot b}{\sqrt{variance}} - \frac{\gamma \cdot mean}{\sqrt{variance}} + \beta $$<br>两式对比可以得到，<br>$$ w_{new} = \frac{\gamma \cdot w}{\sqrt{variance}} $$<br>$$ \beta_{new} = \beta + \frac{\gamma \cdot b}{\sqrt{variance}} - \frac{\gamma \cdot mean}{\sqrt{variance}} = \beta + \frac{\gamma (b-mean)}{\sqrt{variance}} $$<br>注意，其中 $\gamma$、$mean$、$variance$、$\beta$ 都是训练出来的量，在预测阶段相当于一个常量。       </p>
+<p>数学推导也很简单：<br><em>假设图片为 $x$ ，卷积层权重为 $w$ 。</em><br>那么对于卷积运算有，<br>$$ conv[j] = x[i]w[0] + x[i+1]w[1] + x[i+2]w[2] + … + x[i+k]w[k] + b $$<br>BN层运算为，<br>$$ bn[j] = \frac{\gamma (conv[j] - mean)}{\sqrt{variance}} + \beta = \frac{\gamma \cdot conv[j]}{\sqrt{variance}} - \frac{\gamma \cdot mean}{\sqrt{variance}} + \beta $$<br>代入$conv[j]$变为，<br>$$ bn[j] = x[i] \frac{\gamma \cdot w[0]}{\sqrt{variance}} + x[i+1] \frac{\gamma \cdot w[1]}{\sqrt{variance}} + … + x[i+k] \frac{\gamma \cdot w[k]}{\sqrt{variance}} + \frac{\gamma \cdot b}{\sqrt{variance}} - \frac{\gamma \cdot mean}{\sqrt{variance}} + \beta $$<br>两式对比可以得到，<br>$$ w_{new} = \frac{\gamma \cdot w}{\sqrt{variance}} $$<br>$$ \b_{new} = \beta + \frac{\gamma \cdot b}{\sqrt{variance}} - \frac{\gamma \cdot mean}{\sqrt{variance}} = \beta + \frac{\gamma (b-mean)}{\sqrt{variance}} $$<br>注意，其中 $\gamma$、$mean$、$variance$、$\beta$ 都是训练出来的量，在预测阶段相当于一个常量。       </p>
 <p>原文摘录如下：    </p>
 <center><img src="/imgs/MobileNet-SSD/Converting to Metal.png" alt="Converting to Metal"></center>    
 
@@ -710,7 +710,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">34</span>
+                <span class="sidebar-badge">35</span>
             </a>
         </li>
         

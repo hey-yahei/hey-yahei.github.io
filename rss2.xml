@@ -8,8 +8,35 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 11 Jan 2019 03:36:22 GMT</pubDate>
+    <pubDate>Wed, 23 Jan 2019 12:53:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>MXNet上的重训练量化</title>
+      <link>http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/</link>
+      <guid>http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/</guid>
+      <pubDate>Tue, 22 Jan 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=820284&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt; 
+
+
+&lt;p&gt;本月初随手写了个简单的pip包，用来计算mxnet-gluon模型的参数数量和运算开销，从《&lt;a href=&quot;/2019/01/07/MXNet-OpSummary/#结果&quot;&gt;模型参数与运算量 - 结果 | Hey~YaHei!&lt;/a&gt;》可以看到我们常用的CNN网络的大小和运算开销都是参差不齐的——比如常用的MobileNetv1虽然比ResNet50v1少了约6%的精度，但参数数量和运算量上看，ResNet50v1竟然是MobileNetv1的七倍左右！    &lt;/p&gt;
+&lt;p&gt;而从《&lt;a href=&quot;/2018/08/05/MobileNets_v1/&quot;&gt;MobieleNets v1模型解析 | Hey~YaHei!&lt;/a&gt;》可以看到，与ResNet不同的是，MobileNets采用的是一种非常紧凑、高效的卷积计算。除了这种方式，还有许多模型压缩的技巧，比如按《&lt;a href=&quot;https://www.jiqizhixin.com/articles/2018-05-22-9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;当前深度神经网络模型压缩和加速都有哪些方法？ - 机器之心&lt;/a&gt;》，可以把模型压缩分为&lt;strong&gt;参数修剪和共享&lt;/strong&gt;、&lt;strong&gt;低秩因子分解&lt;/strong&gt;、&lt;strong&gt;转移/紧凑卷积滤波器&lt;/strong&gt;、&lt;strong&gt;知识蒸馏&lt;/strong&gt;四个大类。      &lt;/p&gt;
+&lt;p&gt;目前应用的比较多的，应该是属于参数修剪和共享类的&lt;strong&gt;裁剪&lt;/strong&gt;和&lt;strong&gt;量化&lt;/strong&gt;技术。模型压缩的水还很深，我只是这一两个月才开始入的门，不敢瞎扯。本文接下来只简单讨论一下&lt;strong&gt;&lt;em&gt;量化&lt;/em&gt;&lt;/strong&gt;技术。     &lt;/p&gt;
+&lt;h2 id=&quot;量化&quot;&gt;&lt;a href=&quot;#量化&quot; class=&quot;headerlink&quot; title=&quot;量化&quot;&gt;&lt;/a&gt;量化&lt;/h2&gt;&lt;p&gt;参考：《&lt;a href=&quot;https://www.jiqizhixin.com/articles/2018-06-01-11&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;超全总结：神经网络加速之量化模型 | 机器之心&lt;/a&gt;》&lt;br&gt;简单的说，量化就是降低模型运算的精度，比如把32位的浮点运算变为8位的定点运算（甚至在二值网络或三值网络中乘法运算还变成了简单的加减运算），从而达到大幅度的压缩和加速模型。&lt;br&gt;常见的线性量化过程可以用以下数学表达式来表示：&lt;br&gt;$$r = Round(S(q - Z))$$&lt;br&gt;其中，&lt;br&gt;$q$ 是float32的原始值，&lt;br&gt;$Z$ 是float32的偏移量，&lt;br&gt;$S$ 是float32的缩放因子，&lt;br&gt;$Round(\cdot)$ 是四舍五入近似取整的数学函数，&lt;br&gt;$r$ 是量化后的一个整数值       &lt;/p&gt;
+&lt;p&gt;$S$ 和 $Z$ 是量化的两个参数，如何找到合适的 $S$ 和 $Z$
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>模型参数与计算量</title>
