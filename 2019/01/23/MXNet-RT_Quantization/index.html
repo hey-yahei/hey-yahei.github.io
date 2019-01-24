@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Jan 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 24 2019 15:51:22 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 24 2019 16:27:56 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/index.html",
     "headline": "MXNet上的重训练量化",
     "datePublished": "Wed Jan 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Jan 24 2019 15:51:22 GMT+0800",
+    "dateModified": "Thu Jan 24 2019 16:27:56 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -590,7 +590,7 @@
 <li>编了freeze的代码，输出来的静态图结构看起来也符合预期，但目前还没实际加载运行过 <del>（因为不巧，MXNet对量化的支持还不够好，官方的<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet</a>分为普通CPU推断和Xeon系列的CPU推断，前者竟然不支持带group的卷积，实验室的电脑又正好都是i系列的，十分头疼= =等开了学我再想办法找台Intel Xeon处理器的电脑测试一下）</del> 好像不是处理器的缘故，mkldnn应该是支持所有的intel处理器的吧，现在关键是<code>Symbol</code>居然没有<code>get_backend_symbol</code>方法，我装的应该是最新版本才对啊；    </li>
 <li>除了验证freeze结果之外，还需要测一下量化后的模型推断速度有多大提升；      </li>
 <li>图方便，目前都只用CIFAR100调程序和做实验，等开了学试试拿ImageNet跑跑看（训练集百来G还真有点大）；     </li>
-<li>训完的模型目前只能在台式机跑跑，想再看看有没有机会（主要是有没有能力QAQ）能在Tengine上跑跑我的量化模型；      </li>
+<li>训完的模型目前只能在台式机跑跑，想再看看有没有机会（主要是有没有能力QAQ）能在Tengine或ncnn上跑跑我的量化模型；      </li>
 <li>多做几个实验验证一下代码的正确性；     </li>
 <li>看起来量化的效果还不错，但我比较好奇量化后的模型跨数据集时会不会出现严重的精度下降，可以做个实验比较一下~     </li>
 <li>继续看看DoReFa和PACT的量化方式；       </li>
