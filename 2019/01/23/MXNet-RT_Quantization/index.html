@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Jan 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 24 2019 10:54:38 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 24 2019 14:05:39 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/index.html",
     "headline": "MXNet上的重训练量化",
     "datePublished": "Wed Jan 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Jan 24 2019 10:54:38 GMT+0800",
+    "dateModified": "Thu Jan 24 2019 14:05:39 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -507,7 +507,15 @@
 </ol>
 <h4 id="重训练量化"><a href="#重训练量化" class="headerlink" title="重训练量化"></a>重训练量化</h4><p>参考：《<a href="http://arxiv.org/pdf/1712.05877" target="_blank" rel="noopener">Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference(2017)</a>》      </p>
 <p><center><img src="/imgs/MXNet-RT_Quantization/retrain-quantize.jpg" alt="retrain-quantize"></center><br>由于免训练量化会对MobileNet等紧凑网络的精度造成比较大的伤害，所以有人开始提出要进行重训练量化……<br>思路非常简单，<strong>把量化参数塞入网络当中，并在训练过程中模拟量化过程（缩放、偏移、截断、复原），用32位浮点数进行训练，最终将训练得到的量化参数固化到网络当中</strong>。       </p>
-<p>根据<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize#quantized-accuracy-results" target="_blank" rel="noopener">Tensorflow - Quantize</a>模块的描述，Mobilenet-v1-224-1经过重训练后在ImageNet上的准确率从70.9%下降到69.7%（降幅1.2%）。      </p>
+<p>根据<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize#quantized-accuracy-results" target="_blank" rel="noopener">Tensorflow - Quantize</a>模块的描述，Mobilenet-v1-224-1经过重训练后在ImageNet上的准确率从70.9%下降到69.7%（降幅1.2%）。<br>关于量化对准确率的影响，还有件事情让人费解：        </p>
+<ol>
+<li>按照<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">MXNet - Quantization</a>给出的数据，仅仅使用校准而非重训练实现的静态量化，MobieleNet-1.0的准确率居然只下降了0.15%？！？！？！着实让人吃惊，不过要注意到它的单精度推断准确率也只有69.76%、而且测试数据集是他自己提供的一个<code>val_256_q90.rec</code>的1.4G数据集——对，我试着探索了一番始终没查到这个数据集从哪来的，难道是MXNet自己做的？<br> <img src="/imgs/MXNet-RT_Quantization/mxnet_quantize.jpg" alt="mxnet_quantize">     </li>
+<li><p>按照<a href="http://mxnet.incubator.apache.org/api/python/gluon/model_zoo.html" target="_blank" rel="noopener">Gluon Model zoo</a>的数据，MobileNetv1_224_1.0和MobileNetv2_224_1.0的准确率分别为71.05%和71.92%（文档没说测试集是哪，但一般应该用的是ILSVRC2012的验证集吧）；另外按照<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize#quantized-accuracy-results" target="_blank" rel="noopener">Tensorflow - Quantize</a>的数据，MobileNetv1_224_1.0和MobileNetv2_224_1.0的准确率分别为70.9%和71.8%（依旧没有指明测试集，应该也是ILSVRC2012验证集吧，不过这不是重点）——但到了<a href="https://gluon-cv.mxnet.io/model_zoo/classification.html" target="_blank" rel="noopener">Gluon CV</a>的数据，MobileNetv1_224_1.0和MobileNetv2_224_1.0的准确率分别为73.28%和71.92%（其实他没指明输入图片尺寸，不过inception指明是299了，那其他网络应该也是默认的224吧）——v1竟然反而比v2多了一个百分点还多？？（黑人问号……）       </p>
+<p> <strong>Gluon Model Zoo：</strong><br> <img src="/imgs/MXNet-RT_Quantization/gluon_model_zoo_mobilenet.jpg" alt="gluon_model_zoo_mobilenet">      </p>
+<p> <strong>Tensorflow - Quantize：</strong><br> <img src="/imgs/MXNet-RT_Quantization/tensorflow_quantize.jpg" alt="tensorflow_quantize">     </p>
+<p> <strong>Gluon CV：</strong><br> <img src="/imgs/MXNet-RT_Quantization/gluon_cv_mobilenet.jpg" alt="gluon_cv_mobilenet">      </p>
+</li>
+</ol>
 <h2 id="重训练量化的MXNet实现"><a href="#重训练量化的MXNet实现" class="headerlink" title="重训练量化的MXNet实现"></a>重训练量化的MXNet实现</h2><p>MXNet提供了简单的量化——<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet | github</a>，不过可惜只支持简单的免训练量化。所以我决定参考Intel基于Pytorch实现的<a href="https://github.com/NervanaSystems/distiller" target="_blank" rel="noopener">Distiller</a>和谷歌的论文，实现一个简单的MXNet网络的重训练量化。       </p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>项目已开源至<a href="https://github.com/hey-yahei/RT_Quantization.MXNet" target="_blank" rel="noopener">github</a>，这里只写一下大体的思路：     </p>
 <ul>
