@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Jan 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jan 23 2019 20:57:13 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 24 2019 09:54:40 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/index.html",
     "headline": "MXNet上的重训练量化",
     "datePublished": "Wed Jan 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Wed Jan 23 2019 20:57:13 GMT+0800",
+    "dateModified": "Thu Jan 24 2019 09:54:40 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -506,7 +506,8 @@
 <li>对第一层卷积、最后一层全连接层进行量化会对精度造成比较大的伤害……      </li>
 </ol>
 <h4 id="重训练量化"><a href="#重训练量化" class="headerlink" title="重训练量化"></a>重训练量化</h4><p>参考：《<a href="http://arxiv.org/pdf/1712.05877" target="_blank" rel="noopener">Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference(2017)</a>》      </p>
-<p><center><img src="/imgs/MXNet-RT_Quantization/retrain-quantize.jpg" alt="retrain-quantize"></center><br>由于免训练量化会对MobileNet等紧凑网络的精度造成比较大的伤害，所以有人开始提出要进行重训练量化……<br>思路非常简单，<strong>把量化参数塞入网络当中，并在训练过程中模拟量化过程（缩放、偏移、截断、复原），并且用32位浮点数进行训练，最终将训练得到的量化参数固化到网络当中</strong>。</p>
+<p><center><img src="/imgs/MXNet-RT_Quantization/retrain-quantize.jpg" alt="retrain-quantize"></center><br>由于免训练量化会对MobileNet等紧凑网络的精度造成比较大的伤害，所以有人开始提出要进行重训练量化……<br>思路非常简单，<strong>把量化参数塞入网络当中，并在训练过程中模拟量化过程（缩放、偏移、截断、复原），用32位浮点数进行训练，最终将训练得到的量化参数固化到网络当中</strong>。       </p>
+<p>根据<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize#quantized-accuracy-results" target="_blank" rel="noopener">Tensorflow - Quantize</a>模块的描述，Mobilenet-v1-224-1经过重训练后在ImageNet上的准确率从70.9%下降到69.7%（降幅1.2%）。      </p>
 <h2 id="重训练量化的MXNet实现"><a href="#重训练量化的MXNet实现" class="headerlink" title="重训练量化的MXNet实现"></a>重训练量化的MXNet实现</h2><p>MXNet提供了简单的量化——<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet | github</a>，不过可惜只支持简单的免训练量化。所以我决定参考Intel基于Pytorch实现的<a href="https://github.com/NervanaSystems/distiller" target="_blank" rel="noopener">Distiller</a>和谷歌的论文，实现一个简单的MXNet网络的重训练量化。       </p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>项目已开源至<a href="https://github.com/hey-yahei/RT_Quantization.MXNet" target="_blank" rel="noopener">github</a>，这里只写一下大体的思路：     </p>
 <ul>
@@ -517,7 +518,7 @@
 <li>利用MXNet提供的底层库函数（MXQuantizeSymbol）固化量化模型的结构，然后将对应的参数解算或映射到最终的参数名和数据类型（官方的底层库不支持静态量化，所幸这个改动不算麻烦，自己写了个脚本去把动态量化的max、min改为静态的数值就行）；    </li>
 <li>训练前期输入和激活的量化用动态实现，同时用指数平滑平均（EMA）累积训练集上的最大最小值，当累积结果相对稳定（比如迭代一万次后）再改为静态量化对其他参数进行微调；        </li>
 </ul>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><h4 id="量化前后"><a href="#量化前后" class="headerlink" title="量化前后"></a>量化前后</h4><p>调试过程比较繁琐，所以为简单起见还没用ImageNet进行实验而使用了CIFAR100数据集（20分类，50000训练集，10000验证集），统一不使用数据增强来进行训练。分别训练出准确率分别为<strong>83.45%</strong>、<strong>89.35%</strong>的<strong>MobileNet_1_0</strong>和<strong>ResNet50_v1</strong>作为baseline——     </p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><h4 id="量化前后"><a href="#量化前后" class="headerlink" title="量化前后"></a>量化前后</h4><p>调试过程比较繁琐，所以为简单起见还没用ImageNet进行实验而使用了CIFAR100数据集（20分类，50000训练集，10000验证集），统一不使用数据增强来进行训练。分别训练出准确率分别为<strong>83.45%</strong>、<strong>84.20%</strong>、<strong>89.35%</strong>的<strong>MobileNet_1_0</strong>、<strong>MobileNet_1_0_ReLU6</strong>和<strong>ResNet50_v1</strong>作为baseline——     </p>
 <table>
 <thead>
 <tr>
@@ -531,7 +532,7 @@
 <tr>
 <td style="text-align:center">FP32</td>
 <td style="text-align:center">83.45%</td>
-<td style="text-align:center">83.45%</td>
+<td style="text-align:center">84.20%</td>
 <td style="text-align:center">89.35%</td>
 </tr>
 <tr>
@@ -555,7 +556,7 @@
 </tbody>
 </table>
 <p>其中，<br><strong>FP32</strong> 为单精度浮点下的模型；<br><strong>UINT8_ONLINE</strong> 为8位非对称量化、动态量化激活的模型；<br><strong>UINT8_OFFLINE_CALIB</strong> 为8位非对称量化、静态量化激活（在整个训练集上前向传播一次后用EMA校准最大最小值）的模型；<br><strong>UINT8_OFFLINE_RETRAIN</strong> 为8位非对称量化、重训练（不合并BN层）的模型；<br><em>由于即使不重训练，ResNet精度也没有很明显的下降，所以调试过程中没有尝试对ResNet做重训练。</em>        </p>
-<p>可以看到，即使没有重训练，量化后的Resnet50_v1也只有少量的精度下降；<br>但MobileNet_1_0精度下降非常明显，静态量化激活甚至会导致精度下降11%左右，不过经过重训练后静态量化激活的模型精度只下降了2.7%左右（其实依旧很多）……后来发现这是激活函数的缘故，把ReLU都替换成ReLU6之后，重训练静态量化的模型精度仅仅下降0.4%！<br>关于RELU6可以参考：<a href="https://stackoverflow.com/questions/47220595/why-the-6-in-relu6/47220765" target="_blank" rel="noopener">Why the 6 in relu6? | stackoverflow</a>，简单来说，ReLU6可以将定点数的整数部分限制在6以内，防止量化误差在传播过程中过分扩大。      </p>
+<p>可以看到，即使没有重训练，量化后的Resnet50_v1也只有少量的精度下降；<br>但MobileNet_1_0精度下降非常明显，静态量化激活甚至会导致精度下降11%左右，不过经过重训练后静态量化激活的模型精度只下降了3.5%左右（其实依旧很多）……后来发现这是激活函数的缘故，把ReLU都替换成ReLU6之后，重训练静态量化的模型精度仅仅下降1.2%！<br>关于RELU6可以参考：<a href="https://stackoverflow.com/questions/47220595/why-the-6-in-relu6/47220765" target="_blank" rel="noopener">Why the 6 in relu6? | stackoverflow</a>，简单来说，ReLU6可以将定点数的整数部分限制在6以内，防止量化误差在传播过程中过分扩大。      </p>
 <h4 id="伪·批归一化"><a href="#伪·批归一化" class="headerlink" title="伪·批归一化"></a>伪·批归一化</h4><p>不过吧，细心的你可能会想起来为了加快推断速度，往往会将BN层融到卷积、全连接等线性层中去（参考《<a href="/2018/08/08/MobileNets-SSD/#BN层合并">MobileNet-SSD网络解析 - BN层合并 | Hey~YaHei!</a>》）。现在BN层和卷积层之间隔着一个非线性的量化（因为有截断、取整、取最值的过程），这可怎么办？既然量化后不方便合并BN层，那在量化前（重训练前），提前把BN层融合掉好了，这就是论文《<a href="http://arxiv.org/pdf/1712.05877" target="_blank" rel="noopener">Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference(2017)</a>》提到的伪BatchNorm操作，把BN层的参数都丢给卷积层，训练过程中卷积层既要做伪归一化，又要做伪量化！       </p>
 <p><center><img src="/imgs/MXNet-RT_Quantization/fake_bn.jpg" alt="fake_bn"></center><br>当然，这是有额外代价的，训练的前向传播过程中，需要做两次卷积运算——      </p>
 <ol>
@@ -564,15 +565,16 @@
 </ol>
 <p>这样一来，训练速度大概会下降30%-40%左右（实测）；<br>另外，不引入伪·批归一化的情况下，重训练收敛非常快！几乎算是迭代几百次（哦，我用的是Adam）就接近收敛，引入后精度下降特别厉害（起初甚至以为我程序有问题，然后反复验证我伪BN的输出结果），需要训一段时间才能得到最后的结果：    </p>
 <p><center><img src="/imgs/MXNet-RT_Quantization/mobilenet_quant_relu6.jpg" alt="mobilenet_quant_relu6"></center>      </p>
-<p><center><img src="/imgs/MXNet-RT_Quantization/mobilenet_quant_relu6_fakebn.jpg" alt="mobilenet_quant_relu6_fakebn"></center><br><em>图(上)：不合并BN的学习曲线（前一万次迭代采用动态量化，之后转为静态量化做微调）</em><br><em>图(下)：合并BN后的学习曲线（前一万次迭代采用动态量化，之后转为静态量化做微调）</em>      </p>
-<p>伪BN模型最终精度为83.00%，跟非未BN模型接近，均比原始模型低0.4%左右。     </p>
+<p><center><img src="/imgs/MXNet-RT_Quantization/mobilenet_quant_relu6_fakebn.jpg" alt="mobilenet_quant_relu6_fakebn"></center><br><em>图(上)：不合并BN的学习曲线（前一万次迭代采用动态量化(lr=1e-5)，之后转为静态量化做微调(lr=1e-5)）</em><br><em>图(下)：合并BN后的学习曲线（前一万次迭代采用动态量化(lr=1e-5)，之后转为静态量化做微调(lr=1e-6)）</em>      </p>
+<p>伪BN模型最终精度为83.00%，跟非伪BN模型接近，均比原始模型低0.4%左右。     </p>
 <h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><ol>
-<li>编了freeze的代码，输出来的静态图模型看起来也符合预期，但目前还没实际加载运行过（因为不巧，MXNet对量化的支持还不够好，官方的<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet</a>分为普通CPU推断和Xeon系列的CPU推断，前者竟然不支持带group的卷积，实验室的电脑又正好都是i系列的，十分头疼= =等开了学我再想办法找台Intel Xeon处理器的电脑测试一下）；    </li>
+<li>编了freeze的代码，输出来的静态图结构看起来也符合预期，但目前还没实际加载运行过（因为不巧，MXNet对量化的支持还不够好，官方的<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet</a>分为普通CPU推断和Xeon系列的CPU推断，前者竟然不支持带group的卷积，实验室的电脑又正好都是i系列的，十分头疼= =等开了学我再想办法找台Intel Xeon处理器的电脑测试一下）；    </li>
 <li>图方便，目前都只用CIFAR100调程序和做实验，等开了学试试拿ImageNet跑跑看（训练集百来G还真有点大）；     </li>
-<li>训完的模型目前只能在台式机跑跑，我想看看有没有机会（主要是有没有能力QAQ）能在Tengine上跑跑我的量化模型；      </li>
+<li>训完的模型目前只能在台式机跑跑，想再看看有没有机会（主要是有没有能力QAQ）能在Tengine上跑跑我的量化模型；      </li>
 <li>多做几个实验验证一下代码的正确性；     </li>
 <li>看起来量化的效果还不错，但我比较好奇量化后的模型跨数据集时会不会出现严重的精度下降，可以做个实验比较一下~     </li>
-<li>继续看看DoReFa和PACT的量化方式       </li>
+<li>继续看看DoReFa和PACT的量化方式；       </li>
+<li>目前只对分类网络进行量化，想试一下对检测网络MobileNet-SSD和人脸识别网络MobileFaceNet网络的量化结果；      </li>
 </ol>
 <p>代码还比较粗糙，等着开了学再进一步完善吧！    </p>
 
