@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Jan 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 24 2019 16:27:56 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jan 25 2019 15:40:08 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/index.html",
     "headline": "MXNet上的重训练量化",
     "datePublished": "Wed Jan 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Jan 24 2019 16:27:56 GMT+0800",
+    "dateModified": "Fri Jan 25 2019 15:40:08 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#量化"><span class="post-toc-number">1.</span> <span class="post-toc-text">量化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#零点位置：对称量化和非对称量化"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">零点位置：对称量化和非对称量化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对称量化"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">对称量化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非对称量化"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">非对称量化</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线性量化和截断量化【占坑】"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">线性量化和截断量化【占坑】</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#几种量化方式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">几种量化方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#免训练量化"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">免训练量化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#重训练量化"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">重训练量化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重训练量化的MXNet实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">重训练量化的MXNet实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结果"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">结果</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#量化前后"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">量化前后</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#伪·批归一化"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">伪·批归一化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推荐阅读"><span class="post-toc-number">3.</span> <span class="post-toc-text">推荐阅读</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下一步"><span class="post-toc-number">4.</span> <span class="post-toc-text">下一步</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#量化"><span class="post-toc-number">1.</span> <span class="post-toc-text">量化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#零点位置：对称量化和非对称量化"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">零点位置：对称量化和非对称量化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对称量化"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">对称量化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非对称量化"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">非对称量化</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线性量化和截断量化【占坑】"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">线性量化和截断量化【占坑】</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逐层量化和逐通道量化"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">逐层量化和逐通道量化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#训练后量化和重训练量化"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">训练后量化和重训练量化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#训练后量化"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">训练后量化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#重训练量化"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">重训练量化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重训练量化的MXNet实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">重训练量化的MXNet实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#思路"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结果"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">结果</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#量化前后"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">量化前后</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#伪·批归一化"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">伪·批归一化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#推荐阅读"><span class="post-toc-number">3.</span> <span class="post-toc-text">推荐阅读</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下一步"><span class="post-toc-number">4.</span> <span class="post-toc-text">下一步</span></a></li></ol>
     </ul>
     
 
@@ -493,20 +493,21 @@
 <p>对称量化比较简单，不仅实现简单，而且由于$Z=0$运算也变得非常简单。      </p>
 <h4 id="非对称量化"><a href="#非对称量化" class="headerlink" title="非对称量化"></a>非对称量化</h4><p><center><img src="/imgs/MXNet-RT_Quantization/asymmetric-mode.png" alt="asymmetric-mode"></center><br>比如简单地取，<br>$$S = \frac{2^{n-1} - 1}{max(x)-min(x)}$$<br>$$Z = min(x)$$<br>非对称量化比较灵活，通常 $r$ 是用无符号的整型数值来表示，此时 $Z \neq 0$。          </p>
 <h3 id="线性量化和截断量化【占坑】"><a href="#线性量化和截断量化【占坑】" class="headerlink" title="线性量化和截断量化【占坑】"></a>线性量化和截断量化【占坑】</h3><p>还没看DoReFa和PACT的论文……        </p>
-<h3 id="几种量化方式"><a href="#几种量化方式" class="headerlink" title="几种量化方式"></a>几种量化方式</h3><h4 id="免训练量化"><a href="#免训练量化" class="headerlink" title="免训练量化"></a>免训练量化</h4><ul>
+<h3 id="逐层量化和逐通道量化"><a href="#逐层量化和逐通道量化" class="headerlink" title="逐层量化和逐通道量化"></a>逐层量化和逐通道量化</h3><p><strong>逐层量化</strong>在整一层上使用同一对量化参数；<br><strong>逐通道量化</strong>则是对每一个通道使用单独的量化参数；<br><em>后文中的重训练量化实现采用的是逐层量化</em>            </p>
+<h3 id="训练后量化和重训练量化"><a href="#训练后量化和重训练量化" class="headerlink" title="训练后量化和重训练量化"></a>训练后量化和重训练量化</h3><h4 id="训练后量化"><a href="#训练后量化" class="headerlink" title="训练后量化"></a>训练后量化</h4><ul>
 <li>最简单的方式是直接利用<strong>最大最小值</strong>，比如量化权重时直接计算每一层里的权重的最大最小值然后代入上述的式子中计算S和Z，计算比较简单，即使在实际应用当中在加载模型时计算量化参数也不会有很大开销；      </li>
 <li>更为复杂的则是采用<strong>聚类</strong>算法，而不是简单的确定S和Z，此时运算会变得比较复杂——相邻两个数值间的差距不再是固定的，需要通过查表的方式来实现；     </li>
-<li>由于输入和激活是动态的，不像静态的权重可以直接事先计算好S和Z，所以在免训练量化中经常会将为输入动态计算S和Z；     </li>
+<li>由于输入和激活是动态的，不像静态的权重可以直接事先计算好S和Z，所以在训练后量化中经常会将为输入动态计算S和Z；     </li>
 <li>为了让模型计算更快，也有一些技巧可以静态量化输入和激活，比如<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet | github</a> 允许模型通过平滑平均的方式为每一个输入和激活确定静态的S和Z；          </li>
 </ul>
 <p>除此之外，一些论文以及《<a href="https://nervanasystems.github.io/distiller/algo_quantization/index.html" target="_blank" rel="noopener">Algorithms - Quantization | Distiller</a>》指出——      </p>
 <ol>
 <li>量化位宽小于8时，模型精度会出现比较严重的下降；      </li>
-<li>对于ResNet等冗余网络，免训练量化已经可以取得不错的效果；但对于MobileNet等紧凑的网络，免训练量化会对精度造成比较大的伤害；    </li>
+<li>对于ResNet等冗余网络，训练后量化已经可以取得不错的效果；但对于MobileNet等紧凑的网络，训练后量化会对精度造成比较大的伤害；    </li>
 <li>对第一层卷积、最后一层全连接层进行量化会对精度造成比较大的伤害……      </li>
 </ol>
 <h4 id="重训练量化"><a href="#重训练量化" class="headerlink" title="重训练量化"></a>重训练量化</h4><p>参考：《<a href="http://arxiv.org/pdf/1712.05877" target="_blank" rel="noopener">Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference(2017)</a>》      </p>
-<p><center><img src="/imgs/MXNet-RT_Quantization/retrain-quantize.jpg" alt="retrain-quantize"></center><br>由于免训练量化会对MobileNet等紧凑网络的精度造成比较大的伤害，所以有人开始提出要进行重训练量化……<br>思路非常简单，<strong>把量化参数塞入网络当中，并在训练过程中模拟量化过程（缩放、偏移、截断、复原），用32位浮点数进行训练，最终将训练得到的量化参数固化到网络当中</strong>。       </p>
+<p><center><img src="/imgs/MXNet-RT_Quantization/retrain-quantize.jpg" alt="retrain-quantize"></center><br>由于训练后量化会对MobileNet等紧凑网络的精度造成比较大的伤害，所以有人开始提出要进行重训练量化……<br>思路非常简单，<strong>把量化参数塞入网络当中，并在训练过程中模拟量化过程（缩放、偏移、截断、复原），用32位浮点数进行训练，最终将训练得到的量化参数固化到网络当中</strong>。       </p>
 <p>根据<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize#quantized-accuracy-results" target="_blank" rel="noopener">Tensorflow - Quantize</a>模块的描述，Mobilenet-v1-224-1经过重训练后在ImageNet上的准确率从70.9%下降到69.7%（降幅1.2%）。<br>关于量化对准确率的影响，还有两件事情让人费解：        </p>
 <ol>
 <li>按照<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">MXNet - Quantization</a>给出的数据，仅仅使用校准而非重训练实现的静态量化，MobieleNet-1.0的准确率居然只下降了<strong>0.15%</strong>？！？！？！着实让人吃惊，不过要注意到它的单精度推断准确率也只有69.76%、而且测试数据集是他自己提供的一个<code>val_256_q90.rec</code>的1.4G数据集——对，我试着探索了一番始终没查到这个数据集从哪来的，难道是MXNet自己做的？<br> <img src="/imgs/MXNet-RT_Quantization/mxnet_quantize.jpg" alt="mxnet_quantize">     </li>
@@ -516,7 +517,7 @@
 <p> <strong>Gluon CV：</strong><br> <img src="/imgs/MXNet-RT_Quantization/gluon_cv_mobilenet.jpg" alt="gluon_cv_mobilenet">      </p>
 </li>
 </ol>
-<h2 id="重训练量化的MXNet实现"><a href="#重训练量化的MXNet实现" class="headerlink" title="重训练量化的MXNet实现"></a>重训练量化的MXNet实现</h2><p>MXNet提供了简单的量化——<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet | github</a>，不过可惜只支持简单的免训练量化。所以我决定参考Intel基于Pytorch实现的<a href="https://github.com/NervanaSystems/distiller" target="_blank" rel="noopener">Distiller</a>和谷歌的论文，实现一个简单的MXNet网络的重训练量化。       </p>
+<h2 id="重训练量化的MXNet实现"><a href="#重训练量化的MXNet实现" class="headerlink" title="重训练量化的MXNet实现"></a>重训练量化的MXNet实现</h2><p>MXNet提供了简单的量化——<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet | github</a>，不过可惜只支持简单的训练后量化。所以我决定参考Intel基于Pytorch实现的<a href="https://github.com/NervanaSystems/distiller" target="_blank" rel="noopener">Distiller</a>和谷歌的论文，实现一个简单的MXNet网络的重训练量化。       </p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>项目已开源至<a href="https://github.com/hey-yahei/RT_Quantization.MXNet" target="_blank" rel="noopener">github</a>，这里只写一下大体的思路：     </p>
 <ul>
 <li>总体思路就是进行模拟量化，然后把量化参数作为可训练参数进行训练；      </li>
@@ -578,7 +579,7 @@
 <h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><ol>
 <li><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantize" target="_blank" rel="noopener">Tensorflow - Quantize</a>：Tensorflow的重训练量化模块      </li>
 <li><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/quantization" target="_blank" rel="noopener">Tensorflow - Quantization</a>：Tensorflow的量化OP       </li>
-<li><a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">MXNet - Quantization</a>：MXNet的免训练量化模块     </li>
+<li><a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">MXNet - Quantization</a>：MXNet的训练后量化模块     </li>
 <li><a href="https://nervanasystems.github.io/distiller/" target="_blank" rel="noopener">Neural Network Distiller</a>：Intel的开源模型压缩库（基于Pytorch）      </li>
 <li>《<a href="https://arxiv.org/pdf/1806.08342.pdf" target="_blank" rel="noopener">Quantizing deep convolutional networks for efficient inference: A whitepaper</a>》<br> 谷歌Tensorflow官方发布的量化白皮书，译文可参考<br> 《<a href="https://blog.csdn.net/guvcolie/article/details/81286349" target="_blank" rel="noopener">Tensorflow 模型量化 （Quantizing deep convolutional networks for efficient inference: A whitepaper 译文） | CSDN, Colie-Li</a>》      </li>
 <li>《<a href="https://www.jiqizhixin.com/articles/2018-05-22-9" target="_blank" rel="noopener">当前深度神经网络模型压缩和加速都有哪些方法？ | PaperWeekly, 小一一</a>》    </li>
@@ -590,7 +591,7 @@
 <li>编了freeze的代码，输出来的静态图结构看起来也符合预期，但目前还没实际加载运行过 <del>（因为不巧，MXNet对量化的支持还不够好，官方的<a href="https://github.com/apache/incubator-mxnet/tree/master/example/quantization" target="_blank" rel="noopener">Quantization - MXNet</a>分为普通CPU推断和Xeon系列的CPU推断，前者竟然不支持带group的卷积，实验室的电脑又正好都是i系列的，十分头疼= =等开了学我再想办法找台Intel Xeon处理器的电脑测试一下）</del> 好像不是处理器的缘故，mkldnn应该是支持所有的intel处理器的吧，现在关键是<code>Symbol</code>居然没有<code>get_backend_symbol</code>方法，我装的应该是最新版本才对啊；    </li>
 <li>除了验证freeze结果之外，还需要测一下量化后的模型推断速度有多大提升；      </li>
 <li>图方便，目前都只用CIFAR100调程序和做实验，等开了学试试拿ImageNet跑跑看（训练集百来G还真有点大）；     </li>
-<li>训完的模型目前只能在台式机跑跑，想再看看有没有机会（主要是有没有能力QAQ）能在Tengine或ncnn上跑跑我的量化模型；      </li>
+<li>训完的模型目前只能在台式机跑跑，想再看看有没有可能在Tengine或ncnn上跑跑我的量化模型；      </li>
 <li>多做几个实验验证一下代码的正确性；     </li>
 <li>看起来量化的效果还不错，但我比较好奇量化后的模型跨数据集时会不会出现严重的精度下降，可以做个实验比较一下~     </li>
 <li>继续看看DoReFa和PACT的量化方式；       </li>
