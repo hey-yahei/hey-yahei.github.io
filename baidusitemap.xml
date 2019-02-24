@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://hey-yahei.cn/2018/10/13/RasPi-Tengine/</loc>
+    <lastmod>2019-02-24T06:45:51.650Z</lastmod>
+  </url>  <url>
     <loc>http://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/</loc>
-    <lastmod>2019-01-25T09:04:08.438Z</lastmod>
+    <lastmod>2019-01-25T13:49:05.533Z</lastmod>
   </url>  <url>
     <loc>http://hey-yahei.cn/2019/01/07/MXNet-OpSummary/</loc>
     <lastmod>2019-01-23T12:41:29.160Z</lastmod>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>http://hey-yahei.cn/2018/08/04/RK3399-Tengine/</loc>
     <lastmod>2019-01-04T12:05:29.834Z</lastmod>
-  </url>  <url>
-    <loc>http://hey-yahei.cn/2018/10/13/RasPi-Tengine/</loc>
-    <lastmod>2018-12-25T11:40:36.765Z</lastmod>
   </url>  <url>
     <loc>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</loc>
     <lastmod>2018-10-13T07:16:23.697Z</lastmod>
