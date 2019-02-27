@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat Feb 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Feb 27 2019 20:27:21 GMT+0800">
+        <meta property="article:modified_time" content="Wed Feb 27 2019 20:30:06 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html",
     "headline": "深度学习小技巧（一）：图像增强与高效训练",
     "datePublished": "Sat Feb 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Wed Feb 27 2019 20:27:21 GMT+0800",
+    "dateModified": "Wed Feb 27 2019 20:30:06 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图像增强"><span class="post-toc-number">1.</span> <span class="post-toc-text">图像增强</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高效训练"><span class="post-toc-number">2.</span> <span class="post-toc-text">高效训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大批次训练"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">大批次训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随机梯度下降（SGD）"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">随机梯度下降（SGD）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#学习率衰减"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">学习率衰减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大批次训练技巧"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">大批次训练技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-等比例增大学习率"><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">1.等比例增大学习率</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-学习率热启动"><span class="post-toc-number">2.1.3.2.</span> <span class="post-toc-text">2.学习率热启动</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-零gamma初始化"><span class="post-toc-number">2.1.3.3.</span> <span class="post-toc-text">3.零gamma初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-无偏置衰减"><span class="post-toc-number">2.1.3.4.</span> <span class="post-toc-text">4.无偏置衰减</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#低精度训练"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">低精度训练</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验结果"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">实验结果</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图像增强"><span class="post-toc-number">1.</span> <span class="post-toc-text">图像增强</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高效训练"><span class="post-toc-number">2.</span> <span class="post-toc-text">高效训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大批次训练"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">大批次训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随机梯度下降（SGD）"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">随机梯度下降（SGD）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#学习率衰减"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">学习率衰减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大批次训练技巧"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">大批次训练技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-等比例增大学习率"><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">1.等比例增大学习率</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-学习率预热"><span class="post-toc-number">2.1.3.2.</span> <span class="post-toc-text">2.学习率预热</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-零gamma初始化"><span class="post-toc-number">2.1.3.3.</span> <span class="post-toc-text">3.零gamma初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-无偏置衰减"><span class="post-toc-number">2.1.3.4.</span> <span class="post-toc-text">4.无偏置衰减</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#低精度训练"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">低精度训练</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验结果"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">实验结果</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -518,13 +518,13 @@
 <p>这一过程演化到优化问题上就成为一种模拟退火策略（实际上深度学习中的<strong>退火</strong>可能更加广泛，大概一切有助于跳脱局部最优点，寻找更佳的全局最优点的策略都能称为退火了吧）。训练一开始使用较大的学习率，在比较大的空间上搜索较优的区域，待权重相对稳定后衰减学习率缩小搜索空间，从而取得更好的训练结果并且提高了模型的鲁棒性。       </p>
 <h4 id="大批次训练技巧"><a href="#大批次训练技巧" class="headerlink" title="大批次训练技巧"></a>大批次训练技巧</h4><p>前文已经提到，盲目增大批大小其实无益于提升训练效果，但却有各种小技巧——      </p>
 <h5 id="1-等比例增大学习率"><a href="#1-等比例增大学习率" class="headerlink" title="1.等比例增大学习率"></a>1.等比例增大学习率</h5><p>前边提到在满足$B&lt;&lt;N$的前提下等比例放大（缩小）$\epsilon$和$B$效果是相当的，既然如此，我们在增大批大小的同时等比例增大学习率不仅可以避开泛化差距问题，还有助于加速收敛速度。<br>而对于带动量的优化器，等比例增大 $\epsilon / ( 1 - m )$ 也能取得相同的结果（其中m为动量系数）。      </p>
-<h5 id="2-学习率热启动"><a href="#2-学习率热启动" class="headerlink" title="2.学习率热启动"></a>2.学习率热启动</h5><p>训练之初由于参数随机初始化（尤其是非预训练模型），数值上与目标参数组相去甚远，如果采用太大的学习率会出现参数数值的不稳定，不利于模型收敛。因此，从较低的学习率开始训练会比较好，比如：     </p>
+<h5 id="2-学习率预热"><a href="#2-学习率预热" class="headerlink" title="2.学习率预热"></a>2.学习率预热</h5><p>训练之初由于参数随机初始化（尤其是非预训练模型），数值上与目标参数组相去甚远，如果采用太大的学习率会出现参数数值的不稳定，不利于模型收敛。因此，从较低的学习率开始训练会比较好，比如：     </p>
 <ul>
 <li>《<a href="https://arxiv.org/pdf/1512.03385.pdf" target="_blank" rel="noopener">Deep Residual Learning for Image Recognition(2015)</a>》先用较低的学习率（0.01）预热，直到训练错误率低于80%之后再恢复到正常的学习率（0.1）。              <blockquote>
 <p>In this case, we find that the initial learning rate of 0.1 is slightly too large to start converging. So we use 0.01 to warm up the training until the training error is below 80% (about 400 iterations), and then go back to 0.1 and continue training.       </p>
 </blockquote>
 </li>
-<li>《<a href="https://arxiv.org/pdf/1706.02677.pdf" target="_blank" rel="noopener">Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour(2017)</a>》2.2节指出常数学习率热启动会在学习率突变阶段对模型收敛产生不良印象，并提出了线性学习率热启动，用斜坡来代替学习率的突变。           <center><img src="/imgs/bag-of-tricks/lr_warmup.jpg" alt="lr_warmup"></center>        
+<li>《<a href="https://arxiv.org/pdf/1706.02677.pdf" target="_blank" rel="noopener">Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour(2017)</a>》2.2节指出常数学习率预热会在学习率突变阶段对模型收敛产生不良印象，并提出了线性学习率预热，用斜坡来代替学习率的突变。           <center><img src="/imgs/bag-of-tricks/lr_warmup.jpg" alt="lr_warmup"></center>        
 
 </li>
 </ul>
