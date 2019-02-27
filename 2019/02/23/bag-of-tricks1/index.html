@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            深度学习小技巧（一）：图像增强与高效训练 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="http://hey-yahei.cn/2019/02/23/bag-of-tricks1/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hey-yahei.cn/2019/02/23/bag-of-tricks1/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="深度学习小技巧（一）：图像增强与高效训练 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Sat Feb 23 2019 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Wed Feb 27 2019 20:22:32 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html",
+    "headline": "深度学习小技巧（一）：图像增强与高效训练",
+    "datePublished": "Sat Feb 23 2019 00:00:00 GMT+0800",
+    "dateModified": "Wed Feb 27 2019 20:22:32 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图像增强"><span class="post-toc-number">1.</span> <span class="post-toc-text">图像增强</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高效训练"><span class="post-toc-number">2.</span> <span class="post-toc-text">高效训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大批次训练"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">大批次训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随机梯度下降（SGD）"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">随机梯度下降（SGD）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#学习率衰减"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">学习率衰减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大批次训练技巧"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">大批次训练技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-等比例增大学习率"><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">1.等比例增大学习率</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-学习率热启动"><span class="post-toc-number">2.1.3.2.</span> <span class="post-toc-text">2.学习率热启动</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-零gamma初始化"><span class="post-toc-number">2.1.3.3.</span> <span class="post-toc-text">3.零gamma初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-无偏置衰减"><span class="post-toc-number">2.1.3.4.</span> <span class="post-toc-text">4.无偏置衰减</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#低精度训练"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">低精度训练</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                深度学习小技巧（一）：图像增强与高效训练
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>2月 23, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=深度学习小技巧（一）：图像增强与高效训练&url=http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=深度学习小技巧（一）：图像增强与高效训练&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=638400&auto=0&height=32"></iframe>        
+
+<p>最近无意在MXNet论坛上翻出一篇不错的综述性（实验性）论文《<a href="https://arxiv.org/pdf/1812.01187.pdf" target="_blank" rel="noopener">Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)</a>》，作者主要从<strong>高效训练</strong>、<strong>模型微调</strong>、<strong>训练技巧</strong>三个方面列举了一些常见的深度学习小技巧并附上了丰富的比较实验。<br>之后我将抽空按照这三个方面，以该论文为起点，配以相关的资料和个人理解，连更三篇相关的博文(<em>^__^</em>)             </p>
+<hr>
+<h2 id="图像增强"><a href="#图像增强" class="headerlink" title="图像增强"></a>图像增强</h2><ul>
+<li>训练      <ul>
+<li>随机抽样并将uint8转换为float32</li>
+<li>随机裁剪出比例尺在$[\frac{3}{4}, \frac{4}{3}]$之间、尺寸大小在$[8\%, 100\%]$之间的图像块，并resize为224x224的图像     </li>
+<li>以0.5的概率水平翻转       </li>
+<li>随机使用$[0.6, 1.4]$的系数对亮度、饱和度、对比度进行扰动       </li>
+<li>用正态分布$\mathcal { N } ( 0,0.1 )$的随机系数为图像添加PCA噪声</li>
+<li>图像数值去均值，除以方差</li>
+</ul>
+</li>
+<li>预测      <ul>
+<li>保持比例尺，将短边缩放到256</li>
+<li>从中央裁剪出224x224的图像</li>
+<li>与训练减去相同的均值，除以相同的方差</li>
+</ul>
+</li>
+</ul>
+<h2 id="高效训练"><a href="#高效训练" class="headerlink" title="高效训练"></a>高效训练</h2><p>为了提高训练效率（偶尔训练结果甚至还能有一些微小的提升），目前主流的技巧包括<strong>增大训练批次</strong>、<strong>降低训练精度</strong>两个方向，其主要目的在于<strong>减少复杂度</strong>和<strong>提高并行度</strong>。           </p>
+<h3 id="大批次训练"><a href="#大批次训练" class="headerlink" title="大批次训练"></a>大批次训练</h3><p>参考：《<a href="https://arxiv.org/pdf/1711.00489.pdf" target="_blank" rel="noopener">Don’t Decay the Learning Rate, Increase the Batch Size(2017)</a>》         </p>
+<p>我们往往直观地认为，加大批次能够让模型在同一次迭代中见识更多的样本，能使得学习更加稳定并取得更好的效果（比如最极端的批梯度下降法），但近年来的各种实验研究表明事实并非如此——<strong>在相同学习率、相同epoch下，过大的批大小训练效果反而会小于较小的批大小训练结果</strong>。一般研究认为，这是因为随着批次的增加，样本整体噪声均值不变但方差却被减小，而多数研究认为样本的噪声有助于SGD规避局部最优点（避开尖锐的最优点，提高整体的泛化能力）。论文《<a href="https://arxiv.org/pdf/1609.04836.pdf" target="_blank" rel="noopener">On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima(2016)</a>》将这一现象称为“<strong>泛化差距（generalization gap）</strong>”并展开了详细的讨论。同时论文《<a href="https://arxiv.org/pdf/1710.06451.pdf" target="_blank" rel="noopener">A bayesian perspective on generalization and stochastic gradient descent(2017)</a>》经过一系列实验还指出一个经验关系——$B _ { \text {opt} } \propto \epsilon N$，也即最佳的批大小 $B_{opt}$ 随着学习率 $\epsilon$ 和数据集样本总数 $N$ 的乘积等比例增大（缩小）。     </p>
+<h4 id="随机梯度下降（SGD）"><a href="#随机梯度下降（SGD）" class="headerlink" title="随机梯度下降（SGD）"></a>随机梯度下降（SGD）</h4><p>《<a href="/ML-Andrew/ML-Andrew-notes1.html#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%EF%BC%88gradient-descent%EF%BC%89%E7%AE%97%E6%B3%95">吴恩达《机器学习》笔记 - 1绪论、线性回归与逻辑回归 - 梯度下降（gradient descent）算法 | Hey~YaHei</a>》已经讨论过梯度下降法，这是机器学习中常用的基本优化方法。传统的梯度下降法的更新方式分为两种，分别是批梯度下降（即每次循环先计算整个数据集上的损失，然后统一更新权重）和增量梯度下降（又称随机梯度下降，每次循环只计算一个数据样本的损失，频繁地更新权重）。前者收敛缓慢，后者受噪声影响大难以收敛到一个很好的最优点。<br>如今大家常说的“<strong>随机梯度下降（SGD）</strong>”其实指的是小批次随机梯度下降，该方法介于批梯度下降和增量梯度下降之间，每次循环用若干个样本（数量往往远小于数据集总样本数）的损失来更新权重。      </p>
+<h4 id="学习率衰减"><a href="#学习率衰减" class="headerlink" title="学习率衰减"></a>学习率衰减</h4><p>一般认为，要达到强凸函数的最小点需要在搜索过程中不断衰减学习率，比如论文《<a href="http://xueshu.baidu.com/usercenter/paper/show?paperid=266744235943375e790f06d44a334efa&amp;site=xueshu_se" target="_blank" rel="noopener">A stochastic approximation method(1951)</a>》提出学习率应当满足的收敛条件：<br>（<em>前提：批大小batch_size固定</em>）<br>$$\sum _ { i = 1 } ^ { \infty } \epsilon _ { i } = \infty$$<br>$$\sum _ { i = 1 } ^ { \infty } \epsilon _ { i } ^ { 2 } &lt; \infty$$<br>其中，$\epsilon_i$ 为第i次更新权重所使用的学习率。       </p>
+<ul>
+<li>前者保证了经过无穷次更新，无论权重如何初始化，最终都能更新到任意点；      </li>
+<li>后者要求有足够的学习率衰减速率，使得模型能够收敛到最优点而不是在最优点附近反复震荡       </li>
+</ul>
+<p>注意上述两式是以批大小固定为前提进行讨论的，而《<a href="https://arxiv.org/pdf/1710.06451.pdf" target="_blank" rel="noopener">A Bayesian Perspective on Generalization and Stochastic Gradient Descent(2017)</a>》引入变化的批大小这一因素，重新思考了SGD的收敛条件：<br>对于梯度下降的更新公式 $\omega_t = \omega_{t-1} - \epsilon \frac{dC}{d\omega_{t-1}}$，从连续时间的角度上看可以得到<br>$$\frac { d \omega } { d t } = - \epsilon \frac { d C } { d \omega } + \eta ( t )$$<br>其中，C为无噪声的损失，$\eta(t)$是一个高斯分布的随机噪声，同时论文中将其建模为 $mean(\eta(t))=0$、$variance(\eta(t))=gF(\omega)\delta(t-t’)$ 的高斯随机噪声，其中$F(\omega)$是权重间梯度波动的协方差，$g=\epsilon(\frac{N}{B}-1)$描述了噪声的波动范围，N、B分别是数据集大小和批大小。<br>通常来说$B &lt;&lt; N$，所以有$g \approx \epsilon \frac{N}{B}$；由此可见，在满足$B&lt;&lt;N$的前提下等比例放大（缩小）$\epsilon$和$B$效果是相当的。      </p>
+<p><strong>学习率衰减实际是一种模拟退火策略。</strong>       </p>
+<blockquote>
+<p>模拟退火来源于物理上的降温退火问题——一个处于很高温度的物体，现在要给它降温，使物体内能降到最低。我们常规的思维是，越快越好，让它的温度迅速地降低。然而，实际上，过快地降温使得物体来不及有序地收缩，难以形成结晶。而结晶态，才是物体真正内能降到最低的形态。正确的做法，是徐徐降温，也就是退火，才能使得物体的每一个粒子都有足够的时间找到自己的最佳位置并紧密有序地排列。开始温度高的时候，粒子活跃地运动并逐渐找到一个合适的状态。在这过程中温度也会越降越低，温度低下来了，那么粒子也渐渐稳定下来，相较于以前不那么活跃了。这时候就可以慢慢形成最终稳定的结晶态了。     </p>
+</blockquote>
+<p>这一过程演化到优化问题上就成为一种模拟退火策略（实际上深度学习中的<strong>退火</strong>可能更加广泛，大概一切有助于跳脱局部最优点，寻找更佳的全局最优点的策略都能称为退火了吧）。训练一开始使用较大的学习率，在比较大的空间上搜索较优的区域，待权重相对稳定后衰减学习率缩小搜索空间，从而取得更好的训练结果并且提高了模型的鲁棒性。       </p>
+<h4 id="大批次训练技巧"><a href="#大批次训练技巧" class="headerlink" title="大批次训练技巧"></a>大批次训练技巧</h4><p>前文已经提到，盲目增大批大小其实无益于提升训练效果，但却有各种小技巧——      </p>
+<h5 id="1-等比例增大学习率"><a href="#1-等比例增大学习率" class="headerlink" title="1.等比例增大学习率"></a>1.等比例增大学习率</h5><p>前边提到在满足$B&lt;&lt;N$的前提下等比例放大（缩小）$\epsilon$和$B$效果是相当的，既然如此，我们在增大批大小的同时等比例增大学习率不仅可以避开泛化差距问题，还有助于加速收敛速度。<br>而对于带动量的优化器，等比例增大 $\epsilon / ( 1 - m )$ 也能取得相同的结果（其中m为动量系数）。      </p>
+<h5 id="2-学习率热启动"><a href="#2-学习率热启动" class="headerlink" title="2.学习率热启动"></a>2.学习率热启动</h5><p>训练之初由于参数随机初始化（尤其是非预训练模型），数值上与目标参数组相去甚远，如果采用太大的学习率会出现参数数值的不稳定，不利于模型收敛。因此，从较低的学习率开始训练会比较好，比如：     </p>
+<ul>
+<li>《<a href="https://arxiv.org/pdf/1512.03385.pdf" target="_blank" rel="noopener">Deep Residual Learning for Image Recognition(2015)</a>》先用较低的学习率（0.01）预热，直到训练错误率低于80%之后再恢复到正常的学习率（0.1）。              <blockquote>
+<p>In this case, we find that the initial learning rate of 0.1 is slightly too large to start converging. So we use 0.01 to warm up the training until the training error is below 80% (about 400 iterations), and then go back to 0.1 and continue training.       </p>
+</blockquote>
+</li>
+<li>《<a href="https://arxiv.org/pdf/1706.02677.pdf" target="_blank" rel="noopener">Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour(2017)</a>》2.2节指出常数学习率热启动会在学习率突变阶段对模型收敛产生不良印象，并提出了线性学习率热启动，用斜坡来代替学习率的突变。           <center><img src="/imgs/bag-of-tricks/lr_warmup.jpg" alt="lr_warmup"></center>        
+
+</li>
+</ul>
+<h5 id="3-零gamma初始化"><a href="#3-零gamma初始化" class="headerlink" title="3.零gamma初始化"></a>3.零gamma初始化</h5><p>众所周知，<a href="http://zh.gluon.ai/chapter_convolutional-neural-networks/batch-norm.html" target="_blank" rel="noopener">批归一化BN</a>通常将参数$\gamma$和$\beta$分别初始化为1和0，也就是初始状态下BN只做归一化而不做拉伸和偏移。<br>但对于残差单元来说，将$\gamma$初始化为1其实不一定是最佳选择，残差单元的结构如下图所示，每个卷积层之后都会接一个BN层。      </p>
+<center><img src="/imgs/bag-of-tricks/residual_unit.jpg" alt="residual_unit"></center>       
+
+<p>论文《<a href="https://arxiv.org/pdf/1812.01187.pdf" target="_blank" rel="noopener">Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)</a>》指出<strong>将第二个BN层的$\gamma$初始化为0能取得更好的结果</strong>！此时初始状态下相当于屏蔽掉了卷积层的输出，使得初始模型更加简单，有利于初始阶段模型的训练。      </p>
+<center><img src="/imgs/bag-of-tricks/zero_gamma.jpg" alt="zero_gamma"></center>     
+
+<p>该技巧同样适用于其他类似的shortcut结构。       </p>
+<h5 id="4-无偏置衰减"><a href="#4-无偏置衰减" class="headerlink" title="4.无偏置衰减"></a>4.无偏置衰减</h5><p>作为正则化手段的一种，<a href="http://zh.gluon.ai/chapter_deep-learning-basics/weight-decay.html" target="_blank" rel="noopener">权重衰减</a>经常被用来约束权重过度增长，缓解过拟合现象的发生。         </p>
+<p>除了衰减权重之外，其他参数（如偏置）能否也应用衰减技术呢？《<a href="https://arxiv.org/pdf/1807.11205.pdf" target="_blank" rel="noopener">Highly Scalable Deep Learning Training System with Mixed-Precision: Training ImageNet in Four Minutes(2018)</a>》作者在ResNet-50和AlexNet上做了实验，结果表明，<strong>只有全连接层和卷积层的权重适合做衰减，偏置以及BN层的$\gamma$和$\beta$参数都不适合做衰减！</strong>           </p>
+<center><img src="/imgs/bag-of-tricks/bn_decay_resnet50.jpg" alt="bn_decay_resnet50"></center><br><br><br><center><img src="/imgs/bag-of-tricks/bn_bias_decay_alexnet.jpg" alt="bn_bias_decay_alexnet"></center>       
+
+<p>另外，《<a href="https://openreview.net/pdf?id=rJ4uaX2aW" target="_blank" rel="noopener">Large batch training of convolutional networks with layer-wise adaptive rate scaling(2018)</a>》研究发现，在训练初期，不同层的权重的原始更新项 $\nabla L \left( w _ { t } \right)$ 和 惩罚项 $||\omega||$ 相差悬殊，比如迭代一次后的AlexNet——      </p>
+<center><img src="/imgs/bag-of-tricks/lars_alexnet_ratio.jpg" alt="lars_alexnet_ratio"></center>        
+
+<p>这使得训练初期模型的收敛方向对初始权重和初始学习率十分敏感，而导致模型发散、不容易收敛。于是论文提出了<strong>层级自适应比例缩放（Layer-wise Adaptive Rate Scaling, LARS）</strong>，其每层的在每次更新时的学习率都是根据梯度和权重的比例计算出来的：<br>将原始的SGD更新项<br>$$\Delta w _ { t } = \lambda * \nabla L \left( w _ { t } \right)$$     </p>
+<p>改造为<br>$$\triangle w _ { t } ^ { l } = \gamma * \lambda ^ { l } * \nabla L ( w _ { t } ^ { l } )$$       </p>
+<p>其中，$w_t^l$第$l$层的权重，$\gamma$ 用于学习率变化的全局策略（比如整体衰减等），$\lambda^l$ 表示第$l$层的学习率，且<br>$$\lambda ^ { l } = \eta \times \frac { \left| w ^ { l } \right| } { \left| \nabla L \left( w ^ { l } \right) \right| }$$<br>其中，$\eta &lt; 1$ 参数反映了我们对“随机梯度$\nabla L \left( w _ { t } ^ { l } \right)$与真实梯度很接近”的信任程度，越接近（比如批大小越大时，随机梯度就跟真实梯度越接近），那么$\eta$参数就可以设置越大。       </p>
+<p>应用LARS之后，模型收敛速度变得更快——      </p>
+<center><img src="/imgs/bag-of-tricks/alexnet_lars.jpg" alt="alexnet_lars"></center>        
+
+<p>而且对于分类任务，batch_size在16K以内都不会有明显的负面影响——      </p>
+<center><img src="/imgs/bag-of-tricks/googlenet_lars.jpg" alt="googlenet_lars"></center>         
+
+<h3 id="低精度训练"><a href="#低精度训练" class="headerlink" title="低精度训练"></a>低精度训练</h3><p>现在新出的GPU陆续开始支持低精度FP16计算，并且计算速率远高于FP32，比如V100就提供了100TFLOPS的FP16计算，而其FP32只有14TFLOPS。<br>论文《<a href="https://arxiv.org/pdf/1710.03740.pdf" target="_blank" rel="noopener">Mix Precision Training(2017)</a>》提出一种混合精度的训练过程——    </p>
+<ul>
+<li>用FP16存储所有的参数和激活      </li>
+<li>用FP16计算梯度     </li>
+<li>每份参数都保留一份FP32副本用于更新（更新后再转为FP16）</li>
+<li>为损失乘以一个缩放因子使得FP32的梯度可以更好得跟FP16数据对齐（论文3.2节）<br>  由于FP32比FP16拥有更多的数据位保存指数部分，使得相对于FP16，FP32可以保存小得多或大得多的数值，那么当数值超出FP16范围时就会被截断而导致训练过程中梯度消失或扩散，最终模型发散无法收敛。论文经过实验表明，给FP16的梯度乘以8（即增加三位的指数部分）就足以使训练结果与纯FP32的结果相当。      </li>
+</ul>
+<p>论文经过实验证明，即使使用混合精度也可以训练出跟纯FP32接近的效果——      </p>
+<center><img src="/imgs/bag-of-tricks/mixed_precision_result.jpg" alt="mixed_precision_result"></center>         
+
+<p>而且在检测任务上，如果不对损失进行缩放对齐，有可能会导致训练发散——     </p>
+<center><img src="/imgs/bag-of-tricks/mixed_precision_detection.jpg" alt="mixed_precision_detection"></center>         
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/01/23/MXNet-RT_Quantization/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery" title="照片墙">
+                
+                    <i class="material-icons sidebar-material-icons">photo_library</i>
+                
+                照片墙
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">36</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>
