@@ -8,11 +8,11 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 27 Feb 2019 12:30:06 GMT</pubDate>
+    <pubDate>Thu, 28 Feb 2019 01:20:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>深度学习小技巧（一）：图像增强与高效训练</title>
+      <title>深度学习小技巧（一）：高效训练</title>
       <link>http://hey-yahei.cn/2019/02/23/bag-of-tricks1/</link>
       <guid>http://hey-yahei.cn/2019/02/23/bag-of-tricks1/</guid>
       <pubDate>Fri, 22 Feb 2019 16:00:00 GMT</pubDate>
@@ -24,9 +24,9 @@
           
             &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=638400&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;        
 
-&lt;p&gt;最近无意在MXNet论坛上翻出一篇不错的综述性（实验性）论文《&lt;a href=&quot;https://arxiv.org/pdf/1812.01187.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)&lt;/a&gt;》，作者主要从&lt;strong&gt;高效训练&lt;/strong&gt;、&lt;strong&gt;模型微调&lt;/strong&gt;、&lt;strong&gt;训练技巧&lt;/strong&gt;三个方面列举了一些常见的深度学习小技巧并附上了丰富的比较实验。&lt;br&gt;之后我将抽空按照这三个方面，以该论文为起点，配以相关的资料和个人理解，连更三篇相关的博文(&lt;em&gt;^__^&lt;/em&gt;)             &lt;/p&gt;
+&lt;p&gt;最近无意在MXNet论坛上翻出一篇不错的综述性（实验性）论文《&lt;a href=&quot;https://arxiv.org/pdf/1812.01187.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)&lt;/a&gt;》，作者主要从&lt;strong&gt;高效训练&lt;/strong&gt;、&lt;strong&gt;模型微调&lt;/strong&gt;、&lt;strong&gt;训练技巧&lt;/strong&gt;三个方面列举了一些常见的深度学习小技巧并附上了丰富的比较实验。&lt;br&gt;之后我将抽空按照这三个方面，以该论文为起点，配以相关的资料和个人理解，连更三篇相关的博文(*^__^*)             &lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;图像增强&quot;&gt;&lt;a href=&quot;#图像增强&quot; class=&quot;headerlink&quot; title=&quot;图像增强&quot;&gt;&lt;/a&gt;图像增强&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&quot;数据增强&quot;&gt;&lt;a href=&quot;#数据增强&quot; class=&quot;headerlink&quot; title=&quot;数据增强&quot;&gt;&lt;/a&gt;数据增强&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;训练      &lt;ul&gt;
 &lt;li&gt;随机抽样并将uint8转换为float32&lt;/li&gt;
 &lt;li&gt;随机裁剪出比例尺在$[\frac{3}{4}, \frac{4}{3}]$之间、尺寸大小在$[8\%, 100\%]$之间的图像块，并resize为224x224的图像     &lt;/li&gt;
@@ -44,7 +44,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;高效训练&quot;&gt;&lt;a href=&quot;#高效训练&quot; class=&quot;headerlink&quot; title=&quot;高效训练&quot;&gt;&lt;/a&gt;高效训练&lt;/h2&gt;&lt;p&gt;为了提高训练效率（偶尔训练结果甚至还能有一些微小的提升），目前主流的技巧包括&lt;strong&gt;增大训练批次&lt;/strong&gt;、&lt;strong&gt;降低训练精度&lt;/strong&gt;两个方向，其主要目的在于&lt;strong&gt;减少复杂度&lt;/strong&gt;和&lt;strong&gt;提高并行度&lt;/strong&gt;。           &lt;/p&gt;
-&lt;h3 id=&quot;大批次训练&quot;&gt;&lt;a href=&quot;#大批次训练&quot; class=&quot;headerlink&quot; title=&quot;大批次训练&quot;&gt;&lt;/a&gt;大批次训练&lt;/h3&gt;&lt;p&gt;参考：《&lt;a href=&quot;https://arxiv.org/pdf/1711.00489.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Don’t Decay the
+&lt;h3 id=&quot;大批次训练&quot;&gt;&lt;a href=&quot;#大批次训练&quot; class=&quot;headerlink&quot; title=&quot;大批次训练&quot;&gt;&lt;/a&gt;大批次训练&lt;/h3&gt;&lt;p&gt;参考：《&lt;a href=&quot;https://arxiv.org/pdf/1711.00489.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Don’t Decay the Learning
           
         
       
@@ -668,39 +668,6 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
     </item>
     
     <item>
-      <title>梯度消失与梯度爆炸</title>
-      <link>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
-      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;参考：     &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
-&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
-&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
-&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
-          
-        
-      
-      </description>
-      
-      <comments>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>Handson-ML</title>
       <link>http://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>http://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -732,6 +699,39 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       </description>
       
       <comments>http://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>

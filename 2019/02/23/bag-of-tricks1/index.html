@@ -50,7 +50,7 @@
     
     <title>
         
-            深度学习小技巧（一）：图像增强与高效训练 | 
+            深度学习小技巧（一）：高效训练 | 
         
         Hey~YaHei!
     </title>
@@ -243,14 +243,14 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://hey-yahei.cn/2019/02/23/bag-of-tricks1/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="深度学习小技巧（一）：图像增强与高效训练 | Hey~YaHei!">
+    <meta property="og:title" content="深度学习小技巧（一）：高效训练 | Hey~YaHei!">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
         <meta property="article:published_time" content="Sat Feb 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Feb 27 2019 20:30:06 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 09:20:35 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,9 +271,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html",
-    "headline": "深度学习小技巧（一）：图像增强与高效训练",
+    "headline": "深度学习小技巧（一）：高效训练",
     "datePublished": "Sat Feb 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Wed Feb 27 2019 20:30:06 GMT+0800",
+    "dateModified": "Thu Feb 28 2019 09:20:35 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图像增强"><span class="post-toc-number">1.</span> <span class="post-toc-text">图像增强</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高效训练"><span class="post-toc-number">2.</span> <span class="post-toc-text">高效训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大批次训练"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">大批次训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随机梯度下降（SGD）"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">随机梯度下降（SGD）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#学习率衰减"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">学习率衰减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大批次训练技巧"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">大批次训练技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-等比例增大学习率"><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">1.等比例增大学习率</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-学习率预热"><span class="post-toc-number">2.1.3.2.</span> <span class="post-toc-text">2.学习率预热</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-零gamma初始化"><span class="post-toc-number">2.1.3.3.</span> <span class="post-toc-text">3.零gamma初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-无偏置衰减"><span class="post-toc-number">2.1.3.4.</span> <span class="post-toc-text">4.无偏置衰减</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#低精度训练"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">低精度训练</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验结果"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">实验结果</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据增强"><span class="post-toc-number">1.</span> <span class="post-toc-text">数据增强</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高效训练"><span class="post-toc-number">2.</span> <span class="post-toc-text">高效训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#大批次训练"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">大批次训练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随机梯度下降（SGD）"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">随机梯度下降（SGD）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#学习率衰减"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">学习率衰减</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大批次训练技巧"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">大批次训练技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-等比例增大学习率"><span class="post-toc-number">2.1.3.1.</span> <span class="post-toc-text">1.等比例增大学习率</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-学习率预热"><span class="post-toc-number">2.1.3.2.</span> <span class="post-toc-text">2.学习率预热</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-零gamma初始化"><span class="post-toc-number">2.1.3.3.</span> <span class="post-toc-text">3.零gamma初始化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-无偏置衰减"><span class="post-toc-number">2.1.3.4.</span> <span class="post-toc-text">4.无偏置衰减</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#低精度训练"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">低精度训练</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验结果"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">实验结果</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -389,7 +389,7 @@
         
     
             <p class="article-headline-p">
-                深度学习小技巧（一）：图像增强与高效训练
+                深度学习小技巧（一）：高效训练
             </p>
         </div>
 
@@ -440,7 +440,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=深度学习小技巧（一）：图像增强与高效训练&url=http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=深度学习小技巧（一）：高效训练&url=http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html&pic=http://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -461,7 +461,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=深度学习小技巧（一）：图像增强与高效训练&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=深度学习小技巧（一）：高效训练&summary=&pics=http://hey-yahei.cn/img/favicon.png&url=http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -482,9 +482,9 @@
     
         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=638400&auto=0&height=32"></iframe>        
 
-<p>最近无意在MXNet论坛上翻出一篇不错的综述性（实验性）论文《<a href="https://arxiv.org/pdf/1812.01187.pdf" target="_blank" rel="noopener">Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)</a>》，作者主要从<strong>高效训练</strong>、<strong>模型微调</strong>、<strong>训练技巧</strong>三个方面列举了一些常见的深度学习小技巧并附上了丰富的比较实验。<br>之后我将抽空按照这三个方面，以该论文为起点，配以相关的资料和个人理解，连更三篇相关的博文(<em>^__^</em>)             </p>
+<p>最近无意在MXNet论坛上翻出一篇不错的综述性（实验性）论文《<a href="https://arxiv.org/pdf/1812.01187.pdf" target="_blank" rel="noopener">Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)</a>》，作者主要从<strong>高效训练</strong>、<strong>模型微调</strong>、<strong>训练技巧</strong>三个方面列举了一些常见的深度学习小技巧并附上了丰富的比较实验。<br>之后我将抽空按照这三个方面，以该论文为起点，配以相关的资料和个人理解，连更三篇相关的博文(*^__^*)             </p>
 <hr>
-<h2 id="图像增强"><a href="#图像增强" class="headerlink" title="图像增强"></a>图像增强</h2><ul>
+<h2 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h2><ul>
 <li>训练      <ul>
 <li>随机抽样并将uint8转换为float32</li>
 <li>随机裁剪出比例尺在$[\frac{3}{4}, \frac{4}{3}]$之间、尺寸大小在$[8\%, 100\%]$之间的图像块，并resize为224x224的图像     </li>
