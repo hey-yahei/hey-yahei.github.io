@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Feb 28 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 16:00:34 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 21:06:31 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/02/28/bag-of-tricks2/index.html",
     "headline": "深度学习小技巧（二）：模型微调",
     "datePublished": "Thu Feb 28 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Feb 28 2019 16:00:34 GMT+0800",
+    "dateModified": "Thu Feb 28 2019 21:06:31 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -480,7 +480,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>接着上一篇文章《<a href="/2019/02/23/bag-of-tricks1/">深度学习小技巧（一）：高效训练 | Hey~YaHei!</a>》继续解读论文《<a href="https://arxiv.org/pdf/1812.01187.pdf" target="_blank" rel="noopener">Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)</a>》，论文中以ResNet为例提出了一些简单的微调技巧，并且取得了一定的成果。且不说准确率如何，论文中除了分析准确率有着怎样怎样的提升之外，还关注了产生了额外开销，并且通过分析、实验量化了这些开销，这是值得肯定的（比那些不考虑开销，盲目微调，通过牺牲很多速度来提高那一点点准确率的论文，不知道要高到哪里去！）      </p>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=4898499&auto=0&height=32"></iframe>       
+
+<p>接着上一篇文章《<a href="/2019/02/23/bag-of-tricks1/">深度学习小技巧（一）：高效训练 | Hey~YaHei!</a>》继续解读论文《<a href="https://arxiv.org/pdf/1812.01187.pdf" target="_blank" rel="noopener">Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)</a>》，论文中以ResNet为例提出了一些简单的微调技巧，并且取得了一定的成果。且不说准确率如何，论文中除了分析准确率有着怎样怎样的提升之外，还关注了产生了额外开销，并且通过分析、实验量化了这些开销，这是值得肯定的（比那些不考虑开销，盲目微调，通过牺牲很多速度来提高那一点点准确率的论文，不知道要高到哪里去！）      </p>
 <hr>
 <h2 id="以ResNet为例"><a href="#以ResNet为例" class="headerlink" title="以ResNet为例"></a>以ResNet为例</h2><p>原始的ResNet模型可以参考《<a href="/2018/05/02/经典的CNN分类架构/#ResNet">经典的CNN分类架构 - ResNet | Hey~YaHei!</a>》，其核心在于应用了shortcut（原文称为skip connection）技术使得深层网络也能够被有效训练，具体细节这里就不再赘述。      </p>
 <center><img src="/imgs/bag-of-tricks/resnet_a.jpg" alt="resnet_a"></center>           
@@ -515,7 +517,7 @@
 <p>按照“行先序”，特征图和卷积核在内存中是这样排列的——<br><img src="/imgs/bag-of-tricks/conv_store.jpg" alt="conv_store">       </p>
 <p>我们用不同的颜色标注出卷积计算中的访存过程（相同颜色的数据相乘）——<br><img src="/imgs/bag-of-tricks/conv_access_ram.jpg" alt="conv_access_ram">      </p>
 <p>众所周知，由于程序的<strong>局部性原理</strong>（通常相邻代码段会访问相邻的内存块），现代处理器通常会按块从内存中读取数据到高速缓存中以缓解访存速度和计算速度的巨大差异导致的“<strong>内存墙</strong>”问题。换句话说，如果计算需要从内存中读取<code>x12</code>的数据，那么往往相邻的<code>x11</code>、<code>x13</code>等数据也会被一起读取到高速缓存上，当下次计算需要用到<code>x11</code>或<code>x13</code>时处理器就可以快速地从高速缓存中取出数据而不需要从内存中调取，大大提高了程序的速度。<br><em>注：L1缓存的读取速度是RAM的50-100倍！（数据来源：《<a href="https://book.douban.com/subject/7006537/" target="_blank" rel="noopener">计算机体系结构：量化研究方法</a>》）</em>       </p>
-<p>而从上边展示出来的访存过程中可以看到，直接对于特征图数据的访问过程十分散乱，直接用行先序存储的特征图参与计算是非常愚蠢的选择。<br>因此深度学习框架往往通过牺牲空间的手段（扩增$K \times K$倍），将特征图转换成庞大的矩阵来进行卷积计算，这就是常说的im2col操作。       </p>
+<p>而从上边展示出来的访存过程中可以看到，直接对于特征图数据的访问过程十分散乱，直接用行先序存储的特征图参与计算是非常愚蠢的选择。<br>因此深度学习框架往往通过牺牲空间的手段（约扩增$K \times K$倍），将特征图转换成庞大的矩阵来进行卷积计算，这就是常说的im2col操作。       </p>
 <h4 id="im2col"><a href="#im2col" class="headerlink" title="im2col"></a>im2col</h4><p>参考：<br>《<a href="https://blog.csdn.net/dwyane12138/article/details/78449898" target="_blank" rel="noopener">im2col的原理和实现 | CSDN, dwyane12138</a>》<br>《<a href="https://www.zhihu.com/question/28385679?sort=created" target="_blank" rel="noopener">在Caffe中如何计算卷积？ | 知乎, 贾扬清</a>》        </p>
 <p><center><img src="/imgs/bag-of-tricks/conv_im2col.png" alt="conv_im2col"></center><br>其实思路非常简单：把每一次循环所需要的数据都排列成列向量，然后逐一堆叠起来形成矩阵（按通道顺序在列方向上拼接矩阵）。<br>比如$C_i \times W_i \times H_i$大小的输入特征图，$K \times K$大小的卷积核，输出大小为$C_o \times W_o \times H_o$，<br>输入特征图将按需求被转换成$(K*K)\times(C_i*W_o*H_o)$的矩阵，卷积核将被转换成$C_o\times(K*K)$的矩阵，调用GEMM库两矩阵相乘也就完成了所谓的卷积计算。由于按照计算需求排布了数据顺序，每次计算过程中总是能够依次访问特征图数据，迎合了局部性原理，极大地提高了计算卷积的速度！     </p>
 <h4 id="特别的1x1"><a href="#特别的1x1" class="headerlink" title="特别的1x1"></a>特别的1x1</h4><p>回到1x1的卷积，它的im2col非常特殊——其原始存储结构跟im2col的重排列矩阵是完全相同的！！也就是说，1x1卷积甚至不需要im2col的过程，拿起来就能直接算，节省了数据重排列的时间和空间，所以哪怕是在相同FLOPs的前提下，1x1卷积也要比3x3卷积快速、高效得多。<br><em>当然，这是建立在局部性原理和冯诺依曼结构的基础之上，对于非冯结构的计算体系可能就不适用了。</em>      </p>
@@ -687,11 +689,11 @@
         
     
         <li>
-            <a href="/gallery" title="照片墙">
+            <a href="/gallery" title="图库">
                 
                     <i class="material-icons sidebar-material-icons">photo_library</i>
                 
-                照片墙
+                图库
             </a>
         </li>
         
