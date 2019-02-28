@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat Feb 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Feb 28 2019 09:20:35 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 09:22:20 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2019/02/23/bag-of-tricks1/index.html",
     "headline": "深度学习小技巧（一）：高效训练",
     "datePublished": "Sat Feb 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Feb 28 2019 09:20:35 GMT+0800",
+    "dateModified": "Thu Feb 28 2019 09:22:20 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -503,7 +503,7 @@
 </ul>
 <h2 id="高效训练"><a href="#高效训练" class="headerlink" title="高效训练"></a>高效训练</h2><p>为了提高训练效率（偶尔训练结果甚至还能有一些微小的提升），目前主流的技巧包括<strong>增大训练批次</strong>、<strong>降低训练精度</strong>两个方向，其主要目的在于<strong>减少复杂度</strong>和<strong>提高并行度</strong>。           </p>
 <h3 id="大批次训练"><a href="#大批次训练" class="headerlink" title="大批次训练"></a>大批次训练</h3><p>参考：《<a href="https://arxiv.org/pdf/1711.00489.pdf" target="_blank" rel="noopener">Don’t Decay the Learning Rate, Increase the Batch Size(2017)</a>》         </p>
-<p>我们往往直观地认为，加大批次能够让模型在同一次迭代中见识更多的样本，能使得学习更加稳定并取得更好的效果（比如最极端的批梯度下降法），但近年来的各种实验研究表明事实并非如此——<strong>在相同学习率、相同epoch下，过大的批大小训练效果反而会小于较小的批大小训练结果</strong>。一般研究认为，这是因为随着批次的增加，样本整体噪声均值不变但方差却被减小，而多数研究认为样本的噪声有助于SGD规避局部最优点（避开尖锐的最优点，提高整体的泛化能力）。论文《<a href="https://arxiv.org/pdf/1609.04836.pdf" target="_blank" rel="noopener">On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima(2016)</a>》将这一现象称为“<strong>泛化差距（generalization gap）</strong>”并展开了详细的讨论。同时论文《<a href="https://arxiv.org/pdf/1710.06451.pdf" target="_blank" rel="noopener">A bayesian perspective on generalization and stochastic gradient descent(2017)</a>》经过一系列实验还指出一个经验关系——$B _ { \text {opt} } \propto \epsilon N$，也即最佳的批大小 $B_{opt}$ 随着学习率 $\epsilon$ 和数据集样本总数 $N$ 的乘积等比例增大（缩小）。     </p>
+<p>我们往往直观地认为，加大批次能够让模型在同一次迭代中见识更多的样本，能使得学习更加稳定并取得更好的效果（比如最极端的批梯度下降法），但近年来的各种实验研究表明事实并非如此——<strong>在相同学习率、相同epoch下，过大的批大小训练效果反而会比较小的批大小训练结果更差</strong>。一般研究认为，这是因为随着批次的增加，样本整体噪声均值不变但方差却被减小，而多数研究认为样本的噪声有助于SGD规避局部最优点（避开尖锐的最优点，提高整体的泛化能力）。论文《<a href="https://arxiv.org/pdf/1609.04836.pdf" target="_blank" rel="noopener">On Large-Batch Training for Deep Learning: Generalization Gap and Sharp Minima(2016)</a>》将这一现象称为“<strong>泛化差距（generalization gap）</strong>”并展开了详细的讨论。同时论文《<a href="https://arxiv.org/pdf/1710.06451.pdf" target="_blank" rel="noopener">A bayesian perspective on generalization and stochastic gradient descent(2017)</a>》经过一系列实验还指出一个经验关系——$B _ { \text {opt} } \propto \epsilon N$，也即最佳的批大小 $B_{opt}$ 随着学习率 $\epsilon$ 和数据集样本总数 $N$ 的乘积等比例增大（缩小）。     </p>
 <h4 id="随机梯度下降（SGD）"><a href="#随机梯度下降（SGD）" class="headerlink" title="随机梯度下降（SGD）"></a>随机梯度下降（SGD）</h4><p>《<a href="/ML-Andrew/ML-Andrew-notes1.html#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%EF%BC%88gradient-descent%EF%BC%89%E7%AE%97%E6%B3%95">吴恩达《机器学习》笔记 - 1绪论、线性回归与逻辑回归 - 梯度下降（gradient descent）算法 | Hey~YaHei</a>》已经讨论过梯度下降法，这是机器学习中常用的基本优化方法。传统的梯度下降法的更新方式分为两种，分别是批梯度下降（即每次循环先计算整个数据集上的损失，然后统一更新权重）和增量梯度下降（又称随机梯度下降，每次循环只计算一个数据样本的损失，频繁地更新权重）。前者收敛缓慢，后者受噪声影响大难以收敛到一个很好的最优点。<br>如今大家常说的“<strong>随机梯度下降（SGD）</strong>”其实指的是小批次随机梯度下降，该方法介于批梯度下降和增量梯度下降之间，每次循环用若干个样本（数量往往远小于数据集总样本数）的损失来更新权重。      </p>
 <h4 id="学习率衰减"><a href="#学习率衰减" class="headerlink" title="学习率衰减"></a>学习率衰减</h4><p>一般认为，要达到强凸函数的最小点需要在搜索过程中不断衰减学习率，比如论文《<a href="http://xueshu.baidu.com/usercenter/paper/show?paperid=266744235943375e790f06d44a334efa&amp;site=xueshu_se" target="_blank" rel="noopener">A stochastic approximation method(1951)</a>》提出学习率应当满足的收敛条件：<br>（<em>前提：批大小batch_size固定</em>）<br>$$\sum _ { i = 1 } ^ { \infty } \epsilon _ { i } = \infty$$<br>$$\sum _ { i = 1 } ^ { \infty } \epsilon _ { i } ^ { 2 } &lt; \infty$$<br>其中，$\epsilon_i$ 为第i次更新权重所使用的学习率。       </p>
 <ul>
@@ -607,6 +607,14 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2019/02/28/bag-of-tricks2/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -747,7 +755,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">36</span>
+                <span class="sidebar-badge">37</span>
             </a>
         </li>
         

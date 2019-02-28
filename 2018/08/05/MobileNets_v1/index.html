@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sun Aug 05 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jan 07 2019 15:55:51 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 28 2019 15:45:19 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2018/08/05/MobileNets_v1/index.html",
     "headline": "MobileNets v1模型解析",
     "datePublished": "Sun Aug 05 2018 00:00:00 GMT+0800",
-    "dateModified": "Mon Jan 07 2019 15:55:51 GMT+0800",
+    "dateModified": "Thu Feb 28 2019 15:45:19 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -525,7 +525,7 @@
 <li>随后是一系列的深度向分解卷积层，用于逐层次提取特征，用步长不为1的卷积替代池化做降采样，同时整体也满足通道加深，特征图分辨率降低的CNN一般特点；        </li>
 <li>最后也是常规的全局平均池化、全连接、Softmax；      </li>
 <li>每次卷积操作之后都紧跟一个BN层（在预测阶段可以被合并）和一个RELU层；      <center><img src="/imgs/MobileNet/dw_vs_full_train.png" alt="dw_vs_full_train"></center>    </li>
-<li>而且，深度向分解的卷积中绝大多数参数和运算都集中在 $1 \times 1$ 的pointwise卷积运算当中，这种运算恰恰是能够被 <code>GEneral Matrix Multiply(GEMM)</code> 函数高度优化的；    <center><img src="/imgs/MobileNet/resource.png" alt="resource"></center>    </li>
+<li>而且，深度向分解的卷积中绝大多数参数和运算都集中在 $1 \times 1$ 的pointwise卷积运算当中，这种运算恰恰是能够被 <code>GEneral Matrix Multiply(GEMM)</code> 函数高度优化的（具体参见《<a href="/2019/02/28/bag-of-tricks2/#高效的1x1卷积">深度学习小技巧（二）：模型微调 - 高效的1x1卷积 | Hey~YaHei!</a>》）；    <center><img src="/imgs/MobileNet/resource.png" alt="resource"></center>    </li>
 <li>论文中还提到两个压缩模型的因子，分别用于输入图片分辨率收缩和特征通道数量收缩来进一步精简模型；    </li>
 </ul>
 <h3 id="训练细节"><a href="#训练细节" class="headerlink" title="训练细节"></a>训练细节</h3><ul>
@@ -724,7 +724,7 @@
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">36</span>
+                <span class="sidebar-badge">37</span>
             </a>
         </li>
         
