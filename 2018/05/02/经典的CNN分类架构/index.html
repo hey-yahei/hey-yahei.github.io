@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed May 02 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 24 2018 12:31:59 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 01 2019 15:39:10 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2018/05/02/经典的CNN分类架构/index.html",
     "headline": "经典的CNN分类架构",
     "datePublished": "Wed May 02 2018 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 24 2018 12:31:59 GMT+0800",
+    "dateModified": "Fri Mar 01 2019 15:39:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -564,7 +564,7 @@
 <p><strong>残差学习（Residual Learning）</strong>：<br>在常规网络的基础上，网络输出前增加一个与输入加和的操作；<br>这时网络不再直接训练目标函数 $h(x)$，而是训练 $f(x) = h(x) - x$；<br><img src="/Handson-ML/12Residual_Learning.png" alt="Residual_Learning">          </p>
 <p>对于常规网络，权重被初始化为一个接近0的数，网络一开始只能输出一个非常接近于0的结果；<br>但是残差网络输出的却是一个接近输入的结果，而往往我们所要训练的目标函数跟这个输入还是比较接近的，这将大大加速我们的训练过程；       </p>
 <p>而且，如果加入了很多skip connections，网络可以在很早的时候就开始取得进步（有效地学习），即使中间有部分层还没开始进步也不影响，因为信号的传递很容易穿过整个网络；<br>深层残差网络可以看作是很多残差单元（Residual Unit, RU）的堆叠，每个残差单元是一个包含一个skip connection的小网络——<br><img src="/Handson-ML/12Deep_Residual_Network.png" alt="Deep_Residual_Network">        </p>
-<p>ResNet框架：<br>他的最底层和最顶层跟GoogLeNet差不多；<br><img src="/Handson-ML/12ResNet.png" alt="ResNet">        </p>
+<p>ResNet框架：<br>他的最底层和最顶层跟GoogLeNet差不多，<code>ResNet-xxx</code>中数字<code>xxx</code>代表模型中卷积层的数量；<br><img src="/Handson-ML/12ResNet.png" alt="ResNet">        </p>
 <ul>
 <li>头两层与GoogLeNet完全相同         </li>
 <li>但ResNet没有LRN也没有1x1和3x3的卷积层对       </li>
@@ -589,7 +589,12 @@
 </li>
 </ul>
 <h3 id="趋势"><a href="#趋势" class="headerlink" title="趋势"></a>趋势</h3><p>网络越来越深，参数越来越少；<br>目前而言，ResNet兼具简单、表现出色两个特点；<br><em>2016年和2017年中国拿了第一，但是好像没有提出什么有趣的东西，是刷榜吗？</em>      </p>
-<p>其他值得研究的框架——<br><a href="https://arxiv.org/pdf/1602.07261v2.pdf" target="_blank" rel="noopener">Inception-v4(2016)</a>：吸收兼并GoogLeNet和ResNet的思想，并提出网络inception-resnet-v1和inception-resnet-v2<br><a href="https://arxiv.org/pdf/1707.07012.pdf" target="_blank" rel="noopener">NASNet(2018)</a>：2017谷歌提的框架，准确率很诱人，但据说规模大的很，吐槽的人倒也不少        </p>
+<p>其他值得研究的框架——                </p>
+<ul>
+<li><a href="https://arxiv.org/pdf/1602.07261v2.pdf" target="_blank" rel="noopener">Inception-v4(2016)</a>：吸收兼并GoogLeNet和ResNet的思想，并提出网络inception-resnet-v1和inception-resnet-v2       </li>
+<li><a href="https://arxiv.org/pdf/1707.07012.pdf" target="_blank" rel="noopener">NASNet(2018)</a>：2017谷歌提的框架，准确率很诱人，但据说规模大的很，吐槽的人倒也不少      </li>
+<li><a href="https://arxiv.org/pdf/1704.04861.pdf" target="_blank" rel="noopener">MobileNets(2017)</a>：目前移动端应用地最多的、速度很快同时表现客观的一个网络，具体介绍可以参见《<a href="/2018/08/05/MobileNets_v1/">MobileNets v1模型解析 | Hey~YaHei!</a>》</li>
+</ul>
 <p>最后附一个tensorflow内置的<a href="https://github.com/tensorflow/models/tree/master/research/slim" target="_blank" rel="noopener">常见框架模块及其预训练模型</a>       </p>
 
         
@@ -764,23 +769,13 @@
         </li>
         
     
-        <li>
-            <a href="/gallery" title="图库">
-                
-                    <i class="material-icons sidebar-material-icons">photo_library</i>
-                
-                图库
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">37</span>
+                <span class="sidebar-badge">38</span>
             </a>
         </li>
         

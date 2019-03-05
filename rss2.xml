@@ -8,8 +8,37 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 28 Feb 2019 13:06:31 GMT</pubDate>
+    <pubDate>Tue, 05 Mar 2019 10:56:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>深度学习小技巧（三）：训练技巧</title>
+      <link>http://hey-yahei.cn/2019/03/01/bag-of-tricks3/</link>
+      <guid>http://hey-yahei.cn/2019/03/01/bag-of-tricks3/</guid>
+      <pubDate>Thu, 28 Feb 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=1320572967&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;       &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;傻乎乎~傻乎乎~傻乎乎~~~~~~~                          &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;呼~终于到了解读论文《&lt;a href=&quot;https://arxiv.org/pdf/1812.01187.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Bag of Tricks for Image Classification with Convolutional Neural Networks(2018)&lt;/a&gt;》的最后一部分。         &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;余弦学习率衰减（Cosine-Learning-Rate-Decay）&quot;&gt;&lt;a href=&quot;#余弦学习率衰减（Cosine-Learning-Rate-Decay）&quot; class=&quot;headerlink&quot; title=&quot;余弦学习率衰减（Cosine Learning Rate Decay）&quot;&gt;&lt;/a&gt;余弦学习率衰减（Cosine Learning Rate Decay）&lt;/h2&gt;&lt;p&gt;论文：《&lt;a href=&quot;https://arxiv.org/pdf/1608.03983.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SGDR: Stochastic Gradient Descent with Warm Restarts(2016)&lt;/a&gt;》           &lt;/p&gt;
+&lt;p&gt;先前《&lt;a href=&quot;/2019/02/23/bag-of-tricks1/&quot;&gt;深度学习小技巧（一）：高效训练 - 学习率衰减 | Hey~YaHei!&lt;/a&gt;》已经讨论过学习率衰减的问题啦，它本质上是一种模拟退火策略，通过逐步降低振荡幅度来更好的逼近最优点。而早在《&lt;a href=&quot;/2018/04/10/优化器/#学习计划（learning-schedules）&quot;&gt;优化器 - 学习计划（learning schedules） | Hey~YaHei!&lt;/a&gt;》我们也讨论过各种各样的衰减策略，其中指数衰减在很长一段时间中都是非常受欢迎的。      &lt;/p&gt;
+&lt;p&gt;不过近年来大家突发奇想——光是逼近局部最优点哪里够用，不如想办法让它时不时来一次大震动，把它甩到另外一个位置开荒去？于是热重启技术就诞生了！&lt;br&gt;&lt;em&gt;关于学习率的事情近两年其实有很多有意思的进展，比如学习率测试、周期性学习率、热重启技术，以及传统Adam的各种改进（比如最近北大和浙大本科生提出的AdamRound），这部分本文先按下不细讲，之后有时间应该会专门开一篇文章讨论学习率的问题。&lt;/em&gt;           &lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;img src=&quot;/imgs/bag-of-tricks/cos_lr_decay.png&quot;
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2019/03/01/bag-of-tricks3/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>深度学习小技巧（二）：模型微调</title>
@@ -696,6 +725,39 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
     </item>
     
     <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Handson-ML</title>
       <link>http://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>http://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -727,39 +789,6 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       </description>
       
       <comments>http://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>梯度消失与梯度爆炸</title>
-      <link>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
-      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;参考：     &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
-&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
-&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
-&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
-          
-        
-      
-      </description>
-      
-      <comments>http://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>
