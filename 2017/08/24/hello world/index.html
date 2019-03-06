@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Aug 24 2017 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jan 07 2019 16:31:52 GMT+0800">
+        <meta property="article:modified_time" content="Wed Mar 06 2019 13:15:57 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://hey-yahei.cn/2017/08/24/hello world/index.html",
     "headline": "Hello World~",
     "datePublished": "Thu Aug 24 2017 00:00:00 GMT+0800",
-    "dateModified": "Mon Jan 07 2019 16:31:52 GMT+0800",
+    "dateModified": "Wed Mar 06 2019 13:15:57 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原博客目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">原博客目录</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原博客目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">原博客目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新日志"><span class="post-toc-number">2.</span> <span class="post-toc-text">更新日志</span></a></li></ol>
     </ul>
     
 
@@ -509,15 +509,14 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
 <li>2015-09-20 <a href="http://zkkzkk368.github.io/2015/09/20/Note_For_Linux?_blank" target="_blank" rel="noopener">《鸟哥的Linux私房菜》笔记</a></li>
 <li>2015-10-17 <a href="http://zkkzkk368.github.io/2015/10/17/%E3%80%8AJava%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E3%80%8B%E7%AC%94%E8%AE%B0?_blank" target="_blank" rel="noopener">《Java核心技术》笔记</a><br>  烂尾…      </li>
 </ul>
-<hr>
-<p>2017-07-24    </p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><p>2017-07-24    </p>
 <!--
 > 『情』束缚的不是『头脑』，而是『内心』。
 > ——《东京暗鸦》11卷5章2节，字野耕平    
 -->      
 <p>唉~     </p>
 <hr>
-<p>2017-08-27<br>由于markdown与mathjax的语法冲突，mathjax的_时常被markdown错误的渲染<br>故修改<code>node_modules/marked/lib/marked.js</code>文件中的正则表达式来放弃markdown对_的渲染<br>参考：<a href="http://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="noopener">hexo博客MathJax公式渲染问题</a>     </p>
+<p>2017-08-27<br>由于markdown与mathjax的语法冲突，mathjax的_时常被markdown错误的渲染<br>故修改<code>node_modules/marked/lib/marked.js</code>文件中的正则表达式来放弃markdown对_的渲染<br>参考：<a href="http://www.cnblogs.com/Ai-heng/p/7282110.html" target="_blank" rel="noopener">hexo博客MathJax公式渲染问题</a>    </p>
 <hr>
 <p>2018-04-25<br>修改Material的模板文件<code>themes/material/layout/layout.ejs</code>——<br>在末尾追加添加相关js代码；<br>将mardown语法 <code>[text](url?_blank)</code> 转换成带属性 <code>target=&quot;_blank</code> 的 <code>&lt;a&gt;</code> 标签，<br>弥补markdown不支持“从新标签打开链接”的功能——     </p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
@@ -537,6 +536,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
 <li>引入评论系统<br>  LiveRe评论系统，海外服务，可能加载会稍微慢点，偶尔也不大稳定（加载不出来），坐等LiveRe提供大陆服务吧       </li>
 <li>更改字体源至ustc<br>  原先从google获取，有时候会加载不出来       </li>
 <li>从bootcdn获取jquery和mathjax<br>  提高页面加载速度         </li>
+</ul>
+<hr>
+<p>2019-03-06<br>参考：<br>《<a href="https://blog.csdn.net/StaunchKai/article/details/82901437" target="_blank" rel="noopener">hexo 博客开启 https (SSL 证书) | CSDN, staunchKai</a>》<br>《<a href="https://www.jianshu.com/p/8046a12fec4a" target="_blank" rel="noopener">Hexo 博客 之 添加 https | 简书, evenyao</a>》       </p>
+<ul>
+<li>将<a href="http://www.hey-yahei.cn重定向到hey-yahei.cn" target="_blank" rel="noopener">www.hey-yahei.cn重定向到hey-yahei.cn</a></li>
+<li>新增子域名yahei.zjuarm.club（重定向至hey-yahei.cn）</li>
+<li>增加ssl证书，并强制重定向至https</li>
 </ul>
 
         
