@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Mar 21 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Mar 21 2019 20:45:10 GMT+0800">
+        <meta property="article:modified_time" content="Thu Mar 21 2019 20:46:54 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/index.html",
     "headline": "快如闪电的人脸检测——Tengine+libfacedetection",
     "datePublished": "Thu Mar 21 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Mar 21 2019 20:45:10 GMT+0800",
+    "dateModified": "Thu Mar 21 2019 20:46:54 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libfacedetection"><span class="post-toc-number">1.</span> <span class="post-toc-text">libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型结构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模型结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检测效果"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">检测效果</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加持Tengine的libfacedetection"><span class="post-toc-number">2.</span> <span class="post-toc-text">加持Tengine的libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#EAIDK-610"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">EAIDK-610</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">树莓派3B</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libfacedetection"><span class="post-toc-number">1.</span> <span class="post-toc-text">libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型结构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模型结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检测效果"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">检测效果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#性能表现"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">性能表现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加持Tengine的libfacedetection"><span class="post-toc-number">2.</span> <span class="post-toc-text">加持Tengine的libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#EAIDK-610"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">EAIDK-610</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">树莓派3B</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -505,8 +505,7 @@
 <h4 id="检测效果"><a href="#检测效果" class="headerlink" title="检测效果"></a>检测效果</h4><p>原图：<br><img src="/imgs/Tengine-libfacedetection/test_org.jpg" alt="test">       </p>
 <p>FP32精度输出：<br><img src="/imgs/Tengine-libfacedetection/test_fp32.jpg" alt="test">       </p>
 <p>INT8精度输出：<br><img src="/imgs/Tengine-libfacedetection/test_int8.jpg" alt="test">       </p>
-<!--
-#### 性能表现      
+<h4 id="性能表现"><a href="#性能表现" class="headerlink" title="性能表现"></a>性能表现</h4><!--
 曾有人在[FDDB](http://vis-www.cs.umass.edu/fddb/)上进行测试过libfacedetection的表现（召回率）——      
 
 | 误检数 | libfacedetection | haarcascade-alt2 | MTCNN | 
