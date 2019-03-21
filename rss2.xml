@@ -8,8 +8,35 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 05 Mar 2019 10:56:28 GMT</pubDate>
+    <pubDate>Thu, 21 Mar 2019 11:35:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>快如闪电的人脸检测——Tengine+libfacedetection</title>
+      <link>https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/</link>
+      <guid>https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/</guid>
+      <pubDate>Wed, 20 Mar 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=1337935927&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;           
+
+&lt;p&gt;前几天，深圳大学于仕琪老师突然开源了libfacedetection——号称最快的人脸检测项目（&lt;a href=&quot;https://mp.weixin.qq.com/s/yd0pwTMq6epaCfAz6lSRTw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;超越OpenCV，史上最快人脸检测系统开源 | 新智元&lt;/a&gt;）吸引了一大波人脸检测应用开发者围观，紧接着Tengine也立马对libfacedetection模型增加了支持，让我们一起来看看，在Tengine加持下的libfacedetection能快到什么程度吧！       &lt;/p&gt;
+&lt;h3 id=&quot;libfacedetection&quot;&gt;&lt;a href=&quot;#libfacedetection&quot; class=&quot;headerlink&quot; title=&quot;libfacedetection&quot;&gt;&lt;/a&gt;libfacedetection&lt;/h3&gt;&lt;p&gt;github项目：&lt;a href=&quot;https://github.com/ShiqiYu/libfacedetection&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/ShiqiYu/libfacedetection&lt;/a&gt;          &lt;/p&gt;
+&lt;h4 id=&quot;模型结构&quot;&gt;&lt;a href=&quot;#模型结构&quot; class=&quot;headerlink&quot; title=&quot;模型结构&quot;&gt;&lt;/a&gt;模型结构&lt;/h4&gt;&lt;p&gt;本次开源的库是基于卷积神经网络实现的，320x240模型如下图所示：&lt;br&gt;&lt;img src=&quot;/imgs/Tengine-libfacedetection/model.jpg&quot; alt=&quot;model&quot;&gt;&lt;/p&gt;
+&lt;p&gt;其整体框架参照&lt;a href=&quot;/2018/08/06/SSD/&quot;&gt;SSD&lt;/a&gt;，并由若干组类似&lt;a href=&quot;/2018/05/02/经典的CNN分类架构/#VGG-Nets&quot;&gt;VGG&lt;/a&gt;的卷积层组合堆叠而成——     &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;和VGG一样，大部分降采样都由2x2最大池化完成，不过libfacedetction的入口部分则与&lt;a href=&quot;/2018/05/02/经典的CNN分类架构/#GoogLeNet&quot;&gt;Inception&lt;/a&gt;、&lt;a href=&quot;/2018/05/02/经典的CNN分类架构/#ResNet&quot;&gt;ResNet&lt;/a&gt;类似——由卷积层完成降采样（Inception、ResNet这种大网络喜欢一上来先来一层7x7/s2的卷积下采样，&lt;em&gt;改进版则用三层3x3卷积替换7x7&lt;/em&gt;；像&lt;a href=&quot;/2018/08/05/MobileNets_v1/&quot;&gt;Mobilenet&lt;/a&gt;这些小网络就直接一层3x3/s2的下采样，这里的libfacedetection也是如此）；      
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>深度学习小技巧（三）：训练技巧</title>
