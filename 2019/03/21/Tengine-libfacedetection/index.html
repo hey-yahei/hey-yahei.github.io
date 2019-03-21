@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Mar 21 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Mar 21 2019 20:06:07 GMT+0800">
+        <meta property="article:modified_time" content="Thu Mar 21 2019 20:45:10 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/index.html",
     "headline": "快如闪电的人脸检测——Tengine+libfacedetection",
     "datePublished": "Thu Mar 21 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Mar 21 2019 20:06:07 GMT+0800",
+    "dateModified": "Thu Mar 21 2019 20:45:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libfacedetection"><span class="post-toc-number">1.</span> <span class="post-toc-text">libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型结构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模型结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果测试"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">效果测试</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#性能表现"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">性能表现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加持Tengine的libfacedetection"><span class="post-toc-number">2.</span> <span class="post-toc-text">加持Tengine的libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#EAIDK-610"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">EAIDK-610</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">树莓派3B</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libfacedetection"><span class="post-toc-number">1.</span> <span class="post-toc-text">libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型结构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模型结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检测效果"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">检测效果</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加持Tengine的libfacedetection"><span class="post-toc-number">2.</span> <span class="post-toc-text">加持Tengine的libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#EAIDK-610"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">EAIDK-610</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">树莓派3B</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -497,58 +497,30 @@
 <p>其整体框架参照<a href="/2018/08/06/SSD/">SSD</a>，并由若干组类似<a href="/2018/05/02/经典的CNN分类架构/#VGG-Nets">VGG</a>的卷积层组合堆叠而成——     </p>
 <ul>
 <li>和VGG一样，大部分降采样都由2x2最大池化完成，不过libfacedetction的入口部分则与<a href="/2018/05/02/经典的CNN分类架构/#GoogLeNet">Inception</a>、<a href="/2018/05/02/经典的CNN分类架构/#ResNet">ResNet</a>类似——由卷积层完成降采样（Inception、ResNet这种大网络喜欢一上来先来一层7x7/s2的卷积下采样，<em>改进版则用三层3x3卷积替换7x7</em>；像<a href="/2018/08/05/MobileNets_v1/">Mobilenet</a>这些小网络就直接一层3x3/s2的下采样，这里的libfacedetection也是如此）；       </li>
-<li>与VGG类似的卷积层组合，两到三个带激活的卷积层一组，不同的是，VGG用若干3x3卷积堆叠作为一组，而libfacedetection则是采用【3x3 + 1x1】或【3x3 + 1x1 + 3x3】的组合，将其中一个3x3卷积层替换为1x1不仅降低了MAC而且避免了im2col；</li>
+<li>与VGG类似的卷积层组合，两到三个带激活的卷积层一组，不同的是，VGG用若干3x3卷积堆叠作为一组，而libfacedetection则是采用【3x3 + 1x1】或【3x3 + 1x1 + 3x3】的组合，将其中一个3x3卷积层替换为1x1不仅降低了MAC而且避免了<a href="/2019/02/28/bag-of-tricks2/#im2col">im2col</a>；</li>
 <li>比较特别的是，每一组卷积之后送去回归和分类之前都经过一个Normilization层对特征图进行归一化操作；</li>
 <li>libfacedetection设置了四组锚框，总计$3600+600+140+45=4385$；</li>
 <li>参数数量约660K，乘加次数约80M（作为参照：MobileNet-v1-1.00约4.25M参数和570M次乘加运算）<br>  <em>没细算，参数数量用caffemodel的文件大小简单除了个4；乘加次数则是用gluon随手搭了个主干（实际应该比这个数字更大一些），然后调<a href="/2019/01/07/MXNet-OpSummary/">mxop</a>测算了一下MAC，粗糙数据，仅供参考。</em>      </li>
 </ul>
-<h4 id="效果测试"><a href="#效果测试" class="headerlink" title="效果测试"></a>效果测试</h4><p>原图：<br><img src="/imgs/Tengine-libfacedetection/test_org.jpg" alt="test">       </p>
+<h4 id="检测效果"><a href="#检测效果" class="headerlink" title="检测效果"></a>检测效果</h4><p>原图：<br><img src="/imgs/Tengine-libfacedetection/test_org.jpg" alt="test">       </p>
 <p>FP32精度输出：<br><img src="/imgs/Tengine-libfacedetection/test_fp32.jpg" alt="test">       </p>
 <p>INT8精度输出：<br><img src="/imgs/Tengine-libfacedetection/test_int8.jpg" alt="test">       </p>
-<h4 id="性能表现"><a href="#性能表现" class="headerlink" title="性能表现"></a>性能表现</h4><p>曾有人在<a href="http://vis-www.cs.umass.edu/fddb/" target="_blank" rel="noopener">FDDB</a>上进行测试过libfacedetection的表现（召回率）——      </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">误检数</th>
-<th style="text-align:center">libfacedetection</th>
-<th style="text-align:center">haarcascade-alt2</th>
-<th style="text-align:center">MTCNN</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">100</td>
-<td style="text-align:center">0.8236</td>
-<td style="text-align:center">0.6723</td>
-<td style="text-align:center">0.9083</td>
-</tr>
-<tr>
-<td style="text-align:center">200</td>
-<td style="text-align:center">0.8334</td>
-<td style="text-align:center">0.7045</td>
-<td style="text-align:center">0.9225</td>
-</tr>
-<tr>
-<td style="text-align:center">500</td>
-<td style="text-align:center">0.8387</td>
-<td style="text-align:center">0.7358</td>
-<td style="text-align:center">0.9354</td>
-</tr>
-<tr>
-<td style="text-align:center">1000</td>
-<td style="text-align:center">0.8429</td>
-<td style="text-align:center">0.7405</td>
-<td style="text-align:center">0.9435</td>
-</tr>
-<tr>
-<td style="text-align:center">2000</td>
-<td style="text-align:center">0.8513</td>
-<td style="text-align:center">0.7605</td>
-<td style="text-align:center">0.9505</td>
-</tr>
-</tbody>
-</table>
-<p><strong><em>数据来源：《<a href="https://zhuanlan.zhihu.com/p/32702868" target="_blank" rel="noopener">人脸检测背景介绍和发展现状 | 知乎, YaqiLYU</a>》</em></strong><br><strong>注意：此处libfacedetection指的是以前的非深度学习版本，开源的CNN版本还没看谁做过测试=。=最近比较懒，过阵子要是闲着没事自己测一个玩玩。</strong>        </p>
+<!--
+#### 性能表现      
+曾有人在[FDDB](http://vis-www.cs.umass.edu/fddb/)上进行测试过libfacedetection的表现（召回率）——      
+
+| 误检数 | libfacedetection | haarcascade-alt2 | MTCNN | 
+| :---: | :---:  | :---: |    :---:    |
+| 100   | 0.8236 | 0.6723 | 0.9083     |
+| 200   | 0.8334 | 0.7045 | 0.9225      |
+| 500   | 0.8387 | 0.7358 | 0.9354      |
+| 1000  | 0.8429 | 0.7405 | 0.9435      |
+| 2000  | 0.8513 | 0.7605 | 0.9505      |
+
+***数据来源：《[人脸检测背景介绍和发展现状 | 知乎, YaqiLYU](https://zhuanlan.zhihu.com/p/32702868)》***     
+**注意：此处libfacedetection指的是以前的非深度学习版本，开源的CNN版本还没看谁做过测试=。=最近比较懒，过阵子要是闲着没事自己测一个玩玩。**        
+
+-->
 <p>至于速度，于老师的github上已经有了与OpenCV Haar+AdaBoost的比较数据，引用至此而不再赘述：<br><img src="/imgs/Tengine-libfacedetection/experiment_github.png" alt="experiment">        </p>
 <h3 id="加持Tengine的libfacedetection"><a href="#加持Tengine的libfacedetection" class="headerlink" title="加持Tengine的libfacedetection"></a>加持Tengine的libfacedetection</h3><p>用开发者版的<strong>Tengine</strong>分别在EAIDK-610（RK3399,4A53+2A72）和树莓派3B（BCM2837,4A53）平台上测试<strong>libfacedetection</strong>——<br><em>使用于老师github上的caffe模型，输入大小为320x240。</em>       </p>
 <h4 id="EAIDK-610"><a href="#EAIDK-610" class="headerlink" title="EAIDK-610"></a>EAIDK-610</h4><table>
