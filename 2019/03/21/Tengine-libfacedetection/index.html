@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Mar 21 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Mar 21 2019 20:46:54 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 22 2019 10:45:37 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/index.html",
     "headline": "快如闪电的人脸检测——Tengine+libfacedetection",
     "datePublished": "Thu Mar 21 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Mar 21 2019 20:46:54 GMT+0800",
+    "dateModified": "Fri Mar 22 2019 10:45:37 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libfacedetection"><span class="post-toc-number">1.</span> <span class="post-toc-text">libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型结构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模型结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检测效果"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">检测效果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#性能表现"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">性能表现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加持Tengine的libfacedetection"><span class="post-toc-number">2.</span> <span class="post-toc-text">加持Tengine的libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#EAIDK-610"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">EAIDK-610</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">树莓派3B</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libfacedetection"><span class="post-toc-number">1.</span> <span class="post-toc-text">libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模型结构"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模型结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检测效果"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">检测效果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#性能表现"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">性能表现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加持Tengine的libfacedetection"><span class="post-toc-number">2.</span> <span class="post-toc-text">加持Tengine的libfacedetection</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#EAIDK-610"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">EAIDK-610</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">树莓派3B</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树莓派3B-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">树莓派3B+</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -521,7 +521,7 @@
 
 -->
 <p>至于速度，于老师的github上已经有了与OpenCV Haar+AdaBoost的比较数据，引用至此而不再赘述：<br><img src="/imgs/Tengine-libfacedetection/experiment_github.png" alt="experiment">        </p>
-<h3 id="加持Tengine的libfacedetection"><a href="#加持Tengine的libfacedetection" class="headerlink" title="加持Tengine的libfacedetection"></a>加持Tengine的libfacedetection</h3><p>用开发者版的<strong>Tengine</strong>分别在EAIDK-610（RK3399,4A53+2A72）和树莓派3B（BCM2837,4A53）平台上测试<strong>libfacedetection</strong>——<br><em>使用于老师github上的caffe模型，输入大小为320x240。</em>       </p>
+<h3 id="加持Tengine的libfacedetection"><a href="#加持Tengine的libfacedetection" class="headerlink" title="加持Tengine的libfacedetection"></a>加持Tengine的libfacedetection</h3><p>用开发者版的<strong>Tengine</strong>分别在EAIDK-610（RK3399,<a href="mailto:4A53@1.4GHz" target="_blank" rel="noopener">4A53@1.4GHz</a><a href="mailto:+2A72@1.8GHz" target="_blank" rel="noopener">+2A72@1.8GHz</a>）和树莓派3B（BCM2837,<a href="mailto:4A53@1.2GHz" target="_blank" rel="noopener">4A53@1.2GHz</a>）、树莓派3B+（BCM2837,<a href="mailto:4A53@1.4Hz" target="_blank" rel="noopener">4A53@1.4Hz</a>）平台上测试<strong>libfacedetection</strong>——<br><em>使用于老师github上的caffe模型，输入大小为320x240。</em>       </p>
 <h4 id="EAIDK-610"><a href="#EAIDK-610" class="headerlink" title="EAIDK-610"></a>EAIDK-610</h4><table>
 <thead>
 <tr>
@@ -636,7 +636,52 @@
 </tr>
 </tbody>
 </table>
-<p>树莓派3B上最快也能有<strong>22.89FPS</strong>！      </p>
+<h4 id="树莓派3B-1"><a href="#树莓派3B-1" class="headerlink" title="树莓派3B+"></a>树莓派3B+</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">CPU-Core</th>
+<th style="text-align:center">Time(fp32)</th>
+<th style="text-align:center">FPS(fp32)</th>
+<th style="text-align:center">Time(int8)</th>
+<th style="text-align:center">FPS(int8)</th>
+<th style="text-align:center">FPS(int8)/FPS(fp32)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1A53</td>
+<td style="text-align:center">89.90ms</td>
+<td style="text-align:center">11.12</td>
+<td style="text-align:center">94.61ms</td>
+<td style="text-align:center">10.57</td>
+<td style="text-align:center">0.9502</td>
+</tr>
+<tr>
+<td style="text-align:center">2A53</td>
+<td style="text-align:center">65.87ms</td>
+<td style="text-align:center">15.18</td>
+<td style="text-align:center">58.34ms</td>
+<td style="text-align:center">17.14</td>
+<td style="text-align:center">1.1290</td>
+</tr>
+<tr>
+<td style="text-align:center">3A53</td>
+<td style="text-align:center">59.76ms</td>
+<td style="text-align:center">16.73</td>
+<td style="text-align:center">47.99ms</td>
+<td style="text-align:center">20.84</td>
+<td style="text-align:center">1.2451</td>
+</tr>
+<tr>
+<td style="text-align:center">4A53</td>
+<td style="text-align:center">58.22ms</td>
+<td style="text-align:center">17.18</td>
+<td style="text-align:center">41.26ms</td>
+<td style="text-align:center">24.24</td>
+<td style="text-align:center">1.4111</td>
+</tr>
+</tbody>
+</table>
 
         
     
