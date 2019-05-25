@@ -8,8 +8,32 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 22 May 2019 10:58:50 GMT</pubDate>
+    <pubDate>Sat, 25 May 2019 05:13:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>2019中兴捧月·总决赛</title>
+      <link>https://hey-yahei.cn/2019/05/24/zte_challenge_final/</link>
+      <guid>https://hey-yahei.cn/2019/05/24/zte_challenge_final/</guid>
+      <pubDate>Thu, 23 May 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=618661&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;赛题背景&quot;&gt;&lt;a href=&quot;#赛题背景&quot; class=&quot;headerlink&quot; title=&quot;赛题背景&quot;&gt;&lt;/a&gt;赛题背景&lt;/h2&gt;&lt;p&gt;与&lt;a href=&quot;/2019/05/22/zte_challenge_preliminary/&quot;&gt;初赛&lt;/a&gt;类似，不过初赛更多关注的是&lt;strong&gt;加速&lt;/strong&gt;，而总决赛更关注的是&lt;strong&gt;压缩&lt;/strong&gt;。&lt;br&gt;原始模型是一个简单的3x112x112输入大小的resnet18，人脸识别项目，主办方提供了两万张无标签的校准数据集，和两千张带标签的本地验证数据集，同时主办方保留两千张私有、不公开的测试数据集。&lt;br&gt;评分规则如下：&lt;br&gt;$$ score = \left( \left( \frac { M - m } { M } \right) \times 20 + \left( \frac { S - s } { s } \right) \times 80 \right) \times A ( z ) \times B ( z )$$&lt;br&gt;$$A ( z ) = \left\{ \begin{array} { l l } { 1 , } &amp;amp; { z \geq 0.97 } \\ { 0.9 , } &amp;amp; { 0.965 \leq z &amp;lt; 0.97 } \\ { 0 , } &amp;amp; { z &amp;lt; 0.965 } \end{array} \right.$$&lt;br&gt;$$B ( z ) = \left\{ \begin{array} { l l } { 1 , } &amp;amp; { s \leq 40 M B } \\ { 0.9 , } &amp;amp; { 40 M B &amp;lt; s \leq 50 M B } \\ { 0.8 , } &amp;amp; { 50 M B &amp;lt; s \leq 63 M B } \\ { 0 , } &amp;amp; { s &amp;gt; 63 M B } \end{array} \right.$$      &lt;/p&gt;
+&lt;p&gt;其中，$M$、$S$分别为原始模型的内存占用大小、模型文件大小，$m$、$s$、$z$分别是压缩后的内存占用大小、模型文件大小、万分之一误检率下的正检率。主要参照本地验证数据集（一千个人，每人两张图片）的z值，私有测试集只用于模型泛化能力的参考（防止选手故意过拟合于验证集）。       &lt;/p&gt;
+&lt;h2 id=&quot;压缩方案&quot;&gt;&lt;a href=&quot;#压缩方案&quot; class=&quot;headerlink&quot; title=&quot;压缩方案&quot;&gt;&lt;/a&gt;压缩方案&lt;/h2&gt;&lt;p&gt;总体思路参考论文《&lt;a href=&quot;http://www.arxiv.org/pdf/1510.00149.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/05/24/zte_challenge_final/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>2019中兴捧月·初赛</title>
@@ -821,39 +845,6 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
     </item>
     
     <item>
-      <title>梯度消失与梯度爆炸</title>
-      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
-      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;参考：     &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
-&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
-&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
-&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
-          
-        
-      
-      </description>
-      
-      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>Handson-ML</title>
       <link>https://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>https://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -885,6 +876,39 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       </description>
       
       <comments>https://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>
