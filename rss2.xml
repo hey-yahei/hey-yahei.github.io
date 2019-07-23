@@ -8,7 +8,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 23 Jul 2019 08:15:06 GMT</pubDate>
+    <pubDate>Tue, 23 Jul 2019 08:45:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -22,7 +22,9 @@
         
           
           
-            &lt;p&gt;简单来说，量化就是将浮点存储（运算）转换为整型存储（运算）的一种模型压缩技术。如果按《&lt;a href=&quot;https://www.jiqizhixin.com/articles/2018-05-22-9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;当前深度神经网络模型压缩和加速都有哪些方法？-机器之心&lt;/a&gt;》一文的分类方式，量化属于参数共享的一种——将原始数据聚为若干类（比如int8量化为$2^8=256$类），量化后的整型值就相当于类的索引号。    &lt;/p&gt;
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=638385&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;     
+
+&lt;p&gt;简单来说，量化就是将浮点存储（运算）转换为整型存储（运算）的一种模型压缩技术。如果按《&lt;a href=&quot;https://www.jiqizhixin.com/articles/2018-05-22-9&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;当前深度神经网络模型压缩和加速都有哪些方法？-机器之心&lt;/a&gt;》一文的分类方式，量化属于参数共享的一种——将原始数据聚为若干类（比如int8量化为$2^8=256$类），量化后的整型值就相当于类的索引号。    &lt;/p&gt;
 &lt;p&gt;按照聚类中心是否均匀分布，可以把量化分为线性量化和非线性量化。       &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如《&lt;a href=&quot;https://arxiv.org/pdf/1510.00149.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding(2016)&lt;/a&gt;》就是典型的&lt;strong&gt;非线性量化&lt;/strong&gt;，作者采用不规则的聚类中心，通过KMEANS对浮点权重进行量化，并在训练过程中逐步修正聚类中心——不规则的聚类中心往往能在相同的比特数下取得更小的量化误差，但由于必须先查表取得原始数据再进行计算，所以对计算的加速没有任何帮助，这种方法更多是用来压缩模型文件大小。   &lt;/li&gt;
@@ -31,7 +33,7 @@
 &lt;h3 id=&quot;动机&quot;&gt;&lt;a href=&quot;#动机&quot; class=&quot;headerlink&quot; title=&quot;动机&quot;&gt;&lt;/a&gt;动机&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;更少的存储开销和带宽需求&lt;/strong&gt;&lt;br&gt; 使用更少的比特数存储数据，有效减少应用对存储资源的依赖（但现代系统往往拥有相对丰富的存储资源，这一点已经不算是采用量化的主要动机）     &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;更快的计算速度&lt;/strong&gt;&lt;br&gt; 对多数处理器而言，整型运算的速度一般（但不总是）比浮点运算更快     &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;更低的能耗与占用面积&lt;/strong&gt;&lt;br&gt; &lt;img src=&quot;/imgs/Quantization/energy_and_area.jpg&quot; alt=&quot;energy_and_area&quot;&gt;&lt;br&gt; &lt;em&gt;数据来源：《&lt;a href=&quot;https://media.nips.cc/Conferences/2015/tutorialslides/Dally-NIPS-Tutorial-2015.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;High-Performance Hardware for Machine Learning(NIPS2015)&lt;/a&gt;》&lt;/em&gt;&lt;br&gt;
+&lt;li&gt;&lt;strong&gt;更低的能耗与占用面积&lt;/strong&gt;&lt;br&gt; &lt;img src=&quot;/imgs/Quantization/energy_and_area.jpg&quot; alt=&quot;energy_and_area&quot;&gt;&lt;br&gt; &lt;em&gt;数据来源：《&lt;a href=&quot;https://media.nips.cc/Conferences/2015/tutorialslides/Dally-NIPS-Tutorial-2015.pdf&quot;
           
         
       
