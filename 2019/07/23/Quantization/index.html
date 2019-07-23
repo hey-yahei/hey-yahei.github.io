@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            线性量化 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="https://hey-yahei.cn/2019/07/23/Quantization/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://hey-yahei.cn/2019/07/23/Quantization/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="线性量化 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Tue Jul 23 2019 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jul 23 2019 16:15:06 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://hey-yahei.cn/2019/07/23/Quantization/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://hey-yahei.cn/2019/07/23/Quantization/index.html",
+    "headline": "线性量化",
+    "datePublished": "Tue Jul 23 2019 00:00:00 GMT+0800",
+    "dateModified": "Tue Jul 23 2019 16:15:06 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动机"><span class="post-toc-number">1.</span> <span class="post-toc-text">动机</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线性量化"><span class="post-toc-number">2.</span> <span class="post-toc-text">线性量化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对称和非对称"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">对称和非对称</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#逐层、逐组和逐通道"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">逐层、逐组和逐通道</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在线和离线"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">在线和离线</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模拟量化实验"><span class="post-toc-number">3.</span> <span class="post-toc-text">模拟量化实验</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重训练量化实验"><span class="post-toc-number">4.</span> <span class="post-toc-text">重训练量化实验</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                线性量化
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>7月 23, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=线性量化&url=https://hey-yahei.cn/2019/07/23/Quantization/index.html&pic=https://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=线性量化&summary=&pics=https://hey-yahei.cn/img/favicon.png&url=https://hey-yahei.cn/2019/07/23/Quantization/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>简单来说，量化就是将浮点存储（运算）转换为整型存储（运算）的一种模型压缩技术。如果按《<a href="https://www.jiqizhixin.com/articles/2018-05-22-9" target="_blank" rel="noopener">当前深度神经网络模型压缩和加速都有哪些方法？-机器之心</a>》一文的分类方式，量化属于参数共享的一种——将原始数据聚为若干类（比如int8量化为$2^8=256$类），量化后的整型值就相当于类的索引号。    </p>
+<p>按照聚类中心是否均匀分布，可以把量化分为线性量化和非线性量化。       </p>
+<ul>
+<li>如《<a href="https://arxiv.org/pdf/1510.00149.pdf" target="_blank" rel="noopener">Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding(2016)</a>》就是典型的<strong>非线性量化</strong>，作者采用不规则的聚类中心，通过KMEANS对浮点权重进行量化，并在训练过程中逐步修正聚类中心——不规则的聚类中心往往能在相同的比特数下取得更小的量化误差，但由于必须先查表取得原始数据再进行计算，所以对计算的加速没有任何帮助，这种方法更多是用来压缩模型文件大小。   </li>
+<li>与非线性量化不同，<strong>线性量化</strong>采用均匀分布的聚类中心，原始数据跟量化后的数据存在一个简单的线性变换关系。而卷积、全连接本身也只是简单的线性计算，因此在线性量化中可以直接用量化后的数据进行直接计算，不仅可以压缩模型文件的大小，还能带来明显的速度提升。        </li>
+</ul>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><ol>
+<li><strong>更少的存储开销和带宽需求</strong><br> 使用更少的比特数存储数据，有效减少应用对存储资源的依赖（但现代系统往往拥有相对丰富的存储资源，这一点已经不算是采用量化的主要动机）     </li>
+<li><strong>更快的计算速度</strong><br> 对多数处理器而言，整型运算的速度一般（但不总是）比浮点运算更快     </li>
+<li><strong>更低的能耗与占用面积</strong><br> <img src="/imgs/Quantization/energy_and_area.jpg" alt="energy_and_area"><br> <em>数据来源：《<a href="https://media.nips.cc/Conferences/2015/tutorialslides/Dally-NIPS-Tutorial-2015.pdf" target="_blank" rel="noopener">High-Performance Hardware for Machine Learning(NIPS2015)</a>》</em><br> 从上图可以看到，FP32乘法的能耗是INT8乘法能耗的18.5倍，芯片占用面积则是27.3倍——对芯片设计和FPGA设计而言，更少的资源占用意味着相同数量的单元下可以设计出更多的计算单元；而更少的能耗意味着更少的发热，和更长久的续航。     </li>
+<li><strong>尚可接受的精度损失</strong><br> 量化相当于对模型权重引入噪声，所幸CNN本身对噪声不敏感（甚至在训练过程中，模拟量化所引入的权重加噪还有利于防止过拟合），在合适的比特数下量化后的模型并不会带来很严重的精度损失。按照<a href="https://gluon-cv.mxnet.io/model_zoo/classification.html" target="_blank" rel="noopener">gluoncv</a>提供的报告，经过int8量化之后，ResNet50_v1和MobileNet1.0_v1在ILSVRC2012数据集上的准确率仅分别从77.36%、73.28%下降为76.86%、72.85%。</li>
+<li><strong>趋势</strong><br> 无论是移动端还是服务器端，都可以看到新的计算设备正不断迎合量化技术。比如NPU/APU/AIPU等基本都是支持int8（甚至更低精度的int4）计算的，并且有相当可观的TOPs，而Mali GPU开始引入int8 dot支持，Nvidia也不例外——<br> <img src="/imgs/Quantization/GTX-vs-RTX-and-NPU.jpg" alt="GTX-vs-RTX-and-NPU"></li>
+</ol>
+<h3 id="线性量化"><a href="#线性量化" class="headerlink" title="线性量化"></a>线性量化</h3><p>常见的线性量化过程可以用以下数学表达式来表示：<br>$$r = Round(S(q - Z))$$<br>其中，<br>$q$ 是float32的原始值；<br>$Z$ 是float32的偏移量，也可以量化为int32；<br>$S$ 是float32的缩放因子；<br>$Round(\cdot)$ 是四舍五入近似取整的数学函数，除了四舍五入，向上、向下取整也是可以的；<br>$r$ 是量化后的一个整数值。       </p>
+<p>而我们需要做的，就是确定合适的 $S$ 和 $Z$        </p>
+<h4 id="对称和非对称"><a href="#对称和非对称" class="headerlink" title="对称和非对称"></a>对称和非对称</h4><p>参考：<a href="https://nervanasystems.github.io/distiller/algo_quantization/index.html" target="_blank" rel="noopener">Algorithms - Quantization | Distiller</a><br>根据参数 $Z$ 是否为零可以将线性量化分为两类——对称和非对称。      </p>
+<ul>
+<li><p><strong>对称量化</strong><br>  <center><img src="/imgs/Quantization/symmetric-mode.png" alt="symmetric-mode"></center><br>  在对称量化中，$r$ 是用有符号的整型数值来表示的，此时 $Z=0$，且 $q=0$ 时恰好有 $r=0$。<br>  比如简单地取，<br>  $$S = \frac{2^{n-1} - 1}{max(|x|)}$$<br>  $$Z = 0$$<br>  其中，<br>  $n$ 是用来表示该数值的位宽，<br>  $x$ 是数据集的总体样本。       </p>
+<p>  对称量化比较简单，不仅实现简单，而且由于$Z=0$运算也变得非常简单。      </p>
+</li>
+<li><p><strong>非对称量化</strong><br>  <center><img src="/imgs/Quantization/asymmetric-mode.png" alt="asymmetric-mode"></center><br>  比如简单地取，<br>  $$S = \frac{2^{n-1} - 1}{max(x)-min(x)}$$<br>  $$Z = min(x)$$<br>  非对称量化比较灵活，通常 $r$ 是用无符号的整型数值来表示，此时 $Z \neq 0$。        </p>
+</li>
+</ul>
+<h4 id="逐层、逐组和逐通道"><a href="#逐层、逐组和逐通道" class="headerlink" title="逐层、逐组和逐通道"></a>逐层、逐组和逐通道</h4><p>按照量化的粒度（共享量化参数的范围）可以分为逐层、逐组和逐通道——     </p>
+<ul>
+<li><strong>逐层</strong>量化以一个层为单位，整个layer的权重共用一组缩放因子$S$和偏移量$Z$；      </li>
+<li><strong>逐组</strong>量化以组为单位，每个group使用一组$S$和$Z$；</li>
+<li><strong>逐通道</strong>量化则以通道为单位，每个channel单独使用一组$S$和$Z$。</li>
+</ul>
+<p>当 $group=1$ 时，逐组量化与逐层量化等价；<br>当 $group=num\_filters$ （即dw卷积）时，逐组量化逐通道量化等价      </p>
+<h4 id="在线和离线"><a href="#在线和离线" class="headerlink" title="在线和离线"></a>在线和离线</h4><p>按照激活值的量化方式，可以分为在线（online）量化和离线（offline）量化。       </p>
+<ul>
+<li>在线量化指激活值的 $S$ 和 $Z$ 在实际推断过程中根据实际的激活值动态计算；    </li>
+<li>离线量化指提前确定好激活值的 $S$ 和 $Z$      </li>
+</ul>
+<p>由于不需要动态计算量化参数，通常离线量化的推断速度更快些，通常有三种方法来确定相关的量化参数——      </p>
+<ol>
+<li><strong>指数平滑平均</strong><br> 将校准数据集投喂给模型，收集每个量化的层的输出特征图，计算每个batch的 $S$ 和 $Z$，并通过指数平滑平均更新 $S$ 和 $Z$     </li>
+<li><strong>直方图截断</strong><br> 以$S = \frac{2^n - 1}{max(|x|)}$为例，由于有的特征图会出现偏离较远的奇异值，导致max非常大，所以可以通过直方图截取的形式，比如抛弃最大的前1%数据，以前1%分界点的数值作为max计算量化参数      </li>
+<li><strong>KL散度校准</strong><br> 参考：《<a href="http://on-demand.gputechconf.com/gtc/2017/presentation/s7310-8-bit-inference-with-tensorrt.pdf" target="_blank" rel="noopener">8-bit Inference with TensorRT</a>》<br> TensorRT的校准方案，通过KL散度（也称为相对熵，用以描述两个分布之间的差异）来评估量化前后分布的差异，搜索并选取KL散度最小的量化参数     </li>
+</ol>
+<h3 id="模拟量化实验"><a href="#模拟量化实验" class="headerlink" title="模拟量化实验"></a>模拟量化实验</h3><p>我在Gluon上用mobilenet和resnet50做了简单的模拟量化实验（量化卷积和全连接）：<a href="https://github.com/hey-yahei/Quantization.MXNet#simulate-quantization" target="_blank" rel="noopener">Quantization.MXNet | github</a>          </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">IN dtype</th>
+<th style="text-align:center">IN offline</th>
+<th style="text-align:center">WT dtype</th>
+<th style="text-align:center">WT qtype</th>
+<th style="text-align:center">Merge BN</th>
+<th style="text-align:center">w/o 1st conv</th>
+<th style="text-align:center">M-Top1 Acc</th>
+<th style="text-align:center">R-Top1 Acc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float32</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">float32</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">73.28%</td>
+<td style="text-align:center">77.36%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">44.57%</td>
+<td style="text-align:center">55.97%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">70.84%</td>
+<td style="text-align:center">76.92%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">70.92%</td>
+<td style="text-align:center">76.90%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">70.72%</td>
+<td style="text-align:center">77.00%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">70.58%</td>
+<td style="text-align:center">76.81%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">70.66%</td>
+<td style="text-align:center">76.71%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">15.21%</td>
+<td style="text-align:center">76.62%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">32.70%</td>
+<td style="text-align:center">76.61%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">14.70%</td>
+<td style="text-align:center">76.60%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">47.80%</td>
+<td style="text-align:center">56.21%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.93%</td>
+<td style="text-align:center">77.33%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.85%</td>
+<td style="text-align:center">77.31%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint8</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.68%</td>
+<td style="text-align:center">77.35%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.63%</td>
+<td style="text-align:center">77.22%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.68%</td>
+<td style="text-align:center">77.08%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.75%</td>
+<td style="text-align:center">77.11%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.04%</td>
+<td style="text-align:center">76.69%</td>
+</tr>
+<tr>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center">int8</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">72.67%</td>
+<td style="text-align:center">77.07%</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>由于大部分网络使用relu作为激活函数，所以往往使用uint能获得更小的量化误差，不过也有的平台只支持int8的量化（比如ncnn）；     </li>
+<li>离线量化的校准数据集从训练集抽取（每个类别抽取5张图片，共计5000张），naive校准采用指数平滑平均的方式收集最大值并计算量化参数，KL校准搜索KL散度最小的量化参数；</li>
+<li>由于合并BN层后，不同通道的权重的分布差异变得更加显著，这对冗余网络（如resnet）跟逐通道量化的影响较小，但逐层量化紧凑网络（如mobilent）就直接崩溃（对dw卷积影响显著）；</li>
+<li>大部分情况下naive校准和KL校准效果都挺接近，不过在合并BN后的逐通道量化下，KL校准则明显由于naive校准；</li>
+</ol>
+<p>为了进一步比较naive校准和KL校准，在cifar_resnet56_v1模型上又补充了几个简单实验：     </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">IN dtype</th>
+<th style="text-align:center">WT dtype</th>
+<th style="text-align:center">WT qtype</th>
+<th style="text-align:center">Merge BN</th>
+<th style="text-align:center">w/o 1st conv</th>
+<th style="text-align:center">Top1 Acc@naive</th>
+<th style="text-align:center">Top1 Acc@KL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float32</td>
+<td style="text-align:center">float32</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">93.60%</td>
+<td style="text-align:center">93.60%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint6</td>
+<td style="text-align:center">int6</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">93.09%</td>
+<td style="text-align:center">93.83%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint5</td>
+<td style="text-align:center">int5</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">92.71%</td>
+<td style="text-align:center">93.29%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4</td>
+<td style="text-align:center">int4</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">91.62%</td>
+<td style="text-align:center">89.27%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint3</td>
+<td style="text-align:center">int3</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">81.75%</td>
+<td style="text-align:center">55.98%</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到，    </p>
+<ul>
+<li>在比特数还比较高（量化误差比较小）的情况下，KL校准明显优于naive校准；     </li>
+<li>但当比特数比较低的时候（量化误差变大）的情况下，KL校准的优势逐渐缩小，甚至最后崩溃            </li>
+</ul>
+<h3 id="重训练量化实验"><a href="#重训练量化实验" class="headerlink" title="重训练量化实验"></a>重训练量化实验</h3><p>当量化的比特数比较大的情况下（如8bits），逐通道量化、KL校准已经能取得很不错的效果；但当比特数非常小的时候，量化带来的精度损失还是比较明显的，此时我们可以按照《<a href="http://arxiv.org/pdf/1712.05877" target="_blank" rel="noopener">Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference(2017)</a>》做简单的恢复训练：<a href="https://github.com/hey-yahei/Quantization.MXNet#quantization-aware-training" target="_blank" rel="noopener">Quantization.MXNet | github</a>          </p>
+<p><strong>BN层的处理</strong>：<br>通常我们会把训练好的模型的BN层融合到卷积层当中来减少推断时间，量化卷积权重之前也需要先把BN层融合进去，但是在训练过程中我们又需要BN层来抑制过拟合，那么可以在训练过程中引入伪BN——<br>正常的BN是对卷积的输出特征图进行操作，而按照合并BN的思路，伪BN则是直接对权重进行操作。先用BN的参数与原始权重进行计算取得“融合”后的权重，再用新的权重进行卷积，在训练过程中正常更新原始的卷积权重和BN的参数。         </p>
+<center><img src="/imgs/Quantization/fake_bn.jpg" alt="fake_bn"></center>      
+
+<p>使用伪BN后，每次前向传播需要两次卷积运算——     </p>
+<ol>
+<li>用原始权重卷积，卷积输出用于更新伪BatchNorm的平均值、标准差，这次卷积运算不需要反向传播；</li>
+<li>另外一次用量化过的权重卷积，卷积输出的结果作为下一层的输入，这一次的卷积运算需要反向传播</li>
+</ol>
+<p>这样一来，训练的速度会明显降低，但却保留的BN本身的效果。      </p>
+<p><strong>4bits量化的恢复训练效果如下</strong>：    </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">DataType</th>
+<th style="text-align:center">QuantType</th>
+<th style="text-align:center">Offline</th>
+<th style="text-align:center">Retrain</th>
+<th style="text-align:center">FakeBN</th>
+<th style="text-align:center">Top-1 Acc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">fp32/fp32</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">93.60%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4/int4</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">84.95%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4/int4</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">73.36%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4/int4</td>
+<td style="text-align:center">layer</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">87.41%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4/int4</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">naive</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">91.62%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4/int4</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">KL</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">89.27%</td>
+</tr>
+<tr>
+<td style="text-align:center">uint4/int4</td>
+<td style="text-align:center">channel</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">92.56%</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>由于比特数较低，KL校准的效果变得非常差；    </li>
+<li>相比于naive校准，恢复训练总能取得更低一些的精度损失    </li>
+</ol>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/05/25/zte_challenge_final/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">43</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="http://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>
