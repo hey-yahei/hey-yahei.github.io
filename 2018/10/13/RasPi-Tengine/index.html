@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat Oct 13 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jul 18 2019 14:13:02 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jul 24 2019 16:42:57 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2018/10/13/RasPi-Tengine/index.html",
     "headline": "树莓派也能玩转深度学习——Tengine推断引擎",
     "datePublished": "Sat Oct 13 2018 00:00:00 GMT+0800",
-    "dateModified": "Thu Jul 18 2019 14:13:02 GMT+0800",
+    "dateModified": "Wed Jul 24 2019 16:42:57 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -520,7 +520,7 @@
 <li>准备好配置文件<br>Tengine目录下提供了配置模板 <code>makefile.config.example</code> 文件        <pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> makefile.config.example makefile.config
 </code></pre>
 </li>
-<li>修改配置文件 <code>makefile.config</code><br>由于开源版的Tengine不支持针对armv7的优化，所以需要用openblas替代实现；<br>将 <code>CONFIG_ARCH_ARM64=y</code> 这一行注释掉（行首加井号 <code>#</code>）以关闭ARM64架构的优化实现；<br>解除 <code>CONFIG_ARCH_BLAS=y</code> 这一行解除注释（删除行首的井号 <code>#</code>）以开启BLAS计算库的实现方式      </li>
+<li>修改配置文件 <code>makefile.config</code><br>由于开源版的Tengine不支持针对armv7的优化，所以需要用openblas替代实现；<br>将 <code>CONFIG_ARCH_ARM64=y</code> 这一行注释掉（行首加井号 <code>#</code>）以关闭ARM64架构的优化实现；<br>解除 <code>CONFIG_ARCH_ARM32=y</code> 和<code>CONFIG_ARCH_BLAS=y</code> 这一行解除注释（删除行首的井号 <code>#</code>）以开启BLAS计算库的实现方式      </li>
 <li>编译并安装      <pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> -j4
 <span class="token function">make</span> <span class="token function">install</span>
 </code></pre>
@@ -834,7 +834,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Github -->
     
-        <a href="http://github.com/hey-yahei" target="_blank">
+        <a href="https://github.com/hey-yahei" target="_blank">
             <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
                 <span class="visuallyhidden">Github</span>
             </button><!--

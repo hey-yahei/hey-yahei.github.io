@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hey-yahei.cn/2019/07/24/MobileNet-Family/</loc>
-    <lastmod>2019-07-24T08:31:15.567Z</lastmod>
-  </url>  <url>
     <loc>https://hey-yahei.cn/2019/07/23/Quantization/</loc>
-    <lastmod>2019-07-23T08:45:59.009Z</lastmod>
+    <lastmod>2019-07-25T03:32:46.224Z</lastmod>
   </url>  <url>
     <loc>https://hey-yahei.cn/2018/10/13/RasPi-Tengine/</loc>
-    <lastmod>2019-07-18T06:13:02.945Z</lastmod>
+    <lastmod>2019-07-24T08:42:57.257Z</lastmod>
+  </url>  <url>
+    <loc>https://hey-yahei.cn/2019/07/24/MobileNet-Family/</loc>
+    <lastmod>2019-07-24T08:31:15.567Z</lastmod>
   </url>  <url>
     <loc>https://hey-yahei.cn/2019/05/25/zte_challenge_final/</loc>
     <lastmod>2019-05-27T01:20:33.176Z</lastmod>
