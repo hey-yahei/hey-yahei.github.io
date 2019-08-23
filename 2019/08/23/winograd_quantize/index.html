@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.proxy.ustclug.org"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Winograd量化 | 
+        
+        Hey~YaHei!
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Hey~YaHei!">
+    <meta name="msapplication-starturl" content="https://hey-yahei.cn/2019/08/23/winograd_quantize/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="9RYmZ6xORQYm4BISDRGPi57Oj0NzoKAN-U9ZR6UxSxY" />
+    <meta name="baidu-site-verification" content="xij8ev3DGx" />
+
+    <!-- RSS -->
+    
+        
+            <link rel=alternate type="application/rss+xml" href="/rss2.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://hey-yahei.cn/2019/08/23/winograd_quantize/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Winograd量化 | Hey~YaHei!">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Fri Aug 23 2019 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 23 2019 15:40:24 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html",
+    "headline": "Winograd量化",
+    "datePublished": "Fri Aug 23 2019 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 23 2019 15:40:24 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "YaHei",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/imgs/avatar2.jpg"
+        },
+        "description": "Hey!"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hey~YaHei!",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#溢出"><span class="post-toc-number">1.</span> <span class="post-toc-text">溢出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">$F(2\times2,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-4-times4-3-times3"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">$F(4\times4,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#别人是怎么做的？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">别人是怎么做的？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先Winograd后量化？"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">先Winograd后量化？</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更快的变换"><span class="post-toc-number">2.</span> <span class="post-toc-text">更快的变换</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Winograd量化
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/imgs/avatar2.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>YaHei</strong>
+        <span>8月 23, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Winograd量化&url=https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html&pic=https://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=Winograd量化&summary=&pics=https://hey-yahei.cn/img/favicon.png&url=https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=26209392&auto=0&height=32"></iframe>     
+
+<p>上一篇文章《<a href="https://hey-yahei.cn/2019/08/21/winograd_convolution/">Winograd卷积原理 | Hey~YaHei!</a>》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《<a href="http://arxiv.org/pdf/1509.09308" target="_blank" rel="noopener">Fast algorithms for convolutional neural(CVPR2016)</a>》的报告，Winograd在浮点运算上的表现都不错：       </p>
+<center><img src="/imgs/winograd/VGG_errors.jpg" alt="VGG_errors"></center>     
+
+<ul>
+<li>$F(2\times2,3\times3)$的fp32精度损失甚至比Direct Convolution还小，这主要得益于乘法次数的减少，以及简单的变换矩阵（没有非常大或者非常小的数值）     </li>
+<li>$F(4\times4,3\times3)$的fp32精度损失就比较大了，但似乎也还能接受      </li>
+<li>fp16精度损失这三者表现的差不多       </li>
+</ul>
+<p>浮点运算的Winograd确实不错，但它却似乎也没那么轻易能套上量化——整型可没有浮点这么大的动态范围，如何保证运算过程整型不会溢出将是个令人头疼的问题。      </p>
+<h3 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h3><p>假设将网络量化成int8，int8的权重和int8的输入，那么得益于<code>int8 * int8</code>，无论是Direct Convolution还是im2col+GEMM，这都能带来可观的加速。但在Winograd里可就不是这么回事了！<br><em>注意：im2col也没有对数值的大小进行变换</em>       </p>
+<h4 id="F-2-3"><a href="#F-2-3" class="headerlink" title="$F(2,3)$"></a>$F(2,3)$</h4><p>回顾一下$F(2,3)$的变换矩阵：<br>$$<br>B^{T}=\left[\begin{array}{rrrr}{1} &amp; {0} &amp; {-1} &amp; {0} \\ {0} &amp; {1} &amp; {1} &amp; {0} \\ {0} &amp; {-1} &amp; {1} &amp; {0} \\ {0} &amp; {1} &amp; {0} &amp; {-1}\end{array}\right],<br>G=\left[\begin{array}{rrr}{1} &amp; {0} &amp; {0} \\ {\frac{1}{2}} &amp; {\frac{1}{2}} &amp; {\frac{1}{2}} \\ {\frac{1}{2}} &amp; {-\frac{1}{2}} &amp; {\frac{1}{2}} \\ {0} &amp; {0} &amp; {1}\end{array}\right],<br>A^{T}=\left[\begin{array}{rrrr}{1} &amp; {1} &amp; {1} &amp; {0} \\ {0} &amp; {1} &amp; {-1} &amp; {-1}\end{array}\right]<br>$$<br>$$<br>g=\left[\begin{array}{lll}{g_{0}} &amp; {g_{1}} &amp; {g_{2}}\end{array}\right]^{T},<br>d=\left[\begin{array}{llll}{d_{0}} &amp; {d_{1}} &amp; {d_{2}} &amp; {d_{3}}\end{array}\right]^{T}<br>$$<br>接下来计算一下$U$矩阵和$V$矩阵：     </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sympy <span class="token keyword">import</span> Matrix<span class="token punctuation">,</span> Symbol
+
+BT <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+G <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+AT <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+g <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'g0'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'g1'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'g2'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'d0'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'d1'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'d2'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'d3'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+m <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'m0'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'m1'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'m2'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span><span class="token string">'m3'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"G * g:"</span><span class="token punctuation">,</span> G <span class="token operator">*</span> g<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"BT * d:"</span><span class="token punctuation">,</span> BT <span class="token operator">*</span> d<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"AT * m:"</span><span class="token punctuation">,</span> AT <span class="token operator">*</span> m<span class="token punctuation">)</span>
+</code></pre>
+<p>$$<br>Gg = \left[\begin{array}{l}{2g_0} &amp; {g_0+g_1+g_2} &amp; {g0-g1+g2} &amp; {2g_2}\end{array}\right]^T<br>\\<br>B^Td = \left[\begin{array}{l}{d_0-d_2} &amp; {d_1+d_2} &amp; {-d_1+d_2} &amp; {d_1-d_3}\end{array}\right]^T<br>\\<br>\frac{1}{2} A^Tm = \frac{1}{2} \left[\begin{array}{l}{m_0+m_1+m_2} &amp; {m_1-m_2-m_3}\end{array}\right]^T<br>$$</p>
+<p>输入、输出变换过程包含8次加法和2次移位；<br>同时可以看到，为了保证计算不溢出，$G^d$需要额外的2个bits，而$B^Td$需要额外的1个bit，换言之，为了保证安全的<code>int8 * int8</code>，权重和输入分别得量化到int6和int7。</p>
+<h4 id="F-2-times2-3-times3"><a href="#F-2-times2-3-times3" class="headerlink" title="$F(2\times2,3\times3)$"></a>$F(2\times2,3\times3)$</h4><pre class=" language-python"><code class="language-python">g <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'g{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'d{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+m <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'m{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"G * g * GT:"</span><span class="token punctuation">,</span> G <span class="token operator">*</span> g <span class="token operator">*</span> G<span class="token punctuation">.</span>T<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span>              <span class="token number">4</span><span class="token operator">*</span>g0<span class="token punctuation">,</span>                         <span class="token number">2</span><span class="token operator">*</span>g0 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g1 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g2<span class="token punctuation">,</span>                         <span class="token number">2</span><span class="token operator">*</span>g0 <span class="token operator">-</span> <span class="token number">2</span><span class="token operator">*</span>g1 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g2<span class="token punctuation">,</span>               <span class="token number">4</span><span class="token operator">*</span>g2<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>g0 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g3 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g6<span class="token punctuation">,</span> g0 <span class="token operator">+</span> g1 <span class="token operator">+</span> g2 <span class="token operator">+</span> g3 <span class="token operator">+</span> g4 <span class="token operator">+</span> g5 <span class="token operator">+</span> g6 <span class="token operator">+</span> g7 <span class="token operator">+</span> g8<span class="token punctuation">,</span> g0 <span class="token operator">-</span> g1 <span class="token operator">+</span> g2 <span class="token operator">+</span> g3 <span class="token operator">-</span> g4 <span class="token operator">+</span> g5 <span class="token operator">+</span> g6 <span class="token operator">-</span> g7 <span class="token operator">+</span> g8<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>g2 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g5 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g8<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token operator">*</span>g0 <span class="token operator">-</span> <span class="token number">2</span><span class="token operator">*</span>g3 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g6<span class="token punctuation">,</span> g0 <span class="token operator">+</span> g1 <span class="token operator">+</span> g2 <span class="token operator">-</span> g3 <span class="token operator">-</span> g4 <span class="token operator">-</span> g5 <span class="token operator">+</span> g6 <span class="token operator">+</span> g7 <span class="token operator">+</span> g8<span class="token punctuation">,</span> g0 <span class="token operator">-</span> g1 <span class="token operator">+</span> g2 <span class="token operator">-</span> g3 <span class="token operator">+</span> g4 <span class="token operator">-</span> g5 <span class="token operator">+</span> g6 <span class="token operator">-</span> g7 <span class="token operator">+</span> g8<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">*</span>g2 <span class="token operator">-</span> <span class="token number">2</span><span class="token operator">*</span>g5 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g8<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span>              <span class="token number">4</span><span class="token operator">*</span>g6<span class="token punctuation">,</span>                         <span class="token number">2</span><span class="token operator">*</span>g6 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g7 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g8<span class="token punctuation">,</span>                         <span class="token number">2</span><span class="token operator">*</span>g6 <span class="token operator">-</span> <span class="token number">2</span><span class="token operator">*</span>g7 <span class="token operator">+</span> <span class="token number">2</span><span class="token operator">*</span>g8<span class="token punctuation">,</span>               <span class="token number">4</span><span class="token operator">*</span>g8<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"BT * d * B:"</span><span class="token punctuation">,</span> BT <span class="token operator">*</span> d <span class="token operator">*</span> BT<span class="token punctuation">.</span>T<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span>  d0 <span class="token operator">+</span> d10 <span class="token operator">-</span> d2 <span class="token operator">-</span> d8<span class="token punctuation">,</span>   d1 <span class="token operator">-</span> d10 <span class="token operator">+</span> d2 <span class="token operator">-</span> d9<span class="token punctuation">,</span> <span class="token operator">-</span>d1 <span class="token operator">-</span> d10 <span class="token operator">+</span> d2 <span class="token operator">+</span> d9<span class="token punctuation">,</span>   d1 <span class="token operator">+</span> d11 <span class="token operator">-</span> d3 <span class="token operator">-</span> d9<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span> <span class="token operator">-</span>d10 <span class="token operator">+</span> d4 <span class="token operator">-</span> d6 <span class="token operator">+</span> d8<span class="token punctuation">,</span>   d10 <span class="token operator">+</span> d5 <span class="token operator">+</span> d6 <span class="token operator">+</span> d9<span class="token punctuation">,</span>  d10 <span class="token operator">-</span> d5 <span class="token operator">+</span> d6 <span class="token operator">-</span> d9<span class="token punctuation">,</span>  <span class="token operator">-</span>d11 <span class="token operator">+</span> d5 <span class="token operator">-</span> d7 <span class="token operator">+</span> d9<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span> <span class="token operator">-</span>d10 <span class="token operator">-</span> d4 <span class="token operator">+</span> d6 <span class="token operator">+</span> d8<span class="token punctuation">,</span>   d10 <span class="token operator">-</span> d5 <span class="token operator">-</span> d6 <span class="token operator">+</span> d9<span class="token punctuation">,</span>  d10 <span class="token operator">+</span> d5 <span class="token operator">-</span> d6 <span class="token operator">-</span> d9<span class="token punctuation">,</span>  <span class="token operator">-</span>d11 <span class="token operator">-</span> d5 <span class="token operator">+</span> d7 <span class="token operator">+</span> d9<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span><span class="token operator">-</span>d12 <span class="token operator">+</span> d14 <span class="token operator">+</span> d4 <span class="token operator">-</span> d6<span class="token punctuation">,</span> <span class="token operator">-</span>d13 <span class="token operator">-</span> d14 <span class="token operator">+</span> d5 <span class="token operator">+</span> d6<span class="token punctuation">,</span> d13 <span class="token operator">-</span> d14 <span class="token operator">-</span> d5 <span class="token operator">+</span> d6<span class="token punctuation">,</span> <span class="token operator">-</span>d13 <span class="token operator">+</span> d15 <span class="token operator">+</span> d5 <span class="token operator">-</span> d7<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"AT * m * A:"</span><span class="token punctuation">,</span> AT <span class="token operator">*</span> m <span class="token operator">*</span> AT<span class="token punctuation">.</span>T<span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span>    m0 <span class="token operator">+</span> m1 <span class="token operator">+</span> m10 <span class="token operator">+</span> m2 <span class="token operator">+</span> m4 <span class="token operator">+</span> m5 <span class="token operator">+</span> m6 <span class="token operator">+</span> m8 <span class="token operator">+</span> m9<span class="token punctuation">,</span>    m1 <span class="token operator">-</span> m10 <span class="token operator">-</span> m11 <span class="token operator">-</span> m2 <span class="token operator">-</span> m3 <span class="token operator">+</span> m5 <span class="token operator">-</span> m6 <span class="token operator">-</span> m7 <span class="token operator">+</span> m9<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span><span class="token operator">-</span>m10 <span class="token operator">-</span> m12 <span class="token operator">-</span> m13 <span class="token operator">-</span> m14 <span class="token operator">+</span> m4 <span class="token operator">+</span> m5 <span class="token operator">+</span> m6 <span class="token operator">-</span> m8 <span class="token operator">-</span> m9<span class="token punctuation">,</span> m10 <span class="token operator">+</span> m11 <span class="token operator">-</span> m13 <span class="token operator">+</span> m14 <span class="token operator">+</span> m15 <span class="token operator">+</span> m5 <span class="token operator">-</span> m6 <span class="token operator">-</span> m7 <span class="token operator">-</span> m9<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>输出矩阵的各元素系数绝对值之和$\mu(\cdot)$：<br>$$<br>\mu(GgG^T) = \left[\begin{array}{llll}<br>{4} &amp; {6} &amp; {6} &amp; {4} \\<br>{6} &amp; {9} &amp; {9} &amp; {6} \\<br>{6} &amp; {9} &amp; {9} &amp; {6} \\<br>{4} &amp; {6} &amp; {6} &amp; {4}<br>\end{array}\right],<br>\mu(B^TdB) = \left[\begin{array}{llll}<br>{4} &amp; {4} &amp; {4} &amp; {4} \\<br>{4} &amp; {4} &amp; {4} &amp; {4} \\<br>{4} &amp; {4} &amp; {4} &amp; {4} \\<br>{4} &amp; {4} &amp; {4} &amp; {4}<br>\end{array}\right]<br>$$</p>
+<p>输入、输出变换过程包含80次加法和4次移位（$\frac{1}{4}A^TmA$）；<br>同时可以看到，为了保证计算不溢出，$G^d$需要额外的4个bits，而$B^Td$需要额外的2个bit，换言之，为了保证安全的<code>int8 * int8</code>，权重和输入分别得量化到int4和int6。     </p>
+<h4 id="F-4-times4-3-times3"><a href="#F-4-times4-3-times3" class="headerlink" title="$F(4\times4,3\times3)$"></a>$F(4\times4,3\times3)$</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">max_l1_coeff</span><span class="token punctuation">(</span>sym_matrix<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    max_ <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> elem <span class="token keyword">in</span> sym_matrix<span class="token punctuation">:</span>
+        d <span class="token operator">=</span> elem<span class="token punctuation">.</span>as_coefficients_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        l1_coeff <span class="token operator">=</span> sum<span class="token punctuation">(</span><span class="token punctuation">[</span>abs<span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token keyword">for</span> v <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> l1_coeff <span class="token operator">></span> max_<span class="token punctuation">:</span>
+            max_ <span class="token operator">=</span> l1_coeff
+    <span class="token keyword">return</span> max_
+
+BT <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+G <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span> <span class="token number">6</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">2</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+AT <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span>  <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+g <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'g{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'d{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+m <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'m{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>max_l1_coeff<span class="token punctuation">(</span>G <span class="token operator">*</span> g <span class="token operator">*</span> G<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># Output: 576</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>max_l1_coeff<span class="token punctuation">(</span>BT <span class="token operator">*</span> d <span class="token operator">*</span> BT<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># Output: 100</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>max_l1_coeff<span class="token punctuation">(</span>AT <span class="token operator">*</span> m <span class="token operator">*</span> AT<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># Output: 361</span>
+</code></pre>
+<p>为了保证计算不溢出，$G^d$需要额外的10个bits，而$B^Td$需要额外的7个bit，换言之……压根没法保证<code>int8 * int8</code>的安全计算。这时候可能只能将int8扩展到int16，执行<code>int16 * int16</code>的乘法运算，即便如此，权重也只能量化到int6.     </p>
+<h4 id="别人是怎么做的？"><a href="#别人是怎么做的？" class="headerlink" title="别人是怎么做的？"></a>别人是怎么做的？</h4><p><a href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener">ncnn</a>和<a href="https://github.com/alibaba/MNN" target="_blank" rel="noopener">mnn</a>的量化计算本质上是<code>int16 * int16</code>而非<code>int8 * int8</code>，所以$F(2\times2,3\times3)$完全没有溢出的问题，而$F(4\times4,3\times3)$需要将权重量化到int6；<a href="https://github.com/OAID/Tengine" target="_blank" rel="noopener">Tengine</a>的量化计算是<code>int8 * int8</code>，1.6版本已经支持Winograd卷积，但目前还没有支持Winograd量化。</p>
+<h4 id="先Winograd后量化？"><a href="#先Winograd后量化？" class="headerlink" title="先Winograd后量化？"></a>先Winograd后量化？</h4><p>对量化的输入和权重做Winograd时溢出问题着实让人头疼，既然如此，我们能不能先计算变换矩阵再进行量化呢？<br><em>这只是个想法但还没验证过，回头我做个实验试试。</em>        </p>
+<h3 id="更快的变换"><a href="#更快的变换" class="headerlink" title="更快的变换"></a>更快的变换</h3><p>上一篇文章我们已经提到过——     </p>
+<blockquote>
+<p>尽管$V = B^{T} d B$和$Y = A^T M A$的计算过程中也有大量的乘法，但观察可以发现$F(4,3)$和$F(6,3)$的$A^T$矩阵和$B^T$中有相当多的元素恰好是$2^n$，也就是说，用Winograd计算量化的卷积应该会有神奇的加成</p>
+</blockquote>
+<p>现在我们来看看具体有哪些神奇的变化：     </p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> log2
+<span class="token keyword">def</span> <span class="token function">_op_count</span><span class="token punctuation">(</span>sym_matrix<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    adds<span class="token punctuation">,</span> shifts<span class="token punctuation">,</span> muls <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+    abs_v_pool <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> elem <span class="token keyword">in</span> sym_matrix<span class="token punctuation">:</span>
+        d <span class="token operator">=</span> elem<span class="token punctuation">.</span>as_coefficients_dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        adds <span class="token operator">+=</span> len<span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">for</span> v <span class="token keyword">in</span> d<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            abs_v <span class="token operator">=</span> abs<span class="token punctuation">(</span>v<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> abs_v <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">and</span> abs_v <span class="token operator">not</span> <span class="token keyword">in</span> abs_v_pool<span class="token punctuation">:</span>
+                abs_v_pool<span class="token punctuation">.</span>append<span class="token punctuation">(</span>abs_v<span class="token punctuation">)</span>
+                log <span class="token operator">=</span> log2<span class="token punctuation">(</span>abs_v<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> log <span class="token operator">==</span> int<span class="token punctuation">(</span>log<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    shifts <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    muls <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"adds"</span><span class="token punctuation">:</span> adds<span class="token punctuation">,</span> <span class="token string">"shifts"</span><span class="token punctuation">:</span> shifts<span class="token punctuation">,</span> <span class="token string">"muls"</span><span class="token punctuation">:</span> muls<span class="token punctuation">}</span>
+<span class="token keyword">def</span> <span class="token function">op_count_1D</span><span class="token punctuation">(</span>M1<span class="token punctuation">,</span> M2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> _op_count<span class="token punctuation">(</span>M1 <span class="token operator">*</span> M2<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">op_count_2D</span><span class="token punctuation">(</span>M1<span class="token punctuation">,</span> M2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    t <span class="token operator">=</span> M1 <span class="token operator">*</span> M2
+    counter1 <span class="token operator">=</span> _op_count<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+    M3 <span class="token operator">=</span> Matrix<span class="token punctuation">(</span><span class="token operator">*</span>t<span class="token punctuation">.</span>shape<span class="token punctuation">,</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">(</span>f<span class="token string">'t{i}'</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    counter2 <span class="token operator">=</span> _op_count<span class="token punctuation">(</span>M3 <span class="token operator">*</span> M1<span class="token punctuation">.</span>T<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">"adds"</span><span class="token punctuation">:</span> counter1<span class="token punctuation">[</span><span class="token string">'adds'</span><span class="token punctuation">]</span> <span class="token operator">+</span> counter2<span class="token punctuation">[</span><span class="token string">'adds'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"shifts"</span><span class="token punctuation">:</span> counter1<span class="token punctuation">[</span><span class="token string">'shifts'</span><span class="token punctuation">]</span> <span class="token operator">+</span> counter2<span class="token punctuation">[</span><span class="token string">'shifts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"muls"</span><span class="token punctuation">:</span> counter1<span class="token punctuation">[</span><span class="token string">'muls'</span><span class="token punctuation">]</span> <span class="token operator">+</span> counter2<span class="token punctuation">[</span><span class="token string">'muls'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>op_count_1D<span class="token punctuation">(</span>G<span class="token punctuation">,</span> g<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>op_count_1D<span class="token punctuation">(</span>BT<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>op_count_1D<span class="token punctuation">(</span>AT<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>op_count_2D<span class="token punctuation">(</span>G<span class="token punctuation">,</span> g<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>op_count_2D<span class="token punctuation">(</span>BT<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>op_count_2D<span class="token punctuation">(</span>AT<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>将输入、输出变换过程中的大量乘法替换成移位运算之后，理论上Winograd能变得更快！    </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Winograd</th>
+<th style="text-align:center">原始乘法</th>
+<th style="text-align:center">Win乘法</th>
+<th style="text-align:center">Win量化乘法</th>
+<th style="text-align:center">理论加速比</th>
+<th style="text-align:center">含变换加速比</th>
+<th style="text-align:center">含变换加速比（量化）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$F(2,3)$</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">4(4)</td>
+<td style="text-align:center">4(4)</td>
+<td style="text-align:center">1.50</td>
+<td style="text-align:center">1.50</td>
+<td style="text-align:center">1.50</td>
+</tr>
+<tr>
+<td style="text-align:center">$F(4,3)$</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">12(6)</td>
+<td style="text-align:center">7(6)</td>
+<td style="text-align:center">2.00</td>
+<td style="text-align:center"><font color="red">1.00</font></td>
+<td style="text-align:center">1.71</td>
+</tr>
+<tr>
+<td style="text-align:center">$F(6,3)$</td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">28(8)</td>
+<td style="text-align:center">13(8)</td>
+<td style="text-align:center">2.25</td>
+<td style="text-align:center"><font color="red">0.64</font></td>
+<td style="text-align:center">1.38</td>
+</tr>
+<tr>
+<td style="text-align:center">堆$F(2\times2,3\times3)$</td>
+<td style="text-align:center">36</td>
+<td style="text-align:center">24(24)</td>
+<td style="text-align:center">24(24)</td>
+<td style="text-align:center">1.50</td>
+<td style="text-align:center">1.50</td>
+<td style="text-align:center">1.50</td>
+</tr>
+<tr>
+<td style="text-align:center">堆$F(4\times4,3\times3)$</td>
+<td style="text-align:center">144</td>
+<td style="text-align:center">126(72)</td>
+<td style="text-align:center">78(76)</td>
+<td style="text-align:center">2.00</td>
+<td style="text-align:center">1.14</td>
+<td style="text-align:center">1.85</td>
+</tr>
+<tr>
+<td style="text-align:center">堆$F(6\times6,3\times3)$</td>
+<td style="text-align:center">324</td>
+<td style="text-align:center">396(144)</td>
+<td style="text-align:center">184(144)</td>
+<td style="text-align:center">2.25</td>
+<td style="text-align:center"><font color="red">0.82</font></td>
+<td style="text-align:center">1.76</td>
+</tr>
+<tr>
+<td style="text-align:center">嵌$F(2\times2,3\times3)$</td>
+<td style="text-align:center">36</td>
+<td style="text-align:center">16(16)</td>
+<td style="text-align:center">16(16)</td>
+<td style="text-align:center">2.25</td>
+<td style="text-align:center">2.25</td>
+<td style="text-align:center">2.25</td>
+</tr>
+<tr>
+<td style="text-align:center">嵌$F(4\times4,3\times3)$</td>
+<td style="text-align:center">144</td>
+<td style="text-align:center">48(36)</td>
+<td style="text-align:center">38(36)</td>
+<td style="text-align:center">4.00</td>
+<td style="text-align:center">3.00</td>
+<td style="text-align:center">3.79</td>
+</tr>
+<tr>
+<td style="text-align:center">嵌$F(6\times6,3\times3)$</td>
+<td style="text-align:center">324</td>
+<td style="text-align:center">102(64)</td>
+<td style="text-align:center">74(64)</td>
+<td style="text-align:center">5.06</td>
+<td style="text-align:center">3.12</td>
+<td style="text-align:center">4.38</td>
+</tr>
+</tbody>
+</table>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTE5OS8xNTcyNg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/08/21/winograd_convolution/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/imgs/avatar2.jpg" alt="YaHei's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        hey.yahei.zk@gamil.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: hey.yahei.zk@gamil.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=421946266" target="_blank" title="Netease Cloud Music">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">music_note</i>
+                        
+                        Netease Cloud Music
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">cloud</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">event_note</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">46</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/hey-yahei" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Hey~YaHei!
+            
+                <br>
+                
+                    <a href="http://www.miitbeian.gov.cn" rel="nofollow">浙ICP备17042598号-1</a>
+                
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
+
+<script type="text/javascript">
+    var aTagArr = [].slice.apply(document.getElementsByTagName("a"));
+    aTagArr.forEach(function (e, i) {
+        if( e.href.lastIndexOf("_blank") > -1 ){
+            e.target = "_blank";
+            e.href = e.href.replace("?_blank", "");
+        }
+    });
+</script>

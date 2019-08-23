@@ -8,8 +8,40 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Thu, 22 Aug 2019 09:19:01 GMT</pubDate>
+    <pubDate>Fri, 23 Aug 2019 07:40:24 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Winograd量化</title>
+      <link>https://hey-yahei.cn/2019/08/23/winograd_quantize/</link>
+      <guid>https://hey-yahei.cn/2019/08/23/winograd_quantize/</guid>
+      <pubDate>Thu, 22 Aug 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=26209392&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;     
+
+&lt;p&gt;上一篇文章《&lt;a href=&quot;https://hey-yahei.cn/2019/08/21/winograd_convolution/&quot;&gt;Winograd卷积原理 | Hey~YaHei!&lt;/a&gt;》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《&lt;a href=&quot;http://arxiv.org/pdf/1509.09308&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Fast algorithms for convolutional neural(CVPR2016)&lt;/a&gt;》的报告，Winograd在浮点运算上的表现都不错：       &lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/imgs/winograd/VGG_errors.jpg&quot; alt=&quot;VGG_errors&quot;&gt;&lt;/center&gt;     
+
+&lt;ul&gt;
+&lt;li&gt;$F(2\times2,3\times3)$的fp32精度损失甚至比Direct Convolution还小，这主要得益于乘法次数的减少，以及简单的变换矩阵（没有非常大或者非常小的数值）     &lt;/li&gt;
+&lt;li&gt;$F(4\times4,3\times3)$的fp32精度损失就比较大了，但似乎也还能接受      &lt;/li&gt;
+&lt;li&gt;fp16精度损失这三者表现的差不多       &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;浮点运算的Winograd确实不错，但它却似乎也没那么轻易能套上量化——整型可没有浮点这么大的动态范围，如何保证运算过程整型不会溢出将是个令人头疼的问题。      &lt;/p&gt;
+&lt;h3 id=&quot;溢出&quot;&gt;&lt;a href=&quot;#溢出&quot; class=&quot;headerlink&quot; title=&quot;溢出&quot;&gt;&lt;/a&gt;溢出&lt;/h3&gt;&lt;p&gt;假设将网络量化成int8，int8的权重和int8的输入，那么得益于&lt;code&gt;int8 * int8&lt;/code&gt;，无论是Direct Convolution还是im2col+GEMM，这都能带来可观的加速。但在Winograd里可就不是这么回事了！&lt;br&gt;&lt;em&gt;注意：im2col也没有对数值的大小进行变换&lt;/em&gt;       &lt;/p&gt;
+&lt;h4 id=&quot;F-2-3&quot;&gt;&lt;a href=&quot;#F-2-3&quot; class=&quot;headerlink&quot; title=&quot;$F(2,3)$&quot;&gt;&lt;/a&gt;$F(2,3)$&lt;/h4&gt;&lt;p&gt;回顾一下$F(2,3)$的变换矩阵：&lt;br&gt;$$&lt;br&gt;B^{T}=\left[\begin{array}{rrrr}{1} &amp;amp; {0} &amp;amp; {-1} &amp;amp; {0} \\ {0} &amp;amp; {1} &amp;amp; {1} &amp;amp; {0} \\ {0} &amp;amp; {-1} &amp;amp; {1} &amp;amp; {0} \\ {0} &amp;amp; {1} &amp;amp; {0} &amp;amp;
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/08/23/winograd_quantize/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Winograd卷积原理</title>
@@ -934,6 +966,39 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
     </item>
     
     <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Handson-ML</title>
       <link>https://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>https://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -965,39 +1030,6 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       </description>
       
       <comments>https://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>梯度消失与梯度爆炸</title>
-      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
-      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;参考：     &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
-&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
-&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
-&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
-          
-        
-      
-      </description>
-      
-      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>
