@@ -8,11 +8,11 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 23 Aug 2019 07:40:24 GMT</pubDate>
+    <pubDate>Fri, 23 Aug 2019 07:45:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Winograd量化</title>
+      <title>浅探Winograd量化</title>
       <link>https://hey-yahei.cn/2019/08/23/winograd_quantize/</link>
       <guid>https://hey-yahei.cn/2019/08/23/winograd_quantize/</guid>
       <pubDate>Thu, 22 Aug 2019 16:00:00 GMT</pubDate>
