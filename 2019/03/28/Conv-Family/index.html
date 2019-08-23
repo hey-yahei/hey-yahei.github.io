@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Mar 28 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Mar 28 2019 18:14:06 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 23 2019 16:35:16 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/03/28/Conv-Family/index.html",
     "headline": "漫谈卷积层",
     "datePublished": "Thu Mar 28 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Mar 28 2019 18:14:06 GMT+0800",
+    "dateModified": "Fri Aug 23 2019 16:35:16 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -543,7 +543,7 @@
 <li>当采用1x1卷积的时候，im2col和直接卷积的过程其实是等价的；      </li>
 <li>im2col的目的是迎合程序局部性原理，如果使用了定制化的硬件（比如用FPGA直接实现3x3的卷积运算单元），那么im2col就失去了意义而且反而增加了开销        </li>
 </ol>
-<p><em>卷积实现的方式还有很多，暂且只介绍im2col，之后有空会独立开一篇文章细谈。</em>       </p>
+<p><em>卷积实现的方式还有很多，暂且只介绍im2col，之后有空会独立开一篇文章细谈。</em><br>《<a href="">Winograd卷积原理 | Hey~YaHei!</a>》</p>
 <h2 id="高效卷积"><a href="#高效卷积" class="headerlink" title="高效卷积"></a>高效卷积</h2><p>早在去年的《<a href="/2018/08/05/MobileNets_v1">MobileNets v1模型解析 | Hey~YaHei!</a>》一文中，我们就分解了标准卷积的工作方式——      </p>
 <p>将普通卷积的过程分解为“滤波”和“组合”两个阶段——    </p>
 <div><center><img src="/imgs/MobileNet/traditional conv1.jpg" width="500"></center></div>     
