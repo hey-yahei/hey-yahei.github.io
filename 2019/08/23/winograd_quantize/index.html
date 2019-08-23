@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Fri Aug 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 23 2019 15:45:03 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 23 2019 15:49:01 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html",
     "headline": "浅探Winograd量化",
     "datePublished": "Fri Aug 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 23 2019 15:45:03 GMT+0800",
+    "dateModified": "Fri Aug 23 2019 15:49:01 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#溢出"><span class="post-toc-number">1.</span> <span class="post-toc-text">溢出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">$F(2\times2,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-4-times4-3-times3"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">$F(4\times4,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#别人是怎么做的？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">别人是怎么做的？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先Winograd后量化？"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">先Winograd后量化？</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更快的变换"><span class="post-toc-number">2.</span> <span class="post-toc-text">更快的变换</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#溢出"><span class="post-toc-number">1.</span> <span class="post-toc-text">溢出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">$F(2\times2,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-4-times4-3-times3"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">$F(4\times4,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大家是怎么做的？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">大家是怎么做的？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先Winograd后量化？"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">先Winograd后量化？</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更快的变换"><span class="post-toc-number">2.</span> <span class="post-toc-text">更快的变换</span></a></li></ol>
     </ul>
     
 
@@ -585,7 +585,7 @@ m <span class="token operator">=</span> Matrix<span class="token punctuation">(<
 <span class="token keyword">print</span><span class="token punctuation">(</span>max_l1_coeff<span class="token punctuation">(</span>AT <span class="token operator">*</span> m <span class="token operator">*</span> AT<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># Output: 361</span>
 </code></pre>
 <p>为了保证计算不溢出，$G^d$需要额外的10个bits，而$B^Td$需要额外的7个bit，换言之……压根没法保证<code>int8 * int8</code>的安全计算。这时候可能只能将int8扩展到int16，执行<code>int16 * int16</code>的乘法运算，即便如此，权重也只能量化到int6.     </p>
-<h4 id="别人是怎么做的？"><a href="#别人是怎么做的？" class="headerlink" title="别人是怎么做的？"></a>别人是怎么做的？</h4><p><a href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener">ncnn</a>和<a href="https://github.com/alibaba/MNN" target="_blank" rel="noopener">mnn</a>的量化计算本质上是<code>int16 * int16</code>而非<code>int8 * int8</code>，所以$F(2\times2,3\times3)$完全没有溢出的问题，而$F(4\times4,3\times3)$需要将权重量化到int6；<a href="https://github.com/OAID/Tengine" target="_blank" rel="noopener">Tengine</a>的量化计算是<code>int8 * int8</code>，1.6版本已经支持Winograd卷积，但目前还没有支持Winograd量化。</p>
+<h4 id="大家是怎么做的？"><a href="#大家是怎么做的？" class="headerlink" title="大家是怎么做的？"></a>大家是怎么做的？</h4><p><a href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener">ncnn</a>和<a href="https://github.com/alibaba/MNN" target="_blank" rel="noopener">mnn</a>的量化计算本质上是<code>int16 * int16</code>而非<code>int8 * int8</code>，所以$F(2\times2,3\times3)$完全没有溢出的问题，而$F(4\times4,3\times3)$需要将权重量化到int6；<a href="https://github.com/OAID/Tengine" target="_blank" rel="noopener">Tengine</a>的量化计算是<code>int8 * int8</code>，1.6版本已经支持Winograd卷积，但目前还没有支持Winograd量化。</p>
 <h4 id="先Winograd后量化？"><a href="#先Winograd后量化？" class="headerlink" title="先Winograd后量化？"></a>先Winograd后量化？</h4><p>对量化的输入和权重做Winograd时溢出问题着实让人头疼，既然如此，我们能不能先计算变换矩阵再进行量化呢？<br><em>这只是个想法但还没验证过，回头我做个实验试试。</em>        </p>
 <h3 id="更快的变换"><a href="#更快的变换" class="headerlink" title="更快的变换"></a>更快的变换</h3><p>上一篇文章我们已经提到过——     </p>
 <blockquote>
