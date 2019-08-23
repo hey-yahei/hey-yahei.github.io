@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hey-yahei.cn/2019/03/28/Conv-Family/</loc>
-    <lastmod>2019-08-23T08:35:16.180Z</lastmod>
-  </url>  <url>
     <loc>https://hey-yahei.cn/2019/08/21/winograd_convolution/</loc>
-    <lastmod>2019-08-23T08:33:55.523Z</lastmod>
+    <lastmod>2019-08-23T08:37:53.336Z</lastmod>
+  </url>  <url>
+    <loc>https://hey-yahei.cn/2019/03/28/Conv-Family/</loc>
+    <lastmod>2019-08-23T08:36:13.320Z</lastmod>
   </url>  <url>
     <loc>https://hey-yahei.cn/2019/08/23/winograd_quantize/</loc>
     <lastmod>2019-08-23T07:53:40.521Z</lastmod>
