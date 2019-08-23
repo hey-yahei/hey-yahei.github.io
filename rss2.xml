@@ -8,8 +8,40 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 23 Aug 2019 08:40:58 GMT</pubDate>
+    <pubDate>Fri, 23 Aug 2019 11:30:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>浅探Winograd量化</title>
+      <link>https://hey-yahei.cn/2019/08/23/winograd_quantize/</link>
+      <guid>https://hey-yahei.cn/2019/08/23/winograd_quantize/</guid>
+      <pubDate>Thu, 22 Aug 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=26209392&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;     
+
+&lt;p&gt;上一篇文章《&lt;a href=&quot;https://hey-yahei.cn/2019/08/21/winograd_convolution/&quot;&gt;Winograd卷积原理 | Hey~YaHei!&lt;/a&gt;》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《&lt;a href=&quot;http://arxiv.org/pdf/1509.09308&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Fast algorithms for convolutional neural(CVPR2016)&lt;/a&gt;》的报告，Winograd在浮点运算上的表现都不错：       &lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/imgs/winograd/VGG_errors.jpg&quot; alt=&quot;VGG_errors&quot;&gt;&lt;/center&gt;     
+
+&lt;ul&gt;
+&lt;li&gt;$F(2\times2,3\times3)$的fp32精度损失甚至比Direct Convolution还小，这主要得益于乘法次数的减少，以及简单的变换矩阵（没有非常大或者非常小的数值）     &lt;/li&gt;
+&lt;li&gt;$F(4\times4,3\times3)$的fp32精度损失就比较大了，但似乎也还能接受      &lt;/li&gt;
+&lt;li&gt;fp16精度损失这三者表现的差不多       &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;浮点运算的Winograd确实不错，但它却似乎也没那么轻易能套上量化——整型可没有浮点这么大的动态范围，如何保证运算过程整型不会溢出将是个令人头疼的问题。      &lt;/p&gt;
+&lt;h3 id=&quot;溢出&quot;&gt;&lt;a href=&quot;#溢出&quot; class=&quot;headerlink&quot; title=&quot;溢出&quot;&gt;&lt;/a&gt;溢出&lt;/h3&gt;&lt;p&gt;假设将网络量化成int8，int8的权重和int8的输入，那么得益于&lt;code&gt;int8 * int8&lt;/code&gt;，无论是Direct Convolution还是im2col+GEMM，这都能带来可观的加速。但在Winograd里可就不是这么回事了！&lt;br&gt;&lt;em&gt;注意：im2col也没有对数值的大小进行变换&lt;/em&gt;       &lt;/p&gt;
+&lt;h4 id=&quot;F-2-3&quot;&gt;&lt;a href=&quot;#F-2-3&quot; class=&quot;headerlink&quot; title=&quot;$F(2,3)$&quot;&gt;&lt;/a&gt;$F(2,3)$&lt;/h4&gt;&lt;p&gt;回顾一下$F(2,3)$的变换矩阵：&lt;br&gt;$$&lt;br&gt;B^{T}=\left[\begin{array}{rrrr}{1} &amp;amp; {0} &amp;amp; {-1} &amp;amp; {0} \\ {0} &amp;amp; {1} &amp;amp; {1} &amp;amp; {0} \\ {0} &amp;amp; {-1} &amp;amp; {1} &amp;amp; {0} \\ {0} &amp;amp; {1} &amp;amp; {0} &amp;amp;
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/08/23/winograd_quantize/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Winograd卷积原理</title>
@@ -98,6 +130,57 @@
       </description>
       
       <comments>https://hey-yahei.cn/2019/07/23/Quantization/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>2019中兴捧月·总决赛</title>
+      <link>https://hey-yahei.cn/2019/05/25/zte_challenge_final/</link>
+      <guid>https://hey-yahei.cn/2019/05/25/zte_challenge_final/</guid>
+      <pubDate>Fri, 24 May 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=618661&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;赛题背景&quot;&gt;&lt;a href=&quot;#赛题背景&quot; class=&quot;headerlink&quot; title=&quot;赛题背景&quot;&gt;&lt;/a&gt;赛题背景&lt;/h2&gt;&lt;p&gt;与&lt;a href=&quot;/2019/05/22/zte_challenge_preliminary/&quot;&gt;初赛&lt;/a&gt;类似，不过初赛更多关注的是&lt;strong&gt;加速&lt;/strong&gt;，而总决赛更关注的是&lt;strong&gt;压缩&lt;/strong&gt;。&lt;br&gt;原始模型是一个简单的3x112x112输入大小的resnet18，人脸识别项目，主办方提供了两万张无标签的校准数据集，和两千张带标签的本地验证数据集，同时主办方保留两千张私有、不公开的测试数据集。&lt;br&gt;评分规则如下：&lt;br&gt;$$ score = \left( \left( \frac { M - m } { M } \right) \times 20 + \left( \frac { S - s } { s } \right) \times 80 \right) \times A ( z ) \times B ( z )$$&lt;br&gt;$$A ( z ) = \left\{ \begin{array} { l l } { 1 , } &amp;amp; { z \geq 0.97 } \\ { 0.9 , } &amp;amp; { 0.965 \leq z &amp;lt; 0.97 } \\ { 0 , } &amp;amp; { z &amp;lt; 0.965 } \end{array} \right.$$&lt;br&gt;$$B ( z ) = \left\{ \begin{array} { l l } { 1 , } &amp;amp; { s \leq 40 M B } \\ { 0.9 , } &amp;amp; { 40 M B &amp;lt; s \leq 50 M B } \\ { 0.8 , } &amp;amp; { 50 M B &amp;lt; s \leq 63 M B } \\ { 0 , } &amp;amp; { s &amp;gt; 63 M B } \end{array} \right.$$      &lt;/p&gt;
+&lt;p&gt;其中，$M$、$S$分别为原始模型的内存占用大小、模型文件大小，$m$、$s$、$z$分别是压缩后的内存占用大小、模型文件大小、万分之一误检率下的正检率。主要参照本地验证数据集（一千个人，每人两张图片）的z值，私有测试集只用于模型泛化能力的参考（防止选手故意过拟合于验证集）。       &lt;/p&gt;
+&lt;h2 id=&quot;压缩方案&quot;&gt;&lt;a href=&quot;#压缩方案&quot; class=&quot;headerlink&quot; title=&quot;压缩方案&quot;&gt;&lt;/a&gt;压缩方案&lt;/h2&gt;&lt;p&gt;总体思路参考论文《&lt;a href=&quot;http://www.arxiv.org/pdf/1510.00149.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/05/25/zte_challenge_final/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>2019中兴捧月·初赛</title>
+      <link>https://hey-yahei.cn/2019/05/22/zte_challenge_preliminary/</link>
+      <guid>https://hey-yahei.cn/2019/05/22/zte_challenge_preliminary/</guid>
+      <pubDate>Tue, 21 May 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=514375&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;       
+
+
+&lt;h2 id=&quot;赛题背景&quot;&gt;&lt;a href=&quot;#赛题背景&quot; class=&quot;headerlink&quot; title=&quot;赛题背景&quot;&gt;&lt;/a&gt;赛题背景&lt;/h2&gt;&lt;p&gt;自从 Alex Krizhevsky 夺得 ILSVRC 2012 ImageNet 图像分类竞赛的冠军后，深度卷积神经网络在图像分类、物体检测、语义分割、目标跟踪等多个计算机视觉任务中均取得优秀表现，更有甚者在某些领域超越人眼的精度，但在其不断逼近计算机视觉任务的精度极限的同时，其深度和尺寸也在成倍增长，随之而来的较高的设备资源占用、较低计算效率等问题，使其只能在有限的平台下使用，难以移植到移动端和嵌入式芯片当中，因此模型小型化与加速成了亟待解决的问题。本竞赛旨在针对一个给定的深度卷积网络，在不进行深度卷积网络调优训练的条件下，不限定优化的方式，输出新的网络模型，达到降低模型大小，降低运行态设备资源占用，提高运行速度的效果。        &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;评分细则&lt;/strong&gt;：&lt;br&gt;$$Score = {\frac{X-x}{X} \times 20 + \frac{Y-y}{Y} \times 80} \times A(z)$$&lt;br&gt;$$\mathbf { A } ( \mathbf { z } ) = \left\{ \begin{array} { c l } { \mathbf { 1 } , } &amp;amp; { \mathbf { 0 . 9 8 } \leq \mathbf { z } \leq \mathbf { 1 } } \\ { 0.95 , } &amp;amp; { 0.95 \leq \mathbf { z } &amp;lt; 0.98 } \\ { 0.9 , } &amp;amp; { 0.9 \leq \mathbf { z } &amp;lt; 0.95 } \\ { \mathbf { 0 } , } &amp;amp; { \mathbf { z } &amp;lt; \mathbf { 0 } .9 } \end{array} \right.$$       &lt;/p&gt;
+&lt;p&gt;其中，$X$、$Y$分别为原始模型的显存占用大小和推理时间，$x$、$y$、$z$分别为优化后的显存占用大小、推理时间、与原始输出的平均余弦距离（1000张测试图片）。      &lt;/p&gt;
+&lt;h2 id=&quot;压缩方案&quot;&gt;&lt;a href=&quot;#压缩方案&quot; class=&quot;headerlink&quot; title=&quot;压缩方案&quot;&gt;&lt;/a&gt;压缩方案&lt;/h2&gt;&lt;h3 id=&quot;安全操作&quot;&gt;&lt;a href=&quot;#安全操作&quot; class=&quot;headerlink&quot; title=&quot;安全操作&quot;&gt;&lt;/a&gt;安全操作&lt;/h3&gt;&lt;p&gt;首先进行一些简单的、接近无损的压缩优化操作。         &lt;/p&gt;
+&lt;h4 id=&quot;层融合&quot;&gt;&lt;a href=&quot;#层融合&quot; class=&quot;headerlink&quot;
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/05/22/zte_challenge_preliminary/#disqus_thread</comments>
     </item>
     
     <item>
@@ -583,6 +666,124 @@
     </item>
     
     <item>
+      <title>漫谈池化层</title>
+      <link>https://hey-yahei.cn/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/</link>
+      <guid>https://hey-yahei.cn/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/</guid>
+      <pubDate>Sun, 06 May 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=530995191&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《革命机valvrave》ED1&lt;/strong&gt;&lt;br&gt;有点小high，建议先调低音量再播放；&lt;br&gt;还有个现场版，像是中二版的凤凰传奇hhhhh——&lt;a href=&quot;https://www.bilibili.com/video/av20638023&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;TMRevolution×水樹奈々 - Preserved Roses_革命デュアリズム_ | bilibili&lt;/a&gt;&lt;br&gt;&lt;em&gt;话说水树奈奈是不是有点像隔壁控制学院的ly哈？&lt;/em&gt;&lt;br&gt;不过现场版的调音好像有问题，重低音效果有点差~     &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap13&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;《&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;》      &lt;/li&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/27087503/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Deep Learning 深度学习(2017)&lt;/a&gt;》        &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;基本的池化操作&quot;&gt;&lt;a href=&quot;#基本的池化操作&quot; class=&quot;headerlink&quot; title=&quot;基本的池化操作&quot;&gt;&lt;/a&gt;基本的池化操作&lt;/h3&gt;&lt;p&gt;简单的聚合操作，取均值、取最值等，分别称为&lt;strong&gt;平均池化&lt;/strong&gt;（Average Pooling）和&lt;strong&gt;最大池化&lt;/strong&gt;（Max Pooling）；&lt;br&gt;一般使池化核的大小与步长相等，不重叠、全覆盖地进行降采样；      &lt;/p&gt;
+&lt;p&gt;平均池化和最大池化的tensorflow实现参见 &lt;a href=&quot;/2018/04/18/CNN/#池化层&quot;&gt;卷积神经网络CNN / tensorflow实现 / 池化层 | Hey~YaHei!&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;池化的意义&quot;&gt;&lt;a href=&quot;#池化的意义&quot; class=&quot;headerlink&quot;
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>失眠者自助指南</title>
+      <link>https://hey-yahei.cn/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/</link>
+      <guid>https://hey-yahei.cn/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/</guid>
+      <pubDate>Thu, 03 May 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=519935307&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《Just Because!》ED&lt;/strong&gt;      &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;啊最近又失眠，脑阔疼 (◦`~´◦)&lt;br&gt;从去年年中就开始隔三岔五失个眠，高三的时候也是如此，大概是个易失眠体质了。&lt;br&gt;有的人会安慰失眠的人说“别老胡思乱想就好”，&lt;br&gt;那这跟安慰抑郁症患者说“看开点就好”或者安慰感冒患者“别流鼻涕就好”没啥区别吧，&lt;br&gt;感冒患者也不想流鼻涕，抑郁症患者也想看开啊，我又不是自己想要胡思乱想。&lt;br&gt;说出来你可能不信，是它们先动的手！      &lt;/p&gt;
+&lt;p&gt;嘛~&lt;strong&gt;&lt;em&gt;The only person that can save you, is you.&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;那标题就叫“失眠者自助指南”吧哈哈哈哈哈哈      &lt;/p&gt;
+&lt;p&gt;今天睡醒昏昏沉沉的，丝毫不想学习；&lt;br&gt;周六闲来无趣唠唠高三、大四跟“失眠之魔”斗智斗勇的两三事儿；&lt;br&gt;（好像是我第一次在博客上发无关技术、无关笔记的东西？）     &lt;/p&gt;
+&lt;p&gt;最常见的办法就是&lt;strong&gt;喝牛奶&lt;/strong&gt;，牛奶据说确实含有镇静成份，比如色氨酸。&lt;br&gt;但也有说法是，大脑与血液之间存在“血脑屏障”，大脑所能从牛奶吸收的色氨酸是极其有限的。&lt;br&gt;不过咧，皮肤温度上升确实可以有效地助眠，所以喝杯&lt;strong&gt;热牛奶&lt;/strong&gt;多多少少对睡眠还是有帮助的。&lt;br&gt;由此看来，其实&lt;strong&gt;洗热水澡&lt;/strong&gt;或者&lt;strong&gt;泡热水脚&lt;/strong&gt;的助眠效果应该会更好。&lt;br&gt;可参考 &lt;a href=&quot;https://www.zhihu.com/question/23648474/answer/25306001&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛奶真的助眠么？ | 知乎&lt;/a&gt;&lt;br&gt;从我个人来看，喝热牛奶几乎对我的睡眠毫无帮助，甚至可能会出现反作用——尤其是在我肠胃不好的时候，难以消化牛奶，对肠胃造成负担。但空腹确实会影响睡眠，睡前&lt;strong&gt;喝热粥&lt;/strong&gt;效果会更好，一方面防止空腹，另一方面吃点热食有助睡眠且粥对肠胃的负担要小得多；&lt;br&gt;睡前洗澡需要等头发干才能入睡（&lt;a href=&quot;https://zhidao.baidu.com/question/5924661.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;晚上头发不干就睡觉有什么坏处 |
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>目标函数</title>
+      <link>https://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</link>
+      <guid>https://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</guid>
+      <pubDate>Wed, 02 May 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=529814551&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《刻刻》ED&lt;/strong&gt;&lt;br&gt;小哥哥唱歌听起来像是有点绕舌？      &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：《&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;》Chap9      &lt;/p&gt;
+&lt;p&gt;目标函数（target function）、损失函数（loss function）、代价函数（cost function）是一个东西~     &lt;/p&gt;
+&lt;h3 id=&quot;分类任务&quot;&gt;&lt;a href=&quot;#分类任务&quot; class=&quot;headerlink&quot; title=&quot;分类任务&quot;&gt;&lt;/a&gt;分类任务&lt;/h3&gt;&lt;p&gt;记某分类任务共 $N$ 个训练样本，&lt;br&gt;网络最后的分类层第i个样本的输入特征为 $x_i$，&lt;br&gt;真实标记为 $y_i \in {1,2,…,C}$ （C为类别总数），&lt;br&gt;网络最终输出预测结果（指示每种分类的可能性） $h = (h_1, h_2, …, h_C)^T$       &lt;/p&gt;
+&lt;h4 id=&quot;交叉熵（cross-entropy）&quot;&gt;&lt;a href=&quot;#交叉熵（cross-entropy）&quot; class=&quot;headerlink&quot; title=&quot;交叉熵（cross entropy）&quot;&gt;&lt;/a&gt;交叉熵（cross entropy）&lt;/h4&gt;&lt;p&gt;又称Sotfmax损失函数，目前分类任务最常用的损失函数；&lt;br&gt;用指数变换的形式，将网络输出转换成概率——&lt;br&gt;$$ L_{cross-entropy-loss} = L_{softmax-loss} = -\frac{1}{N} \sum_{i=1}^N log( \frac{e^{h_{y_i}}}{\sum_{j=1}^C e^{h_j}} ) $$     &lt;/p&gt;
+&lt;h4 id=&quot;合页（hinge）&quot;&gt;&lt;a href=&quot;#合页（hinge）&quot; class=&quot;headerlink&quot; title=&quot;合页（hinge）&quot;&gt;&lt;/a&gt;合页（hinge）&lt;/h4&gt;&lt;p&gt;主要在SVM中广泛使用，有时也用于神经网络模型；&lt;br&gt;设计理念为“对错误越大的样本施加越严重的惩罚”；&lt;br&gt;一般在分类任务中，交叉熵效果要略优于合页&lt;br&gt;$$ L_{hinge-loss} = \frac{1}{N} \sum_{i=1}^N max(0, 1-h_{y_i}) $$     &lt;/p&gt;
+&lt;h4 id=&quot;坡道（ramp）&quot;&gt;&lt;a href=&quot;#坡道（ramp）&quot; class=&quot;headerlink&quot; title=&quot;坡道（ramp）&quot;&gt;&lt;/a&gt;坡道（ramp）&lt;/h4&gt;&lt;p&gt;论文：&lt;a
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>经典的CNN分类架构</title>
+      <link>https://hey-yahei.cn/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/</link>
+      <guid>https://hey-yahei.cn/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/</guid>
+      <pubDate>Tue, 01 May 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=600349&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;BGM：&lt;strong&gt;《GOSICK》ED2&lt;/strong&gt;     &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;从原文《&lt;a href=&quot;/2018/04/18/CNN/&quot;&gt;卷积神经网络CNN | Hey~YaHei!&lt;/a&gt;》抽取出来；     &lt;/p&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap13&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;《&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;》       &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CNN的典型组合方式是，以 &lt;strong&gt;卷积层+激活函数（一般是relu）+池化层&lt;/strong&gt; 作为一组操作；&lt;br&gt;一张图片经过若干组这样的操作的stack之后，变得越来越小，同时越来越深（feature map越来越多）；&lt;br&gt;在stack的顶层，经过一个常规的前馈神经网络（由若干个带激活的全连接层组成）后产生预测结果（通常经过一个softmax层）——&lt;br&gt;&lt;img src=&quot;/Handson-ML/12Typical_CNN_Architectures.png&quot; alt=&quot;Typical_CNN_Architectures&quot;&gt;    &lt;/p&gt;
+&lt;h3 id=&quot;LeNet-5&quot;&gt;&lt;a href=&quot;#LeNet-5&quot; class=&quot;headerlink&quot; title=&quot;LeNet-5&quot;&gt;&lt;/a&gt;LeNet-5&lt;/h3&gt;&lt;p&gt;经典的CNN框架，1998年由Yann LeCun提出，被广泛地应用于手写体数字识别（MNIST）；      &lt;/p&gt;
+&lt;p&gt;详细配置：&lt;br&gt;&lt;img src=&quot;/Handson-ML/12LeNet-5.png&quot; alt=&quot;LeNet-5&quot;&gt;       &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MNIST数据为 $28 \times 28$ ，LeNet-5将其填零补充到 $32 \times 32$ 并在投喂给网络前进行归一化；&lt;br&gt;  而其他层不再进行padding，所以可以看到每经过一层，图片就发生一次萎缩       &lt;/li&gt;
+&lt;li&gt;平均池化层除了对输入进行平均之外，还经过一次仿射变换（缩放因子、偏置项都作为可学习的参数），并且在输出前经过一次激活       &lt;/li&gt;
+&lt;li&gt;C3层的神经元只与S2层的3到4个输出连接  
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>自编码器</title>
       <link>https://hey-yahei.cn/2018/04/25/autoencoder/</link>
       <guid>https://hey-yahei.cn/2018/04/25/autoencoder/</guid>
@@ -670,6 +871,134 @@
     </item>
     
     <item>
+      <title>正则化技术</title>
+      <link>https://hey-yahei.cn/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/</link>
+      <guid>https://hey-yahei.cn/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/</guid>
+      <pubDate>Tue, 10 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=28160278&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《命运石之门：负荷领域的既视感》主题曲&lt;/strong&gt;        &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：   &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;《&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;》      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;提前终止（Early-Stopping）&quot;&gt;&lt;a href=&quot;#提前终止（Early-Stopping）&quot; class=&quot;headerlink&quot; title=&quot;提前终止（Early Stopping）&quot;&gt;&lt;/a&gt;提前终止（Early Stopping）&lt;/h3&gt;&lt;p&gt;每经过一定迭代次数之后将模型用于验证集上的评估，暂存、更新最近几次在验证集上有一定loss下降的模型；&lt;br&gt;当连续几次在验证集上没有出现明显的loss下降（甚至有可能回升）时终止训练；&lt;br&gt;提前终止通常表现的很好，如果和其他正则化技术共同使用可以获得更好的表现      &lt;/p&gt;
+&lt;h3 id=&quot;L1、L2正则化&quot;&gt;&lt;a href=&quot;#L1、L2正则化&quot; class=&quot;headerlink&quot; title=&quot;L1、L2正则化&quot;&gt;&lt;/a&gt;L1、L2正则化&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;L2正则化&lt;/strong&gt;：&lt;br&gt;又称权重衰减（weight decay）、岭回归（ridge regression）、Tikhonov正则化（Tikhonov regularization）；&lt;br&gt;$$ l_2 = \frac{1}{2} \lambda ||\omega||^2_2 $$&lt;br&gt;其中 $\lambda$ 控制正则项大小，取值越大对模型复杂度的约束程度越大；&lt;br&gt;一般将该l2惩罚项加入到目标函数中，通过目标函数的误差反向传播；        &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;L1正则化&lt;/strong&gt;：&lt;br&gt;又称Elastic网络正则化；&lt;br&gt;$$ l_1 = \lambda ||\omega||_1 = \sum_i |\omega_i| $$&lt;br&gt;L1正则化不仅能够约束参数量级，还可以使参数稀疏化，使优化后部分参数置为0，并且也有去除噪声的效果；&lt;br&gt;L1和L2惩罚可以联合使用，如 $ \lambda_1
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>优化器</title>
+      <link>https://hey-yahei.cn/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/</link>
+      <guid>https://hey-yahei.cn/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/</guid>
+      <pubDate>Mon, 09 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=466795188&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《文豪野犬》ED1&lt;/strong&gt;&lt;br&gt;唔，就是它，因为这个番才认识太宰治和芥川          &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)》&lt;/a&gt;Chap11&lt;br&gt;&lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/p&gt;
+&lt;h3 id=&quot;常见的加速训练技术&quot;&gt;&lt;a href=&quot;#常见的加速训练技术&quot; class=&quot;headerlink&quot; title=&quot;常见的加速训练技术&quot;&gt;&lt;/a&gt;常见的加速训练技术&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/04/08/梯度消失与梯度爆炸/#Xavier-Initialization-Glorot-Initialization&quot;&gt;恰当的的权重初始化策略&lt;/a&gt;    &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/04/08/梯度消失与梯度爆炸/#relu——nonsaturating-activation-function&quot;&gt;恰当的激活函数&lt;/a&gt;      &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/04/08/梯度消失与梯度爆炸/#批量归一化（Batch-Normalization-BN）&quot;&gt;批量归一化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/04/09/复用预训练层&quot;&gt;复用部分预训练网络&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/04/10/优化器&quot;&gt;使用更快的优化器&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;常见的优化器有：Momentum optimization, Nesterov Accelerated Gradient, AdaGrad, RMSProp, Adam optimization&lt;br&gt;其中&lt;a href=&quot;#Adam-optimization&quot;&gt;Adam optimization&lt;/a&gt;是目前表现最好的优化器；不过它除了学习率之外还有额外两个超参数需要手工调整      &lt;/p&gt;
+&lt;h3 id=&quot;传统梯度下降&quot;&gt;&lt;a href=&quot;#传统梯度下降&quot; class=&quot;headerlink&quot; title=&quot;传统梯度下降&quot;&gt;&lt;/a&gt;传统梯度下降&lt;/h3&gt;&lt;p&gt;$$ \theta \gets \theta - \eta \bigtriangledown_\theta J(\theta) $$&lt;br&gt;固定的下降速度（梯度作为速度）        &lt;/p&gt;
+&lt;h3 id=&quot;动量法（Momentum-optimization）&quot;&gt;&lt;a href=&quot;#动量法（Momentum-optimization）&quot;
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>复用预训练层</title>
+      <link>https://hey-yahei.cn/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/</link>
+      <guid>https://hey-yahei.cn/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/</guid>
+      <pubDate>Sun, 08 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=544000838&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《Megalo Box》ED&lt;/strong&gt;&lt;br&gt;NakamuraEmi的歌有种说不出来的特别      &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)》&lt;/a&gt;Chap11&lt;br&gt;&lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/p&gt;
+&lt;h3 id=&quot;迁移学习（transfer-learn）&quot;&gt;&lt;a href=&quot;#迁移学习（transfer-learn）&quot; class=&quot;headerlink&quot; title=&quot;迁移学习（transfer learn）&quot;&gt;&lt;/a&gt;迁移学习（transfer learn）&lt;/h3&gt;&lt;p&gt;如果已经训练好了一个网络（如可以识别猫、狗等动物），如果需要训练一个新的类似任务的网络（如只识别猫），可以直接使用已有网络的一部分底层，在这些层的基础上加几个层，训练时固定复用层的权重，只训练新加的几个层；     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以加速训练过程     &lt;/li&gt;
+&lt;li&gt;可以使用较小的训练集    &lt;/li&gt;
+&lt;li&gt;但是要求新网络的输入数据大小与复用网络的输入数据大小保持一致&lt;/li&gt;
+&lt;li&gt;仅适用于数据的低层次特征相类似的任务      &lt;/li&gt;
+&lt;li&gt;任务越接近，可以复用的底层越多；甚至非常接近的任务，可以只替换output层&lt;/li&gt;
+&lt;li&gt;如果需要进一步fine-tune，可以在充分训练新加的几个层之后，再整体训练一段时间（复用层的权重也参与训练）     &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;复用tensorflow模型&quot;&gt;&lt;a href=&quot;#复用tensorflow模型&quot; class=&quot;headerlink&quot; title=&quot;复用tensorflow模型&quot;&gt;&lt;/a&gt;复用tensorflow模型&lt;/h3&gt;&lt;p&gt;如果复用整个模型，直接用 &lt;code&gt;tf.Saver&lt;/code&gt; 的 &lt;code&gt;restore&lt;/code&gt; 方法即可；&lt;br&gt;如果只复用模型的一部分，可以借助 &lt;code&gt;tf.get_collection&lt;/code&gt; 函数——      &lt;/p&gt;
+&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot; spellcheck=&quot;true&quot;&gt;# 创建初始化op&lt;/span&gt;
+init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span class=&quot;token
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Handson-ML</title>
       <link>https://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>https://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -704,6 +1033,55 @@
     </item>
     
     <item>
+      <title>【搁置】机器学习-吴恩达</title>
+      <link>https://hey-yahei.cn/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/</link>
+      <guid>https://hey-yahei.cn/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/</guid>
+      <pubDate>Tue, 05 Sep 2017 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;做毕设，传统ML的学习暂时搁置~&lt;br&gt;唔~跟周志华的《机器学习》同步施工&lt;br&gt;教学视频源：&lt;a href=&quot;https://www.bilibili.com/video/av9912938/?_blank&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;【中英双语】机器学习（Machine Learning）- 吴恩达（Andrew Ng）&lt;/a&gt;      &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-Andrew/ML-Andrew-notes1.html?_blank&quot;&gt;1 绪论、线性回归与逻辑回归&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-Andrew/ML-Andrew-notes2.html?_blank&quot;&gt;2 过拟合与正则化技术&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-Andrew/ML-Andrew-notes3.html?_blank&quot;&gt;3 非线性分类器——神经网络&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-Andrew/ML-Andrew-notes4.html?_blank&quot;&gt;4
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>【搁置】机器学习-周志华</title>
+      <link>https://hey-yahei.cn/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <guid>https://hey-yahei.cn/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <pubDate>Sat, 26 Aug 2017 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;做毕设，传统ML的学习暂时搁置~&lt;br&gt;《机器学习》周志华 - 清华大学出版社     &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-ZhouZhihua/《机器学习》Ch01.html?_blank&quot;&gt;Ch01 绪论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-ZhouZhihua/《机器学习》Ch02.html?_blank&quot;&gt;Ch02 模型估计与选择&lt;/a&gt;    &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ML-ZhouZhihua/《机器学习》Ch03.html?_blank&quot;&gt;Ch03
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Hello World~</title>
       <link>https://hey-yahei.cn/2017/08/24/hello%20world/</link>
       <guid>https://hey-yahei.cn/2017/08/24/hello%20world/</guid>
@@ -735,6 +1113,33 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
     </item>
     
     <item>
+      <title>【搁置】《机器学习实战》笔记</title>
+      <link>https://hey-yahei.cn/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/</link>
+      <guid>https://hey-yahei.cn/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/</guid>
+      <pubDate>Wed, 16 Aug 2017 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;strong&gt;暂时搁着……&lt;/strong&gt;&lt;br&gt;师兄说先学理论再看实战QAQ，先暂时搁着吧&lt;br&gt;以下页面均由jupyter生成     &lt;/p&gt;
+&lt;p&gt;目录：   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ch01 机器学习基础   &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/note_for_MLA/Ch02 kNN.html?_blank&quot;&gt;Ch02 k-邻近算法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/note_for_MLA/Ch03 trees.html?_blank&quot;&gt;Ch03 决策树&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/note_for_MLA/Ch04 bayes.html?_blank&quot;&gt;Ch04 基于概率论的分类方法：朴素贝叶斯&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/note_for_MLA/Ch05 logRegres.html?_blank&quot;&gt;Ch05
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>QT学习之路</title>
       <link>https://hey-yahei.cn/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</link>
       <guid>https://hey-yahei.cn/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</guid>
@@ -755,6 +1160,26 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
     </item>
     
     <item>
+      <title>《你好放大器》笔记</title>
+      <link>https://hey-yahei.cn/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/</link>
+      <guid>https://hey-yahei.cn/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
+      <pubDate>Sun, 31 Jul 2016 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;strong&gt;从onenote上搬运过来的笔记&lt;/strong&gt;&lt;br&gt;&lt;a
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>《C++编程思想》笔记</title>
       <link>https://hey-yahei.cn/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</link>
       <guid>https://hey-yahei.cn/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</guid>
@@ -772,6 +1197,26 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       </description>
       
       <comments>https://hey-yahei.cn/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>心理学导论</title>
+      <link>https://hey-yahei.cn/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/</link>
+      <guid>https://hey-yahei.cn/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/</guid>
+      <pubDate>Tue, 08 Mar 2016 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;strong&gt;从onenote上搬运过来的笔记&lt;/strong&gt;&lt;br&gt;&lt;a
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/#disqus_thread</comments>
     </item>
     
     <item>
@@ -848,6 +1293,95 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       </description>
       
       <comments>https://hey-yahei.cn/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>俱乐部春纳网页后端小结</title>
+      <link>https://hey-yahei.cn/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/</link>
+      <guid>https://hey-yahei.cn/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/</guid>
+      <pubDate>Mon, 23 Mar 2015 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;h2 id=&quot;ubuntu下开发环境的搭建&quot;&gt;&lt;a href=&quot;#ubuntu下开发环境的搭建&quot; class=&quot;headerlink&quot; title=&quot;ubuntu下开发环境的搭建&quot;&gt;&lt;/a&gt;ubuntu下开发环境的搭建&lt;/h2&gt;&lt;h3 id=&quot;php-apache-mysql-安装&quot;&gt;&lt;a href=&quot;#php-apache-mysql-安装&quot; class=&quot;headerlink&quot; title=&quot;php + apache + mysql 安装&quot;&gt;&lt;/a&gt;php + apache + mysql 安装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo apt-get install apache2
+sudo apt-get install libapache2-mod-php5 php5    
+sudo apt-get install mysql-server mysql-client
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参考资料：&lt;a href=&quot;http://www.cnblogs.com/lynch_world/archive/2012/01/06/2314717.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ubuntu下安装Apache+PHP+Mysql&lt;/a&gt;   &lt;/p&gt;
+&lt;h3 id=&quot;apache的使用&quot;&gt;&lt;a href=&quot;#apache的使用&quot; class=&quot;headerlink&quot; title=&quot;apache的使用&quot;&gt;&lt;/a&gt;apache的使用&lt;/h3&gt;&lt;p&gt;把文件放到&lt;code&gt;/var/www/html&lt;/code&gt;目录下，通过&lt;code&gt;localhost&lt;/code&gt;访问&lt;br&gt;一般情况下apache是自动打开的，手动开启关闭重启的命令如下：          &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apachectl -k start          
+apachectl -k stop       
+apachectl -k restart       
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;mysql的使用&quot;&gt;&lt;a href=&quot;#mysql的使用&quot; class=&quot;headerlink&quot; title=&quot;mysql的使用&quot;&gt;&lt;/a&gt;mysql的使用&lt;/h3&gt;&lt;h4 id=&quot;登录前&quot;&gt;&lt;a href=&quot;#登录前&quot; class=&quot;headerlink&quot; title=&quot;登录前&quot;&gt;&lt;/a&gt;登录前&lt;/h4&gt;&lt;p&gt;登录：&lt;code&gt;mysql [-h 服务器] -u 用户名 -p&lt;/code&gt;然后按照提示输入密码&lt;br&gt;修改密码：&lt;code&gt;mysqladmin -u 用户名 password &amp;quot;新密码&amp;quot;&lt;/code&gt;然后按照提示输入原密码      &lt;/p&gt;
+&lt;h4 id=&quot;登录后&quot;&gt;&lt;a href=&quot;#登录后&quot; class=&quot;headerlink&quot; title=&quot;登录后&quot;&gt;&lt;/a&gt;登录后&lt;/h4&gt;&lt;h5 id=&quot;用户相关操作、创建数据库（root）&quot;&gt;&lt;a href=&quot;#用户相关操作、创建数据库（root）&quot; class=&quot;headerlink&quot; title=&quot;用户相关操作、创建数据库（root）&quot;&gt;&lt;/a&gt;用户相关操作、创建数据库（root）&lt;/h5&gt;&lt;p&gt;创建用户：&lt;code&gt;insert into mysql.user(Host, User, Password) values(&amp;#39;主机&amp;#39;, &amp;#39;用户名&amp;#39;,
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>居然……还我数据？！？！</title>
+      <link>https://hey-yahei.cn/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <guid>https://hey-yahei.cn/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <pubDate>Thu, 05 Feb 2015 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;在学校的时候把windows还原了一遍，导致linux进不去了，orz&lt;br&gt;回来之后重装linux，结果不小心操作不当，把硬盘格式化了！！&lt;br&gt;后来发现硬盘又出了点问题，哎烦，查了好多东西，试了好多方法，而且恰巧在看鸟哥的第三章（硬盘分区方面的内容），折腾了三天半终于把这娃整好，真是感动&lt;br&gt;查的东西好杂，让我写个总结冷静冷静  &lt;/p&gt;
+&lt;p&gt;##还原windows导致linux无法进入的原因&lt;br&gt;windows是相当霸道的，在安装时，&lt;strong&gt;win会主动覆盖掉MBR，也就直接把linux的引导加载程序给覆盖掉&lt;/strong&gt;，linux就自然无法进入啦&lt;/p&gt;
+&lt;p&gt;##那么，我们把linux引导加载程序grub修复了就好啦？&lt;br&gt;咳咳……蛋蛋让我去百度查查怎么修复grub，不过太弱了，看了三种修复的教程都没能看懂，最后似乎还把linux整坏了！！！只好重装linux，可又忘记重新分区，选了个“&lt;strong&gt;清除所有程序和数据&lt;/strong&gt;”…………呵呵，linux比windows还霸道，清除的不只是linux的系统分区，而是全硬盘啊！！把我全硬盘都格式化成ext4，真是吓哭我了……      &lt;/p&gt;
+&lt;p&gt;##找回丢失的数据&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;硬盘被格式化并不会直接把上面的数据抹去，不被新数据覆盖的区段的数据其实是可以复原的；&lt;/strong&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;而linux安装的位置在硬盘的头部，我的主要数据是放在DEF盘，并不会被覆盖，修复数据还是有戏的&lt;/strong&gt;&lt;br&gt;&lt;em&gt;重要的数据放在C盘是极不安全的，一旦系统崩溃，还原、重装之后就被新的系统文件覆盖，找都找不回来……所以平常要把桌面、我的文档、收藏夹等数据设置在DEF盘，至少应该把文档所在的文件夹放在DEF盘，再创建快捷方式到桌面上……非常非常重要的数据要做好备份，备份到网络上（并不可靠）或者备份到移动硬盘等其他设备上&lt;/em&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所以呢，网上找找PE，通过UltraISO等软件把iso镜像烧进U盘里，插进计算机，开机启动项设置为该U盘，在PE下利用diskgenius等分区工具进行“&lt;strong&gt;重建分区表&lt;/strong&gt;”就可以啦。它会自动搜索电脑上丢失的分区，把还存在数据恢复出来   &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;但是，恢复的数据会有少数被损坏，也就是说不可能完好无损的找回来，所以平时要保护好自己的数据啊？！？！？！！！&lt;/em&gt;&lt;br&gt;&lt;em&gt;而且，找回来的分区必须设置为主分区= =好麻烦！改回逻辑分区的话需要把数据移到其他地方，把这些分区删除后新建扩展分区，在扩展分区下新建逻辑分区，再把数据移回来！&lt;/em&gt;&lt;br&gt;&lt;strong&gt;因为一个硬盘只能存在四个主分区或扩展分区（其中扩展分区至多只能有一个）&lt;/strong&gt;&lt;br&gt;嗯……我比较懒，所以把原本win上的四个磁盘缩减为三个磁盘，都作为主分区，留下一个作为扩展分区给linux&lt;br&gt;另外呢，&lt;strong&gt;win系统分区必须激活设置为活动分区！！&lt;/strong&gt;   &lt;/p&gt;
+&lt;p&gt;##安装windows&lt;br&gt;找回数据时，把dell出厂的镜像分区也给找回来了，但是还原程序被格掉，重装后也识别不了出厂镜像=
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>【百度俱乐部】第一二期作业总结</title>
+      <link>https://hey-yahei.cn/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/</link>
+      <guid>https://hey-yahei.cn/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/</guid>
+      <pubDate>Wed, 29 Oct 2014 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;呃，要用markdown写文章呢差点忘了……&lt;br&gt;这期作业写了我八九个小时啊，翻阅了好多资料，干脆写份总结算了。下面就按照我做作业的思路、途中遇到的问题及解决方法展开来写吧——  &lt;/p&gt;
+&lt;h2 id=&quot;大致设想&quot;&gt;&lt;a href=&quot;#大致设想&quot; class=&quot;headerlink&quot; title=&quot;大致设想&quot;&gt;&lt;/a&gt;大致设想&lt;/h2&gt;&lt;p&gt;首先，模仿百度主页嘛，找张图片，做个输入框，搞个submit的按钮，简单安上导航栏，右上角意思意思搞个“登陆”、“注册”的鬼玩意。   &lt;/p&gt;
+&lt;h3 id=&quot;input-text的尺寸调整&quot;&gt;&lt;a href=&quot;#input-text的尺寸调整&quot; class=&quot;headerlink&quot; title=&quot;input text的尺寸调整&quot;&gt;&lt;/a&gt;input text的尺寸调整&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;text是没有width、height属性的&lt;/li&gt;
+&lt;li&gt;宽度其实可以通过字段size调整&lt;/li&gt;
+&lt;li&gt;高度可以通过style属性中的字体高度font-size来调整&lt;/li&gt;
+&lt;li&gt;另外还有style中的padding，可以调整输入框的内边距，不然输入的时候字压着边框太丑&lt;h3 id=&quot;text和submit之间总存在缝隙&quot;&gt;&lt;a href=&quot;#text和submit之间总存在缝隙&quot; class=&quot;headerlink&quot; title=&quot;text和submit之间总存在缝隙&quot;&gt;&lt;/a&gt;text和submit之间总存在缝隙&lt;/h3&gt;取消缝隙，首先要设置两个元素的margin为0，另外submit默认是有边框的，所以还要设置submit的border为0。但如果将两元素的代码分成两行，则间隙仍不能取消&lt;br&gt;&lt;input type=&quot;text&quot; style=&quot;margin:0px&quot;&gt;&lt;input type=&quot;submit&quot; style=&quot;margin:0px;border:0;background-color:blue&quot;&gt;     
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot; language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style-attr language-css&quot;&gt;&lt;span class=&quot;token attr-name&quot;&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&quot;&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/#disqus_thread</comments>
     </item>
     
   </channel>
