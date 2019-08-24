@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Fri Aug 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Sat Aug 24 2019 17:18:15 GMT+0800">
+        <meta property="article:modified_time" content="Sat Aug 24 2019 17:25:59 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html",
     "headline": "浅探Winograd量化",
     "datePublished": "Fri Aug 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Sat Aug 24 2019 17:18:15 GMT+0800",
+    "dateModified": "Sat Aug 24 2019 17:25:59 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -596,7 +596,7 @@ print(max_l1_coeff(AT * m * AT.T))   # Output: 361
 <p>考虑到权重变换只需要做一次，甚至可以有更为极端的做法：<br>$$\frac{2}{3}G=\left[\begin{array}{rrr}{\frac{2}{3}} &amp; {0} &amp; {0} \\ {\frac{1}{3}} &amp; {\frac{1}{3}} &amp; {\frac{1}{3}} \\ {\frac{1}{3}} &amp; {-\frac{1}{3}} &amp; {\frac{1}{3}} \\ {0} &amp; {0} &amp; {\frac{2}{3}}\end{array}\right]$$<br>变换前将int8的权重值提升为float32进行变换，最后再对变换后矩阵$GgG^T$进行取整，由于$\frac{2}{3}G$绝对值之和最大的行为1，不需要预留任何bits就能够确保不会发生溢出。     </p>
 <p>做一个简单的实验：<a href="https://gist.github.com/hey-yahei/afec123324404eea100f239c6196118f" target="_blank" rel="noopener">hey-yahei/winograd_filter_transform.py | github</a>     </p>
 <blockquote>
-<p>取mobilenet的第一层卷积进行实验——<br>A：用不量化的权重和$G$变换卷积核（参照组）<br>B：用int4量化后的权重和$2G$变换卷积核（预留4bits确保不会溢出）<br>C：用int6量化后的权重和$G$变换卷积核（预留2bits确保不会溢出）<br>D：用int8量化后的权重（提升为fp32）和$\frac{2}{3}G$变换卷积核，再取整为int8（不会溢出）<br>将A、B反量化，并分别乘以$\frac{1}{4}$、$\frac{9}{4}$后与C进行比较（计算绝对误差）</p>
+<p>取mobilenet的第一层卷积进行实验——<br>A：用不量化的权重和$G$变换卷积核（参照组）<br>B：用int4量化后的权重和$2G$变换卷积核（预留4bits确保不会溢出）<br>C：用int6量化后的权重和$G$变换卷积核（预留2bits确保不会溢出）<br>D：用int8量化后的权重（提升为fp32）和$\frac{2}{3}G$变换卷积核，再取整为int8（不会溢出）<br>将B、C、D反量化，并分别乘以$\frac{1}{4}$、$1$、$\frac{9}{4}$后与A进行比较（计算绝对误差）</p>
 </blockquote>
 <table>
 <thead>
