@@ -8,7 +8,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 23 Aug 2019 11:30:05 GMT</pubDate>
+    <pubDate>Sat, 24 Aug 2019 06:08:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,7 +24,7 @@
           
             &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=26209392&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;     
 
-&lt;p&gt;上一篇文章《&lt;a href=&quot;https://hey-yahei.cn/2019/08/21/winograd_convolution/&quot;&gt;Winograd卷积原理 | Hey~YaHei!&lt;/a&gt;》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《&lt;a href=&quot;http://arxiv.org/pdf/1509.09308&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Fast algorithms for convolutional neural(CVPR2016)&lt;/a&gt;》的报告，Winograd在浮点运算上的表现都不错：       &lt;/p&gt;
+&lt;p&gt;上一篇文章《&lt;a href=&quot;/2019/08/21/winograd_convolution/&quot;&gt;Winograd卷积原理 | Hey~YaHei!&lt;/a&gt;》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《&lt;a href=&quot;http://arxiv.org/pdf/1509.09308&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Fast algorithms for convolutional neural(CVPR2016)&lt;/a&gt;》的报告，Winograd在浮点运算上的表现都不错：       &lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;/imgs/winograd/VGG_errors.jpg&quot; alt=&quot;VGG_errors&quot;&gt;&lt;/center&gt;     
 
 &lt;ul&gt;

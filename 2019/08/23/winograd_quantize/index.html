@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Fri Aug 23 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 23 2019 19:30:05 GMT+0800">
+        <meta property="article:modified_time" content="Sat Aug 24 2019 14:08:39 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/08/23/winograd_quantize/index.html",
     "headline": "浅探Winograd量化",
     "datePublished": "Fri Aug 23 2019 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 23 2019 19:30:05 GMT+0800",
+    "dateModified": "Sat Aug 24 2019 14:08:39 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#溢出"><span class="post-toc-number">1.</span> <span class="post-toc-text">溢出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">$F(2\times2,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-4-times4-3-times3"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">$F(4\times4,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大家是怎么做的？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">大家是怎么做的？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先Winograd后量化？"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">先Winograd后量化？</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更快的变换"><span class="post-toc-number">2.</span> <span class="post-toc-text">更快的变换</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#溢出"><span class="post-toc-number">1.</span> <span class="post-toc-text">溢出</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">$F(2\times2,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#F-4-times4-3-times3"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">$F(4\times4,3\times3)$</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大家是怎么做的？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">大家是怎么做的？</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更快的变换"><span class="post-toc-number">2.</span> <span class="post-toc-text">更快的变换</span></a></li></ol>
     </ul>
     
 
@@ -482,7 +482,7 @@
     
         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=26209392&auto=0&height=32"></iframe>     
 
-<p>上一篇文章《<a href="https://hey-yahei.cn/2019/08/21/winograd_convolution/">Winograd卷积原理 | Hey~YaHei!</a>》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《<a href="http://arxiv.org/pdf/1509.09308" target="_blank" rel="noopener">Fast algorithms for convolutional neural(CVPR2016)</a>》的报告，Winograd在浮点运算上的表现都不错：       </p>
+<p>上一篇文章《<a href="/2019/08/21/winograd_convolution/">Winograd卷积原理 | Hey~YaHei!</a>》已经介绍过Winograd卷积的基本原理，但终究是理论上的推导，在实际应用的时候其实有些耐人寻味的地方：数学推导假设的是无限的精度和数值范围，但实际计算机的运算精度与数值范围都是有限的，不过按照论文《<a href="http://arxiv.org/pdf/1509.09308" target="_blank" rel="noopener">Fast algorithms for convolutional neural(CVPR2016)</a>》的报告，Winograd在浮点运算上的表现都不错：       </p>
 <center><img src="/imgs/winograd/VGG_errors.jpg" alt="VGG_errors"></center>     
 
 <ul>
@@ -590,7 +590,11 @@ print(max_l1_coeff(AT * m * AT.T))   # Output: 361
 <p>$$<br>B^{T}=\left[\begin{array}{rrrrrr}<br>{4} &amp; {0} &amp; {-5} &amp; {0} &amp; {1} &amp; {0} \\<br>{0} &amp; {-4} &amp; {-4} &amp; {1} &amp; {1} &amp; {0} \\<br>{0} &amp; {4} &amp; {-4} &amp; {-1} &amp; {1} &amp; {0} \\<br>{0} &amp; {-2} &amp; {-1} &amp; {2} &amp; {1} &amp; {0} \\<br>{0} &amp; {2} &amp; {-1} &amp; {-2} &amp; {1} &amp; {0} \\<br>{0} &amp; {4} &amp; {0} &amp; {-5} &amp; {0} &amp; {1}<br>\end{array}\right],<br>G=\left[\begin{array}{rrr}<br>{6} &amp; {0} &amp; {0} \\<br>{-4} &amp; {-4} &amp; {-4} \\<br>{-4} &amp; {4} &amp; {-4} \\<br>{1} &amp; {2} &amp; {4} \\<br>{1} &amp; {-2} &amp; {4} \\<br>{0} &amp; {0} &amp; {24}<br>\end{array}\right]<br>$$</p>
 <p>为了保证计算不溢出，$GgG^T$需要额外的10个bits（$G$最后一行绝对值之和最大，$24^2=576$），而$B^TdB$需要额外的7个bits（$B^T$最后一行的绝对值之和最大，$10^2=100$），换言之……压根没法保证<code>int8 * int8</code>的安全计算。这时候可能只能将int8扩展到int16，执行<code>int16 * int16</code>的乘法运算，即便如此，权重也只能量化到int6.     </p>
 <h4 id="大家是怎么做的？"><a href="#大家是怎么做的？" class="headerlink" title="大家是怎么做的？"></a>大家是怎么做的？</h4><p><a href="https://github.com/Tencent/ncnn" target="_blank" rel="noopener">ncnn</a>和<a href="https://github.com/alibaba/MNN" target="_blank" rel="noopener">mnn</a>的量化计算本质上是<code>int16 * int16</code>而非<code>int8 * int8</code>，所以$F(2\times2,3\times3)$完全没有溢出的问题，而$F(4\times4,3\times3)$需要将权重量化到int6；<a href="https://github.com/OAID/Tengine" target="_blank" rel="noopener">Tengine</a>的量化计算是<code>int8 * int8</code>，1.6版本已经支持Winograd卷积，但目前还没有支持Winograd量化。</p>
-<h4 id="先Winograd后量化？"><a href="#先Winograd后量化？" class="headerlink" title="先Winograd后量化？"></a>先Winograd后量化？</h4><p>对量化的输入和权重做Winograd时溢出问题着实让人头疼，既然如此，我们能不能先计算变换矩阵再进行量化呢？<br><em>这只是个想法但还没验证过，回头我做个实验试试。</em>        </p>
+<!--
+#### 先Winograd后量化？    
+对量化的输入和权重做Winograd时溢出问题着实让人头疼，既然如此，我们能不能先计算变换矩阵再进行量化呢？    
+*这只是个想法但还没验证过，回头我做个实验试试。*        
+-->
 <h3 id="更快的变换"><a href="#更快的变换" class="headerlink" title="更快的变换"></a>更快的变换</h3><p>上一篇文章我们已经提到过——     </p>
 <blockquote>
 <p>尽管$V = B^{T} d B$和$Y = A^T M A$的计算过程中也有大量的乘法，但观察可以发现$F(4,3)$和$F(6,3)$的$A^T$矩阵和$B^T$中有相当多的元素恰好是$2^n$，也就是说，用Winograd计算量化的卷积应该会有神奇的加成</p>
