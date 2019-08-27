@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 21 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Aug 26 2019 22:08:39 GMT+0800">
+        <meta property="article:modified_time" content="Tue Aug 27 2019 11:31:12 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/08/21/winograd_convolution/index.html",
     "headline": "Winograd卷积原理",
     "datePublished": "Wed Aug 21 2019 00:00:00 GMT+0800",
-    "dateModified": "Mon Aug 26 2019 22:08:39 GMT+0800",
+    "dateModified": "Tue Aug 27 2019 11:31:12 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">2.</span> <span class="post-toc-text">$F(2\times2, 3\times3)$</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#堆叠实现"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">堆叠实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#嵌套实现"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">嵌套实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#G-、-B-T-、-A-T"><span class="post-toc-number">3.</span> <span class="post-toc-text">$G$、$B^T$、$A^T$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变换过程的计算优化"><span class="post-toc-number">4.</span> <span class="post-toc-text">变换过程的计算优化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#比较"><span class="post-toc-number">5.</span> <span class="post-toc-text">比较</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Winograd卷积"><span class="post-toc-number">6.</span> <span class="post-toc-text">Winograd卷积</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#F-2-3"><span class="post-toc-number">1.</span> <span class="post-toc-text">$F(2,3)$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#F-2-times2-3-times3"><span class="post-toc-number">2.</span> <span class="post-toc-text">$F(2\times2, 3\times3)$</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#堆叠实现"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">堆叠实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#嵌套实现"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">嵌套实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#G-、-B-T-、-A-T"><span class="post-toc-number">3.</span> <span class="post-toc-text">$G$、$B^T$、$A^T$</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变换过程的计算优化"><span class="post-toc-number">4.</span> <span class="post-toc-text">变换过程的计算优化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算复杂度分析"><span class="post-toc-number">5.</span> <span class="post-toc-text">计算复杂度分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#比较"><span class="post-toc-number">6.</span> <span class="post-toc-text">比较</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Winograd卷积"><span class="post-toc-number">7.</span> <span class="post-toc-text">Winograd卷积</span></a></li></ol>
     </ul>
     
 
@@ -502,7 +502,8 @@
 <h4 id="堆叠实现"><a href="#堆叠实现" class="headerlink" title="堆叠实现"></a>堆叠实现</h4><p>$$<br>\begin{aligned}<br>\left[\begin{array}{lll}{K_0} &amp; {K_1} &amp; {K_2} \\ {K_1} &amp; {K_2} &amp; {K_3} \end{array}\right]<br>\left[\begin{array}{l}{W_0} \\ {W_1} \\ {W_2} \end{array}\right] &amp;= \left[\begin{array}{l}{R_0} \\ {R_1} \end{array}\right] = \left[\begin{array}{l}{K_0W_0+K_1W_1+K_2W_2} \\ {K_1W_0+K_2W_1+K_3W_2} \end{array}\right] \\<br>\\<br>&amp;= \left[\begin{array}{l}{F_{(2,3)}(D_0,W_0)+F_{(2,3)}(D_1,W_1)+F_{(2,3)}(D_2,W_2)} \\ {F_{(2,3)}(D_1,W_0)+F_{(2,3)}(D_2,W_1)+F_{(2,3)}(D_3,W_2)} \end{array}\right]<br>\end{aligned}<br>$$<br>其中，$D_i$是$K_i$对应的输入序列，也即卷积输入的第$i$行<br>$$<br>D = \left[\begin{array}{llll}<br>{k_0} &amp; {k_4} &amp; {k_8} &amp; {k_{12}} \\<br>{k_1} &amp; {k_5} &amp; {k_9} &amp; {k_{13}} \\<br>{k_2} &amp; {k_6} &amp; {k_{10}} &amp; {k_{14}} \\<br>{k_3} &amp; {k_7} &amp; {k_{11}} &amp; {k_{15}}<br>\end{array}\right] = \left[\begin{array}{l} D_0 &amp; D_1 &amp; D_2 &amp; D_3 \end{array}\right]<br>$$</p>
 <p>也就是说，$F(2\times2, 3\times3)$在这里分成了6次$F(2,3)$以及4次额外的加法，总计<strong>24次乘法和44次加法</strong>（注意：虽然这里做了6次$F(2,3)$但是输入序列的变换只需要做4次，所以加法次数是44次而非52次），相比于直接卷积的<strong>36次乘法和32次加法</strong>，乘法次数跟一维的$F(2,3)$一样，也下降为原来的$\frac{2}{3}$，同理也需要付出3倍于$F(2,3)$额外的空间代价（三个$W$）：   </p>
 <h4 id="嵌套实现"><a href="#嵌套实现" class="headerlink" title="嵌套实现"></a>嵌套实现</h4><p>参考《<a href="https://www.cnblogs.com/shine-lee/p/10906535.html#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84winograd" target="_blank" rel="noopener">卷积神经网络中的Winograd快速卷积算法 | shinelee, 博客园</a>》<br>$$<br>\begin{aligned}<br>\left[\begin{array}{lll}{K_0} &amp; {K_1} &amp; {K_2} \\ {K_1} &amp; {K_2} &amp; {K_3} \end{array}\right] &amp;=<br>\left[ \begin{array}{c}{R_0} \\ {R_1}\end{array}\right] =<br>\left[ \begin{array}{c}{K_0 W_0 + K_1 W_1 + K_2 W_2} \\ {K_1 W_0 + K_2 W_1 + K_3 W_2} \end{array} \right] \\<br>\\<br>&amp;= \left[\begin{array}{l}{F_{(2,3)}(D_0,W_0)+F_{(2,3)}(D_1,W_1)+F_{(2,3)}(D_2,W_2)} \\ {F_{(2,3)}(D_1,W_0)+F_{(2,3)}(D_2,W_1)+F_{(2,3)}(D_3,W_2)} \end{array}\right]<br>\\<br>&amp;= \left[ \begin{array}{c} {A^{T}\left[(G W_0) \odot\left(B^{T} D_0 \right)\right] + A^{T}\left[(G W_1) \odot\left(B^{T} D_1 \right)\right] + A^{T}\left[(G W_2) \odot\left(B^{T} D_2 \right)\right]} \\ {A^{T}\left[(G W_0) \odot\left(B^{T} D_1 \right)\right] + A^{T}\left[(G W_1) \odot\left(B^{T} D_2 \right)\right] + A^{T}\left[(G W_2) \odot\left(B^{T} D_3 \right)\right]} \end{array} \right] \\<br>\\<br>&amp;=A^{T}\left[\left[G [W_0 \ W_1 \ W_2 ] G^{T}\right] \odot\left[B^{T} [D_0 \ D_1 \ D_2 \ D_3] B\right]\right]A \\<br>\\<br>&amp;=A^{T}\left[\left[G w G^{T}\right] \odot\left[B^{T} d B\right]\right] A \\<br>\\<br>&amp;\textit{(…w =&gt; g…)} \\<br>\\<br>&amp;=A^{T}\left[\left[G g G^{T}\right] \odot\left[B^{T} d B\right]\right] A<br>\end{aligned}<br>$$<br>也即，<br>$$F(2\times2, 3\times3) = A^{T} \left[ U \odot V \right] A$$<br>其中，<br>$$U = G g G^{T}$$<br>$$V = B^{T} d B$$      </p>
-<p>与$F(2,3)$同理，可以推导出，$F(2\times2, 3\times3)$需要<strong>16次乘法和56次加法</strong>（$V=B^{T} d B$过程32次加法、$M=U \odot V$过程16次乘法、$Y=A^TMA$过程24次加法），相比于直接卷积的<strong>36次乘法和32次加法</strong>，乘法次数下降为原来的$\frac{16}{36}$。计算量的减少比堆叠实现要明显，但也需要更多的额外空间代价：直接计算只需要存储9个参数的$g$，$F(2\times2,3\times3)$则需要存储16个参数的$GgG^T$（推广到一般情况，分别为$r^2$和$(r+m-1)^2$）</p>
+<p>与$F(2,3)$同理，可以推导出，$F(2\times2, 3\times3)$需要<strong>16次乘法和56次加法</strong>（$V=B^{T} d B$过程32次加法、$M=U \odot V$过程16次乘法、$Y=A^TMA$过程24次加法），相比于直接卷积的<strong>36次乘法和32次加法</strong>，乘法次数下降为原来的$\frac{16}{36}$。计算量的减少比堆叠实现要明显，但也需要更多的额外空间代价：直接计算只需要存储9个参数的$g$，$F(2\times2,3\times3)$则需要存储16个参数的$GgG^T$（推广到一般情况，分别为$r^2$和$(r+m-1)^2$）      </p>
+<p><strong><em>后续讨论中，如非特别说明，二维Winograd均指的是嵌套实现。</em></strong>      </p>
 <h3 id="G-、-B-T-、-A-T"><a href="#G-、-B-T-、-A-T" class="headerlink" title="$G$、$B^T$、$A^T$"></a>$G$、$B^T$、$A^T$</h3><p>Winograd算法需要推导出相应的变换矩阵$G$、$B^T$和$A^T$，但具体的推导过程似乎有些复杂，我现在还没弄懂。所幸 <a href="https://github.com/andravin/wincnn" target="_blank" rel="noopener">wincnn | github</a>提供了一个解算$G$、$B^T$、$A^T$的工具，除了前述的$F(2,3)$，常用的还有$F(4,3)$和$F(6,3)$，它们对应的变换矩阵如下：    </p>
 <ul>
 <li>$F(4,3)$<br>  $$<br>  B^{T}=\left[\begin{array}{rrrrrr}<br>  {4} &amp; {0} &amp; {-5} &amp; {0} &amp; {1} &amp; {0} \\<br>  {0} &amp; {-4} &amp; {-4} &amp; {1} &amp; {1} &amp; {0} \\<br>  {0} &amp; {4} &amp; {-4} &amp; {-1} &amp; {1} &amp; {0} \\<br>  {0} &amp; {-2} &amp; {-1} &amp; {2} &amp; {1} &amp; {0} \\<br>  {0} &amp; {2} &amp; {-1} &amp; {-2} &amp; {1} &amp; {0} \\<br>  {0} &amp; {4} &amp; {0} &amp; {-5} &amp; {0} &amp; {1}<br>  \end{array}\right],<br>  G=\left[\begin{array}{rrr}<br>  {1/4} &amp; {0} &amp; {0} \\<br>  {-1/6} &amp; {-1/6} &amp; {-1/6} \\<br>  {-1/6} &amp; {1/6} &amp; {-1/6} \\<br>  {1/24} &amp; {1/12} &amp; {1/6} \\<br>  {1/24} &amp; {-1/12} &amp; {1/6} \\<br>  {0} &amp; {0} &amp; {1}<br>  \end{array}\right],<br>  \\<br>  A^{T}=\left[\begin{array}{rrrrrr}<br>  {1} &amp; {1} &amp; {1} &amp; {1} &amp; {1} &amp; {0} \\<br>  {0} &amp; {1} &amp; {-1} &amp; {2} &amp; {-2} &amp; {0} \\<br>  {0} &amp; {1} &amp; {1} &amp; {4} &amp; {4} &amp; {0} \\<br>  {0} &amp; {1} &amp; {-1} &amp; {8} &amp; {-8} &amp; {1}<br>  \end{array}\right]<br>  $$<br>  $$<br>  g=\left[\begin{array}{lll}{g_{0}} &amp; {g_{1}} &amp; {g_{2}}\end{array}\right]^{T},<br>  d=\left[\begin{array}{llllll}{d_{0}} &amp; {d_{1}} &amp; {d_{2}} &amp; {d_{3}} &amp; {d_4} &amp; {d_5}\end{array}\right]^{T}<br>  $$  </li>
@@ -514,20 +515,30 @@
 <p>$$<br>\begin{align}<br>g’_0 &amp;= \frac{1}{4}g_0 \\<br>g’_1 &amp;= -\frac{1}{6}(g_0 + g_2) - \frac{1}{6}g_1 \\<br>g’_2 &amp;= -\frac{1}{6}(g_0 + g_2) + \frac{1}{6}g_1 \\<br>g’_3 &amp;= (\frac{1}{24}g_0 + \frac{1}{6}g_2) + \frac{1}{12}g_1 \\<br>g’_4 &amp;= (\frac{1}{24}g_0 + \frac{1}{6}g_2) - \frac{1}{12}g_1 \\<br>g’_5 &amp;= g_2<br>\end{align}<br>$$</p>
 <p>$$<br>\begin{align}<br>y_0 &amp;= (m_1 + m_2) + (m_3 + m_4) + m_0  \\<br>y_1 &amp;= (m_1 - m_2) + 2(m_3 - m_4) \\<br>y_2 &amp;= (m_1 + m_2) + 4(m_3 + m_4) \\<br>y_3 &amp;= (m_1 - m_2) + 8(m_3 - m_4) + m_5<br>\end{align}<br>$$</p>
 <blockquote>
-<p>以下“运算”指乘加运算$y = a <em> b + c$——包括加法（$y = 1 \</em> b + c$）、乘法（$y = a * b + 0$）<br>而$a * b + c * d$实际包含两次乘法和一次加法即3次乘加运算</p>
+<p>以下“运算”指乘加运算$y = a * b + c$——包括加法（$y = 1 * b + c$）、乘法（$y = a * b + 0$）<br>而$a * b + c * d$实际包含两次乘法和一次加法即3次乘加运算     </p>
 </blockquote>
 <p>$B^Td$总计12次运算，$Gg$总计8次运算，$A^TM$总计10次运算。<br>扩展到二维，$B^TdB$总计$12 \times (6+6) = 144$次运算，$GgG^T$总计$8 \times (3+6) = 72$次运算，$A^TMA$总计$10 \times (6 + 4) = 100$次运算。     </p>
 <blockquote>
 <p>论文《<a href="http://arxiv.org/pdf/1509.09308" target="_blank" rel="noopener">Fast algorithms for convolutional neural(CVPR2016)</a>》$F(4,3)$的$B^Td$为13次，可能是由于$d’_3$、$d’_4$的计算过程不同导致的，<br>$$<br>\begin{align}<br>d’_3 &amp;= -(2d_1 - 2d_3) - (d_2 - d_4) \\<br>d’_4 &amp;= (2d_1 - 2d_3) - (d_2 - d_4)<br>\end{align}<br>$$<br>如果按上述过程计算，会多出一次乘加运算。     </p>
 </blockquote>
 <p><strong>同理，对于$F(6,3)$，</strong><br><img src="/imgs/winograd/F63_trans_matrix.jpg" alt="F63_trans_matrix"><br>$B^Td$总计26次运算，$Gg$总计13次运算，$A^TM$总计20次运算。<br>扩展到二维，$B^TdB$总计$26 \times (8+8) = 416$次运算，$GgG^T$总计$13 \times (3+8) = 143$次运算，$A^TMA$总计$20 \times (8 + 6) = 280$次运算。     </p>
-<p>论文《<a href="http://arxiv.org/pdf/1509.09308" target="_blank" rel="noopener">Fast algorithms for convolutional neural(CVPR2016)</a>》统计的Winograd复杂度如下：   </p>
 <center><img src="/imgs/winograd/complexity.jpg" alt="complexity"></center>     
 
 <ul>
-<li>以上数值都经过归一化（除以$r^2$）   </li>
+<li>$\alpha$、$\beta$、$\gamma$、$\delta$分别为点乘的乘法复杂度、输入变换的运算复杂度、权重变换的运算复杂度、输出变换的运算复杂度    </li>
+<li>以上数值都经过归一化<br>  $$<br>  \begin{align}<br>  \alpha’ &amp;= \frac{\alpha}{m^2} = \frac{(m+r-1)^2}{m^2} \\<br>  \beta’  &amp;= \frac{\beta}{(m+r-1)^2} = \frac{\beta}{\alpha} \\<br>  \gamma’ &amp;= \frac{\gamma}{(m+r-1)^2} = \frac{\gamma}{\alpha} \\<br>  \delta’ &amp;= \frac{\delta}{(m+r-1)^2} = \frac{\delta}{\alpha}<br>  \end{align}<br>  $$</li>
 <li>$tile=3$为3x3的直接卷积，$tile=4$对应$F(2\times2,3\times3)$，$tile=6$对应$F(4\times4,3\times3)$，$tile=8$对应$F(6\times6,3\times3)$       </li>
-<li>$\alpha’$、$\beta’$、$\gamma’$、$\delta’$分别为点乘的乘法复杂度、输入变换的运算复杂度、权重变换的运算复杂度、输出变换的运算复杂度    </li>
+</ul>
+<h3 id="计算复杂度分析"><a href="#计算复杂度分析" class="headerlink" title="计算复杂度分析"></a>计算复杂度分析</h3><p>假设输入特征图与输出特征图大小一致，均为$H \times W$，卷积输入通道数$C$、输出通道数$K$，批大小为$N$：<br>点乘的乘法复杂度为：<br>$$<br>\begin{align}<br>M &amp;= \frac{\alpha}{m^2} NHWCK \\<br>  &amp;= \alpha’ NHWCK<br>\end{align}<br>$$</p>
+<p>变换过程的运算复杂度为：<br>$$<br>\begin{align}<br>T(D) &amp;= \frac{\beta}{m^2} NHWC \\<br>T(F) &amp;= \gamma CK \\<br>T(I) &amp;= \frac{\delta}{m^2} NHWK<br>\end{align}<br>$$</p>
+<p>归一化（保持和M一致的量纲）：<br>$$<br>\begin{align}<br>\frac{T(D)}{M} &amp;= \frac{\beta}{\alpha K} = \frac{\beta’}{K} \\<br>\frac{T(F)}{M} &amp;= \frac{\gamma m^2}{NHW \alpha^2} \\<br>               &amp;= \frac{\gamma}{P \alpha^2} = \frac{\gamma’}{P} \\<br>\frac{T(I)}{M} &amp;= \frac{\delta}{C \alpha^2} = \frac{\delta’}{C}<br>\end{align}<br>$$</p>
+<p>那么，整个卷积过程的计算复杂度为：<br>$$<br>\begin{align}<br>L &amp;= (1 + \frac{T(D)}{M} + \frac{T(F)}{M} + \frac{T(I)}{M}) M \\<br>  &amp;= (1 + \frac{\beta’}{K} + \frac{\gamma’}{P} + \frac{\delta’}{C}) \alpha’ NHWCK<br>\end{align}<br>$$</p>
+<p>事实上，    </p>
+<ul>
+<li>$T(F)$只需要最初的时候做一次，通常也不考虑进卷积计算的复杂度</li>
+<li>$T(D)$只对卷积输入做一次，其计算复杂度会被输出通道数量$K$平摊      </li>
+<li>$T(I)$只对卷积输出做一次，其计算复杂度会被输入通道数量$C$平摊</li>
+<li>显然，随着$C$、$K$增大，$T(D)$、$T(I)$对整体运算复杂度的影响就会减小，Winograd带来的加速效果越明显；<br>同理，当$C$、$K$太小时，$T(D)$、$T(I)$对整体运算复杂度的影响会大于Winograd带来的加速效果，其计算效率反而不如直接卷积    </li>
 </ul>
 <h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>接下来我们对$F(2,3)$、$F(4,3)$、$F(6,3)$、$F(2\times2,3\times3)$、$F(4\times4,3\times3)$、$F(6\times6,3\times3)$的效果做一简单比较。      </p>
 <table>
@@ -537,18 +548,16 @@
 <th style="text-align:center">原始乘法次数</th>
 <th style="text-align:center">Win乘法次数</th>
 <th style="text-align:center">理论加速比</th>
-<th style="text-align:center">乘法加速比（含变换）</th>
 <th style="text-align:center">原始内存</th>
-<th style="text-align:center">Win内存</th>
-<th style="text-align:center">内存增长</th>
+<th style="text-align:center">Win内存（权重）</th>
+<th style="text-align:center">内存（权重）增长</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">$F(2,3)$</td>
 <td style="text-align:center">6</td>
-<td style="text-align:center">4(4)</td>
-<td style="text-align:center">1.50</td>
+<td style="text-align:center">4</td>
 <td style="text-align:center">1.50</td>
 <td style="text-align:center">3</td>
 <td style="text-align:center">4</td>
@@ -557,9 +566,8 @@
 <tr>
 <td style="text-align:center">$F(4,3)$</td>
 <td style="text-align:center">12</td>
-<td style="text-align:center">12(6)</td>
+<td style="text-align:center">6</td>
 <td style="text-align:center">2.00</td>
-<td style="text-align:center"><font color="red">1.00</font></td>
 <td style="text-align:center">3</td>
 <td style="text-align:center">6</td>
 <td style="text-align:center">2.00</td>
@@ -567,9 +575,8 @@
 <tr>
 <td style="text-align:center">$F(6,3)$</td>
 <td style="text-align:center">18</td>
-<td style="text-align:center">28(8)</td>
+<td style="text-align:center">8</td>
 <td style="text-align:center">2.25</td>
-<td style="text-align:center"><font color="red">0.64</font></td>
 <td style="text-align:center">3</td>
 <td style="text-align:center">8</td>
 <td style="text-align:center">2.67</td>
@@ -577,8 +584,7 @@
 <tr>
 <td style="text-align:center">堆$F(2\times2,3\times3)$</td>
 <td style="text-align:center">36</td>
-<td style="text-align:center">24(24)</td>
-<td style="text-align:center">1.50</td>
+<td style="text-align:center">24</td>
 <td style="text-align:center">1.50</td>
 <td style="text-align:center">9</td>
 <td style="text-align:center">12</td>
@@ -587,9 +593,8 @@
 <tr>
 <td style="text-align:center">堆$F(4\times4,3\times3)$</td>
 <td style="text-align:center">144</td>
-<td style="text-align:center">126(72)</td>
+<td style="text-align:center">72</td>
 <td style="text-align:center">2.00</td>
-<td style="text-align:center">1.14</td>
 <td style="text-align:center">9</td>
 <td style="text-align:center">18</td>
 <td style="text-align:center">2.00</td>
@@ -597,9 +602,8 @@
 <tr>
 <td style="text-align:center">堆$F(6\times6,3\times3)$</td>
 <td style="text-align:center">324</td>
-<td style="text-align:center">396(144)</td>
+<td style="text-align:center">144</td>
 <td style="text-align:center">2.25</td>
-<td style="text-align:center"><font color="red">0.82</font></td>
 <td style="text-align:center">9</td>
 <td style="text-align:center">24</td>
 <td style="text-align:center">2.67</td>
@@ -607,8 +611,7 @@
 <tr>
 <td style="text-align:center">嵌$F(2\times2,3\times3)$</td>
 <td style="text-align:center">36</td>
-<td style="text-align:center">16(16)</td>
-<td style="text-align:center">2.25</td>
+<td style="text-align:center">16</td>
 <td style="text-align:center">2.25</td>
 <td style="text-align:center">9</td>
 <td style="text-align:center">16</td>
@@ -617,9 +620,8 @@
 <tr>
 <td style="text-align:center">嵌$F(4\times4,3\times3)$</td>
 <td style="text-align:center">144</td>
-<td style="text-align:center">48(36)</td>
+<td style="text-align:center">36</td>
 <td style="text-align:center">4.00</td>
-<td style="text-align:center">3.00</td>
 <td style="text-align:center">9</td>
 <td style="text-align:center">36</td>
 <td style="text-align:center">4.00</td>
@@ -627,23 +629,20 @@
 <tr>
 <td style="text-align:center">嵌$F(6\times6,3\times3)$</td>
 <td style="text-align:center">324</td>
-<td style="text-align:center">102(64)</td>
+<td style="text-align:center">64</td>
 <td style="text-align:center">5.06</td>
-<td style="text-align:center">3.18</td>
 <td style="text-align:center">9</td>
 <td style="text-align:center">64</td>
 <td style="text-align:center">7.11</td>
 </tr>
 </tbody>
 </table>
-<p><em>以上数据是我自己手推的，可能有不正确的地方，欢迎指正~</em>      </p>
 <ul>
-<li><code>Win乘法次数</code>列括号内表示不考虑变换产生的乘法运算（即仅考虑点乘的乘法）     </li>
-<li>注意，在$V = B^{T} d B$和$Y = A^T M A$的计算过程中，$A^T$或$B^T$矩阵内元素绝对值相同的乘法运算其实是可以合并的</li>
 <li>从理论的乘法加速比来看（只考虑点乘的乘法），Winograd都有相当理想的加速效果，嵌套实现的$F(6\times6,3\times3)$甚至有5.06倍的加速</li>
-<li>但考虑到$V = B^{T} d B$和$Y = A^T M A$的计算过程中也有大量的乘法，实际乘法加速效果并没有那么高，嵌套实现的$F(6\times6,3\times3)$其实也只有3.12倍的加速效果；$F(6,3)$和堆叠实现的$F(6\times6,3\times3)$反而出现明显的减速；     </li>
+<li>考虑到$V = B^{T} d B$和$Y = A^T M A$的计算过程中也有大量的乘法，实际乘法加速效果并没有那么高，但变换过程中带来的额外代价会被输入通道、输出通道所平摊     </li>
 <li>$F(2,3)$和$F(2\times2, 3\times3)$非常有意思，其$A^T$矩阵和$B^T$矩阵的元素均为$[0,1,-1]$——也就是说在变换过程中不会产生额外的乘法开销</li>
 <li>从额外的内存开销上来看（仅考虑参数占用的内存），二维大于一维、嵌套实现大于堆叠实现</li>
+<li>从加速效果上看，二维大于一维、嵌套实现大于堆叠实现</li>
 <li>尽管$V = B^{T} d B$和$Y = A^T M A$的计算过程中也有大量的乘法，但观察可以发现$F(4,3)$和$F(6,3)$的$A^T$矩阵和$B^T$中有相当多的元素恰好是$2^n$，也就是说，用Winograd计算量化的卷积应该会有神奇的加成（<em>对浮点运算来说，能否直接通过对指数部分做加法实现？？</em>）    </li>
 </ul>
 <h3 id="Winograd卷积"><a href="#Winograd卷积" class="headerlink" title="Winograd卷积"></a>Winograd卷积</h3><p>以上介绍了一维和二维的Winograd算法，但实际在神经网络的特征图却通常都是三维的，没法直接往上套。不过前文在介绍二维Winograd的时候，我们除了嵌套之外还用了堆叠一维Winograd来达到二维Winograd的结果，同样的也可以用堆叠的二维Winograd来将其应用到三维的卷积当中。    </p>
