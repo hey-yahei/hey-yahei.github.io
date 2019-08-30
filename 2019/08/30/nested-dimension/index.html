@@ -50,7 +50,7 @@
     
     <title>
         
-            漫谈卷积层 | 
+            从嵌套的角度理解张量 | 
         
         Hey~YaHei!
     </title>
@@ -222,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Hey~YaHei!">
-    <meta name="msapplication-starturl" content="https://hey-yahei.cn/2019/03/28/Conv-Family/">
+    <meta name="msapplication-starturl" content="https://hey-yahei.cn/2019/08/30/nested-dimension/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Hey~YaHei!">
@@ -241,16 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://hey-yahei.cn/2019/03/28/Conv-Family/">
+    <meta property="og:url" content="https://hey-yahei.cn/2019/08/30/nested-dimension/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="漫谈卷积层 | Hey~YaHei!">
+    <meta property="og:title" content="从嵌套的角度理解张量 | Hey~YaHei!">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Thu Mar 28 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 23 2019 16:36:13 GMT+0800">
+        <meta property="article:published_time" content="Fri Aug 30 2019 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 30 2019 10:37:45 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,7 +258,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://hey-yahei.cn/2019/03/28/Conv-Family/index.html" />
+        <link rel="canonical" href="https://hey-yahei.cn/2019/08/30/nested-dimension/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -270,10 +270,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://hey-yahei.cn/2019/03/28/Conv-Family/index.html",
-    "headline": "漫谈卷积层",
-    "datePublished": "Thu Mar 28 2019 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 23 2019 16:36:13 GMT+0800",
+    "mainEntityOfPage": "https://hey-yahei.cn/2019/08/30/nested-dimension/index.html",
+    "headline": "从嵌套的角度理解张量",
+    "datePublished": "Fri Aug 30 2019 00:00:00 GMT+0800",
+    "dateModified": "Fri Aug 30 2019 10:37:45 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -357,7 +357,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标准卷积（Standard-Convolution）"><span class="post-toc-number">2.</span> <span class="post-toc-text">标准卷积（Standard Convolution）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过程和原理"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">过程和原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数和计算量"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">参数和计算量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#卷积核大小"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">卷积核大小</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#卷积的计算原理"><span class="post-toc-number">3.</span> <span class="post-toc-text">卷积的计算原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接卷积的潜在问题"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">直接卷积的潜在问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#im2col"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">im2col</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#高效卷积"><span class="post-toc-number">4.</span> <span class="post-toc-text">高效卷积</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分组卷积（Groupwise-Convolution）"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">分组卷积（Groupwise Convolution）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深度向卷积分解（Depthwise-Separable-Convolution）"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">深度向卷积分解（Depthwise Separable Convolution）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异构卷积（HetConv）"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">*异构卷积（HetConv）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他卷积变种"><span class="post-toc-number">5.</span> <span class="post-toc-text">其他卷积变种</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#空洞卷积"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">空洞卷积</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变形卷积"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">变形卷积</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#C语言的数组"><span class="post-toc-number">1.</span> <span class="post-toc-text">C语言的数组</span></a></li></ol>
     </ul>
     
 
@@ -389,7 +389,7 @@
         
     
             <p class="article-headline-p">
-                漫谈卷积层
+                从嵌套的角度理解张量
             </p>
         </div>
 
@@ -408,7 +408,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>YaHei</strong>
-        <span>3月 28, 2019</span>
+        <span>8月 30, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -440,7 +440,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=漫谈卷积层&url=https://hey-yahei.cn/2019/03/28/Conv-Family/index.html&pic=https://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=从嵌套的角度理解张量&url=https://hey-yahei.cn/2019/08/30/nested-dimension/index.html&pic=https://hey-yahei.cn/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -461,7 +461,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=漫谈卷积层&summary=&pics=https://hey-yahei.cn/img/favicon.png&url=https://hey-yahei.cn/2019/03/28/Conv-Family/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hey~YaHei!&title=从嵌套的角度理解张量&summary=&pics=https://hey-yahei.cn/img/favicon.png&url=https://hey-yahei.cn/2019/08/30/nested-dimension/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -480,119 +480,14 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=760533&auto=0&height=32"></iframe>         
-
-<p>去年刚入手深度学习的时候写过一篇《<a href="/2018/04/18/CNN/">卷积神经网络CNN | Hey~YaHei!</a>》，简单介绍过卷积层——不过经过一年的学习和实践，对卷积又有了新的认识，原本讲道理应该直接更新修改去年的那篇博文的。但是那篇博文涉及面较广，不单单讲卷积，而且之后还写过几篇引用了那篇博文的内容，拾起来魔改似乎会打乱博客的结构，想想还是新开一篇，希望各位看官别嫌弃我炒冷饭。       </p>
-<p>本文要点：    </p>
-<ol>
-<li>提出卷积层的背景；</li>
-<li>标准卷积的过程和原理；</li>
-<li>标准卷积的计算原理（im2）；</li>
-<li>高效卷积：分组卷积、深度向分解卷积、点向卷积；</li>
-<li>其他卷积的变种：空洞卷积和变形卷积</li>
-</ol>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>参考：《<a href="https://book.douban.com/subject/26840215/" target="_blank" rel="noopener">Hands-On Machine Learning with Scikit-Learn and TensorFlow</a>》Chap13       </p>
-<p>卷积的起源有点仿生的味道，这基于生理心理学上的研究，人在感知视觉的时候具有     </p>
-<ol>
-<li><strong>层次性</strong>，底层的视神经往往能感知简单的图像结构，随着层次的提高，高层的视神经可以感知到更加抽象的图形结构最后乃至图形的概念。举个栗子，最底层的视神经能够感知简单的点，随着层次的提高，逐渐能感受线、简单的线段组合、乃至有概念的图像如鱼、房子等；       <center><img width="600" src="/imgs/Conv-Family/bg-hierachy.png"></center>     </li>
-<li><strong>局部性</strong>，视神经具备有限的感受野，能够将注意力集中的视觉上的局部区域，感受野随着神经网络的深入逐步扩大；     <center><img width="400" src="/imgs/Conv-Family/bg-local.png"></center>     
-
-</li>
-</ol>
-<h2 id="标准卷积（Standard-Convolution）"><a href="#标准卷积（Standard-Convolution）" class="headerlink" title="标准卷积（Standard Convolution）"></a>标准卷积（Standard Convolution）</h2><p>参考：    </p>
+        <p>我们通常称呼一维张量为“向量”，用一条线来抽象它；称呼二维张量为“矩阵”，用一个平面来抽象它；而三维张量也可以用一个立方体来抽象它——我们所生活的世界是一个三维的世界，理解一维、二维、三维的对象自然是得心应手，但有时候也不得不面对更加高维的数据结构，这时候该怎么理解它们呢？本文将试图从嵌套的角度入手，用低维张量嵌套的形式来辅助理解高维张量。      </p>
+<h3 id="C语言的数组"><a href="#C语言的数组" class="headerlink" title="C语言的数组"></a>C语言的数组</h3><p>众所周知，内存的排列是一维的，C语言本身也不存在真实的高维数组，我们通常用“数组的数组”这种形式来描述一个高维的数组。比如    </p>
 <ul>
-<li>《<a href="/2018/04/18/CNN/#卷积层（Conv）">卷积神经网络CNN - 卷积层（Conv）| Hey~YaHei!</a>》     </li>
-<li>《<a href="/2019/01/07/MXNet-OpSummary/#卷积">模型参数与计算量 - 卷积 | Hey~YaHei!</a>》</li>
-<li>《<a href="https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q" target="_blank" rel="noopener">卷积神经网络——深度学习实践手册(2017.05)</a>》      </li>
+<li><code>int a[2]</code>定义了两个元素，它们组成一个数组a，也可以看成一个向量；</li>
+<li><code>int b[3][2]</code>定义了三个数组组成了一个“数组的数组”b，这里的b可以看成一个矩阵；</li>
+<li>同理，<code>int c[4][3][2]</code>就可以看成一个三维的张量       </li>
 </ul>
-<h3 id="过程和原理"><a href="#过程和原理" class="headerlink" title="过程和原理"></a>过程和原理</h3><p>卷积层并不是使用严格数学意义的卷积运算，而是使用保留卷积性质但抛弃可交换性的互相关函数；<br><em>卷积运算具有可交换性，这在数学证明上是很有用的，但在神经网络的应用中却是一个比较鸡肋的性质</em><br>卷积操作选用一定大小的卷积核（下图黄色区域）在原始数据上移动，与重合部分数据做乘和运算；<br>依次类推，最终输出一张特征图（Feature Map）     </p>
-<center><img width="400" src="/Handson-ML/12Convolutional_Kernel.gif"></center>       
-
-<p>卷积核的作用相当一个滤波器，其参数是经过学习得到的，可以用于提取图片中的特征；<br>由于核参数是随机初始化的，所以它们很可能会提取出不同的特征；<br>由低层的卷积层提取简单特征，然后逐层堆叠卷积层，将简单特征逐渐抽象为更高层次的语义概念；      </p>
-<h3 id="参数和计算量"><a href="#参数和计算量" class="headerlink" title="参数和计算量"></a>参数和计算量</h3><p>首先考虑一个单通道输入输出，输出图大小为 $m_o \times n_o$，核大小为 $k_m \times k_n$，带偏置，步长1，不补零的卷积，       </p>
-<p><center><img height="300" src="/imgs/MXNet-OpSummary/convolution.gif"></center><br>$$<br>\begin{aligned} O _ { 11 } = &amp; w _ { 11 } I _ { 11 } + w _ { 12 } I _ { 12 } + w _ { 13 } I _ { 13 } + \\ &amp; w _ { 21 } I _ { 21 } + w _ { 22 } I _ { 22 } + w _ { 23 } I _ { 23 } + \\ &amp; w _ { 31 } I _ { 31 } + w _ { 32 } I _ { 32 } + w _ { 33 } I _ { 33 } + b \end{aligned}<br>$$<br>其参数数量为 $k_m \times k_n + 1$，乘加次数为 $m_o \times n_o \times k_m \times k_n$。       </p>
-<p>推广到$c_i$通道输入，$c_o$通道输出的情况，<br>其参数数量为 $(k_m \times k_n + 1) \times c_i \times c_o$，乘加次数为 $m_o \times n_o \times k_m \times k_n \times c_i \times c_o$。       </p>
-<h3 id="卷积核大小"><a href="#卷积核大小" class="headerlink" title="卷积核大小"></a>卷积核大小</h3><p>通常来说，大核卷积可以被多层小核卷积所替代；<br>比如用三层3x3卷积核的卷积层可以提取到一层7x7卷积核的卷积层一样的特征——<br><img src="/Handson-ML/12Multi_Conv_Layers.png" alt="12Multi_Conv_Layers"><br>而且，使用多层小核卷积层由以下优势：    </p>
-<ol>
-<li>减少参数<br> 7x7卷积核有 $7 \times 7 = 49$ 个参数，而三层3x3卷积核只有 $3 \times 3 \times 3 = 27$ 个参数      </li>
-<li>增加网络深度<br> 增加网络容量和复杂度    </li>
-</ol>
-<p>博文《<a href="/2019/02/28/bag-of-tricks2/#改进2：拆解大核卷积">深度学习小技巧（二）：模型微调 - 改进2：拆解大核卷积 | Hey~YaHei!</a>》也曾介绍过，改进版的Inception和ResNet目前都已经将7x7卷积层替换成了三层3x3卷积层的堆叠，这里就不再赘述。        </p>
-<h2 id="卷积的计算原理"><a href="#卷积的计算原理" class="headerlink" title="卷积的计算原理"></a>卷积的计算原理</h2><p>参考：《<a href="/2019/02/28/bag-of-tricks2/#高效的1x1卷积">深度学习小技巧（二）：模型微调 - 高效的1x1卷积 | Hey~YaHei!</a>》      </p>
-<p>卷积的计算方式可以分为两种——一是<strong>直接按照原理计算</strong>，二是采用<strong>im2col技术进行矩阵乘法</strong>；     </p>
-<h3 id="直接卷积的潜在问题"><a href="#直接卷积的潜在问题" class="headerlink" title="直接卷积的潜在问题"></a>直接卷积的潜在问题</h3><p>直接卷积非常直观易懂，但它对目前流行的计算设备来说极其不友好。     </p>
-<p>首先考虑3x3的单通道特征图，以及k2s1的卷积核——      </p>
-<div><center><img src="/imgs/bag-of-tricks/conv_raw.jpg" alt="conv_raw"></center></div>       
-
-<p>按照卷积计算，<br>$$y_{11} = w_{11}x_{11} + w_{12}x_{12} + w_{21}x_{21} + w_{22}x_{22}$$<br>$$y_{12} = w_{11}x_{12} + w_{12}x_{13} + w_{21}x_{22} + w_{22}x_{23}$$<br>$$y_{21} = w_{11}x_{21} + w_{12}x_{22} + w_{21}x_{31} + w_{22}x_{32}$$<br>$$y_{22} = w_{11}x_{22} + w_{12}x_{23} + w_{21}x_{32} + w_{22}x_{33}$$</p>
-<p>按照“行先序”，特征图和卷积核在内存中是这样排列的——       </p>
-<div><center><img src="/imgs/bag-of-tricks/conv_store.jpg" alt="conv_store"></center></div>       
-
-<p>我们用不同的颜色标注出卷积计算中的访存过程（相同颜色的数据相乘）——       </p>
-<div><center><img src="/imgs/bag-of-tricks/conv_access_ram.jpg" alt="conv_access_ram"></center></div>      
-
-<p>众所周知，由于程序的<strong>局部性原理</strong>（通常相邻代码段会访问相邻的内存块），现代处理器通常会按块从内存中读取数据到高速缓存中以缓解访存速度和计算速度的巨大差异导致的“<strong>内存墙</strong>”问题。换句话说，如果计算需要从内存中读取<code>x12</code>的数据，那么往往相邻的<code>x11</code>、<code>x13</code>等数据也会被一起读取到高速缓存上，当下次计算需要用到<code>x11</code>或<code>x13</code>时处理器就可以快速地从高速缓存中取出数据而不需要从内存中调取，大大提高了程序的速度。<br><em>注：L1缓存的读取速度是RAM的50-100倍！（数据来源：《<a href="https://book.douban.com/subject/7006537/" target="_blank" rel="noopener">计算机体系结构：量化研究方法</a>》）</em>       </p>
-<p>而从上边展示出来的访存过程中可以看到，直接对于特征图数据的访问过程十分散乱，直接用行先序存储的特征图参与计算是非常愚蠢的选择。      </p>
-<h3 id="im2col"><a href="#im2col" class="headerlink" title="im2col"></a>im2col</h3><p><center><img src="/imgs/bag-of-tricks/conv_im2col.png" alt="conv_im2col"></center><br>其实思路非常简单：把每一次循环所需要的数据都排列成列向量，然后逐一堆叠起来形成矩阵（按通道顺序在列方向上拼接矩阵）。<br>比如$C_i \times W_i \times H_i$大小的输入特征图，$K \times K$大小的卷积核，输出大小为$C_o \times W_o \times H_o$，<br>输入特征图将按需求被转换成$(K*K)\times(C_i*W_o*H_o)$的矩阵，卷积核将被转换成$C_o\times(K*K)$的矩阵，调用GEMM库两矩阵相乘也就完成了所谓的卷积计算。由于按照计算需求排布了数据顺序，每次计算过程中总是能够依次访问特征图数据，迎合了局部性原理，极大地提高了计算卷积的速度！     </p>
-<p>我用NDArry（<em>MXNet提供的一个类似numpy的数学计算库</em>）实现了一个基于im2col卷积层，除了支持基本的标准卷积外，还支持分组卷积以及量化卷积的模拟运算（int8权重、uint8输入、int32的累积）——<br>实现代码：<a href="https://github.com/hey-yahei/Quantization.MXNet/blob/master/nn/quantized_conv.py#L13" target="_blank" rel="noopener">Quantization.MXNet/nn/quantized_conv.py#L13 | github, hey-yahei</a><br>测试代码：<a href="https://github.com/hey-yahei/Quantization.MXNet/blob/master/tests/test_quantized_conv.py" target="_blank" rel="noopener">Quantization.MXNet/tests/test_quantized_conv.py | github, hey-yahei</a>        </p>
-<p>不过要注意的是，<strong>im2col也不一定就比直接卷积好</strong>！！     </p>
-<ol>
-<li>首先，im2col需要额外的数据重组过程，当一个卷积层非常小（主要是通道比较窄）的时候，直接卷积反而可能会比im2col快（尽管现代网络一般都会用比较宽的通道）；    </li>
-<li>im2col在重组数据的时候需要对数据产生大量的副本（约 $K^2$ 倍的内存占用）；</li>
-<li>当采用1x1卷积的时候，im2col和直接卷积的过程其实是等价的；      </li>
-<li>im2col的目的是迎合程序局部性原理，如果使用了定制化的硬件（比如用FPGA直接实现3x3的卷积运算单元），那么im2col就失去了意义而且反而增加了开销        </li>
-</ol>
-<p><em>卷积实现的方式还有很多，暂且只介绍im2col，之后有空会独立开一篇文章细谈。</em><br>《<a href="/2019/08/21/winograd_convolution/">Winograd卷积原理 | Hey~YaHei!</a>》      </p>
-<h2 id="高效卷积"><a href="#高效卷积" class="headerlink" title="高效卷积"></a>高效卷积</h2><p>早在去年的《<a href="/2018/08/05/MobileNets_v1">MobileNets v1模型解析 | Hey~YaHei!</a>》一文中，我们就分解了标准卷积的工作方式——      </p>
-<p>将普通卷积的过程分解为“滤波”和“组合”两个阶段——    </p>
-<div><center><img src="/imgs/MobileNet/traditional conv1.jpg" width="500"></center></div>     
-
-<p>如上图，<br><em>假设 $M$ 通道输入图 $I$ 大小为 $D_I \times D_I$，经过一个核大小 $D_K \times D_K$ 的卷积层，最终输出一张大小为 $D_O \times D_O$ 的 $N$ 特征图 $O$</em>         </p>
-<ol>
-<li>①阶段为“滤波”阶段，$N$ 个卷积核分别作用在图 $I$ 的每个通道上提取特征，最终输出 $N$ 张大小为 $D_O \times D_O$ 的单通道特征图；      </li>
-<li>②阶段为“组合”阶段，$N$ 张特征图堆叠组合起来，得到一张 $N$ 通道的特征图 $O$     </li>
-</ol>
-<p>更详细地，①过程还能进一步分解——<br><img src="/imgs/MobileNet/traditional conv2.jpg" alt="traditional conv2">   </p>
-<p>如上图，将①阶段进一步细分为 Ⅰ 到 Ⅳ 四个子阶段，     </p>
-<ol>
-<li>Ⅰ 阶段，将原图 $I$ 按通道分离成 $\{ I_1, I_2, …, I_M \}$ 的 $M$ 张单通道图；</li>
-<li>Ⅱ 阶段，用M个卷积核 $K_m$ 对各个单通道图提取特征，分别得到一张大小为 $D_O \times D_O$ 的单通道特征图；</li>
-<li>Ⅲ 阶段，对 Ⅱ 阶段输出的 $M$ 张单通道特征图按通道堆叠起来然后“拍扁”（沿通道方向作加法操作）,得到原图在该卷积核作用下的最终输出 $O_n$；</li>
-<li>Ⅳ 阶段，用另外 $N-1$ 个卷积核重复 Ⅱ 、 Ⅲ 阶段，得到 $N$ 张大小为 $D_O \times D_O$ 的单通道特征图   </li>
-</ol>
-<p>其中 Ⅲ 阶段野蛮地将 $M$ 张特征图拍扁成一张特征图，似乎显得不那么优雅且存在大量的冗余，于是开始有人研究如何让卷积过程变得高效，就出现了<strong>分组卷积</strong>和<strong>深度向分解卷积</strong>。       </p>
-<h3 id="分组卷积（Groupwise-Convolution）"><a href="#分组卷积（Groupwise-Convolution）" class="headerlink" title="分组卷积（Groupwise Convolution）"></a>分组卷积（Groupwise Convolution）</h3><p>分组卷积最初是《<a href="http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf" target="_blank" rel="noopener">ImageNet Classification with Deep Convolutional Neural Networks(2012)</a>》提出，作者最初是出于并行目的（作者有三张仅3G显存的GTX580）把网络拆解到多张显卡上进行训练。顾名思义，<strong><em>分组卷积是对输入通道进行分组，分别施加卷积，最后将卷积结果堆叠起来——也可以理解为将原来的一层卷积等分成若干并行的支路，最后再堆叠汇合</em></strong>。<br><img src="/imgs/Conv-Family/groupwise convolution.jpg" alt="groupwise convolution"><br>如图所示，传统卷积的 Ⅲ 被拆解成两部分（分组卷积示意图中的Ⅲ和Ⅳ），不再简单的拍扁成一张特征图，而是分成G组分别拍扁，最后堆叠得到G张特征图。这样做有两个好处：    </p>
-<ol>
-<li>传统卷积中Ⅲ阶段的输入包含Ⅱ阶段的所有输出，而分组卷积Ⅲ阶段被分割为G组，每组的输入都是独立的——简而言之，Ⅲ阶段可以分散到多个不同的计算设备上完成而不需要频繁的通信（最终Ⅳ阶段再汇总到主设备上，甚至可以暂存在不同设备上，数据汇总推迟到Ⅴ阶段）<br><em>不过目前主流框架似乎没有针对分组卷积做充分的优化，而是简单地对输入、卷积核分组，然后逐一使用标准卷积来实现；一般使用分组卷积的时候也就分个两三组，问题倒是不大，不过到了把分组做到极致的深度向卷积，这个问题就凸显出来，在GPU上专门优化过的深度向卷积要比用分组方式实现的卷积快10倍左右，而CPU并行能力有限，这一问题并不明显，这一点早前已经在《<a href="/2018/08/24/mssd-try2/#Depthwise-Convolution和Standard-Convolution-Group-的比较">基于MobileNet-SSD的目标检测Demo（一） | Hey~YaHei!</a>》一文中有所提及。</em>      </li>
-<li>参数数量和乘加次数均下降为标准卷积的1/G         </li>
-</ol>
-<p>简单的实现方法可以参考我的 <a href="https://github.com/hey-yahei/Quantization.MXNet/blob/master/nn/quantized_conv.py#L57" target="_blank" rel="noopener">Quantization.MXNet/nn/quantized_conv.py#L57 | github, hey-yahei</a>。     </p>
-<h3 id="深度向卷积分解（Depthwise-Separable-Convolution）"><a href="#深度向卷积分解（Depthwise-Separable-Convolution）" class="headerlink" title="深度向卷积分解（Depthwise Separable Convolution）"></a>深度向卷积分解（Depthwise Separable Convolution）</h3><p>标准卷积同时聚合了所有通道信息和所有空间信息，分组卷积则同时聚合了所有通道信息和部分空间信息，深度向卷积分解直接割裂了通道信息和空间信息的聚合过程，从形式上看则将标准卷积分解为一次深度向卷积和一次点向卷积——<br><img src="/imgs/MobileNet/depthwise conv.jpg" alt="depthwise conv">   </p>
-<ol>
-<li><strong>滤波Depthwise Convolution</strong><br>这一过程又称为深度向卷积（Depthwise Convoluon），是分组卷积的一种特例（每个通道作为一组）；<br>①、②阶段与标准卷积①阶段的前两个阶段完全相同，③阶段比标准卷积①阶段的第三个阶段少了一个“拍扁”的过程，直接堆叠形成一张 $M$ 通道的特征图；       </li>
-<li><strong>组合Pointwise Convolution</strong><br>这一过程称又称为点向卷积（Pointwise Convolution）；<br>④阶段用 $N$ 个 $1 \times 1$ 卷积核将特征图从 $M$ 维空间线性映射到 $N$ 维空间上         </li>
-</ol>
-<p>此时参数数量和乘加次数均下降为标准卷积的 $\frac{1}{D_K^2} + \frac{1}{N}$，不仅如此，由于深度向卷积分解中有 $\frac{N}{D_K^2 +N}$ 的乘加计算集中在1x1卷积上，而通常 $N&gt;&gt;D_K^2$ 也即绝大多数乘加计算由1x1卷积贡献（比如Mobilenet中有94.86%的乘加计算集中在1x1卷积上），所以其计算效率是非常高的。         </p>
-<h3 id="异构卷积（HetConv）"><a href="#异构卷积（HetConv）" class="headerlink" title="*异构卷积（HetConv）"></a>*异构卷积（HetConv）</h3><p>论文：《<a href="https://arxiv.org/pdf/1903.04120.pdf" target="_blank" rel="noopener">HetConv: Heterogeneous Kernel-Based Convolutions for Deep CNNs(2019)</a>》<br>印度三哥提出来的一种卷积形式，论文里的实验结果非常可观，但似乎没啥影响力（有人说三哥论文数据爱造假？），作者没有开源也没见人复现过，姑且再放着看看吧。      </p>
-<p><center><img src="/imgs/Conv-Family/HetConv.jpg" alt="HetConv"></center><br>思路倒也简单，有点不定长数组的味道。     </p>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>高效卷积具有较强的特征提取效率、较高的并行能力，基于这些特点，高效卷积通常被应用于两种场合：     </p>
-<ol>
-<li>注重<strong>速度</strong>，搭建参数数量、乘加次数均比较少的网络，如MobileNet等；    </li>
-<li>注重<strong>性能</strong>，用高效卷积替代标准卷积的同时扩张卷积的数量（直到接近标准卷积的规模），如Xception、ResNeXt等       </li>
-</ol>
-<h2 id="其他卷积变种"><a href="#其他卷积变种" class="headerlink" title="其他卷积变种"></a>其他卷积变种</h2><h3 id="空洞卷积"><a href="#空洞卷积" class="headerlink" title="空洞卷积"></a>空洞卷积</h3><p>论文：《<a href="https://arxiv.org/pdf/1511.07122.pdf" target="_blank" rel="noopener">Multi-scale Context Aggregation by Dilated Convolutions(2015)</a>》    </p>
-<p>为卷积核增加空洞来扩大感受野，比如      </p>
-<ul>
-<li>3x3的卷积，增加1的空洞，可以在不增加参数数量和运算量的情况下，取得等同5x5卷积的感受野；    </li>
-<li>同理，3x3的卷积，增加2的空洞，可以取得等同7x7卷积的感受野       </li>
-</ul>
-<div><center><img src="/imgs/Conv-Family/Dilated Convolution.jpg" alt="Dilated Convolution"></center></div>       
-
-<p>简而言之，就是通过牺牲卷积的“分辨率”，来获取更大的“视野”；<br>原理很简单，却很有效，目前广泛应用在语义分割领域。       </p>
-<h3 id="变形卷积"><a href="#变形卷积" class="headerlink" title="变形卷积"></a>变形卷积</h3><p>论文：《<a href="https://arxiv.org/pdf/1703.06211.pdf" target="_blank" rel="noopener">Deformable Convolutional Networks(2017)</a>》     </p>
-<p>这两年特别火的一种卷积，利用一个辅助的标准卷积根据input拟合出offset，然后根据offset在input上进行带偏移的采样，最后施加卷积运算——与名字不同，并不是对卷积核进行变形，而是对采样点进行偏移。       </p>
-<p><div><center><img src="/imgs/Conv-Family/Deformable Convolution.jpg" alt="Deformable Convolution"></center></div><br>这种卷积广泛存在于各种目标检测、语义分割比赛的冠军方案中。     </p>
+<p>事实上，C语言的高维数组定义方式是一种嵌套定义——<br>记将元素排列组成数组的操作为$\alpha$，那么对于元素$a_1$, $a_2$，$A = \alpha (a_1, a_2)$就组成了一个数组；    </p>
 
         
     
@@ -635,21 +530,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/05/22/zte_challenge_preliminary/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2019/03/21/Tengine-libfacedetection/" id="post_nav-older" class="next-content">
+        <a href="/2019/08/23/winograd_quantize/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
