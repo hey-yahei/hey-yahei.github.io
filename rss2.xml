@@ -8,8 +8,48 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 30 Aug 2019 03:09:25 GMT</pubDate>
+    <pubDate>Fri, 20 Sep 2019 03:14:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Winograd数学原理【卡住了=。=】</title>
+      <link>https://hey-yahei.cn/2019/09/18/winograd_theorem/</link>
+      <guid>https://hey-yahei.cn/2019/09/18/winograd_theorem/</guid>
+      <pubDate>Tue, 17 Sep 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;早前《&lt;a href=&quot;/2019/08/21/winograd_convolution/&quot;&gt;Winograd卷积原理 | Hey~YaHei!&lt;/a&gt;)》一文已经介绍过Winograd的卷积原理，但有些细节似乎尚不明确——    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Winograd为何能够奏效？&lt;/li&gt;
+&lt;li&gt;它背后的数学原理是什么？&lt;/li&gt;
+&lt;li&gt;变换矩阵如何得到？   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文将借鉴《&lt;a href=&quot;https://zhuanlan.zhihu.com/p/82482351&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;源于《孙子算经》的Cudnn | 知乎, Silicon Valley&lt;/a&gt;》和《&lt;a href=&quot;https://github.com/andravin/wincnn/blob/master/2464-supp.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;wincnn/2464-supp.pdf | github, andravin&lt;/a&gt;》，深入剖析Winograd背后的数学原理。    &lt;/p&gt;
+&lt;h3 id=&quot;中国同余定理&quot;&gt;&lt;a href=&quot;#中国同余定理&quot; class=&quot;headerlink&quot; title=&quot;中国同余定理&quot;&gt;&lt;/a&gt;中国同余定理&lt;/h3&gt;&lt;p&gt;Winograd的基础来源于《孙子算经》中的中国同余定理（Chinese Remainder Theorem），同余定理是数论的重要内容（没学过数论的我，要读懂这个数学原理真的有些头疼QAQ）。&lt;/p&gt;
+&lt;h4 id=&quot;《孙子算经》&quot;&gt;&lt;a href=&quot;#《孙子算经》&quot; class=&quot;headerlink&quot; title=&quot;《孙子算经》&quot;&gt;&lt;/a&gt;《孙子算经》&lt;/h4&gt;&lt;p&gt;《孙子算经》有一章：    &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二，问物几何？&lt;br&gt;答曰：二十三。&lt;br&gt;术曰：三三数之剩二，置一百四十；五五数之剩三，置六十三，七七数之剩二，置三十，并之。得二百三十三，以二百一十减之，即得。凡三三数之剩一，则置七十；五五数之剩一，则置二十一；七七数之剩一，则置十五；一百六以上以一百五减之即得。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;改用数学语言描述一下：    &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;问题：已知同余方程组&lt;br&gt;$$\begin{cases} x \equiv 2(mod\ 3) \\ x \equiv 3(mod\ 5) \\ x \equiv 2(mod\ 7) \end{cases}$$&lt;br&gt;求x？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其中，$x \equiv a(mod\ m)$称为&lt;strong&gt;x与a模m同余&lt;/strong&gt;，当$a &amp;lt; m$时，可以认为x模m余a；       &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解答：&lt;br&gt;$m_1 = 2 \times 70 = 140$&lt;br&gt;$m_2 = 3 \times 21 = 63$&lt;br&gt;$m_3 = 2 \times 15 = 30$&lt;br&gt;$x = (m_1 + m_2 + m_3)\ mod\ 105 = 23$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;看到这，没读过数论的我感到十分震惊——为啥拿着余数乘几个数，最后加起来模一模怎么就可以推出被模的数呢？？&lt;/em&gt;     
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/09/18/winograd_theorem/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>从嵌套的角度理解张量</title>
