@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://hey-yahei.cn/2018/10/13/RasPi-Tengine/</loc>
+    <lastmod>2019-10-16T02:53:43.462Z</lastmod>
+  </url>  <url>
     <loc>https://hey-yahei.cn/2019/09/18/winograd_theorem/</loc>
     <lastmod>2019-09-20T06:21:51.441Z</lastmod>
   </url>  <url>
@@ -18,9 +21,6 @@
   </url>  <url>
     <loc>https://hey-yahei.cn/2019/07/23/Quantization/</loc>
     <lastmod>2019-07-25T03:32:46.224Z</lastmod>
-  </url>  <url>
-    <loc>https://hey-yahei.cn/2018/10/13/RasPi-Tengine/</loc>
-    <lastmod>2019-07-24T08:42:57.257Z</lastmod>
   </url>  <url>
     <loc>https://hey-yahei.cn/2019/07/24/MobileNet-Family/</loc>
     <lastmod>2019-07-24T08:31:15.567Z</lastmod>

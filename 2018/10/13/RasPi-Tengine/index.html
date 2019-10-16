@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat Oct 13 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jul 24 2019 16:42:57 GMT+0800">
+        <meta property="article:modified_time" content="Wed Oct 16 2019 10:53:43 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2018/10/13/RasPi-Tengine/index.html",
     "headline": "树莓派也能玩转深度学习——Tengine推断引擎",
     "datePublished": "Sat Oct 13 2018 00:00:00 GMT+0800",
-    "dateModified": "Wed Jul 24 2019 16:42:57 GMT+0800",
+    "dateModified": "Wed Oct 16 2019 10:53:43 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -539,10 +539,7 @@
 </code></pre>
 可以看到对一张照片进行目标检测，总共耗时1148.32ms<br><img src="/imgs/RasPi-Tengine/mssd-opensource.png" alt="mssd-opensource">     </li>
 </ol>
-<h3 id="树莓派开发者版Tengine"><a href="#树莓派开发者版Tengine" class="headerlink" title="树莓派开发者版Tengine"></a>树莓派开发者版Tengine</h3><p>最近 <a href="http://www.openailab.com/" target="_blank" rel="noopener">Open AI Lab公司</a> 和 <a href="http://www.cbeis.zju.edu.cn/" target="_blank" rel="noopener">浙江大学生物医学工程与仪器科学学院</a> 在嵌入式人工智能领域上开展了教学合作，公司为学院提供了速度更快的针对armv7优化的Tengine版本用于教学用途，接下来让我们看看这个树莓派开发者版的Tengine到底有多快吧！     </p>
-<font color="red"><strong><em><br>预编译的教育版的版本已经比较老，不再适用当前的开源版版本，建议使用开发者版——填写《<a href="https://v.eqxiu.cn/s/YJ2EYiLt?eqrcode=1&amp;share_level=1&amp;from_user=2c36f266-b758-49c8-93e4-f007ff48356f&amp;from_id=201903224d37f2e3&amp;share_time=1553223057579&amp;from=singlemessage" target="_blank" rel="noopener">Tengine AIoT应用征集大赛邀请函</a>》OpenAILab会将开发者版发送至你的邮箱。
-</em></strong></font>            
-
+<h3 id="树莓派开发者版Tengine"><a href="#树莓派开发者版Tengine" class="headerlink" title="树莓派开发者版Tengine"></a>树莓派开发者版Tengine</h3><p>开发者版下载地址：<a href="http://www.tengine.org.cn/info.php?class_id=105105" target="_blank" rel="noopener">Tengine下载 - Tengine开发者中心</a>     </p>
 <ol>
 <li>用树莓派开发者版Tengine的动态链接库覆盖掉原先的开源版<br>动态链接库路径为：<code>Tengine/install/lib/libtengine.so</code><br><em>编译时，make会在build目录下产生libtengine.so动态链接库，而make instll将动态链接库、头文件等拷贝到install目录下</em><br><img src="/imgs/RasPi-Tengine/replace.png" alt="replace">      </li>
 <li>重新运行mobilenet-ssd的示例程序<br>可以看到，单帧耗时从1148.32ms下降为<strong>286.136ms</strong>，速度有了非常明显的提升！<br><img src="/imgs/RasPi-Tengine/mssd-education.png" alt="mssd-education"></li>
