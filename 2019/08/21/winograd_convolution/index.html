@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 21 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 29 2019 13:59:18 GMT+0800">
+        <meta property="article:modified_time" content="Wed Oct 23 2019 17:10:08 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/08/21/winograd_convolution/index.html",
     "headline": "Winograd卷积原理",
     "datePublished": "Wed Aug 21 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Aug 29 2019 13:59:18 GMT+0800",
+    "dateModified": "Wed Oct 23 2019 17:10:08 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -650,7 +650,7 @@
 <p>Winograd的卷积过程：<br><img src="/imgs/winograd/winograd_conv.gif" alt="winograd">      </p>
 <ol>
 <li>由于winograd要求每次都固定的输入大小（这里$tile=4$），所以需要pad到合适的大小    </li>
-<li>每次输入上取一个tile（这里每个tile的大小为$4 \times 4$）并变换成V，与U做哈达马乘积运算后再反变换得到一组输出（这里每组输出大小为$2 \times 2$），每个tile以$r$为间隔（这里为2）      </li>
+<li>每次输入上取一个tile（这里每个tile的大小为$4 \times 4$）并变换成V，与U做哈达马乘积运算后再反变换得到一组输出（这里每组输出大小为$2 \times 2$），每个tile以$m$为间隔（这里为2）      </li>
 <li>最后得到一个$4 \times 4$的输出，由于最后一行和最后一列的由pad元素多算出来的，所以剪掉他们得到$3 \times 3$的最终输出    </li>
 <li>这里演示的是如何用多次$F(2 \times 2, 3 \times 3)$完成单通道特征图的Winograd卷积，对于多通道的情况以此类推即可    </li>
 </ol>
