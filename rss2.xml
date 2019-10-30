@@ -8,8 +8,40 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Wed, 30 Oct 2019 06:45:13 GMT</pubDate>
+    <pubDate>Wed, 30 Oct 2019 09:26:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CondConv：按需定制的卷积权重</title>
+      <link>https://hey-yahei.cn/2019/10/30/CondConv/</link>
+      <guid>https://hey-yahei.cn/2019/10/30/CondConv/</guid>
+      <pubDate>Tue, 29 Oct 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=28178158&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;    
+
+
+&lt;p&gt;最近正巧在看条件计算的东西，发现今年Google Brain发了一篇思路清奇的论文《&lt;a href=&quot;https://arxiv.org/pdf/1904.04971v2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CondConv: Conditionally Parameterized Convolutions for Efficient Inference(2019NeurIPS)&lt;/a&gt;》，这思路简直让人拍案叫绝，只可惜这种模型需要重新定制卷积算子才能有效发挥它的作用，如果没有工业界的推动想必短期内很难产生实用价值吧。&lt;br&gt;先来说说论文的主要贡献：&lt;strong&gt;条件计算、集成技术、注意力机制三者间极为巧妙的结合！&lt;/strong&gt;         &lt;/p&gt;
+&lt;h3 id=&quot;条件计算&quot;&gt;&lt;a href=&quot;#条件计算&quot; class=&quot;headerlink&quot; title=&quot;条件计算&quot;&gt;&lt;/a&gt;条件计算&lt;/h3&gt;&lt;p&gt;如果是模型压缩是深度学习的一个边缘领域，那么条件计算一定是模型压缩里的边缘方向。如果你听过模型压缩，那你一定知道裁剪和量化，可能你还会知道一些紧凑网络的设计和知识蒸馏，但我打赌你十有八九没听过条件计算。      &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有一天我躺在床上睡觉，突然灵光一现——直观上讲，既然不同的layer乃至不同filter能提取出不同的特征，而对于不同的输入，我们所重视的特征必定也是不同的，是不是能设计出某个评估/预测模块从而智能地挑选合适layer、filter来计算而放弃无关layer、filter的计算呢？或者说当浅层特征足以完成推断，我们能不能提前从浅层特征图跳出而放弃后续深层特征的提取步骤呢？再或者，对于连续的视频流，有没有可能在浅层位置先预估出本帧图像的质量（比如有些视频流情况下我们不需要每一帧都做出准确推断的时候，能否提前中断来获取新的可能质量更好的一帧图像）从而判断是否放弃本帧图像的推断呢？      &lt;/p&gt;
+&lt;p&gt;这种思路似乎有些诡异，但又有些合理。正当我为自己“天才般”的想法沾沾自喜的时候，发现其实很早以前就有人研究过这类问题（好吧QAQ）——&lt;br&gt;第一种思路通常被称为条件计算（Conditional Computation），属于模型压缩里比较冷门的一个小方向；&lt;br&gt;第二种思路被称为提前终止（Early Stop），跟条件计算稍微有些类似；&lt;br&gt;第三种思路好像没看到相关文献，不过想想似乎有些麻烦，比如我该怎么评估一份特征图质量的“好坏”？？      &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单来说，&lt;strong&gt;&lt;em&gt;条件计算是构建一种动态的网络结构，每次推断的时候先由决策网络（或模块）根据模型输入（甚至每一层的输入）推断出所要使用网络部件，然后利用原始网络的一个子集完成实际的推断过程。&lt;/em&gt;&lt;/strong&gt;       &lt;/p&gt;
+&lt;p&gt;举几个典型的例子：      &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/10/30/CondConv/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>EfficientNet：模型设计新范式</title>
