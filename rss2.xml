@@ -8,8 +8,43 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 20 Sep 2019 06:21:51 GMT</pubDate>
+    <pubDate>Wed, 30 Oct 2019 06:45:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>EfficientNet：模型设计新范式</title>
+      <link>https://hey-yahei.cn/2019/10/30/EfficientNet/</link>
+      <guid>https://hey-yahei.cn/2019/10/30/EfficientNet/</guid>
+      <pubDate>Tue, 29 Oct 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=1354451040&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;唔~2019年的图像特征提取方面似乎有了可喜的发展，大家不再盲目地堆大模型，而是寻找更加高效的特征提取结构，在显著减小参数量和计算量的同时模型的表现还能得到提升。同时我们可以看到深度可分离卷积及其变种几乎已经成为主流——&lt;br&gt;&lt;img src=&quot;/imgs/EfficientNet/imagenet_sota.png&quot; alt=&quot;&quot;&gt;       &lt;/p&gt;
+&lt;p&gt;接下来我将分三次分别介绍今年Google Brain的几篇思路清奇的论文，首先是《&lt;a href=&quot;https://arxiv.org/pdf/1905.11946.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks(2019ICML)&lt;/a&gt;》。&lt;br&gt;该论文的主要贡献在于&lt;strong&gt;简化模型缩放流程，统合了宽度、深度、分辨率三个维度的缩放，建立起一个简单有效的联系&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;模型缩放&quot;&gt;&lt;a href=&quot;#模型缩放&quot; class=&quot;headerlink&quot; title=&quot;模型缩放&quot;&gt;&lt;/a&gt;模型缩放&lt;/h3&gt;&lt;p&gt;在设计好模型结构的情况下，我们通常可以通过对模型的缩放，以增大模型的大小来换取模型表现的提升，或以牺牲模型表现为代价换取模型大小的减小。最常用的缩放维度有三个——深度、宽度和输入分辨率   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深度&lt;/strong&gt;      &lt;ul&gt;
+&lt;li&gt;更深的网络往往能提取到更佳丰富和复杂的特征，并且有更强的泛化能力&lt;/li&gt;
+&lt;li&gt;但深层网络存在训练难的问题，尽管shortcut、BN等技术缓解了这一问题，但随着网络的加深边际收益依旧会明显变小&lt;/li&gt;
+&lt;li&gt;比如&lt;a href=&quot;/2018/05/02/经典的CNN分类架构/#ResNet&quot;&gt;ResNet18、ResNet34、ResNet50、ResNet101、ResNet152&lt;/a&gt;，其数字代表的是模型中卷积层和全连接层数量（不考虑shortcut上用于downsample的卷积）；&lt;a href=&quot;/2018/05/02/经典的CNN分类架构/#VGG-Nets&quot;&gt;VGG11、VGG13、VGG16、VGG19&lt;/a&gt;，其数字代表的是模型中卷积层和全连接层数量——这是一种典型的深度缩放    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;宽度&lt;/strong&gt;       &lt;ul&gt;
+&lt;li&gt;更宽的网络往往能提取更细粒度的特征，并且也更容易训练（同时足够宽的网络能够容许Dropout和BN技术兼容使用，比如WideResNet）&lt;/li&gt;
+&lt;li&gt;比如&lt;a
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2019/10/30/EfficientNet/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Winograd数学原理【卡住了&gt;_&lt;】</title>
@@ -1042,39 +1077,6 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
     </item>
     
     <item>
-      <title>梯度消失与梯度爆炸</title>
-      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
-      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;参考：     &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
-&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
-&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
-&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
-          
-        
-      
-      </description>
-      
-      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>Handson-ML</title>
       <link>https://hey-yahei.cn/2018/04/08/Handson-ML/</link>
       <guid>https://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
@@ -1106,6 +1108,39 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       </description>
       
       <comments>https://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>梯度消失与梯度爆炸</title>
+      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=668472&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;&lt;br&gt;BGM：&lt;strong&gt;《钢之炼金术师FA》OP1&lt;/strong&gt;&lt;br&gt;这个吉他混音版真是太棒了~       &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：     &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://book.douban.com/subject/26840215/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hands-On Machine Learning with Scikit-Learn and TensorFlow(2017)&lt;/a&gt;》Chap11&lt;br&gt; &lt;a href=&quot;/2018/04/08/Handson-ML/&quot;&gt;《Hands-On Machine Learning with Scikit-Learn and TensorFlow》笔记&lt;/a&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pan.baidu.com/s/1GF4yLtVphlwFS9by00Ns1Q&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;卷积神经网络——深度学习实践手册(2017.05)&lt;/a&gt;      &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;a href=&quot;#解决梯度爆炸和消失的常用技术&quot; class=&quot;headerlink&quot; title=&quot;解决梯度爆炸和消失的常用技术&quot;&gt;&lt;/a&gt;解决梯度爆炸和消失的常用技术&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;随机初始化（Xavier Initialization、He Initialization等）&lt;/li&gt;
+&lt;li&gt;使用nonsaturating函数（如relu）&lt;/li&gt;
+&lt;li&gt;批量归一化（Batch Normalization, BN）&lt;/li&gt;
+&lt;li&gt;梯度裁剪（Gradient Clipping）   &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Xavier-Initialization-Glorot-Initialization&quot;&gt;&lt;a href=&quot;#Xavier-Initialization-Glorot-Initialization&quot; class=&quot;headerlink&quot; title=&quot;Xavier Initialization(Glorot Initialization)&quot;&gt;&lt;/a&gt;Xavier Initialization(Glorot Initialization)&lt;/h3&gt;&lt;p&gt;论文：&lt;a href=&quot;http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Understanding the difficulty of training deep feedforward neural networks(2010)&lt;/a&gt;&lt;br&gt;作者Xavier建议：&lt;strong&gt;使每一层的输入输出的方差相等，而且正反向传播的梯度也相等&lt;/strong&gt;      
+          
+        
+      
+      </description>
+      
+      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>
