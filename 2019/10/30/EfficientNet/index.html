@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Oct 30 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Oct 30 2019 14:45:13 GMT+0800">
+        <meta property="article:modified_time" content="Thu Oct 31 2019 13:09:22 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/10/30/EfficientNet/index.html",
     "headline": "EfficientNet：模型设计新范式",
     "datePublished": "Wed Oct 30 2019 00:00:00 GMT+0800",
-    "dateModified": "Wed Oct 30 2019 14:45:13 GMT+0800",
+    "dateModified": "Thu Oct 31 2019 13:09:22 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -511,8 +511,78 @@
 <ol>
 <li>用NAS搜索出符合预期大小的一个小模型，这里作者设定了计算量目标为400MFLOPS，于是搜出了一个跟MNasNet类似的小模型B0<br> <center><img src="/imgs/EfficientNet/EfficientNetB0.png" alt=""></center><br> 这里的Operator沿用了MNasNet的命名方式，<code>MBConv1</code>指的是MobileNetv1的原版深度可分离卷积，<code>MBConv6</code>指的是MobileNetv2的反残差结构，不过作者在论文中指出这里使用的是带SE模块的反残差结构</li>
 <li>接下来通过网格搜索，找出满足$\alpha \cdot \beta^2 \cdot \gamma^2 \approx 2$的最优超参$\alpha, \beta, \gamma$，进而得到B1<br> 如作者搜索出来的结果为$\alpha=1.2, \beta=1.1, \gamma=1.15$，此时B1计算量约为800MFLOPS     </li>
-<li>按照混合缩放的公式，逐步增加$\phi$值，依次得到各种规模下的B2-B7</li>
+<li>按照混合缩放的公式，逐步增加$\phi$值，依次得到各种规模下的B2-B7      </li>
 </ol>
+<p><strong><a href="https://github.com/tensorflow/tpu/blob/master/models/official/efficientnet/efficientnet_builder.py#L36" target="_blank" rel="noopener">Tensorflow-EfficientNet</a>的预设值：</strong>    </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Model</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">d</th>
+<th style="text-align:center">r</th>
+<th style="text-align:center">dropout rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">B0</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">224</td>
+<td style="text-align:center">0.2</td>
+</tr>
+<tr>
+<td style="text-align:center">B1</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">1.1</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">0.2</td>
+</tr>
+<tr>
+<td style="text-align:center">B2</td>
+<td style="text-align:center">1.1</td>
+<td style="text-align:center">1.2</td>
+<td style="text-align:center">260</td>
+<td style="text-align:center">0.3</td>
+</tr>
+<tr>
+<td style="text-align:center">B3</td>
+<td style="text-align:center">1.2</td>
+<td style="text-align:center">1.4</td>
+<td style="text-align:center">300</td>
+<td style="text-align:center">0.3</td>
+</tr>
+<tr>
+<td style="text-align:center">B4</td>
+<td style="text-align:center">1.4</td>
+<td style="text-align:center">1.8</td>
+<td style="text-align:center">380</td>
+<td style="text-align:center">0.4</td>
+</tr>
+<tr>
+<td style="text-align:center">B5</td>
+<td style="text-align:center">1.6</td>
+<td style="text-align:center">2.2</td>
+<td style="text-align:center">456</td>
+<td style="text-align:center">0.4</td>
+</tr>
+<tr>
+<td style="text-align:center">B6</td>
+<td style="text-align:center">1.8</td>
+<td style="text-align:center">2.6</td>
+<td style="text-align:center">528</td>
+<td style="text-align:center">0.5</td>
+</tr>
+<tr>
+<td style="text-align:center">B7</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">3.1</td>
+<td style="text-align:center">600</td>
+<td style="text-align:center">0.5</td>
+</tr>
+</tbody>
+</table>
 <p>由此设计出来的模型有着相当惊人的特征提取效率，而且小模型的搜索空间比较小，更容易搜索出最优模型，搭配合理的模型缩放，放大后的模型甚至能比直接搜索的大模型更加有效——      </p>
 <p><center><img src="/imgs/EfficientNet/compare_graph.png" alt=""></center><br><img src="/imgs/EfficientNet/compare_table.png" alt="">    </p>
 
@@ -557,21 +627,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/10/30/CondConv/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2019/09/18/winograd_theorem/" id="post_nav-older" class="next-content">
+        <a href="/2019/10/30/CondConv/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
