@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Fri Nov 01 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Nov 01 2019 10:28:15 GMT+0800">
+        <meta property="article:modified_time" content="Fri Nov 01 2019 10:38:31 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/11/01/MixConv/index.html",
     "headline": "MixConv：混合感受野的深度可分离卷积",
     "datePublished": "Fri Nov 01 2019 00:00:00 GMT+0800",
-    "dateModified": "Fri Nov 01 2019 10:28:15 GMT+0800",
+    "dateModified": "Fri Nov 01 2019 10:38:31 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -499,7 +499,7 @@
 <p>这是一个典型的深度可分离卷积，它将标准卷积拆解成一个<code>num_groups==num_channels</code>的DW卷积和一个1x1卷积级联的形式，前者对输入进行特征提取，后者对提取的特征进行组合从而映射到目标空间上去。（具体过程可以参考《<a href="/2018/08/05/MobileNets_v1/#深度向卷积分解（Depthwise-Separable-Convolution）">MobileNets v1模型解析 - 深度向卷积分解 | Hey~YaHei!</a>》，此处就不再赘述）<br>深度可分离卷积的参数和计算量主要集中在负责组合特征的1x1卷积上（比如MobileNetv1就有<strong>94.86%</strong>的计算量和<strong>74.59%</strong>的参数量集中在1x1卷积上，而3x3的DW卷积仅仅贡献了<strong>3.06%</strong>的计算量和<strong>1.06%</strong>的参数量），<strong>混合感受野只需要也只能作用在DW卷积上，所以总的来说，即使将深度可分离卷积改造成混合感受野的形式，也不会带来明显的额外计算、存储代价。</strong>       </p>
 <h3 id="MixConv"><a href="#MixConv" class="headerlink" title="MixConv"></a>MixConv</h3><p>MixConv并不像inception对整个输入特征图分别采用不同大小的核进行卷积，而是延续DW卷积本身的特性，将特征图按通道分割为多个组，每组采取不同大小的核进行卷积，最后再连接起来。<br>比如一个<code>3x3</code>的DW卷积，转换成一个<code>3x3, 5x5, 7x7</code>组合的混合感受野DW卷积，<br><em>（请原谅我这老土的配色）</em><br><img src="/imgs/MixConv/MixConv.png" alt="">    </p>
 <ul>
-<li>如何对输入特征图进行分组？<br>  作者尝试了均匀划分和指数递增两种形式，<strong>均匀划分</strong>对不同大小的卷积核分配相同数量的通道，<strong>指数递增</strong>则考虑核大小对计算量的影响，将卷积按核大小排序（一般是采用3x3、5x5、7x7、9x9……），最小的核分得$n$通道，稍大的核分得$n \times 2^{-i}$通道。作者通过实验表明，指数递增的方案有更高效的特征提取效果          </li>
+<li>如何对输入特征图进行分组？<br>  作者尝试了均匀划分和指数递增两种形式，<strong>均匀划分</strong>对不同大小的卷积核分配相同数量的通道，<strong>指数递减</strong>则考虑核大小对计算量的影响，将卷积按核大小排序（一般是采用3x3、5x5、7x7、9x9……），最小的核分得$n$通道，稍大的核分得$n \times 2^{-i}$通道。作者通过实验表明，指数递减的方案有更高效的特征提取效果          </li>
 <li>空洞卷积尽管能用更小的代价获得大的感受野，但因为分辨率的减小，其效果不如直接的大核卷积     </li>
 <li>因为深度可分离卷积将滤波和组合两个阶段拆开，滤波阶段输出的特征图虽然会按照感受野的大小有规律的分隔开，但组合阶段又会将他们的结果混合起来，不用担心不同感受野产生的特征图信息不能流通     </li>
 </ul>
