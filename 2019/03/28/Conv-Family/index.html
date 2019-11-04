@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Mar 28 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Aug 23 2019 16:36:13 GMT+0800">
+        <meta property="article:modified_time" content="Mon Nov 04 2019 12:49:42 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/03/28/Conv-Family/index.html",
     "headline": "漫谈卷积层",
     "datePublished": "Thu Mar 28 2019 00:00:00 GMT+0800",
-    "dateModified": "Fri Aug 23 2019 16:36:13 GMT+0800",
+    "dateModified": "Mon Nov 04 2019 12:49:42 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -518,7 +518,7 @@
 <li>减少参数<br> 7x7卷积核有 $7 \times 7 = 49$ 个参数，而三层3x3卷积核只有 $3 \times 3 \times 3 = 27$ 个参数      </li>
 <li>增加网络深度<br> 增加网络容量和复杂度    </li>
 </ol>
-<p>博文《<a href="/2019/02/28/bag-of-tricks2/#改进2：拆解大核卷积">深度学习小技巧（二）：模型微调 - 改进2：拆解大核卷积 | Hey~YaHei!</a>》也曾介绍过，改进版的Inception和ResNet目前都已经将7x7卷积层替换成了三层3x3卷积层的堆叠，这里就不再赘述。        </p>
+<p>博文《<a href="/2019/02/28/bag-of-tricks2/#改进2：拆解大核卷积">深度学习小技巧（二）：模型微调 - 改进2：拆解大核卷积 | Hey~YaHei!</a>》也曾介绍过，改进版的Inception和ResNet目前都已经将7x7卷积层替换成了三层3x3卷积层的堆叠，这里就不再赘述。<br>长期以来，手工设计的网络都倾向于使用3x3这种小核卷积，但近期随着网络架构搜索的兴起，计算机越来越倾向于使用大核卷积（5x7、7x7乃至9x9和11x11），目前先进的特征提取器几乎不会单纯地使用3x3和1x1的小核卷积。     </p>
 <h2 id="卷积的计算原理"><a href="#卷积的计算原理" class="headerlink" title="卷积的计算原理"></a>卷积的计算原理</h2><p>参考：《<a href="/2019/02/28/bag-of-tricks2/#高效的1x1卷积">深度学习小技巧（二）：模型微调 - 高效的1x1卷积 | Hey~YaHei!</a>》      </p>
 <p>卷积的计算方式可以分为两种——一是<strong>直接按照原理计算</strong>，二是采用<strong>im2col技术进行矩阵乘法</strong>；     </p>
 <h3 id="直接卷积的潜在问题"><a href="#直接卷积的潜在问题" class="headerlink" title="直接卷积的潜在问题"></a>直接卷积的潜在问题</h3><p>直接卷积非常直观易懂，但它对目前流行的计算设备来说极其不友好。     </p>
@@ -543,7 +543,7 @@
 <li>当采用1x1卷积的时候，im2col和直接卷积的过程其实是等价的；      </li>
 <li>im2col的目的是迎合程序局部性原理，如果使用了定制化的硬件（比如用FPGA直接实现3x3的卷积运算单元），那么im2col就失去了意义而且反而增加了开销        </li>
 </ol>
-<p><em>卷积实现的方式还有很多，暂且只介绍im2col，之后有空会独立开一篇文章细谈。</em><br>《<a href="/2019/08/21/winograd_convolution/">Winograd卷积原理 | Hey~YaHei!</a>》      </p>
+<p>卷积实现的方式还有很多，这里暂且只介绍im2col，之后有空会独立开一篇文章细谈——<br>《<a href="/2019/08/21/winograd_convolution/">Winograd卷积原理 | Hey~YaHei!</a>》      </p>
 <h2 id="高效卷积"><a href="#高效卷积" class="headerlink" title="高效卷积"></a>高效卷积</h2><p>早在去年的《<a href="/2018/08/05/MobileNets_v1">MobileNets v1模型解析 | Hey~YaHei!</a>》一文中，我们就分解了标准卷积的工作方式——      </p>
 <p>将普通卷积的过程分解为“滤波”和“组合”两个阶段——    </p>
 <div><center><img src="/imgs/MobileNet/traditional conv1.jpg" width="500"></center></div>     
@@ -574,6 +574,7 @@
 <li><strong>组合Pointwise Convolution</strong><br>这一过程称又称为点向卷积（Pointwise Convolution）；<br>④阶段用 $N$ 个 $1 \times 1$ 卷积核将特征图从 $M$ 维空间线性映射到 $N$ 维空间上         </li>
 </ol>
 <p>此时参数数量和乘加次数均下降为标准卷积的 $\frac{1}{D_K^2} + \frac{1}{N}$，不仅如此，由于深度向卷积分解中有 $\frac{N}{D_K^2 +N}$ 的乘加计算集中在1x1卷积上，而通常 $N&gt;&gt;D_K^2$ 也即绝大多数乘加计算由1x1卷积贡献（比如Mobilenet中有94.86%的乘加计算集中在1x1卷积上），所以其计算效率是非常高的。         </p>
+<p>深度向分解卷积也出现了一些有意思的变种，比如混合感受野的<a href="/2019/11/01/MixConv/">MixConv</a>。         </p>
 <h3 id="异构卷积（HetConv）"><a href="#异构卷积（HetConv）" class="headerlink" title="*异构卷积（HetConv）"></a>*异构卷积（HetConv）</h3><p>论文：《<a href="https://arxiv.org/pdf/1903.04120.pdf" target="_blank" rel="noopener">HetConv: Heterogeneous Kernel-Based Convolutions for Deep CNNs(2019)</a>》<br>印度三哥提出来的一种卷积形式，论文里的实验结果非常可观，但似乎没啥影响力（有人说三哥论文数据爱造假？），作者没有开源也没见人复现过，姑且再放着看看吧。      </p>
 <p><center><img src="/imgs/Conv-Family/HetConv.jpg" alt="HetConv"></center><br>思路倒也简单，有点不定长数组的味道。     </p>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>高效卷积具有较强的特征提取效率、较高的并行能力，基于这些特点，高效卷积通常被应用于两种场合：     </p>
