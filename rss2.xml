@@ -477,8 +477,9 @@
 &lt;h2 id=&quot;以ResNet为例&quot;&gt;&lt;a href=&quot;#以ResNet为例&quot; class=&quot;headerlink&quot; title=&quot;以ResNet为例&quot;&gt;&lt;/a&gt;以ResNet为例&lt;/h2&gt;&lt;p&gt;原始的ResNet模型可以参考《&lt;a href=&quot;/2018/05/02/经典的CNN分类架构/#ResNet&quot;&gt;经典的CNN分类架构 - ResNet | Hey~YaHei!&lt;/a&gt;》，其核心在于应用了shortcut（原文称为skip connection）技术使得深层网络也能够被有效训练，具体细节这里就不再赘述。      &lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;/imgs/bag-of-tricks/resnet_a.jpg&quot; alt=&quot;resnet_a&quot;&gt;&lt;/center&gt;           
 
-&lt;h3 id=&quot;改进1：推迟下采样&quot;&gt;&lt;a href=&quot;#改进1：推迟下采样&quot; class=&quot;headerlink&quot; title=&quot;改进1：推迟下采样&quot;&gt;&lt;/a&gt;改进1：推迟下采样&lt;/h3&gt;&lt;p&gt;该改进方法最初是在Torch上提出的，目前这一改进也已经被广泛地应用。&lt;br&gt;首先观察原始模型的下采样模块——       &lt;/p&gt;
-&lt;center&gt;&lt;img src=&quot;/imgs/bag-of-tricks/resnet_downsample.jpg&quot; alt=&quot;resnet_downsample&quot;&gt;&lt;/center&gt;&lt;br&gt;其PathA依次经过&lt;br&gt;1. 1x1的卷积，完成通道的收缩，并且步长为2以实现下采样&lt;br&gt;2. 3x3的卷积，通道数量不变，主要用于提取特征&lt;br&gt;3. 1x1的卷积，完成通道的扩张&lt;br&gt;&lt;br&gt;其中第一个卷积用来作为下采样，所以步长设为了1——但你仔细想想会发现，核大小1x1、步长2的卷积会造成3/4的信息丢失！以6x6的特征图为例，如下图所示，只有红色部分的信息能够传递到下一层去，非红色部分均不参与卷积计算。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;/imgs/bag-of-tricks/conv_k1s2.jpg&quot;
+&lt;h3 id=&quot;ResNet-v2&quot;&gt;&lt;a href=&quot;#ResNet-v2&quot; class=&quot;headerlink&quot; title=&quot;ResNet v2&quot;&gt;&lt;/a&gt;ResNet v2&lt;/h3&gt;&lt;p&gt;《&lt;a href=&quot;https://arxiv.org/pdf/1603.05027&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Identity Mappings in Deep Residual Networks(2016ECCV)&lt;/a&gt;》对ResNetv1做了一些有效的改进，&lt;strong&gt;使得shortcut的通路更加“干净”，有利于信息的流通，不仅可以训练更深层的网络，而且使得ResNet的表现有了进一步的提升&lt;/strong&gt;。    &lt;/p&gt;
+&lt;h4 id=&quot;具体设计&quot;&gt;&lt;a href=&quot;#具体设计&quot; class=&quot;headerlink&quot; title=&quot;具体设计&quot;&gt;&lt;/a&gt;具体设计&lt;/h4&gt;&lt;p&gt;作者主要改变了ReLU和BN的位置，从而使得shortcut通路的信息流通更加顺畅——       &lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/imgs/bag-of-tricks/ResidualBlockv2.png&quot;
           
         
       
