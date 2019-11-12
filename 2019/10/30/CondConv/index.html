@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Oct 30 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Oct 30 2019 17:53:38 GMT+0800">
+        <meta property="article:modified_time" content="Tue Nov 12 2019 14:24:04 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://hey-yahei.cn/2019/10/30/CondConv/index.html",
     "headline": "CondConv：按需定制的卷积权重",
     "datePublished": "Wed Oct 30 2019 00:00:00 GMT+0800",
-    "dateModified": "Wed Oct 30 2019 17:53:38 GMT+0800",
+    "dateModified": "Tue Nov 12 2019 14:24:04 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "YaHei",
@@ -493,7 +493,13 @@
 <p>举几个典型的例子：      </p>
 <ol>
 <li>《<a href="https://arxiv.org/pdf/1603.01250" target="_blank" rel="noopener">Decision Forests, Convolutional Networks and the Models in-Between(2016)</a>》使用决策树进行分支判断，从而使用有限的网络结构完成一次次推断任务      <center><img src="/imgs/CondConv/DecisionTree.png" alt=""></center></li>
-<li>《<a href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_BlockDrop_Dynamic_Inference_CVPR_2018_paper.pdf" target="_blank" rel="noopener">BlockDrop: Dynamic Inference Paths in Residual Networks(2018CVPR)</a>》设计一个独立的决策网络，根据模型输入的图片来挑选有限的block完成ResNet的实际推断         <center><img src="/imgs/CondConv/BlockDrop.png" alt=""></center>      </li>
+<li><p>《<a href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Wu_BlockDrop_Dynamic_Inference_CVPR_2018_paper.pdf" target="_blank" rel="noopener">BlockDrop: Dynamic Inference Paths in Residual Networks(2018CVPR)</a>》设计一个独立的决策网络，根据模型输入的图片来挑选有限的block完成ResNet的实际推断        </p>
+ <center><img src="/imgs/CondConv/BlockDrop.png" alt=""></center>      
+
+<blockquote>
+<p>该方法效果存疑——<br>按照作者开源的代码<a href="https://github.com/Tushar-N/blockdrop" target="_blank" rel="noopener">blockdrop | github, Tushar-N</a>报告的效果，<br>ResNet101-BlockDrop的Top1准确率为76.4%，计算量为12.5GFLOPS；<br>然而即使最原始的ResNet101_v1，却也能在7.6GFLOPS计算量下达到78.25%的Top1准确率。    </p>
+</blockquote>
+</li>
 <li>《<a href="http://openaccess.thecvf.com/content_ECCV_2018/papers/Xin_Wang_SkipNet_Learning_Dynamic_ECCV_2018_paper.pdf" target="_blank" rel="noopener">SkipNet: Learning Dynamic Routing in Convolutional Networks(2018ECCV)</a>》为每个block添加一个额外的评估模块，根据block的输入来判断是否跳过残差支路的计算过程      <center><img src="/imgs/CondConv/SkipNet.png" alt=""></center></li>
 <li>《<a href="https://arxiv.org/pdf/1701.05221" target="_blank" rel="noopener">Parsimonious Inference on Convolutional Neural Networks: Learning and applying on-line kernel activation rules(2017)</a>》为每个卷积层设计一个LKAM模块，根据卷积层的输入特征图判断需要启用哪几个Filter      <center><img src="/imgs/CondConv/LKAM.png" alt=""></center>    
 
@@ -572,7 +578,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/10/30/EfficientNet/" id="post_nav-newer" class="prev-content">
+        <a href="/2019/11/01/MixConv/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -586,7 +592,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2019/09/18/winograd_theorem/" id="post_nav-older" class="next-content">
+        <a href="/2019/10/30/EfficientNet/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://hey-yahei.cn/2019/10/30/CondConv/</loc>
+    <lastmod>2019-11-12T06:24:04.498Z</lastmod>
+  </url>  <url>
     <loc>https://hey-yahei.cn/2019/02/28/bag-of-tricks2/</loc>
     <lastmod>2019-11-08T08:41:58.926Z</lastmod>
   </url>  <url>
@@ -18,9 +21,6 @@
   </url>  <url>
     <loc>https://hey-yahei.cn/2019/10/30/EfficientNet/</loc>
     <lastmod>2019-10-31T07:41:14.576Z</lastmod>
-  </url>  <url>
-    <loc>https://hey-yahei.cn/2019/10/30/CondConv/</loc>
-    <lastmod>2019-10-30T09:53:38.981Z</lastmod>
   </url>  <url>
     <loc>https://hey-yahei.cn/2019/08/21/winograd_convolution/</loc>
     <lastmod>2019-10-23T09:10:08.042Z</lastmod>
