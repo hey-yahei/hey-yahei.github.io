@@ -4,7 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hey~YaHei!</title>
-    <link>https://hey-yahei.cn/</link>
+    <link>hey-yahei.github.io/</link>
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
@@ -13,8 +13,8 @@
     
     <item>
       <title>MixConv：混合感受野的深度可分离卷积</title>
-      <link>https://hey-yahei.cn/2019/11/01/MixConv/</link>
-      <guid>https://hey-yahei.cn/2019/11/01/MixConv/</guid>
+      <link>hey-yahei.github.io/2019/11/01/MixConv/</link>
+      <guid>hey-yahei.github.io/2019/11/01/MixConv/</guid>
       <pubDate>Thu, 31 Oct 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -43,13 +43,45 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/11/01/MixConv/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/11/01/MixConv/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>CondConv：按需定制的卷积权重</title>
+      <link>hey-yahei.github.io/2019/10/30/CondConv/</link>
+      <guid>hey-yahei.github.io/2019/10/30/CondConv/</guid>
+      <pubDate>Tue, 29 Oct 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=28178158&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;    
+
+
+&lt;p&gt;最近正巧在看条件计算的东西，发现今年Google Brain发了一篇思路清奇的论文《&lt;a href=&quot;https://arxiv.org/pdf/1904.04971v2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CondConv: Conditionally Parameterized Convolutions for Efficient Inference(2019NeurIPS)&lt;/a&gt;》，这思路简直让人拍案叫绝，只可惜这种模型需要重新定制卷积算子才能有效发挥它的作用，如果没有工业界的推动想必短期内很难产生实用价值吧。&lt;br&gt;先来说说论文的主要贡献：&lt;strong&gt;条件计算、集成技术、注意力机制三者间极为巧妙的结合！&lt;/strong&gt;         &lt;/p&gt;
+&lt;h3 id=&quot;条件计算&quot;&gt;&lt;a href=&quot;#条件计算&quot; class=&quot;headerlink&quot; title=&quot;条件计算&quot;&gt;&lt;/a&gt;条件计算&lt;/h3&gt;&lt;p&gt;如果是模型压缩是深度学习的一个边缘领域，那么条件计算一定是模型压缩里的边缘方向。如果你听过模型压缩，那你一定知道裁剪和量化，可能你还会知道一些紧凑网络的设计和知识蒸馏，但我打赌你十有八九没听过条件计算。      &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有一天我躺在床上睡觉，突然灵光一现——直观上讲，既然不同的layer乃至不同filter能提取出不同的特征，而对于不同的输入，我们所重视的特征必定也是不同的，是不是能设计出某个评估/预测模块从而智能地挑选合适layer、filter来计算而放弃无关layer、filter的计算呢？或者说当浅层特征足以完成推断，我们能不能提前从浅层特征图跳出而放弃后续深层特征的提取步骤呢？再或者，对于连续的视频流，有没有可能在浅层位置先预估出本帧图像的质量，从而判断是否放弃本帧图像的推断呢（比如有些视频流情况下我们不需要每一帧都做出准确推断的时候，能否提前中断来获取新的可能质量更好的一帧图像）？      &lt;/p&gt;
+&lt;p&gt;这种思路似乎有些诡异，但又有些合理。正当我为自己“天才般”的想法沾沾自喜的时候，发现其实很早以前就有人研究过这类问题（好吧QAQ）——&lt;br&gt;第一种思路通常被称为条件计算（Conditional Computation），属于模型压缩里比较冷门的一个小方向；&lt;br&gt;第二种思路被称为提前终止（Early Stop），跟条件计算稍微有些类似；&lt;br&gt;第三种思路好像没看到相关文献，不过想想似乎有些麻烦，比如我该怎么评估一份特征图质量的“好坏”？？      &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单来说，&lt;strong&gt;条件计算是构建一种动态的网络结构，每次推断的时候先由决策网络（或模块）根据模型输入（甚至每一层的输入）推断出所要使用网络部件，然后利用原始网络的一个子集完成实际的推断过程。&lt;/strong&gt;       &lt;/p&gt;
+&lt;p&gt;举几个典型的例子：      &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;《&lt;a href=&quot;https://arxiv.org/pdf/1603.01250&quot;
+          
+        
+      
+      </description>
+      
+      <comments>hey-yahei.github.io/2019/10/30/CondConv/#disqus_thread</comments>
     </item>
     
     <item>
       <title>EfficientNet：模型设计新范式</title>
-      <link>https://hey-yahei.cn/2019/10/30/EfficientNet/</link>
-      <guid>https://hey-yahei.cn/2019/10/30/EfficientNet/</guid>
+      <link>hey-yahei.github.io/2019/10/30/EfficientNet/</link>
+      <guid>hey-yahei.github.io/2019/10/30/EfficientNet/</guid>
       <pubDate>Tue, 29 Oct 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -78,45 +110,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/10/30/EfficientNet/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>CondConv：按需定制的卷积权重</title>
-      <link>https://hey-yahei.cn/2019/10/30/CondConv/</link>
-      <guid>https://hey-yahei.cn/2019/10/30/CondConv/</guid>
-      <pubDate>Tue, 29 Oct 2019 16:00:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=28178158&amp;auto=0&amp;height=32&quot;&gt;&lt;/iframe&gt;    
-
-
-&lt;p&gt;最近正巧在看条件计算的东西，发现今年Google Brain发了一篇思路清奇的论文《&lt;a href=&quot;https://arxiv.org/pdf/1904.04971v2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CondConv: Conditionally Parameterized Convolutions for Efficient Inference(2019NeurIPS)&lt;/a&gt;》，这思路简直让人拍案叫绝，只可惜这种模型需要重新定制卷积算子才能有效发挥它的作用，如果没有工业界的推动想必短期内很难产生实用价值吧。&lt;br&gt;先来说说论文的主要贡献：&lt;strong&gt;条件计算、集成技术、注意力机制三者间极为巧妙的结合！&lt;/strong&gt;         &lt;/p&gt;
-&lt;h3 id=&quot;条件计算&quot;&gt;&lt;a href=&quot;#条件计算&quot; class=&quot;headerlink&quot; title=&quot;条件计算&quot;&gt;&lt;/a&gt;条件计算&lt;/h3&gt;&lt;p&gt;如果是模型压缩是深度学习的一个边缘领域，那么条件计算一定是模型压缩里的边缘方向。如果你听过模型压缩，那你一定知道裁剪和量化，可能你还会知道一些紧凑网络的设计和知识蒸馏，但我打赌你十有八九没听过条件计算。      &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有一天我躺在床上睡觉，突然灵光一现——直观上讲，既然不同的layer乃至不同filter能提取出不同的特征，而对于不同的输入，我们所重视的特征必定也是不同的，是不是能设计出某个评估/预测模块从而智能地挑选合适layer、filter来计算而放弃无关layer、filter的计算呢？或者说当浅层特征足以完成推断，我们能不能提前从浅层特征图跳出而放弃后续深层特征的提取步骤呢？再或者，对于连续的视频流，有没有可能在浅层位置先预估出本帧图像的质量，从而判断是否放弃本帧图像的推断呢（比如有些视频流情况下我们不需要每一帧都做出准确推断的时候，能否提前中断来获取新的可能质量更好的一帧图像）？      &lt;/p&gt;
-&lt;p&gt;这种思路似乎有些诡异，但又有些合理。正当我为自己“天才般”的想法沾沾自喜的时候，发现其实很早以前就有人研究过这类问题（好吧QAQ）——&lt;br&gt;第一种思路通常被称为条件计算（Conditional Computation），属于模型压缩里比较冷门的一个小方向；&lt;br&gt;第二种思路被称为提前终止（Early Stop），跟条件计算稍微有些类似；&lt;br&gt;第三种思路好像没看到相关文献，不过想想似乎有些麻烦，比如我该怎么评估一份特征图质量的“好坏”？？      &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;简单来说，&lt;strong&gt;条件计算是构建一种动态的网络结构，每次推断的时候先由决策网络（或模块）根据模型输入（甚至每一层的输入）推断出所要使用网络部件，然后利用原始网络的一个子集完成实际的推断过程。&lt;/strong&gt;       &lt;/p&gt;
-&lt;p&gt;举几个典型的例子：      &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《&lt;a href=&quot;https://arxiv.org/pdf/1603.01250&quot;
-          
-        
-      
-      </description>
-      
-      <comments>https://hey-yahei.cn/2019/10/30/CondConv/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/10/30/EfficientNet/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Winograd数学原理【卡住了&gt;_&lt;】</title>
-      <link>https://hey-yahei.cn/2019/09/18/winograd_theorem/</link>
-      <guid>https://hey-yahei.cn/2019/09/18/winograd_theorem/</guid>
+      <link>hey-yahei.github.io/2019/09/18/winograd_theorem/</link>
+      <guid>hey-yahei.github.io/2019/09/18/winograd_theorem/</guid>
       <pubDate>Tue, 17 Sep 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -150,13 +150,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/09/18/winograd_theorem/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/09/18/winograd_theorem/#disqus_thread</comments>
     </item>
     
     <item>
       <title>从嵌套的角度理解张量</title>
-      <link>https://hey-yahei.cn/2019/08/30/nested-dimension/</link>
-      <guid>https://hey-yahei.cn/2019/08/30/nested-dimension/</guid>
+      <link>hey-yahei.github.io/2019/08/30/nested-dimension/</link>
+      <guid>hey-yahei.github.io/2019/08/30/nested-dimension/</guid>
       <pubDate>Thu, 29 Aug 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -186,13 +186,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/08/30/nested-dimension/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/08/30/nested-dimension/#disqus_thread</comments>
     </item>
     
     <item>
       <title>浅探Winograd量化</title>
-      <link>https://hey-yahei.cn/2019/08/23/winograd_quantize/</link>
-      <guid>https://hey-yahei.cn/2019/08/23/winograd_quantize/</guid>
+      <link>hey-yahei.github.io/2019/08/23/winograd_quantize/</link>
+      <guid>hey-yahei.github.io/2019/08/23/winograd_quantize/</guid>
       <pubDate>Thu, 22 Aug 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -218,13 +218,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/08/23/winograd_quantize/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/08/23/winograd_quantize/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Winograd卷积原理</title>
-      <link>https://hey-yahei.cn/2019/08/21/winograd_convolution/</link>
-      <guid>https://hey-yahei.cn/2019/08/21/winograd_convolution/</guid>
+      <link>hey-yahei.github.io/2019/08/21/winograd_convolution/</link>
+      <guid>hey-yahei.github.io/2019/08/21/winograd_convolution/</guid>
       <pubDate>Tue, 20 Aug 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -242,13 +242,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/08/21/winograd_convolution/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/08/21/winograd_convolution/#disqus_thread</comments>
     </item>
     
     <item>
       <title>MobileNet全家桶</title>
-      <link>https://hey-yahei.cn/2019/07/24/MobileNet-Family/</link>
-      <guid>https://hey-yahei.cn/2019/07/24/MobileNet-Family/</guid>
+      <link>hey-yahei.github.io/2019/07/24/MobileNet-Family/</link>
+      <guid>hey-yahei.github.io/2019/07/24/MobileNet-Family/</guid>
       <pubDate>Tue, 23 Jul 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -276,13 +276,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/07/24/MobileNet-Family/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/07/24/MobileNet-Family/#disqus_thread</comments>
     </item>
     
     <item>
       <title>线性量化</title>
-      <link>https://hey-yahei.cn/2019/07/23/Quantization/</link>
-      <guid>https://hey-yahei.cn/2019/07/23/Quantization/</guid>
+      <link>hey-yahei.github.io/2019/07/23/Quantization/</link>
+      <guid>hey-yahei.github.io/2019/07/23/Quantization/</guid>
       <pubDate>Mon, 22 Jul 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -307,13 +307,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/07/23/Quantization/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/07/23/Quantization/#disqus_thread</comments>
     </item>
     
     <item>
       <title>2019中兴捧月·总决赛</title>
-      <link>https://hey-yahei.cn/2019/05/25/zte_challenge_final/</link>
-      <guid>https://hey-yahei.cn/2019/05/25/zte_challenge_final/</guid>
+      <link>hey-yahei.github.io/2019/05/25/zte_challenge_final/</link>
+      <guid>hey-yahei.github.io/2019/05/25/zte_challenge_final/</guid>
       <pubDate>Fri, 24 May 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -331,13 +331,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/05/25/zte_challenge_final/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/05/25/zte_challenge_final/#disqus_thread</comments>
     </item>
     
     <item>
       <title>2019中兴捧月·初赛</title>
-      <link>https://hey-yahei.cn/2019/05/22/zte_challenge_preliminary/</link>
-      <guid>https://hey-yahei.cn/2019/05/22/zte_challenge_preliminary/</guid>
+      <link>hey-yahei.github.io/2019/05/22/zte_challenge_preliminary/</link>
+      <guid>hey-yahei.github.io/2019/05/22/zte_challenge_preliminary/</guid>
       <pubDate>Tue, 21 May 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -358,13 +358,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/05/22/zte_challenge_preliminary/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/05/22/zte_challenge_preliminary/#disqus_thread</comments>
     </item>
     
     <item>
       <title>漫谈卷积层</title>
-      <link>https://hey-yahei.cn/2019/03/28/Conv-Family/</link>
-      <guid>https://hey-yahei.cn/2019/03/28/Conv-Family/</guid>
+      <link>hey-yahei.github.io/2019/03/28/Conv-Family/</link>
+      <guid>hey-yahei.github.io/2019/03/28/Conv-Family/</guid>
       <pubDate>Wed, 27 Mar 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -400,13 +400,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/03/28/Conv-Family/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/03/28/Conv-Family/#disqus_thread</comments>
     </item>
     
     <item>
       <title>快如闪电的人脸检测——Tengine+libfacedetection</title>
-      <link>https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/</link>
-      <guid>https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/</guid>
+      <link>hey-yahei.github.io/2019/03/21/Tengine-libfacedetection/</link>
+      <guid>hey-yahei.github.io/2019/03/21/Tengine-libfacedetection/</guid>
       <pubDate>Wed, 20 Mar 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -427,13 +427,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/03/21/Tengine-libfacedetection/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/03/21/Tengine-libfacedetection/#disqus_thread</comments>
     </item>
     
     <item>
       <title>深度学习小技巧（三）：训练技巧</title>
-      <link>https://hey-yahei.cn/2019/03/01/bag-of-tricks3/</link>
-      <guid>https://hey-yahei.cn/2019/03/01/bag-of-tricks3/</guid>
+      <link>hey-yahei.github.io/2019/03/01/bag-of-tricks3/</link>
+      <guid>hey-yahei.github.io/2019/03/01/bag-of-tricks3/</guid>
       <pubDate>Thu, 28 Feb 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -456,13 +456,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/03/01/bag-of-tricks3/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/03/01/bag-of-tricks3/#disqus_thread</comments>
     </item>
     
     <item>
       <title>深度学习小技巧（二）：模型微调</title>
-      <link>https://hey-yahei.cn/2019/02/28/bag-of-tricks2/</link>
-      <guid>https://hey-yahei.cn/2019/02/28/bag-of-tricks2/</guid>
+      <link>hey-yahei.github.io/2019/02/28/bag-of-tricks2/</link>
+      <guid>hey-yahei.github.io/2019/02/28/bag-of-tricks2/</guid>
       <pubDate>Wed, 27 Feb 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -485,13 +485,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/02/28/bag-of-tricks2/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/02/28/bag-of-tricks2/#disqus_thread</comments>
     </item>
     
     <item>
       <title>深度学习小技巧（一）：高效训练</title>
-      <link>https://hey-yahei.cn/2019/02/23/bag-of-tricks1/</link>
-      <guid>https://hey-yahei.cn/2019/02/23/bag-of-tricks1/</guid>
+      <link>hey-yahei.github.io/2019/02/23/bag-of-tricks1/</link>
+      <guid>hey-yahei.github.io/2019/02/23/bag-of-tricks1/</guid>
       <pubDate>Fri, 22 Feb 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -527,13 +527,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/02/23/bag-of-tricks1/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/02/23/bag-of-tricks1/#disqus_thread</comments>
     </item>
     
     <item>
       <title>MXNet上的重训练量化</title>
-      <link>https://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/</link>
-      <guid>https://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/</guid>
+      <link>hey-yahei.github.io/2019/01/23/MXNet-RT_Quantization/</link>
+      <guid>hey-yahei.github.io/2019/01/23/MXNet-RT_Quantization/</guid>
       <pubDate>Tue, 22 Jan 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -554,13 +554,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/01/23/MXNet-RT_Quantization/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/01/23/MXNet-RT_Quantization/#disqus_thread</comments>
     </item>
     
     <item>
       <title>模型参数与计算量</title>
-      <link>https://hey-yahei.cn/2019/01/07/MXNet-OpSummary/</link>
-      <guid>https://hey-yahei.cn/2019/01/07/MXNet-OpSummary/</guid>
+      <link>hey-yahei.github.io/2019/01/07/MXNet-OpSummary/</link>
+      <guid>hey-yahei.github.io/2019/01/07/MXNet-OpSummary/</guid>
       <pubDate>Sun, 06 Jan 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -585,13 +585,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2019/01/07/MXNet-OpSummary/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2019/01/07/MXNet-OpSummary/#disqus_thread</comments>
     </item>
     
     <item>
       <title>树莓派也能玩转深度学习——Tengine推断引擎</title>
-      <link>https://hey-yahei.cn/2018/10/13/RasPi-Tengine/</link>
-      <guid>https://hey-yahei.cn/2018/10/13/RasPi-Tengine/</guid>
+      <link>hey-yahei.github.io/2018/10/13/RasPi-Tengine/</link>
+      <guid>hey-yahei.github.io/2018/10/13/RasPi-Tengine/</guid>
       <pubDate>Fri, 12 Oct 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -614,13 +614,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/10/13/RasPi-Tengine/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/10/13/RasPi-Tengine/#disqus_thread</comments>
     </item>
     
     <item>
       <title>基于MobileNet-SSD的目标检测Demo（二）</title>
-      <link>https://hey-yahei.cn/2018/09/10/mssd-try3/</link>
-      <guid>https://hey-yahei.cn/2018/09/10/mssd-try3/</guid>
+      <link>hey-yahei.github.io/2018/09/10/mssd-try3/</link>
+      <guid>hey-yahei.github.io/2018/09/10/mssd-try3/</guid>
       <pubDate>Sun, 09 Sep 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -646,13 +646,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/09/10/mssd-try3/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/09/10/mssd-try3/#disqus_thread</comments>
     </item>
     
     <item>
       <title>基于MobileNet-SSD的目标检测Demo（一）</title>
-      <link>https://hey-yahei.cn/2018/08/24/mssd-try2/</link>
-      <guid>https://hey-yahei.cn/2018/08/24/mssd-try2/</guid>
+      <link>hey-yahei.github.io/2018/08/24/mssd-try2/</link>
+      <guid>hey-yahei.github.io/2018/08/24/mssd-try2/</guid>
       <pubDate>Thu, 23 Aug 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -686,13 +686,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/08/24/mssd-try2/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/08/24/mssd-try2/#disqus_thread</comments>
     </item>
     
     <item>
       <title>训练MobileNet-SSD</title>
-      <link>https://hey-yahei.cn/2018/08/21/mssd-try1/</link>
-      <guid>https://hey-yahei.cn/2018/08/21/mssd-try1/</guid>
+      <link>hey-yahei.github.io/2018/08/21/mssd-try1/</link>
+      <guid>hey-yahei.github.io/2018/08/21/mssd-try1/</guid>
       <pubDate>Mon, 20 Aug 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -715,13 +715,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/08/21/mssd-try1/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/08/21/mssd-try1/#disqus_thread</comments>
     </item>
     
     <item>
       <title>MobileNet-SSD网络解析</title>
-      <link>https://hey-yahei.cn/2018/08/08/MobileNets-SSD/</link>
-      <guid>https://hey-yahei.cn/2018/08/08/MobileNets-SSD/</guid>
+      <link>hey-yahei.github.io/2018/08/08/MobileNets-SSD/</link>
+      <guid>hey-yahei.github.io/2018/08/08/MobileNets-SSD/</guid>
       <pubDate>Tue, 07 Aug 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -745,13 +745,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/08/08/MobileNets-SSD/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/08/08/MobileNets-SSD/#disqus_thread</comments>
     </item>
     
     <item>
       <title>SSD框架解析</title>
-      <link>https://hey-yahei.cn/2018/08/06/SSD/</link>
-      <guid>https://hey-yahei.cn/2018/08/06/SSD/</guid>
+      <link>hey-yahei.github.io/2018/08/06/SSD/</link>
+      <guid>hey-yahei.github.io/2018/08/06/SSD/</guid>
       <pubDate>Sun, 05 Aug 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -777,13 +777,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/08/06/SSD/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/08/06/SSD/#disqus_thread</comments>
     </item>
     
     <item>
       <title>MobileNets v1模型解析</title>
-      <link>https://hey-yahei.cn/2018/08/05/MobileNets_v1/</link>
-      <guid>https://hey-yahei.cn/2018/08/05/MobileNets_v1/</guid>
+      <link>hey-yahei.github.io/2018/08/05/MobileNets_v1/</link>
+      <guid>hey-yahei.github.io/2018/08/05/MobileNets_v1/</guid>
       <pubDate>Sat, 04 Aug 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -811,13 +811,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/08/05/MobileNets_v1/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/08/05/MobileNets_v1/#disqus_thread</comments>
     </item>
     
     <item>
       <title>RK3399上Tengine平台搭建</title>
-      <link>https://hey-yahei.cn/2018/08/04/RK3399-Tengine/</link>
-      <guid>https://hey-yahei.cn/2018/08/04/RK3399-Tengine/</guid>
+      <link>hey-yahei.github.io/2018/08/04/RK3399-Tengine/</link>
+      <guid>hey-yahei.github.io/2018/08/04/RK3399-Tengine/</guid>
       <pubDate>Fri, 03 Aug 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -841,13 +841,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/08/04/RK3399-Tengine/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/08/04/RK3399-Tengine/#disqus_thread</comments>
     </item>
     
     <item>
       <title>漫谈池化层</title>
-      <link>https://hey-yahei.cn/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/</link>
-      <guid>https://hey-yahei.cn/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/</guid>
+      <link>hey-yahei.github.io/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/</link>
+      <guid>hey-yahei.github.io/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/</guid>
       <pubDate>Sun, 06 May 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -871,13 +871,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/05/07/%E6%BC%AB%E8%B0%88%E6%B1%A0%E5%8C%96%E5%B1%82/#disqus_thread</comments>
     </item>
     
     <item>
       <title>失眠者自助指南</title>
-      <link>https://hey-yahei.cn/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/</link>
-      <guid>https://hey-yahei.cn/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/</guid>
+      <link>hey-yahei.github.io/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/</link>
+      <guid>hey-yahei.github.io/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/</guid>
       <pubDate>Thu, 03 May 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -896,13 +896,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/05/04/%E5%A4%B1%E7%9C%A0%E8%80%85%E8%87%AA%E5%8A%A9%E6%8C%87%E5%8D%97/#disqus_thread</comments>
     </item>
     
     <item>
       <title>目标函数</title>
-      <link>https://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</link>
-      <guid>https://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</guid>
+      <link>hey-yahei.github.io/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</link>
+      <guid>hey-yahei.github.io/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/</guid>
       <pubDate>Wed, 02 May 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -923,13 +923,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/05/03/%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0/#disqus_thread</comments>
     </item>
     
     <item>
       <title>经典的CNN分类架构</title>
-      <link>https://hey-yahei.cn/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/</link>
-      <guid>https://hey-yahei.cn/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/</guid>
+      <link>hey-yahei.github.io/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/</link>
+      <guid>hey-yahei.github.io/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/</guid>
       <pubDate>Tue, 01 May 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -959,13 +959,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/05/02/%E7%BB%8F%E5%85%B8%E7%9A%84CNN%E5%88%86%E7%B1%BB%E6%9E%B6%E6%9E%84/#disqus_thread</comments>
     </item>
     
     <item>
       <title>自编码器</title>
-      <link>https://hey-yahei.cn/2018/04/25/autoencoder/</link>
-      <guid>https://hey-yahei.cn/2018/04/25/autoencoder/</guid>
+      <link>hey-yahei.github.io/2018/04/25/autoencoder/</link>
+      <guid>hey-yahei.github.io/2018/04/25/autoencoder/</guid>
       <pubDate>Tue, 24 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -985,13 +985,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/25/autoencoder/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/25/autoencoder/#disqus_thread</comments>
     </item>
     
     <item>
       <title>循环神经网络RNN</title>
-      <link>https://hey-yahei.cn/2018/04/22/RNN/</link>
-      <guid>https://hey-yahei.cn/2018/04/22/RNN/</guid>
+      <link>hey-yahei.github.io/2018/04/22/RNN/</link>
+      <guid>hey-yahei.github.io/2018/04/22/RNN/</guid>
       <pubDate>Sat, 21 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1016,13 +1016,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/22/RNN/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/22/RNN/#disqus_thread</comments>
     </item>
     
     <item>
       <title>卷积神经网络CNN</title>
-      <link>https://hey-yahei.cn/2018/04/18/CNN/</link>
-      <guid>https://hey-yahei.cn/2018/04/18/CNN/</guid>
+      <link>hey-yahei.github.io/2018/04/18/CNN/</link>
+      <guid>hey-yahei.github.io/2018/04/18/CNN/</guid>
       <pubDate>Tue, 17 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1046,13 +1046,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/18/CNN/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/18/CNN/#disqus_thread</comments>
     </item>
     
     <item>
       <title>正则化技术</title>
-      <link>https://hey-yahei.cn/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/</link>
-      <guid>https://hey-yahei.cn/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/</guid>
+      <link>hey-yahei.github.io/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/</link>
+      <guid>hey-yahei.github.io/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/</guid>
       <pubDate>Tue, 10 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1075,13 +1075,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/11/%E6%AD%A3%E5%88%99%E5%8C%96%E6%8A%80%E6%9C%AF/#disqus_thread</comments>
     </item>
     
     <item>
       <title>优化器</title>
-      <link>https://hey-yahei.cn/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/</link>
-      <guid>https://hey-yahei.cn/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/</guid>
+      <link>hey-yahei.github.io/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/</link>
+      <guid>hey-yahei.github.io/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/</guid>
       <pubDate>Mon, 09 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1107,13 +1107,13 @@
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/10/%E4%BC%98%E5%8C%96%E5%99%A8/#disqus_thread</comments>
     </item>
     
     <item>
       <title>复用预训练层</title>
-      <link>https://hey-yahei.cn/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/</link>
-      <guid>https://hey-yahei.cn/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/</guid>
+      <link>hey-yahei.github.io/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/</link>
+      <guid>hey-yahei.github.io/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/</guid>
       <pubDate>Sun, 08 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1141,13 +1141,13 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/09/%E5%A4%8D%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E5%B1%82/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Handson-ML</title>
-      <link>https://hey-yahei.cn/2018/04/08/Handson-ML/</link>
-      <guid>https://hey-yahei.cn/2018/04/08/Handson-ML/</guid>
+      <link>hey-yahei.github.io/2018/04/08/Handson-ML/</link>
+      <guid>hey-yahei.github.io/2018/04/08/Handson-ML/</guid>
       <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1175,13 +1175,13 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/08/Handson-ML/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/08/Handson-ML/#disqus_thread</comments>
     </item>
     
     <item>
       <title>梯度消失与梯度爆炸</title>
-      <link>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
-      <guid>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
+      <link>hey-yahei.github.io/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</link>
+      <guid>hey-yahei.github.io/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/</guid>
       <pubDate>Sat, 07 Apr 2018 16:00:00 GMT</pubDate>
       <description>
       
@@ -1208,13 +1208,13 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       
       </description>
       
-      <comments>https://hey-yahei.cn/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2018/04/08/%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E4%B8%8E%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8/#disqus_thread</comments>
     </item>
     
     <item>
       <title>【搁置】机器学习-吴恩达</title>
-      <link>https://hey-yahei.cn/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/</link>
-      <guid>https://hey-yahei.cn/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/</guid>
+      <link>hey-yahei.github.io/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/</link>
+      <guid>hey-yahei.github.io/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/</guid>
       <pubDate>Tue, 05 Sep 2017 16:00:00 GMT</pubDate>
       <description>
       
@@ -1233,13 +1233,13 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       
       </description>
       
-      <comments>https://hey-yahei.cn/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2017/09/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%90%B4%E6%81%A9%E8%BE%BE/#disqus_thread</comments>
     </item>
     
     <item>
       <title>【搁置】机器学习-周志华</title>
-      <link>https://hey-yahei.cn/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
-      <guid>https://hey-yahei.cn/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <link>hey-yahei.github.io/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <guid>hey-yahei.github.io/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <pubDate>Sat, 26 Aug 2017 16:00:00 GMT</pubDate>
       <description>
       
@@ -1257,13 +1257,13 @@ init &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tf&lt;span clas
       
       </description>
       
-      <comments>https://hey-yahei.cn/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2017/08/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%91%A8%E5%BF%97%E5%8D%8E/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Hello World~</title>
-      <link>https://hey-yahei.cn/2017/08/24/hello%20world/</link>
-      <guid>https://hey-yahei.cn/2017/08/24/hello%20world/</guid>
+      <link>hey-yahei.github.io/2017/08/24/hello%20world/</link>
+      <guid>hey-yahei.github.io/2017/08/24/hello%20world/</guid>
       <pubDate>Wed, 23 Aug 2017 16:00:00 GMT</pubDate>
       <description>
       
@@ -1291,13 +1291,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2017/08/24/hello%20world/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2017/08/24/hello%20world/#disqus_thread</comments>
     </item>
     
     <item>
       <title>【搁置】《机器学习实战》笔记</title>
-      <link>https://hey-yahei.cn/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/</link>
-      <guid>https://hey-yahei.cn/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/</guid>
+      <link>hey-yahei.github.io/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/</link>
+      <guid>hey-yahei.github.io/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/</guid>
       <pubDate>Wed, 16 Aug 2017 16:00:00 GMT</pubDate>
       <description>
       
@@ -1318,13 +1318,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2017/08/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/#disqus_thread</comments>
     </item>
     
     <item>
       <title>QT学习之路</title>
-      <link>https://hey-yahei.cn/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</link>
-      <guid>https://hey-yahei.cn/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</guid>
+      <link>hey-yahei.github.io/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</link>
+      <guid>hey-yahei.github.io/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/</guid>
       <pubDate>Sat, 28 Jan 2017 16:00:00 GMT</pubDate>
       <description>
       
@@ -1338,13 +1338,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2017/01/29/QT%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/#disqus_thread</comments>
     </item>
     
     <item>
       <title>《你好放大器》笔记</title>
-      <link>https://hey-yahei.cn/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/</link>
-      <guid>https://hey-yahei.cn/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
+      <link>hey-yahei.github.io/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/</link>
+      <guid>hey-yahei.github.io/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/</guid>
       <pubDate>Sun, 31 Jul 2016 16:00:00 GMT</pubDate>
       <description>
       
@@ -1358,13 +1358,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2016/08/01/%E4%BD%A0%E5%A5%BD%E6%94%BE%E5%A4%A7%E5%99%A8/#disqus_thread</comments>
     </item>
     
     <item>
       <title>《C++编程思想》笔记</title>
-      <link>https://hey-yahei.cn/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</link>
-      <guid>https://hey-yahei.cn/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</guid>
+      <link>hey-yahei.github.io/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</link>
+      <guid>hey-yahei.github.io/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</guid>
       <pubDate>Sat, 02 Jul 2016 16:00:00 GMT</pubDate>
       <description>
       
@@ -1378,13 +1378,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2016/07/03/C++%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/#disqus_thread</comments>
     </item>
     
     <item>
       <title>心理学导论</title>
-      <link>https://hey-yahei.cn/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/</link>
-      <guid>https://hey-yahei.cn/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/</guid>
+      <link>hey-yahei.github.io/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/</link>
+      <guid>hey-yahei.github.io/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/</guid>
       <pubDate>Tue, 08 Mar 2016 16:00:00 GMT</pubDate>
       <description>
       
@@ -1398,13 +1398,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2016/03/09/%E5%BF%83%E7%90%86%E5%AD%A6%E5%AF%BC%E8%AE%BA/#disqus_thread</comments>
     </item>
     
     <item>
       <title>python-sh</title>
-      <link>https://hey-yahei.cn/2015/09/20/sh%E6%A8%A1%E5%9D%97/</link>
-      <guid>https://hey-yahei.cn/2015/09/20/sh%E6%A8%A1%E5%9D%97/</guid>
+      <link>hey-yahei.github.io/2015/09/20/sh%E6%A8%A1%E5%9D%97/</link>
+      <guid>hey-yahei.github.io/2015/09/20/sh%E6%A8%A1%E5%9D%97/</guid>
       <pubDate>Sat, 19 Sep 2015 16:00:00 GMT</pubDate>
       <description>
       
@@ -1433,13 +1433,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2015/09/20/sh%E6%A8%A1%E5%9D%97/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2015/09/20/sh%E6%A8%A1%E5%9D%97/#disqus_thread</comments>
     </item>
     
     <item>
       <title>《vim实用技巧》小记</title>
-      <link>https://hey-yahei.cn/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
-      <guid>https://hey-yahei.cn/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <link>hey-yahei.github.io/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <guid>hey-yahei.github.io/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
       <pubDate>Mon, 10 Aug 2015 16:00:00 GMT</pubDate>
       <description>
       
@@ -1474,13 +1474,13 @@ S02E03插入是在夏丽死的时候，夏丽因为gease被清除，回想起之
       
       </description>
       
-      <comments>https://hey-yahei.cn/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2015/08/11/vim%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/#disqus_thread</comments>
     </item>
     
     <item>
       <title>俱乐部春纳网页后端小结</title>
-      <link>https://hey-yahei.cn/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/</link>
-      <guid>https://hey-yahei.cn/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/</guid>
+      <link>hey-yahei.github.io/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/</link>
+      <guid>hey-yahei.github.io/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/</guid>
       <pubDate>Mon, 23 Mar 2015 16:00:00 GMT</pubDate>
       <description>
       
@@ -1503,13 +1503,13 @@ apachectl -k restart
       
       </description>
       
-      <comments>https://hey-yahei.cn/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2015/03/24/%E6%98%A5%E7%BA%B3%E5%90%8E%E7%AB%AF/#disqus_thread</comments>
     </item>
     
     <item>
       <title>居然……还我数据？！？！</title>
-      <link>https://hey-yahei.cn/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/</link>
-      <guid>https://hey-yahei.cn/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <link>hey-yahei.github.io/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <guid>hey-yahei.github.io/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
       <pubDate>Thu, 05 Feb 2015 16:00:00 GMT</pubDate>
       <description>
       
@@ -1533,13 +1533,13 @@ apachectl -k restart
       
       </description>
       
-      <comments>https://hey-yahei.cn/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2015/02/06/%E4%BF%AE%E4%BA%86%E4%B8%89%E5%A4%A9%E5%8D%8A%E7%94%B5%E8%84%91%E7%9A%84%E6%80%BB%E7%BB%93/#disqus_thread</comments>
     </item>
     
     <item>
       <title>【百度俱乐部】第一二期作业总结</title>
-      <link>https://hey-yahei.cn/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/</link>
-      <guid>https://hey-yahei.cn/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/</guid>
+      <link>hey-yahei.github.io/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/</link>
+      <guid>hey-yahei.github.io/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/</guid>
       <pubDate>Wed, 29 Oct 2014 16:00:00 GMT</pubDate>
       <description>
       
@@ -1563,7 +1563,7 @@ apachectl -k restart
       
       </description>
       
-      <comments>https://hey-yahei.cn/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/#disqus_thread</comments>
+      <comments>hey-yahei.github.io/2014/10/30/%E7%AC%AC%E4%B8%80%E4%BA%8C%E6%9C%9F%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/#disqus_thread</comments>
     </item>
     
   </channel>
